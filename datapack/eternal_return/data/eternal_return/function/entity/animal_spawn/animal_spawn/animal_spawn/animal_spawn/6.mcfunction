@@ -1,3 +1,3 @@
-function eternal_return:entity/animal/alpha/summon/data {dx: 0 ,   dy: 0,  dz:  0 }
+function eternal_return:entity/animal/alpha/summon/main {dx: 0 ,   dy: -3,  dz:  0 }
 scoreboard players set @s ER.sys 1
-scoreboard players set @s[type=minecraft:marker] ER.cooltime 120
+scoreboard players set @s[type=minecraft:marker] ER.cooltime 1200

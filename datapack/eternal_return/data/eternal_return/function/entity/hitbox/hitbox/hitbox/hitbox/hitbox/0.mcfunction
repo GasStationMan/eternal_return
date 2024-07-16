@@ -1,1 +1,1 @@
-data modify storage minecraft:temp temp.HPdata[-1] set value "-0"
+scoreboard players operation #RootHP ER.sys = @s ER.health
