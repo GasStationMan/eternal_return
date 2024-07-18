@@ -1,0 +1,77 @@
+
+
+#스토리지끼리 더함 -> 스코어보드로 나타낼 수 있음 -> 스토리지 -> 스코어보드 -> 스토리지
+#
+# WHILE.j = WHILE.i + 1
+# 
+# ->
+#   load #temp WHILE.i
+#   add  #temp 1
+#   mov  WHILE.j #temp
+#
+# -> WHILE.j = WHILE.i + 1
+#   execute store result score #temp sys run data get storage WHILE.i
+#   scoreboard players add #temp sys
+#   execute store result storage WHILE.j int 1 run scoreboard players get #temp sys
+#
+#   변수의 선언 : 스토리지의 선언
+#   
+#   선언 -> 
+#   testVar = 0 -> data modify storage minecraft:<projectName> <vars>.testVar set value 0
+#   a = 1
+#   b = 10
+#   c = b + a + 12
+#   
+#   
+
+storage WHILE    is  minecraft:temp temp
+storage arr      is  minecraft:temp temp.arr
+score i          is  #i sys 
+score j          is  #j sys
+score j2         is  #j2 sys
+score cmp1       is  #cmp1 sys
+score cmp2       is  #cmp2 sys
+score t1         is  #t1 sys
+score len_of_arr is  #len sys
+
+arr = [2,7,6,5,4,8,9,3,1]
+len_of_arr = arr
+
+i = 0
+if i < len_of_arr :
+    
+    j = 0
+    if j2 < len_of_arr :
+
+            cmp1 = arr[j]
+            cmp2 = arr[j + 1]
+
+            ->  cmp2 = arr[j+1]
+                -> compile... :
+
+                arr[<exp>]
+
+                <exp> -> 수식
+                <exp>
+                j += 1         -> scoreboard players add #j sys 1
+                temp.index = j -> execute store result storage minecraft:temp temp.index int 1 run scoreboard players get #j sys
+
+                cmp2 = arr[<exp>]
+                function with minecraft:temp temp : 
+                    $cmp2 = arr[ $(index) ]
+                
+
+        
+        if cmp1 > cmp2 :
+
+            WHILE.temp = arr[j]
+            arr[j]  = arr[j + 1]
+            arr[j + 1] = WHILE.temp
+
+        j += 1
+        if j2 < len_of_arr run goto BACK
+    
+    i += 1
+    if i < len_of_arr run goto BACK
+
+tellraw @a [{"storage":"minecraft:temp","nbt":"temp"}]

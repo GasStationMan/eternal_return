@@ -1,1 +1,1 @@
-$function animated_java:animal_$(animal)/animations/move/play
+function move_stop

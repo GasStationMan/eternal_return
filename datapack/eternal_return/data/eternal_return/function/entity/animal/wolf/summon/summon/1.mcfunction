@@ -1,0 +1,4 @@
+tag @s add ER.animal.wolf
+tag @s add ER.animal
+tag @s add ER
+function eternal_return:entity/animal/wolf/summon/summon/summon/1
