@@ -1,2 +1,0 @@
-$execute if entity @s[tag= aj.animal_$(animal).animation.attack,scores={aj.anim_time = $(attackTick)}] run return run function eternal_return:entity/animal/class/behav/behav/behav/behav/behav/0 with storage minecraft:temp temp
-$execute if entity @s[tag=!aj.animal_$(animal).animation.attack] run return run function eternal_return:entity/animal/class/behav/behav/behav/behav/behav/1 with storage minecraft:temp temp

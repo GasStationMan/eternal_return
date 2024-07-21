@@ -1,1 +1,0 @@
-$execute if entity @s[tag=!aj.animal_$(animal).animation.move,tag=!aj.animal_$(animal).animation.attack,tag=!aj.animal_$(animal).animation.skill] run function eternal_return:entity/animal/class/behav/behav/behav/behav/behav/3 with storage minecraft:temp temp

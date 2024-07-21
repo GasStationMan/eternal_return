@@ -1,2 +1,0 @@
-function move_stop
-function attack_play
