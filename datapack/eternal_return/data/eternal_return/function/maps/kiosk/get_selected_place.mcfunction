@@ -45,19 +45,29 @@ function eternal_return:maps/kiosk/set_player_pos with storage minecraft:temp co
 data remove storage minecraft:temp coord
 
 
-$data modify storage minecraft:temp temp merge value {id : $(id)}
+$data modify storage minecraft:temp temp merge value {id : $(id),tree_of_life:"white",vf_blood:"white",random:"white",mithril:"white",meteorite:"white",force_core:"white"}
 
-#> 하이퍼루프 중 시야각 제어
+# 생명의 나무
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/tree_of_life run \
+    function eternal_return:maps/kiosk/select_place {place:"tree_of_life",color:"blue"}
 
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/vf_blood run \
+    function eternal_return:maps/kiosk/select_place {place:"vf_blood",color:"blue"}
 
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/random run \
+    function eternal_return:maps/kiosk/select_place {place:"random",color:"blue"}
 
-##> 공장
-#execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/factory run \
-#    function eternal_return:maps/kiosk/select_place {place:"factory",color:"blue"}
-#
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/mithril run \
+    function eternal_return:maps/kiosk/select_place {place:"mithril",color:"blue"}
+
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/meteorite run \
+    function eternal_return:maps/kiosk/select_place {place:"meteorite",color:"blue"}
+
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/force_core run \
+    function eternal_return:maps/kiosk/select_place {place:"force_core",color:"blue"}
 
 title @a actionbar [{"storage":"minecraft:temp","nbt":"temp.mouseX"},{"text":"  "},{"storage":"minecraft:temp","nbt":"temp.mouseY"}]
 
-#scoreboard players set #cnt ER.sys 0
+scoreboard players set #cnt ER.sys 0
 function eternal_return:maps/kiosk/show_selected with storage minecraft:temp temp
 data remove storage minecraft:temp temp

@@ -73,14 +73,8 @@ function eternal_return:system/map/main
 # 액션바
 execute as @a[tag=player] run function eternal_return:system/actionbar/main
 
-#> 하이퍼루프 함수 eternal_return:maps/hyper_loop
-execute as @a[tag=hyper_loop] at @s run function eternal_return:maps/hyper_loop/main
-execute as @a[tag=!hyper_loop, tag=choosing_hyper_loop] run function eternal_return:maps/hyper_loop/reset
-
-#> 키오스크 함수 eternal_return:maps/kiosk
-execute as @a[tag=kiosk] at @s run function eternal_return:maps/kiosk/main
-execute as @a[tag=!kiosk, tag=choosing_kiosk] run function eternal_return:maps/kiosk/reset
-
+# 맵 창/ 키오스크/ 부활 선택창
+execute as @a[tag=player] at @s run function eternal_return:maps/main
 
 # 야생동물 업데이트
 execute as @e[type=!player,tag=ER] run function eternal_return:entity/main

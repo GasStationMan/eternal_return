@@ -22,6 +22,10 @@ scoreboard objectives add ER.log dummy
 # 야생동물 관련 스코어보드 생성
 scoreboard objectives add ER.sys dummy
 scoreboard objectives add ER.health dummy
+scoreboard objectives add ER.motionX dummy
+scoreboard objectives add ER.motionY dummy
+scoreboard objectives add ER.motionZ dummy
+
 scoreboard objectives add ER.cooltime dummy
 scoreboard objectives add df_id dummy
 
@@ -39,10 +43,10 @@ scoreboard objectives add ER.UUID.3 dummy
 # 플레이어 기본 설정
 function eternal_return:system/player/init
 # 보스바 기본 설정
-function eternal_return:system/bossbar/init
+function eternal_return:system/bossbar/set/interface
 # 액션바 기본 설정
 function eternal_return:system/actionbar/init
 # 사이드바 로그 기본 설정
-function eternal_return:system/sidebar/init
+function eternal_return:system/player/sidebar/add
 # 맵 기본 설정
 function eternal_return:system/map/init

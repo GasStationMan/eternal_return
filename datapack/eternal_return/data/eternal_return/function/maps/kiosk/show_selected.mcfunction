@@ -13,21 +13,21 @@ $bossbar set minecraft:hud_$(id) name [\
     {"font":"minecraft:x_transform",    "text":"\u1402"},\
 \
     {"font":"minecraft:x_transform",    "text":"\u4630"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4002","color":"#4e5c24"},\
+    {"font":"minecraft:map/kiosk",      "text":"\u4002","color":"$(tree_of_life)"},\
     {"font":"minecraft:x_transform",    "text":"\u4076"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4006","color":"#4e5c24"},\
+    {"font":"minecraft:map/kiosk",      "text":"\u4006","color":"$(force_core)"},\
     {"font":"minecraft:x_transform",    "text":"\u1630"},\
 \
     {"font":"minecraft:x_transform",    "text":"\u4570"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4003","color":"#4e5c24"},\
+    {"font":"minecraft:map/kiosk",      "text":"\u4003","color":"$(meteorite)"},\
     {"font":"minecraft:x_transform",    "text":"\u4076"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4005","color":"#4e5c24"},\
+    {"font":"minecraft:map/kiosk",      "text":"\u4005","color":"$(vf_blood)"},\
     {"font":"minecraft:x_transform",    "text":"\u1570"},\
 \
     {"font":"minecraft:x_transform",    "text":"\u4510"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4004","color":"#4e5c24"},\
+    {"font":"minecraft:map/kiosk",      "text":"\u4004","color":"$(mithril)"},\
     {"font":"minecraft:x_transform",    "text":"\u4076"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4007","color":"#4e5c24"},\
+    {"font":"minecraft:map/kiosk",      "text":"\u4007","color":"$(random)"},\
     {"font":"minecraft:x_transform",    "text":"\u1510"},\
 \
     {"font":"minecraft:x_transform",    "text":"\u4300"},\
