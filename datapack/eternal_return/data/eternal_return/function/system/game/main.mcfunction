@@ -6,9 +6,10 @@
 # 타임라인
 function eternal_return:system/game/timeline
 # 밤낮 바꾸기
-function eternal_return:system/game/change_daycycle
+function eternal_return:system/game/timer/change_daycycle
 # 타이머
-function eternal_return:system/game/timer/tick
+execute if entity @a[tag=game_start] run function eternal_return:system/game/timer/tick
+execute if entity @a[tag=!game_start,tag=wait_bar] run function eternal_return:system/game/defualt_setting
 # 게임시간 타이머
 function eternal_return:system/game/time/tick
 # 게임 데이터 집계
@@ -29,3 +30,6 @@ function eternal_return:system/game/is/team
 function eternal_return:system/game/is/day
 # 금지구역 시간 표기
 execute as @a[tag=player] at @s run function eternal_return:system/game/is/bantime
+
+# 대기시간 10의 자리 표기
+function eternal_return:system/game/is/wait_time_tensec

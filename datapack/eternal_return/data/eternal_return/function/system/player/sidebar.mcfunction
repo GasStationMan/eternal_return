@@ -3,7 +3,7 @@
 function eternal_return:temp/input/id
 
 # 로그 생성
-execute if entity @s[tag=add_log] runfunction eternal_return:system/player/sidebar/add
+execute if entity @s[tag=add_log] run function eternal_return:system/player/sidebar/add
 execute if entity @s[tag=add_log] run data modify storage minecraft:player_data players[{id:1}].log set value ["","","","","","","",""]
 
 # 로그 제거

@@ -5,7 +5,7 @@ $data modify storage tmp is.[] set value {type:"$(type)"}
 ## 구역
 
 ## 전장 예정 구역
-execute if data storage tmp is[{type:"scheduled_battle_zone"}] run tag @e[tag=zplace,tag=!scheduled_battle_zone,tag=safe_area.,sort=random,limit=3] add scheduled_battle_zone
+execute if data storage tmp is[{type:"scheduled_battle_zone"}] run tag @e[tag=zplace,tag=!scheduled_battle_zone,tag=!fix_area_type,tag=safe_area.,sort=random,limit=3] add scheduled_battle_zone
 execute if data storage tmp is[{type:"scheduled_battle_zone"}] run tag @e[tag=zplace,tag=scheduled_battle_zone,tag=safe_area.] remove safe_area.
 execute if data storage tmp is[{type:"scheduled_battle_zone"}] if entity @e[tag=scheduled_battle_zone] run function eternal_return:send_msg {target:"@a",text:'[{"text":"30초 후에 [ "},{"selector":"@e[tag=scheduled_battle_zone]","color":"yellow"},{"text":" ]에 전장이 활성화됩니다."}]',color:"gold",timer:1}
 

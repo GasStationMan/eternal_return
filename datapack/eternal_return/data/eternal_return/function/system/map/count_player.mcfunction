@@ -18,3 +18,5 @@ execute if entity @s[tag=stream.] store result score @s NUM if entity @a[tag=str
 execute if entity @s[tag=temple.] store result score @s NUM if entity @a[tag=temple]
 execute if entity @s[tag=uptown.] store result score @s NUM if entity @a[tag=uptown]
 execute if entity @s[tag=warehouse.] store result score @s NUM if entity @a[tag=warehouse]
+execute if entity @s[tag=research_center.] store result score @s NUM if entity @a[tag=research_center]
+execute if entity @s[tag=briefing_room.] store result score @s NUM if entity @a[tag=briefing_room]

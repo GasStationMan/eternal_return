@@ -1,7 +1,8 @@
 # temp id 저장
 function eternal_return:temp/input/id
-execute store result storage player_data temp[6].id int 1 run scoreboard players get @s player_id
 function eternal_return:temp/input/place with storage player_data temp[0]
+execute store result storage player_data temp[6].id int 1 run scoreboard players get @s player_id
+
 
 # 플레이어가 구역 입퇴장 시 태그 설정
 function eternal_return:system/map/set_tag
@@ -14,6 +15,12 @@ function eternal_return:system/map/save_place with storage player_data temp[0]
 function eternal_return:system/map/get_area_type with storage player_data temp[6]
 # 구역의 상태에 따라 태그 부여
 function eternal_return:system/map/area/give_type_tag with storage player_data temp[0]
+
+
+
+# 플레이어가 캐릭터 선택 하기 전 위치 고정
+function eternal_return:system/map/briefing_room/fix_location with storage player_data temp[0]
+
 
 
 # temp free

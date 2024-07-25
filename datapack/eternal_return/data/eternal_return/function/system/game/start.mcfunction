@@ -30,9 +30,6 @@ time set day
 function eternal_return:system/game/give/start_item
 # 레시피 해금
 function eternal_return:system/game/give/recipes
-# 태그 초기화
-tag @a add add_bossbar
-tag @a add ingame_ui
 # 도전과제 초기화
 advancement revoke @a everything
 # 스코어보드 초기화

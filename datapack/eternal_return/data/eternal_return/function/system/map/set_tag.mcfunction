@@ -39,3 +39,5 @@ function eternal_return:system/map/find/point5 {place_name:"school",point1:"x=-5
 function eternal_return:system/map/find/point2 {place_name:"gas_station",point1:"x=-711,y=103,z=707,dx=-17,dy=-21,dz=-31",point2:"x=-649,y=82,z=613,dx=-62,dy=21,dz=94"}
 # 연구소
 function eternal_return:system/map/find/point9 {place_name:"research_center",point1:"x=-595,y=70,z=529,dx=-4,dy=30,dz=-7",point2:"x=-570,y=70,z=547,dx=-7,dy=30,dz=4",point3:"x=-552,y=70,z=522,dx=4,dy=30,dz=7",point4:"x=-577,y=70,z=504,dx=7,dy=30,dz=-4",point5:"x=-558,y=70,z=501,dx=9,dy=30,dz=9",point6:"x=-598,y=70,z=510,dx=9,dy=30,dz=-9",point7:"x=-598,y=70,z=541,dx=9,dy=30,dz=9",point8:"x=-558,y=70,z=550,dx=9,dy=30,dz=-9",point9:"x=-595,y=70,z=504,dx=43,dy=30,dz=43"}
+# 브리핑 룸
+function eternal_return:system/map/find/point1 {place_name:"briefing_room",point1:"x=-340,y=60,z=411,dx=92,dy=17,dz=74"}

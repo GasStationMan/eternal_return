@@ -11,4 +11,4 @@ execute if score #game.daycycle.tick CT1 matches 2 if score #timer.halfday CT1 m
 # 스코어 리셋
 execute if score #game.daycycle.tick CT1 matches 11 run scoreboard players reset #game.daycycle.tick CT1
 # 태그 제거
-execute if entity @a[tag=change_daycycle] run tag @a remove change_daycycle
+tag @a[tag=change_daycycle] remove change_daycycle

@@ -17,3 +17,5 @@ $execute if entity @s[tag=stream] run data modify storage player_data players[{i
 $execute if entity @s[tag=temple] run data modify storage player_data players[{id:$(id)}].location set from entity @e[tag=temple.,limit=1] data
 $execute if entity @s[tag=uptown] run data modify storage player_data players[{id:$(id)}].location set from entity @e[tag=uptown.,limit=1] data
 $execute if entity @s[tag=warehouse] run data modify storage player_data players[{id:$(id)}].location set from entity @e[tag=warehouse.,limit=1] data
+$execute if entity @s[tag=research_center] run data modify storage player_data players[{id:$(id)}].location set from entity @e[tag=research_center.,limit=1] data
+$execute if entity @s[tag=briefing_room] run data modify storage player_data players[{id:$(id)}].location set from entity @e[tag=briefing_room.,limit=1] data

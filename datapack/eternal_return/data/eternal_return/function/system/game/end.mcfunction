@@ -35,6 +35,3 @@ advancement revoke @a everything
 # 태그
 tag @a remove ingame_ui
 tag @a add remove_bossbar
-
-## 사운드
-stopsound @a master minecraft:custom.drift

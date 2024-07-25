@@ -15,6 +15,8 @@ execute as @e[tag=hyperloop,tag=interaction] at @s run data remove entity @s att
 ## 위치 선정 후
 # 선택한 위치로 이동
 execute if score @s CT1 matches 62 run function eternal_return:system/hyperloop/warp
+# 만약 빈 공간을 선택한 경우
+execute if score @s ER.sys matches 0 run tag @s remove loop
 
 ## 하이퍼루프에서 멀어질 때
 execute if entity @e[tag=hyperloop,tag=interaction,distance=1..10] run function eternal_return:system/hyperloop/remove/tag

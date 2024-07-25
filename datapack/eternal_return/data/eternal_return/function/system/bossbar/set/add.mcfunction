@@ -10,6 +10,12 @@ $bossbar set line2.id$(id) color blue
 $bossbar set line3.id$(id) color blue
 $bossbar set line4.id$(id) color blue
 
+# 보스바 숨기기
+$bossbar set line1.id$(id) visible false
+$bossbar set line2.id$(id) visible false
+$bossbar set line3.id$(id) visible false
+$bossbar set line4.id$(id) visible false
+
 # 플레이어에게 표시하기
 $bossbar set line1.id$(id) players @s
 $bossbar set line2.id$(id) players @s
