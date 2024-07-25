@@ -1,9 +1,7 @@
 {
     "values":[
-       "eternal_return:load",
-       "animated_java:animal_boar/zzzzzzzz/load",
-       "animated_java:animal_bear/zzzzzzzz/load",
-       "animated_java:animal_wolf/zzzzzzzz/load",
-       "animated_java:animal_alpha/zzzzzzzz/load"
+        "eternal_return:load",
+        "animated_java:global/on_load",
+        "animated_java:global/internal/gu/load"
     ]
 }

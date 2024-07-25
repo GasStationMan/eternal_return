@@ -1,2 +1,0 @@
-execute if score @s aj.anim_time matches 19 run function animated_java:animal_alpha/zzzzzzzz/animations/attack/tree/leaf_19
-execute if score @s aj.anim_time matches 20 run function animated_java:animal_alpha/zzzzzzzz/animations/attack/tree/leaf_20

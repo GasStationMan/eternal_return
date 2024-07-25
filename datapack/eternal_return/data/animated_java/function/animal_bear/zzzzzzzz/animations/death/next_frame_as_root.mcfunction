@@ -1,1 +1,0 @@
-function animated_java:animal_bear/zzzzzzzz/animations/death/tick_animation

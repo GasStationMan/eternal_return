@@ -1,1 +1,0 @@
-execute if score @s aj.anim_time matches 0..63 run function animated_java:animal_alpha/zzzzzzzz/animations/skill/tree/branch_0_63

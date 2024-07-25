@@ -1,1 +1,0 @@
-tag @s remove aj.animal_bear.animation.ready

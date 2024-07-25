@@ -1,2 +1,0 @@
-scoreboard players set @s aj.animal_bear.rig_loaded 1
-execute unless score @s aj.animal_bear.export_version = aj.animal_bear.export_version aj.i at @s run function animated_java:animal_bear/zzzzzzzz/mark_outdated_rig

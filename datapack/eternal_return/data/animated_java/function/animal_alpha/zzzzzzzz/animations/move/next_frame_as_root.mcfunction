@@ -1,1 +1,0 @@
-function animated_java:animal_alpha/zzzzzzzz/animations/move/tick_animation

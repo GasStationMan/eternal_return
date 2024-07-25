@@ -1,3 +1,0 @@
-execute if score @s aj.animal_alpha.animation.skill.loop_mode = $aj.loop_mode.loop aj.i run function animated_java:animal_alpha/zzzzzzzz/animations/skill/end_loop
-execute if score @s aj.animal_alpha.animation.skill.loop_mode = $aj.loop_mode.once aj.i run function animated_java:animal_alpha/animations/skill/stop
-execute if score @s aj.animal_alpha.animation.skill.loop_mode = $aj.loop_mode.hold aj.i run function animated_java:animal_alpha/animations/skill/pause

@@ -1,1 +1,0 @@
-execute on passengers run function animated_java:animal_wolf/zzzzzzzz/animations/ready/tree/leaf_10_as_bone

@@ -1,1 +1,0 @@
-execute on passengers run function animated_java:animal_alpha/zzzzzzzz/animations/attack/tree/leaf_19_as_bone

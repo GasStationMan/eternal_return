@@ -1,5 +1,0 @@
-function animated_java:animal_boar/zzzzzzzz/animations/move/pause_as_root
-function animated_java:animal_boar/zzzzzzzz/animations/ready/pause_as_root
-function animated_java:animal_boar/zzzzzzzz/animations/death/pause_as_root
-function animated_java:animal_boar/zzzzzzzz/animations/attack/pause_as_root
-function animated_java:animal_boar/zzzzzzzz/animations/skill/pause_as_root

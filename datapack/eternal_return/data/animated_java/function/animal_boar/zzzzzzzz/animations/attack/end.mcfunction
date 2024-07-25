@@ -1,3 +1,0 @@
-execute if score @s aj.animal_boar.animation.attack.loop_mode = $aj.loop_mode.loop aj.i run function animated_java:animal_boar/zzzzzzzz/animations/attack/end_loop
-execute if score @s aj.animal_boar.animation.attack.loop_mode = $aj.loop_mode.once aj.i run function animated_java:animal_boar/animations/attack/stop
-execute if score @s aj.animal_boar.animation.attack.loop_mode = $aj.loop_mode.hold aj.i run function animated_java:animal_boar/animations/attack/pause

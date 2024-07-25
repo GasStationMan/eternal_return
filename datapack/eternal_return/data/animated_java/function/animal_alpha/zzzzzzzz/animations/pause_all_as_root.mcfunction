@@ -1,5 +1,0 @@
-function animated_java:animal_alpha/zzzzzzzz/animations/skill/pause_as_root
-function animated_java:animal_alpha/zzzzzzzz/animations/attack/pause_as_root
-function animated_java:animal_alpha/zzzzzzzz/animations/death/pause_as_root
-function animated_java:animal_alpha/zzzzzzzz/animations/ready/pause_as_root
-function animated_java:animal_alpha/zzzzzzzz/animations/move/pause_as_root

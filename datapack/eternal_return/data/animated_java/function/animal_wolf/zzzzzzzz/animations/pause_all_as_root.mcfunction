@@ -1,4 +1,0 @@
-function animated_java:animal_wolf/zzzzzzzz/animations/move/pause_as_root
-function animated_java:animal_wolf/zzzzzzzz/animations/ready/pause_as_root
-function animated_java:animal_wolf/zzzzzzzz/animations/death/pause_as_root
-function animated_java:animal_wolf/zzzzzzzz/animations/attack/pause_as_root
