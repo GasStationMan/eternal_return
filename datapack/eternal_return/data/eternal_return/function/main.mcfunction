@@ -5,7 +5,7 @@ tag @a[tag=!player] add player
 function eternal_return:system/character/character
 function eternal_return:system/character/happychaos/main
 function eternal_return:system/character/jackie
-function eternal_return:system/character/nickys
+function eternal_return:system/character/nicky
 function eternal_return:system/character/luke
 function eternal_return:system/character/mai
 function eternal_return:system/character/shou
@@ -57,7 +57,7 @@ function eternal_return:system/game/main
 # 보스바
 execute as @a[tag=player] at @s run function eternal_return:system/bossbar/main
 # 부시
-function eternal_return:system/bush/main
+function eternal_return:system/player/bush
 # 키오스크
 function eternal_return:system/kiosk/main
 # 점프패드
@@ -83,16 +83,16 @@ execute as @e[type=!player,tag=ER] run function eternal_return:entity/main
 execute as @e[type= minecraft:arrow] at @s run function eternal_return:entity/arrow_pen/main
 
 # 플레이어 야생동물 에딧 모드 진입
-execute as @a[gamemode= creative] at @s run function eternal_return:entity/animal_spawn/point/main
+#execute as @a[gamemode= creative] at @s run function eternal_return:entity/animal_spawn/
 
 ##> 디버그
 function eternal_return:debug
 
 ## 이전 버전 데이터팩 함수 루프
-function eternal_return:system/game/noarea
-function eternal_return:system/game/safearea
-function eternal_return:system/game/last_area
-function eternal_return:system/game/daytimer
+#function eternal_return:system/game/noarea
+#function eternal_return:system/game/safearea
+#function eternal_return:system/game/last_area
+#function eternal_return:system/game/daytimer
 
 
 ## CC기
@@ -100,4 +100,4 @@ function eternal_return:system/character/stun/main
 
 
 ## 낮밤 변경
-function eternal_return:system/game/daycycle
+#function eternal_return:system/game/daycycle

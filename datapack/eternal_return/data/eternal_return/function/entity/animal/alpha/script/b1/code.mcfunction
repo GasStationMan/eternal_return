@@ -1,1 +1,4 @@
-$execute as @e[tag= ER.animal.$(animal)] if score #this.ID ER.sys = @s df_id run function eternal_return:entity/animal/alpha/script/b1/b1/code
+execute if entity @s[type= minecraft:ghast,       tag=ER.animal.hitbox] run return run tag @s add this
+execute if entity @s[type= minecraft:item_display,tag=ER.animal.model ] run return run tag @s add this
+execute if entity @s[type= minecraft:text_display,tag=ER.animal.HPbar ] run return run tag @s add this
+execute if entity @s[type= minecraft:zombie,      tag=ER.animal.root  ] run return run tag @s add this

@@ -2,10 +2,10 @@ data modify storage minecraft:userinfo Temp set from storage minecraft:userinfo 
 data remove storage minecraft:userinfo Players[0]
 data modify storage minecraft:userinfo Players append from storage minecraft:userinfo Temp
 
-execute as @s store result score #UUID1 UUID1 run data get entity @s UUID[0] 
-execute as @s store result score #UUID2 UUID2 run data get entity @s UUID[1] 
-execute as @s store result score #UUID3 UUID3 run data get entity @s UUID[2] 
-execute as @s store result score #UUID4 UUID4 run data get entity @s UUID[3] 
+execute as @s store result score #UUID1 UUID1 run data get entity @s UUID[0]
+execute as @s store result score #UUID2 UUID2 run data get entity @s UUID[1]
+execute as @s store result score #UUID3 UUID3 run data get entity @s UUID[2]
+execute as @s store result score #UUID4 UUID4 run data get entity @s UUID[3]
 
 execute as @s store result score #UUID1_target UUID1 run data get storage minecraft:userinfo Players[0].UUID[0]
 execute as @s store result score #UUID2_target UUID2 run data get storage minecraft:userinfo Players[0].UUID[1]

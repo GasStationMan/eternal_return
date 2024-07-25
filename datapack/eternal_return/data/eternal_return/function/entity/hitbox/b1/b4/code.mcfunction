@@ -10,3 +10,4 @@ scoreboard players set #HRWP2 ER.sys 200
 scoreboard players operation #HRWP2 ER.sys /= #RootHP ER.sys
 execute store result storage minecraft:temp temp.HP int 1 run scoreboard players get @s ER.health
 execute on passengers run function eternal_return:entity/hitbox/b1/b4/b4/code with storage minecraft:temp temp
+data remove storage minecraft:temp temp
