@@ -77,7 +77,7 @@ execute as @a[tag=player] run function eternal_return:system/actionbar/main
 execute as @a[tag=player] at @s run function eternal_return:maps/main
 
 # 야생동물 업데이트
-execute as @e[type=!player,tag=ER] run function eternal_return:entity/main
+execute as @e[type=!player,tag=ER] run function eternal_return:entity/main/main
 
 # 벽뚫화살 업데이트
 execute as @e[type= minecraft:arrow] at @s run function eternal_return:entity/arrow_pen/main
