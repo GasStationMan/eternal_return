@@ -28,11 +28,11 @@ scoreboard players set #ER.place.jul ER.sys 19
 
 #> 야생동물 체력 및 공격력 설정
 #멧돼지
-scoreboard players set #ER.animal.boar.health ER.sys 15
-scoreboard players set #ER.animal.boar.attack ER.sys 4
+scoreboard players set #ER.animal.boar.health ER.sys 37
+scoreboard players set #ER.animal.boar.attack ER.sys 5
 scoreboard players set #ER.animal.boar.cooltime ER.sys 120
 #곰
-scoreboard players set #ER.animal.bear.health ER.sys 45
+scoreboard players set #ER.animal.bear.health ER.sys 60
 scoreboard players set #ER.animal.bear.attack ER.sys 6
 scoreboard players set #ER.animal.bear.cooltime ER.sys 120
 #늑대
@@ -40,6 +40,6 @@ scoreboard players set #ER.animal.wolf.health ER.sys 25
 scoreboard players set #ER.animal.wolf.attack ER.sys 4
 scoreboard players set #ER.animal.wolf.cooltime ER.sys 120
 #알파
-scoreboard players set #ER.animal.alpha.health ER.sys 100
+scoreboard players set #ER.animal.alpha.health ER.sys 150
 scoreboard players set #ER.animal.alpha.attack ER.sys 10
 scoreboard players set #ER.animal.alpha.cooltime ER.sys 120
