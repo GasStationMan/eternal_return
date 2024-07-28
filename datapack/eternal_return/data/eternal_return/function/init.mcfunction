@@ -41,12 +41,12 @@ scoreboard objectives add ER.UUID.3 dummy
 
 
 # 플레이어 기본 설정
-function eternal_return:system/player/init
+function eternal_return:sys/player/init
 # 보스바 기본 설정
-function eternal_return:system/bossbar/init
+function eternal_return:sys/bossbar/init
 # 액션바 기본 설정
-function eternal_return:system/actionbar/init
+function eternal_return:sys/actionbar/init
 # 사이드바 로그 기본 설정
-function eternal_return:system/sidebar/init
+function eternal_return:sys/sidebar/init
 # 맵 기본 설정
-function eternal_return:system/map/init
+function eternal_return:sys/map/init

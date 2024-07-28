@@ -17,6 +17,6 @@
       }
     },
     "rewards": {
-      "function": "eternal_return:system/player/rightclick/food_rightclick"
+      "function": "eternal_return:sys/player/rightclick/food_rightclick"
     }
   }
