@@ -3,21 +3,29 @@ $bossbar add line1.id$(id) ""
 $bossbar add line2.id$(id) ""
 $bossbar add line3.id$(id) ""
 $bossbar add line4.id$(id) ""
+$bossbar add line5.id$(id) ""
+$bossbar add line6.id$(id) ""
 
 # 보스바 투명 텍스쳐로 변경
 $bossbar set line1.id$(id) color blue
 $bossbar set line2.id$(id) color blue
 $bossbar set line3.id$(id) color blue
 $bossbar set line4.id$(id) color blue
+$bossbar set line5.id$(id) color blue
+$bossbar set line6.id$(id) color blue
 
 # 보스바 숨기기
 $bossbar set line1.id$(id) visible false
 $bossbar set line2.id$(id) visible false
 $bossbar set line3.id$(id) visible false
 $bossbar set line4.id$(id) visible false
+$bossbar set line5.id$(id) visible false
+$bossbar set line6.id$(id) visible false
 
 # 플레이어에게 표시하기
 $bossbar set line1.id$(id) players @s
 $bossbar set line2.id$(id) players @s
 $bossbar set line3.id$(id) players @s
 $bossbar set line4.id$(id) players @s
+$bossbar set line5.id$(id) players @s
+$bossbar set line6.id$(id) players @s
