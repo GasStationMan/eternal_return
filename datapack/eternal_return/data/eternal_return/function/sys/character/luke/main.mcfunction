@@ -1,0 +1,1 @@
+execute if entity @a[tag=luke] as @a[tag=luke] run function eternal_return:sys/character/luke/main2
