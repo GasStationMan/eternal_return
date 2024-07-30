@@ -1,0 +1,2 @@
+$execute if score #wait.player CT1 matches ..9 run data modify storage text wait_char set value [" ","$(sec)"]
+$execute if score #wait.player CT1 matches 10.. run data modify storage text wait_char set value ["$(sec)"]

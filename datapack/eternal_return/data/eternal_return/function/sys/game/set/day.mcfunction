@@ -1,0 +1,2 @@
+$execute if score #timer.day CT1 matches ..9 run data modify storage text day_char set value [" ","$(day)"]
+$execute if score #timer.day CT1 matches 10.. run data modify storage text day_char set value ["$(day)"]

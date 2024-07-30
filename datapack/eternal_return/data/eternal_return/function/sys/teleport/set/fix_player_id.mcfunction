@@ -1,0 +1,1 @@
+$data modify storage player_data players[{id:$(id)}].warp.done set value 1

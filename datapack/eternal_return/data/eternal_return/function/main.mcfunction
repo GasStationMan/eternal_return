@@ -3,7 +3,7 @@ tag @a[tag=!player] add player
 
 ##캐릭터
 function eternal_return:sys/character/character
-#function eternal_return:sys/character/happychaos/main
+function eternal_return:sys/character/happychaos/main
 function eternal_return:sys/character/jackie
 function eternal_return:sys/character/nicky
 function eternal_return:sys/character/luke
