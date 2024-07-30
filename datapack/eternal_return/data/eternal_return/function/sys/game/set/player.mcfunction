@@ -1,2 +1,0 @@
-$execute if score #game.player CT1 matches ..9 run data modify storage text player_char set value [" ","$(player)"]
-$execute if score #game.player CT1 matches 10.. run data modify storage text player_char set value ["$(player)"]
