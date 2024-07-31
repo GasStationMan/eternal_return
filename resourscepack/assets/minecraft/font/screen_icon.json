@@ -1,5 +1,0 @@
-{
-	"providers": [
-		{"type": "bitmap","file": "minecraft:font/screen_icon/rclick.png","ascent": 2, "height": 9,"chars": ["0"]}
-	]
-}
