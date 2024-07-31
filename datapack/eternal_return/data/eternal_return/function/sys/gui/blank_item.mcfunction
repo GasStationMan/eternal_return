@@ -9,3 +9,6 @@
     item replace entity @s hotbar.6 with warped_fungus_on_a_stick[custom_model_data=1,custom_name='""',custom_data={tag:"selectmod"}] 1
     item replace entity @s hotbar.7 with warped_fungus_on_a_stick[custom_model_data=1,custom_name='""',custom_data={tag:"selectmod"}] 1
     item replace entity @s hotbar.8 with warped_fungus_on_a_stick[custom_model_data=1,custom_name='""',custom_data={tag:"selectmod"}] 1
+
+# 태그 부여
+tag @s add ER.has_blankItem

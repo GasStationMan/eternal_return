@@ -1,5 +1,5 @@
 ##> 함수 반복문
-tag @a[tag=!player] add player
+
 
 ##캐릭터
 function eternal_return:sys/character/character
@@ -39,10 +39,22 @@ function eternal_return:sys/player/damagegive
 function eternal_return:sys/player/damagetaken
 function eternal_return:sys/player/shift
 
+
+
 ## 플레이어
-execute as @a[tag=player] at @s run function eternal_return:sys/player/main
-# 채팅 클릭
-execute as @a[tag=player_id] at @s run function eternal_return:sys/trigger/main
+    # 플레이어 설정
+    execute as @a at @s run function eternal_return:sys/player/main
+    # 채팅 클릭
+    execute as @a[tag=player] at @s run function eternal_return:sys/trigger/main
+    # GUI 화면
+    execute as @a if entity @s[tag=player,tag=ER.gui_on] run function eternal_return:sys/gui/main
+    # 맵 창 / 키오스크 / 부활 선택창
+    execute as @a[tag=player] at @s run function eternal_return:maps/main
+    # 보스바
+    execute as @a[tag=player] at @s run function eternal_return:sys/bossbar/main
+    # 액션바
+    execute as @a[tag=player] run function eternal_return:sys/actionbar/main
+
 
 
 
@@ -54,8 +66,8 @@ function eternal_return:sys/game/main
 
 
 ## 기물
-# 보스바
-execute as @a[tag=player] at @s run function eternal_return:sys/bossbar/main
+# 맵
+function eternal_return:sys/map/main
 # 부시
 function eternal_return:sys/player/bush
 # 키오스크
@@ -68,19 +80,15 @@ execute as @a[tag=player] at @s run function eternal_return:sys/hyperloop/main
 execute as @a[tag=player] at @s run function eternal_return:sys/tree_of_life/main
 # 운석
 execute as @a[tag=player] at @s run function eternal_return:sys/meteor/main
-# 맵
-function eternal_return:sys/map/main
-# 액션바
-execute as @a[tag=player] run function eternal_return:sys/actionbar/main
 
-# 맵 창/ 키오스크/ 부활 선택창
-execute as @a[tag=player] at @s run function eternal_return:maps/main
 
 # 야생동물 업데이트
 execute as @e[type=!player,tag=ER] run function eternal_return:entity/main/main
 
 # 벽뚫화살 업데이트
 execute as @e[type= minecraft:arrow] at @s run function eternal_return:entity/arrow_pen/main
+
+
 
 # 플레이어 야생동물 에딧 모드 진입
 #execute as @a[gamemode= creative] at @s run function eternal_return:entity/animal_spawn/

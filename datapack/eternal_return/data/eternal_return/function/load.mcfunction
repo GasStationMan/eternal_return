@@ -1,6 +1,10 @@
 tellraw @a {"text":"새로 고침 완료! 제발 제발 F3 + T !!!!!","color":"green"}
 forceload add -561 512 -585 536
 
+
+#function eternal_return:init
+
+
 # 빈 HPbar
 execute unless data storage minecraft:hp_bar data run data modify storage minecraft:hp_bar data set value ["-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0"]
 
@@ -43,3 +47,4 @@ scoreboard players set #ER.animal.wolf.cooltime ER.sys 120
 scoreboard players set #ER.animal.alpha.health ER.sys 150
 scoreboard players set #ER.animal.alpha.attack ER.sys 10
 scoreboard players set #ER.animal.alpha.cooltime ER.sys 120
+

@@ -1,4 +1,7 @@
 ## 스코어보드 생성
+# 플레이어 아이디
+scoreboard objectives remove player_id
+scoreboard objectives add player_id dummy
 
 scoreboard objectives add ER.resurrection dummy
 scoreboard objectives add credit dummy
@@ -36,15 +39,20 @@ scoreboard objectives add ER.UUID.2 dummy
 scoreboard objectives add ER.UUID.3 dummy
 
 
+
 # df_library 전용 스코어보드 생성
 #function df_library:init
 
 
 # 플레이어 기본 설정
 function eternal_return:sys/player/init
+# GUI 기본 설정
+function eternal_return:sys/gui/init
 # 보스바 기본 설정
 function eternal_return:sys/bossbar/init
 # 액션바 기본 설정
 function eternal_return:sys/actionbar/init
 # 맵 기본 설정
 function eternal_return:sys/map/init
+# 게임 설정
+function eternal_return:sys/game/defualt_setting

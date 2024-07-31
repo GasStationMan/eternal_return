@@ -16,4 +16,4 @@ tag @s remove add_log
 tag @s remove remove_log
 
 # player_id temp 초기화
-#function eternal_return:temp/free/id
+function eternal_return:temp/free/id

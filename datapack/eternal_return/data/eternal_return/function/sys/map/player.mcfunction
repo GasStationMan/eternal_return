@@ -18,8 +18,6 @@ function eternal_return:sys/map/area/give_type_tag with storage player_data temp
 
 
 
-# 플레이어가 캐릭터 선택 하기 전 위치 고정
-function eternal_return:sys/map/briefing_room/fix_location with storage player_data temp[0]
 
 
 
