@@ -34,3 +34,13 @@ scoreboard objectives add viancaskill dummy
 scoreboard objectives add sisselaskill dummy
 scoreboard objectives add visit dummy
 scoreboard objectives add isolskill dummy
+scoreboard objectives add adrianaskill dummy
+scoreboard objectives add camiloskill dummy
+scoreboard objectives add echionskill dummy
+scoreboard objectives add katjakill playerKillCount
+scoreboard objectives add lidailinskill dummy
+scoreboard objectives add lukekill playerKillCount
+
+scoreboard objectives add right minecraft.used:carrot_on_a_stick
+scoreboard objectives add dmggive minecraft.custom:damage_dealt
+scoreboard objectives add dmgtaken minecraft.custom:damage_taken

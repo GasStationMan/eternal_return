@@ -46,7 +46,5 @@ function eternal_return:sys/player/init
 function eternal_return:sys/bossbar/init
 # 액션바 기본 설정
 function eternal_return:sys/actionbar/init
-# 사이드바 로그 기본 설정
-function eternal_return:sys/sidebar/init
 # 맵 기본 설정
 function eternal_return:sys/map/init

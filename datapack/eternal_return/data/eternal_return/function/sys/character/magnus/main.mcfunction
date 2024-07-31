@@ -1,0 +1,1 @@
+execute if entity @a[tag=magnus] as @a[tag=magnus] run effect give @s regeneration infinite 0 true

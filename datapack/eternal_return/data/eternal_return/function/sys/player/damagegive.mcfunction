@@ -1,1 +1,1 @@
-execute as @a[scores={dmggive=0..}] run scoreboard players reset @s dmggive
+execute if entity @a[scores={dmggive=0..}] as @a[scores={dmggive=0..}] run scoreboard players reset @s dmggive

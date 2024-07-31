@@ -3,19 +3,19 @@ tag @a[tag=!player] add player
 
 ##캐릭터
 function eternal_return:sys/character/character
-function eternal_return:sys/character/happychaos/main
-function eternal_return:sys/character/jackie
-function eternal_return:sys/character/nicky
-function eternal_return:sys/character/luke
-function eternal_return:sys/character/mai
-function eternal_return:sys/character/shou
-function eternal_return:sys/character/charlotte
-function eternal_return:sys/character/aya
-function eternal_return:sys/character/yohan
-function eternal_return:sys/character/heart
+#function eternal_return:sys/character/happychaos/main
+function eternal_return:sys/character/jackie/main
+function eternal_return:sys/character/nicky/main
+function eternal_return:sys/character/luke/main
+function eternal_return:sys/character/mai/main
+function eternal_return:sys/character/shou/main
+function eternal_return:sys/character/charlotte/main
+function eternal_return:sys/character/aya/main
+function eternal_return:sys/character/yohan/main
+function eternal_return:sys/character/heart/main
 function eternal_return:sys/character/yuki/main
 function eternal_return:sys/character/hyunwoo/main
-function eternal_return:sys/character/daniel
+function eternal_return:sys/character/daniel/main
 function eternal_return:sys/character/laura/main
 function eternal_return:sys/character/lenox/main
 function eternal_return:sys/character/vianca/main

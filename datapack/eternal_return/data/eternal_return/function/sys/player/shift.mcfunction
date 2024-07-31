@@ -1,1 +1,1 @@
-execute as @a[scores={shift=1..}] run scoreboard players set @s shift 0
+execute if entity @a[scores={shift=1..}] as @a[scores={shift=1..}] run scoreboard players set @s shift 0
