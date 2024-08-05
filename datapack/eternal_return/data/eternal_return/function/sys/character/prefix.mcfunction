@@ -26,6 +26,7 @@ team add camilo
 team add lidailin
 team add magnus
 team add adriana
+team add piolo
 
 team modify jackie prefix ["",{"text":" [ ","color":"light_purple"},{"text":"재키","color":"yellow"},{"text":" ] ","color":"light_purple"}]
 team modify nicky prefix ["",{"text":" [ ","color":"light_purple"},{"text":"니키","color":"yellow"},{"text":" ] ","color":"light_purple"}]
@@ -55,3 +56,4 @@ team modify camilo prefix ["",{"text":" [ ","color":"light_purple"},{"text":"카
 team modify lidailin prefix ["",{"text":" [ ","color":"light_purple"},{"text":"리 다이린","color":"yellow"},{"text":" ] ","color":"light_purple"}]
 team modify magnus prefix ["",{"text":" [ ","color":"light_purple"},{"text":"매그너스","color":"yellow"},{"text":" ] ","color":"light_purple"}]
 team modify adriana prefix ["",{"text":" [ ","color":"light_purple"},{"text":"아드리아나","color":"yellow"},{"text":" ] ","color":"light_purple"}]
+team modify piolo prefix ["",{"text":" [ ","color":"light_purple"},{"text":"피올로","color":"yellow"},{"text":" ] ","color":"light_purple"}]

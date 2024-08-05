@@ -40,6 +40,7 @@ scoreboard objectives add echionskill dummy
 scoreboard objectives add katjakill playerKillCount
 scoreboard objectives add lidailinskill dummy
 scoreboard objectives add lukekill playerKillCount
+scoreboard objectives add pioloskill dummy
 
 scoreboard objectives add right minecraft.used:carrot_on_a_stick
 scoreboard objectives add dmggive minecraft.custom:damage_dealt
