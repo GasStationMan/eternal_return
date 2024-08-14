@@ -3,7 +3,7 @@
 
 
 
-$bossbar set minecraft:hud_$(id) name [\
+$bossbar set minecraft:line5.id$(id) name [\
     {"font":"minecraft:map/hyper_loop", "text":"\u4000","color":"#4e5c24"},\
     {"font":"minecraft:x_transform",    "text":"\u4250"},\
     {"font":"minecraft:x_transform",    "text":"\u4250"},\
@@ -11,7 +11,7 @@ $bossbar set minecraft:hud_$(id) name [\
     {"font":"minecraft:x_transform",    "text":"\u4079"},\
     {"font":"minecraft:map/hotel",      "text":"\u4103","color":"$(hotel)"},\
     {"font":"minecraft:x_transform",    "text":"\u4071"},\
-    {"font":"minecraft:map/yanggung",   "text":"\u4060","color":"$(yanggung)"},\
+    {"font":"minecraft:map/archery_range",   "text":"\u4060","color":"$(archery_range)"},\
     {"font":"minecraft:x_transform",    "text":"\u4051"},\
     {"font":"minecraft:map/school",     "text":"\u4082","color":"$(school)"},\
     {"font":"minecraft:x_transform",    "text":"\u4054"},\
@@ -19,17 +19,17 @@ $bossbar set minecraft:hud_$(id) name [\
     {"font":"minecraft:x_transform",    "text":"\u4092"},\
     {"font":"minecraft:map/gas_station","text":"\u4040","color":"$(gas_station)"},\
     {"font":"minecraft:x_transform",    "text":"\u4045"},\
-    {"font":"minecraft:map/golmok",     "text":"\u4029","color":"$(golmok)"},\
+    {"font":"minecraft:map/alley",     "text":"\u4029","color":"$(alley)"},\
     {"font":"minecraft:x_transform",    "text":"\u4081"},\
     {"font":"minecraft:map/fire",       "text":"\u4081","color":"$(fire)"},\
     {"font":"minecraft:x_transform",    "text":"\u4054"},\
     {"font":"minecraft:map/police",     "text":"\u4063","color":"$(police)"},\
     {"font":"minecraft:x_transform",    "text":"\u4040"},\
-    {"font":"minecraft:map/jul",        "text":"\u4066","color":"$(jul)"},\
+    {"font":"minecraft:map/temple",        "text":"\u4066","color":"$(temple)"},\
     {"font":"minecraft:x_transform",    "text":"\u4169"},\
     {"font":"minecraft:map/forest",     "text":"\u4137","color":"$(forest)"},\
     {"font":"minecraft:x_transform",    "text":"\u4025"},\
-    {"font":"minecraft:map/graveyard",  "text":"\u4147","color":"$(graveyard)"},\
+    {"font":"minecraft:map/cemetery",  "text":"\u4147","color":"$(cemetery)"},\
     {"font":"minecraft:x_transform",    "text":"\u4082"},\
     {"font":"minecraft:map/pond",       "text":"\u4113","color":"$(pond)"},\
     {"font":"minecraft:x_transform",    "text":"\u4047"},\
@@ -39,7 +39,7 @@ $bossbar set minecraft:hud_$(id) name [\
     {"font":"minecraft:x_transform",    "text":"\u4093"},\
     {"font":"minecraft:map/factory",    "text":"\u4181","color":"$(factory)"},\
     {"font":"minecraft:x_transform",    "text":"\u4132"},\
-    {"font":"minecraft:map/cathedral",  "text":"\u4174","color":"$(cathedral)"},\
+    {"font":"minecraft:map/chapel",  "text":"\u4174","color":"$(chapel)"},\
     {"font":"minecraft:x_transform",    "text":"\u4082"},\
     {"font":"minecraft:map/port",       "text":"\u4208","color":"$(port)"},\
     {"font":"minecraft:x_transform",    "text":"\u4125"},\

@@ -1,21 +1,14 @@
 #
-#> function eternal_return:maps/kiosk/main
+# function eternal_return:maps/kiosk/main
 # function eternal_return:maps/kiosk/get_selected_place
 
-#> 하이퍼루프에 막 들어온 경우 choosing_kiosk 태그 부여
-execute as @s store result storage minecraft:temp temp.id int 1 run scoreboard players get @s player_id
+# 하이퍼루프에 막 들어온 경우 choosing_kiosk 태그 부여
 
-#> FOR debug
-#tellraw @a [{"nbt":"temp","storage":"minecraft:temp"}]
+# 태그 추가
+execute if entity @s[tag= !choosing_kiosk] at @s run tp @s ~ ~ ~ 0 0
+execute if entity @s[tag= !choosing_kiosk] run tag @s add choosing_kiosk
 
-execute at @s if entity @s[tag= !choosing_kiosk] run function eternal_return:maps/kiosk/show with storage minecraft:temp temp
-
-#> 플레이어 커서 위치에 따른 버튼 감지 함수
-function eternal_return:maps/kiosk/get_selected_place with storage minecraft:temp temp
-
-#> 플레이어의 스코어가 위치를 지시하는 스코어와 같은 경우 :
-
-
-
-
-data remove storage minecraft:temp temp
+# 플레이어 커서 위치에 따른 버튼 감지 함수
+scoreboard players set #get_selected_place.mouse_pointer_limit_width ER.sys 800
+scoreboard players set #get_selected_place.mouse_pointer_limit_height ER.sys 250
+function eternal_return:maps/kiosk/get_selected_place/mouse_pointer_limit_width__mouse_pointer_limit_height

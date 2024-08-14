@@ -3,38 +3,65 @@
 
 
 
-$bossbar set minecraft:hud_$(id) name [\
-    {"font":"minecraft:x_transform",    "text":"\u4015"},\
+$bossbar set minecraft:line5.id$(id) name [\
     {"font":"minecraft:map/kiosk",      "text":"\u4000","color":"#4e5c24"},\
-    {"font":"minecraft:x_transform",    "text":"\u4100"},\
 \
-    {"font":"minecraft:x_transform",    "text":"\u4402"},\
+    {"translate":"space.-400","font":"minecraft:default"},\
+    {"translate":"space.-120","font":"minecraft:default"},\
+    {"translate":"space.60","font":"minecraft:default"},\
     {"font":"minecraft:map/kiosk",      "text":"\u4001","color":"#4e5c24"},\
-    {"font":"minecraft:x_transform",    "text":"\u1402"},\
+    {"translate":"space.-60","font":"minecraft:default"},\
+    {"translate":"space.400","font":"minecraft:default"},\
 \
-    {"font":"minecraft:x_transform",    "text":"\u4630"},\
+    {"translate":"space.-550","font":"minecraft:default"},\
+    {"translate":"space.-75","font":"minecraft:default"},\
+    {"translate":"space.38","font":"minecraft:default"},\
     {"font":"minecraft:map/kiosk",      "text":"\u4002","color":"$(tree_of_life)"},\
-    {"font":"minecraft:x_transform",    "text":"\u4076"},\
+    {"translate":"space.-38","font":"minecraft:default"},\
+    {"translate":"space.550","font":"minecraft:default"},\
+\
+    {"translate":"space.-550","font":"minecraft:default"},\
+    {"translate":"space.-75","font":"minecraft:default"},\
+    {"translate":"space.38","font":"minecraft:default"},\
     {"font":"minecraft:map/kiosk",      "text":"\u4006","color":"$(force_core)"},\
-    {"font":"minecraft:x_transform",    "text":"\u1630"},\
+    {"translate":"space.-38","font":"minecraft:default"},\
+    {"translate":"space.550","font":"minecraft:default"},\
 \
-    {"font":"minecraft:x_transform",    "text":"\u4570"},\
+    {"translate":"space.-400","font":"minecraft:default"},\
+    {"translate":"space.-75","font":"minecraft:default"},\
+    {"translate":"space.38","font":"minecraft:default"},\
     {"font":"minecraft:map/kiosk",      "text":"\u4003","color":"$(meteorite)"},\
-    {"font":"minecraft:x_transform",    "text":"\u4076"},\
+    {"translate":"space.-38","font":"minecraft:default"},\
+    {"translate":"space.400","font":"minecraft:default"},\
+\
+    {"translate":"space.-400","font":"minecraft:default"},\
+    {"translate":"space.-75","font":"minecraft:default"},\
+    {"translate":"space.38","font":"minecraft:default"},\
     {"font":"minecraft:map/kiosk",      "text":"\u4005","color":"$(vf_blood)"},\
-    {"font":"minecraft:x_transform",    "text":"\u1570"},\
+    {"translate":"space.-38","font":"minecraft:default"},\
+    {"translate":"space.400","font":"minecraft:default"},\
 \
-    {"font":"minecraft:x_transform",    "text":"\u4510"},\
+    {"translate":"space.-250","font":"minecraft:default"},\
+    {"translate":"space.-75","font":"minecraft:default"},\
+    {"translate":"space.38","font":"minecraft:default"},\
     {"font":"minecraft:map/kiosk",      "text":"\u4004","color":"$(mithril)"},\
-    {"font":"minecraft:x_transform",    "text":"\u4076"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4007","color":"$(random)"},\
-    {"font":"minecraft:x_transform",    "text":"\u1510"},\
+    {"translate":"space.-38","font":"minecraft:default"},\
+    {"translate":"space.250","font":"minecraft:default"},\
 \
-    {"font":"minecraft:x_transform",    "text":"\u4300"},\
+    {"translate":"space.-250","font":"minecraft:default"},\
+    {"translate":"space.-75","font":"minecraft:default"},\
+    {"translate":"space.38","font":"minecraft:default"},\
+    {"font":"minecraft:map/kiosk",      "text":"\u4007","color":"$(random)"},\
+    {"translate":"space.-38","font":"minecraft:default"},\
+    {"translate":"space.250","font":"minecraft:default"},\
+\
     {"font":"minecraft:x_transform",    "text":"\u4$(mouseX)"},\
+    {"translate":"space.-7","font":"minecraft:default"},\
+    {"translate":"space.3","font":"minecraft:default"},\
     {"font":"minecraft:map/icon",       "text":"\u1$(mouseY)","color":"#4e5c24"},\
+    {"translate":"space.-3","font":"minecraft:default"},\
     {"font":"minecraft:x_transform",    "text":"\u1$(mouseX)"}\
-    ]
+]
 
 
 
