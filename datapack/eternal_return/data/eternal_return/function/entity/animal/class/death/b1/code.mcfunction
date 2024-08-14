@@ -1,4 +1,0 @@
-$execute if entity @s[scores = {aj.death.frame = 30}, tag= aj.animal_$(animal).animation.death.playing, tag= ER.animal.model, tag= this] run function eternal_return:entity/animal/class/death/b1/b1/code with storage minecraft:temp temp
-$execute if entity @s[tag= !aj.animal_$(animal).animation.death.playing, tag=  aj.animal_$(animal).animation.attack.playing, tag=  ER.animal.model, tag= this] run function animated_java:animal_$(animal)/animations/attack/stop
-$execute if entity @s[tag= !aj.animal_$(animal).animation.death.playing, tag=  aj.animal_$(animal).animation.move.playing, tag=  ER.animal.model, tag= this] run function animated_java:animal_$(animal)/animations/move/stop
-$execute if entity @s[tag= !aj.animal_$(animal).animation.death.playing, tag= ER.animal.model, tag= this] run function animated_java:animal_$(animal)/animations/death/play

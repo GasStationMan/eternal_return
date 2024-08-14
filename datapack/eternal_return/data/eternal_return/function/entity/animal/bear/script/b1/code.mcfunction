@@ -1,1 +1,2 @@
-$execute as @e[tag= ER.animal.$(animal)] if score #this.ID ER.sys = @s df_id run function eternal_return:entity/animal/bear/script/b1/b1/code
+$scoreboard players set @e[type=minecraft:ghast,       scores={df_id=$(id)}] ER.animal.this 1
+$scoreboard players set @e[type=minecraft:text_display,scores={df_id=$(id)}] ER.animal.this 1

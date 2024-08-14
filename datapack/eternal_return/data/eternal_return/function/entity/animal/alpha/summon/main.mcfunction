@@ -3,7 +3,7 @@ $summon ghast ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.hitbox"],NoAI:1b,Sil
 $summon text_display ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.HPbar"],CustomNameVisible:0b,billboard:"center"}
 execute as @e[type=minecraft:zombie, tag= this, tag= ER.animal.root] at @s run function eternal_return:entity/animal/alpha/summon/b1/code
 execute as @e[tag=this] run function eternal_return:entity/animal/alpha/summon/b2/code
-execute rotated as @s as @e[tag=this] positioned as @s run tp @s ~ ~ ~ ~ 0
+execute on passengers rotated as @s as @e[tag=this] positioned as @s run tp @s ~ ~ ~ ~ 0
 function df_library:id/set_id
 tag @s add ER.summoned
 scoreboard players operation #temp df_id = @e[tag=this,limit=1] df_id

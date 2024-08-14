@@ -1,1 +1,2 @@
-scoreboard players set #this.AI ER.sys 1
+execute if score #this.AI ER.sys matches 1 run data modify entity @s NoAI set value 1b
+execute on passengers run function eternal_return:entity/animal/alpha/script/b3/b2/code

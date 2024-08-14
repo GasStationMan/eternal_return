@@ -1,2 +1,2 @@
-execute if data entity @s {NoAI:1b} run return run scoreboard players set #this.AI ER.sys 0
-scoreboard players set #this.AI ER.sys 1
+execute if score #this.AI ER.sys matches 0 run function eternal_return:entity/animal/bear/script/b2/b1/code
+execute if score #this.AI ER.sys matches 1 run function eternal_return:entity/animal/bear/behav/main
