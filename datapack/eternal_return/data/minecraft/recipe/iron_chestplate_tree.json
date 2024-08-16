@@ -14,7 +14,7 @@
       "id": "minecraft:iron_chestplate",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "불꽃\u00a0드레스",
+        "minecraft:item_name": "[{\"text\":\"불꽃\u00a0드레스\"}]",
         "minecraft:enchantments": {
           "minecraft:fire_protection": 2
         },

@@ -14,7 +14,7 @@
       "id": "minecraft:bow",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "아르테미스",
+        "minecraft:item_name": "[{\"text\":\"아르테미스\"}]",
         "minecraft:enchantments": {
           "minecraft:punch": 1
         },

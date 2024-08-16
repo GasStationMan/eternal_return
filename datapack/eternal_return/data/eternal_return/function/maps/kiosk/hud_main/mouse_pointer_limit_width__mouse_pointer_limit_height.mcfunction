@@ -6,7 +6,7 @@ data modify storage minecraft:temp temp set value {id: 0,tree_of_life:"white",vf
 #============================================================#^^^수정^^^#============================================================#
 
 ## vvvv DO NOT MODIFY vvvv
-function eternal_return:maps/get_selected_place/preprocessing
+function eternal_return:maps/lib/get_selected_place/preprocessing
 
 #============================================================#vvv수정vvv#============================================================#
     execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/tree_of_life run \
@@ -34,4 +34,4 @@ title @a actionbar [{"storage":"minecraft:temp","nbt":"temp.mouseX"},{"text":"  
 #DEBUG for mousePointer ^^^
 
 ## vvvv DO NOT MODIFY vvvv
-function eternal_return:maps/get_selected_place/postprocessing
+function eternal_return:maps/lib/get_selected_place/postprocessing

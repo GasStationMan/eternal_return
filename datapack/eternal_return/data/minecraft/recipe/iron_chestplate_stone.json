@@ -14,7 +14,7 @@
       "id": "minecraft:iron_chestplate",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "카바나",
+        "minecraft:item_name": "[{\"text\":\"카바나\"}]",
         "minecraft:enchantments": {
           "minecraft:projectile_protection": 2
         },

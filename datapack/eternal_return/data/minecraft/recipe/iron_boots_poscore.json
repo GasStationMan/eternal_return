@@ -14,7 +14,7 @@
       "id": "minecraft:diamond_boots",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "헤르메스의\u00a0부츠",
+        "minecraft:item_name": "[{\"text\":\"헤르메스의\u00a0부츠\"}]",
         "minecraft:enchantments": {
           "minecraft:protection": 2
         },

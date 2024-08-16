@@ -14,7 +14,7 @@
       "id": "minecraft:bow",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "적궁백시",
+        "minecraft:item_name": "[{\"text\":\"적궁백시\"}]",
         "minecraft:enchantments": {
           "minecraft:flame": 1
         },

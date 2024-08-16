@@ -1,4 +1,3 @@
-say called
 summon minecraft:marker ~ ~ ~ {Tags:["getTarget"]}
 tp @e[type=minecraft:marker] ~ ~-1 ~ ~ ~
 scoreboard players set #i ER.sys 0

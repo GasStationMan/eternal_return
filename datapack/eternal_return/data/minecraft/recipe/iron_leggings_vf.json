@@ -14,7 +14,7 @@
       "id": "minecraft:netherite_leggings",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "프로미넌스",
+        "minecraft:item_name": "[{\"text\":\"프로미넌스\"}]",
         "minecraft:enchantments": {
           "minecraft:protection": 4,
           "minecraft:thorns": 3

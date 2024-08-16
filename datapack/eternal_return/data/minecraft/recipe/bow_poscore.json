@@ -14,7 +14,7 @@
       "id": "minecraft:bow",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "아르기로톡소스\u00a0mk2",
+        "minecraft:item_name": "[{\"text\":\"아르기로톡소스\u00a0mk2\"}]",
         "minecraft:enchantments": {
           "minecraft:power": 3
         },

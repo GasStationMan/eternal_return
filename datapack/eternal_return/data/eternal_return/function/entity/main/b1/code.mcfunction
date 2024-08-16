@@ -1,4 +1,1 @@
-execute if entity @s[tag=ER.animal.boar] run function eternal_return:entity/animal/boar/script/main
-execute if entity @s[tag=ER.animal.bear] run function eternal_return:entity/animal/bear/script/main
-execute if entity @s[tag=ER.animal.wolf] run function eternal_return:entity/animal/wolf/script/main
-execute if entity @s[tag=ER.animal.alpha] run function eternal_return:entity/animal/alpha/script/main
+execute if score @s ER.health matches 1.. positioned as @s if entity @p[distance=..40] run function eternal_return:entity/hitbox/main

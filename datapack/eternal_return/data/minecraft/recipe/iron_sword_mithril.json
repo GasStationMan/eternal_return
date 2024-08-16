@@ -19,39 +19,21 @@
           "modifiers": [
                         {
               "type": "minecraft:generic.attack_damage",
-              "uuid": [
-                12830,
-                -38102,
-                -471823,
-                1233213
-              ],
-              "name": "generic.attack_damage",
+              "id": "generic.attack_damage",
               "amount": 6,
               "operation": "add_value",
               "slot": "mainhand"
             },
             {
               "type": "minecraft:generic.attack_speed",
-              "uuid": [
-                31,
-                321,
-                12,
-                312
-              ],
-              "name": "generic.attack_speed",
+              "id": "generic.attack_speed",
               "amount": -2,
               "operation": "add_value",
               "slot": "mainhand"
             },
             {
               "type": "minecraft:generic.movement_speed",
-              "uuid": [
-                54673,
-                123215,
-                -13123,
-                -518321
-              ],
-              "name": "generic.movement_speed",
+              "id": "generic.movement_speed",
               "amount": 0.015,
               "operation": "add_value",
               "slot": "mainhand"
@@ -59,7 +41,7 @@
           ]
         },
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "프라가라흐"
+        "minecraft:item_name": "[{\"text\":\"프라가라흐\"}]"
       }
     }
   }

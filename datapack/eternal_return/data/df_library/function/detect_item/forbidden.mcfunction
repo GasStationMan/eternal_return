@@ -1,2 +1,0 @@
-item replace block 0 -62 0 container.0 from entity @s player.cursor
-execute if block 0 -62 0 chest{Items:[{Slot:0b,component:{"minecraft:custom_data":{Tags:["forbidden"]}}}]} run item replace entity @s player.cursor with air

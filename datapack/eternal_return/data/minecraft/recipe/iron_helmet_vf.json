@@ -14,7 +14,7 @@
     "id": "minecraft:netherite_helmet",
     "components": {
       "minecraft:rarity": "epic",
-      "minecraft:item_name": "변검",
+      "minecraft:item_name": "[{\"text\":\"변검\"}]",
       "minecraft:enchantments": {
         "minecraft:protection": 4,
         "minecraft:thorns": 3

@@ -14,7 +14,7 @@
       "id": "minecraft:netherite_boots",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "분홍신",
+        "minecraft:item_name": "[{\"text\":\"분홍신\"}]",
         "minecraft:enchantments": {
           "minecraft:protection": 4,
           "minecraft:thorns": 3

@@ -2,7 +2,7 @@
 # function eternal_return:maps/hyper_loop/main
 #> function eternal_return:maps/hyper_loop/get_selected_place
 # function eternal_return:maps/hyper_loop/show_selected
-# function eternal_return:maps/cursor_in_place/..
+# function eternal_return:maps/hyper_loop/cursor_in_place/..
 # function eternal_return:maps/select_place
 
 
@@ -73,79 +73,79 @@ $data modify storage minecraft:temp temp merge value {id : $(id), beach:"white",
 
 
 #> 모래사장
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/beach run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/beach run \
     function eternal_return:maps/select_place {place:"beach",color:"blue"}
 
 #> 주유소
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/gas_station run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/gas_station run \
     function eternal_return:maps/select_place {place:"gas_station",color:"blue"}
 
 #> 골목
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/alley run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/alley run \
     function eternal_return:maps/select_place {place:"alley",color:"blue"}
 
 #> 양궁장
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/archery_range run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/archery_range run \
     function eternal_return:maps/select_place {place:"archery_range",color:"blue"}
 
 #> 학교
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/school run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/school run \
     function eternal_return:maps/select_place {place:"school",color:"blue"}
 
 #> 호텔
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/hotel run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/hotel run \
     function eternal_return:maps/select_place {place:"hotel",color:"blue"}
 
 #> 소방서
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/fire run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/fire run \
     function eternal_return:maps/select_place {place:"fire",color:"blue"}
 
 #> 경찰서
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/police run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/police run \
     function eternal_return:maps/select_place {place:"police",color:"blue"}
 
 #> 절
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/temple run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/temple run \
     function eternal_return:maps/select_place {place:"temple",color:"blue"}
 
 #> 숲
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/forest run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/forest run \
     function eternal_return:maps/select_place {place:"forest",color:"blue"}
 
 #> 연못
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/pond run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/pond run \
     function eternal_return:maps/select_place {place:"pond",color:"blue"}
 
 #> 개울
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/stream run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/stream run \
     function eternal_return:maps/select_place {place:"stream",color:"blue"}
 
 #> 묘지
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/cemetery run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/cemetery run \
     function eternal_return:maps/select_place {place:"cemetery",color:"blue"}
 
 #> 병원
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/hospital run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/hospital run \
     function eternal_return:maps/select_place {place:"hospital",color:"blue"}
 
 #> 고급 주택가
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/village run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/village run \
     function eternal_return:maps/select_place {place:"village",color:"blue"}
 
 #> 성당
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/chapel run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/chapel run \
     function eternal_return:maps/select_place {place:"chapel",color:"blue"}
 
 #> 창고
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/storage run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/storage run \
     function eternal_return:maps/select_place {place:"storage",color:"blue"}
 
 #> 항구
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/port run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/port run \
     function eternal_return:maps/select_place {place:"port",color:"blue"}
 
 #> 공장
-execute if score #cnt ER.sys matches 0 if function eternal_return:maps/cursor_in_place/factory run \
+execute if score #cnt ER.sys matches 0 if function eternal_return:maps/hyper_loop/cursor_in_place/factory run \
     function eternal_return:maps/select_place {place:"factory",color:"blue"}
 
 scoreboard players set #cnt ER.sys 0

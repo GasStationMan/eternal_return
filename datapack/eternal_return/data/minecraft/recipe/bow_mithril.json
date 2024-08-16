@@ -14,7 +14,7 @@
       "id": "minecraft:bow",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "{\"text\":\"아르기록소스\"}",
+        "minecraft:item_name": "[{\"text\":\"아르기로톡소스\"}]",
         "minecraft:enchantments": {
           "minecraft:power": 1
         },
@@ -22,14 +22,8 @@
         "minecraft:attribute_modifiers": {
           "modifiers": [
             {
+              "id": "generic.movement_speed",
               "type": "minecraft:generic.movement_speed",
-              "uuid": [
-                371298312,
-                -1231234,
-                -580123,
-                -102389
-              ],
-              "name": "generic.movement_speed",
               "amount": 0.015,
               "operation": "add_value",
               "slot": "mainhand"

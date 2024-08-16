@@ -14,7 +14,7 @@
       "id": "minecraft:netherite_chestplate",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "퀸\u00a0오브\u00a0하트",
+        "minecraft:item_name": "[{\"text\":\"퀸\u00a0오브\u00a0하트\"}]",
         "minecraft:enchantments": {
           "minecraft:protection": 4,
           "minecraft:thorns": 3

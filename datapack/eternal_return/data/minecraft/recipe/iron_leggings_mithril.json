@@ -14,7 +14,7 @@
       "id": "minecraft:iron_leggings",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "미스릴\u00a0방패",
+        "minecraft:item_name": "[{\"text\":\"미스릴\u00a0방패\"}]",
         "minecraft:enchantments": {
           "minecraft:swift_sneak": 2
         },
@@ -22,26 +22,14 @@
           "modifiers": [
             {
               "type": "minecraft:generic.armor",
-              "uuid": [
-                -98123,
-                541312,
-                -3128,
-                412312
-              ],
-              "name": "generic.armor",
+              "id": "generic.armor",
               "amount": 5,
               "operation": "add_value",
               "slot": "legs"
             },
             {
               "type": "minecraft:generic.movement_speed",
-              "uuid": [
-                -32180,
-                51283,
-                1380,
-                98012
-              ],
-              "name": "generic.movement_speed",
+              "id": "generic.movement_speed",
               "amount": 0.01,
               "operation": "add_value",
               "slot": "legs"

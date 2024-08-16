@@ -14,7 +14,7 @@
       "id": "minecraft:diamond_chestplate",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "가디언\u00a0슈트",
+        "minecraft:item_name": "[{\"text\":\"가디언\u00a0슈트\"}]",
         "minecraft:enchantments": {
           "minecraft:protection": 2
         },

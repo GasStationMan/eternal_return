@@ -14,7 +14,7 @@
       "id": "minecraft:diamond_leggings",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "오토-암즈",
+        "minecraft:item_name": "[{\"text\":\"오토-암즈\"}]",
         "minecraft:enchantments": {
           "minecraft:protection": 2
         },

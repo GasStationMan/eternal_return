@@ -14,7 +14,7 @@
       "id": "minecraft:bow",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "페일노트",
+        "minecraft:item_name": "[{\"text\":\"페일노트\"}]",
         "minecraft:enchantments": {
           "minecraft:power": 4,
           "minecraft:infinity": 1

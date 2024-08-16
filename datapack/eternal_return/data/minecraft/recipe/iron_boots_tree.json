@@ -14,7 +14,7 @@
       "id": "minecraft:iron_boots",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "글레이셜\u00a0슈즈",
+        "minecraft:item_name": "[{\"text\":\"글레이셜\u00a0슈즈\"}]",
         "minecraft:enchantments": {
           "minecraft:fire_protection": 2
         },

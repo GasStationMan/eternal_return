@@ -14,7 +14,7 @@
       "id": "minecraft:iron_helmet",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "월계관",
+        "minecraft:item_name": "[{\"text\":\"월계관\"}]",
         "minecraft:enchantments": {
           "minecraft:fire_protection": 2
         },

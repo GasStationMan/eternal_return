@@ -14,7 +14,7 @@
       "id": "minecraft:iron_boots",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "아이언\u00a0메이든",
+        "minecraft:item_name": "[{\"text\":\"아이언\u00a0메이든\"}]",
         "minecraft:enchantments": {
           "minecraft:projectile_protection": 2
         },

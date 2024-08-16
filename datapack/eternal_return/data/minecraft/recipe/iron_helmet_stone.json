@@ -14,7 +14,7 @@
       "id": "minecraft:iron_helmet",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "우주\u00a0비행사의\u00a0헬멧",
+        "minecraft:item_name": "[{\"text\":\"우주\u00a0비행사의\u00a0헬멧\"}]",
         "minecraft:enchantments": {
           "minecraft:projectile_protection": 2
         },

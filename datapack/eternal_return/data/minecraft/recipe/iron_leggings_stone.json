@@ -14,7 +14,7 @@
       "id": "minecraft:iron_leggings",
       "components": {
         "minecraft:rarity": "epic",
-        "minecraft:item_name": "큐브\u00a0워치",
+        "minecraft:item_name": "[{\"text\":\"큐브\u00a0워치\"}]",
         "minecraft:enchantments": {
           "minecraft:projectile_protection": 2
         },
