@@ -21,7 +21,7 @@ scoreboard players operation #rotY ER.sys %= #hud_main.mouse_pointer_limit_heigh
 
 scoreboard players operation #get_mouse_pos.x ER.sys = #rotX ER.sys
 scoreboard players operation #get_mouse_pos.y ER.sys = #rotY ER.sys
-function eternal_return:maps/get_mouse_pos/x__y
+function eternal_return:maps/lib/get_mouse_pos/x__y
 
 scoreboard players set #cnt ER.sys 0
 

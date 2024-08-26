@@ -9,26 +9,13 @@ data modify storage minecraft:temp temp set value {id: 0,tree_of_life:"white",vf
 function eternal_return:maps/lib/get_selected_place/preprocessing
 
 #============================================================#vvv수정vvv#============================================================#
-    execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/tree_of_life run \
-        function eternal_return:maps/select_place {place:"tree_of_life",color:"blue"}
-    
-    execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/vf_blood run \
-        function eternal_return:maps/select_place {place:"vf_blood",color:"blue"}
-    
-    execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/random run \
-        function eternal_return:maps/select_place {place:"random",color:"blue"}
-    
-    execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/mithril run \
-        function eternal_return:maps/select_place {place:"mithril",color:"blue"}
-    
-    execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/meteorite run \
-        function eternal_return:maps/select_place {place:"meteorite",color:"blue"}
-    
-    execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/force_core run \
-        function eternal_return:maps/select_place {place:"force_core",color:"blue"}
-    
+#    execute if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/tree_of_life run \
+#        function eternal_return:maps/select_place {place:"tree_of_life",color:"blue"}
+
+    #VV 지우지 말 것
     function eternal_return:maps/kiosk/show_selected with storage minecraft:temp temp
 #============================================================#^^^수정^^^#============================================================#
+    
 #DEBUG for mousePointer vvv
 title @a actionbar [{"storage":"minecraft:temp","nbt":"temp.mouseX"},{"text":"  "},{"storage":"minecraft:temp","nbt":"temp.mouseY"}]
 #DEBUG for mousePointer ^^^

@@ -13,48 +13,6 @@ $bossbar set minecraft:line5.id$(id) name [\
     {"translate":"space.-60","font":"minecraft:default"},\
     {"translate":"space.400","font":"minecraft:default"},\
 \
-    {"translate":"space.-550","font":"minecraft:default"},\
-    {"translate":"space.-75","font":"minecraft:default"},\
-    {"translate":"space.38","font":"minecraft:default"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4002","color":"$(tree_of_life)"},\
-    {"translate":"space.-38","font":"minecraft:default"},\
-    {"translate":"space.550","font":"minecraft:default"},\
-\
-    {"translate":"space.-550","font":"minecraft:default"},\
-    {"translate":"space.-75","font":"minecraft:default"},\
-    {"translate":"space.38","font":"minecraft:default"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4006","color":"$(force_core)"},\
-    {"translate":"space.-38","font":"minecraft:default"},\
-    {"translate":"space.550","font":"minecraft:default"},\
-\
-    {"translate":"space.-400","font":"minecraft:default"},\
-    {"translate":"space.-75","font":"minecraft:default"},\
-    {"translate":"space.38","font":"minecraft:default"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4003","color":"$(meteorite)"},\
-    {"translate":"space.-38","font":"minecraft:default"},\
-    {"translate":"space.400","font":"minecraft:default"},\
-\
-    {"translate":"space.-400","font":"minecraft:default"},\
-    {"translate":"space.-75","font":"minecraft:default"},\
-    {"translate":"space.38","font":"minecraft:default"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4005","color":"$(vf_blood)"},\
-    {"translate":"space.-38","font":"minecraft:default"},\
-    {"translate":"space.400","font":"minecraft:default"},\
-\
-    {"translate":"space.-250","font":"minecraft:default"},\
-    {"translate":"space.-75","font":"minecraft:default"},\
-    {"translate":"space.38","font":"minecraft:default"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4004","color":"$(mithril)"},\
-    {"translate":"space.-38","font":"minecraft:default"},\
-    {"translate":"space.250","font":"minecraft:default"},\
-\
-    {"translate":"space.-250","font":"minecraft:default"},\
-    {"translate":"space.-75","font":"minecraft:default"},\
-    {"translate":"space.38","font":"minecraft:default"},\
-    {"font":"minecraft:map/kiosk",      "text":"\u4007","color":"$(random)"},\
-    {"translate":"space.-38","font":"minecraft:default"},\
-    {"translate":"space.250","font":"minecraft:default"},\
-\
     {"font":"minecraft:x_transform",    "text":"\u4$(mouseX)"},\
     {"translate":"space.-7","font":"minecraft:default"},\
     {"translate":"space.3","font":"minecraft:default"},\
