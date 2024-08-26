@@ -139,7 +139,7 @@ return -> #<foo> <bar>
 
             9. function df_lib:float4/vec3d/detect_inf_plane_nx_ny_nz_ox_oy_oz_get_entity_pos_get_entity_direction/main
                 설명 : nx,ny,nz의 수직노멀벡터를 지니고, ox,oy,oz를 지나는 무한평면을 
-                        get_entity_pos/main 함수와 get_entity_directio/main 함수를 사용하여 얻은 값으로 계산된 직선이
+                        get_entity_pos/main 함수와 get_entity_direction/main 함수를 사용하여 얻은 값으로 계산된 직선이
                         평면과 한 점에서 만나는 지 확인한다.
                 output : 
                     float4.vec3d.detect_inf_plane float

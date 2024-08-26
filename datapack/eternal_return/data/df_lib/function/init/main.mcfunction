@@ -8,6 +8,9 @@ scoreboard players set #60 float 60
 scoreboard players set #3 float 3
 scoreboard players set #6 float 6
 scoreboard players set #2 float 2
+scoreboard players set #32 float 32
+scoreboard players set #625 float 625
+scoreboard players set #128 float 128
 scoreboard players set #epsilon float 100
 scoreboard players set #neg_epsilon float -100
 scoreboard objectives add float dummy

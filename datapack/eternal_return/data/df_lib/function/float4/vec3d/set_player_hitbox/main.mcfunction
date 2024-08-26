@@ -1,4 +1,10 @@
-function df_lib:float4/vec3d/get_entity_pos/main
+scoreboard players set #tempWidth float 10000
+scoreboard players operation #tempWidth float *= #10000 float
+scoreboard players operation #tempWidth float /= #2 float
+scoreboard players set #tempHeight float 20000
+scoreboard players operation #tempHeight float *= #10000 float
+scoreboard players operation #tempHeight float /= #2 float
+function df_lib:float4/vec3d/get_entity_pos
 scoreboard players set @s float4.vec3.width 0
 scoreboard players operation @s float4.vec3.width = #tempWidth float
 scoreboard players set @s float4.vec3.height 0
