@@ -6,7 +6,6 @@ execute if entity @s[tag=show_loading] run function eternal_return:sys/actionbar
 
 # 개인 스토리지 텍스트 받아오기
 execute if entity @s[tag=get_text] run function eternal_return:sys/actionbar/loading/get_text with storage player_data temp[0]
-tag @s[tag=get_text] remove get_text
 
 # 개인 스토리지 비우기
 execute if entity @s[tag=clear_loading] run function eternal_return:sys/actionbar/clear with storage player_data temp[0]

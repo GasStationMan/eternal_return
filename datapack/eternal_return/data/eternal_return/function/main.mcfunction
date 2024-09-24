@@ -44,15 +44,31 @@ function eternal_return:sys/player/shift
 ## 플레이어
     # 플레이어 설정
     execute as @a at @s run function eternal_return:sys/player/main
-    # 채팅 클릭
+    # 채팅 클릭 -> 더 이상 필요 없을 것으로 사료됨.
     execute as @a[tag=player] at @s run function eternal_return:sys/trigger/main
     # GUI 화면
     execute as @a if entity @s[tag=player,tag=ER.gui_on] run function eternal_return:sys/gui/main
     # 맵 창 / 키오스크 / 부활 선택창
     execute as @a[tag=player] at @s run function eternal_return:maps/main
     # 보스바
+    #   
+    #   이곳에서 정의된 tag functions
+    #   add_bossbar()
+    #   remve_bossbar()
+    #   show_bossbar()
+    #   hide_bossbar()
+    #   clear_bossbar()
+    #   
     execute as @a[tag=player] at @s run function eternal_return:sys/bossbar/main
     # 액션바
+    #   
+    #   이곳에서 정의된 tag functions
+    #   show_loading()
+    #   get_text()
+    #   clear_loading()
+    #   loading()
+    #   pouse_loading() -> loading()과는 배타적
+    # 
     execute as @a[tag=player] run function eternal_return:sys/actionbar/main
 
 

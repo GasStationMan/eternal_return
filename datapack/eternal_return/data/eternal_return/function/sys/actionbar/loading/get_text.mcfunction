@@ -10,3 +10,4 @@ $execute if entity @s[tag=loading7] run data modify storage player_data players[
 $data modify storage minecraft:player_data players[{id:$(id)}].text set from storage minecraft:player_data temp[4].text
 # text temp 비우기
 data modify storage minecraft:player_data temp[4].text set value ''
+tag @s[tag=get_text] remove get_text
