@@ -33,6 +33,7 @@ function eternal_return:sys/game/time/tick
 #       #game.player    CT1
 #       #game.respawn   CT1
 #   }
+#
 function eternal_return:sys/game/total
 
 # 크레딧 지속 지급 (21틱마다 크레딧 1씩 지급)

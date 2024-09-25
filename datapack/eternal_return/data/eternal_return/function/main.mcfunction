@@ -50,6 +50,7 @@ function eternal_return:sys/player/shift
     execute as @a if entity @s[tag=player,tag=ER.gui_on] run function eternal_return:sys/gui/main
     # 맵 창 / 키오스크 / 부활 선택창
     execute as @a[tag=player] at @s run function eternal_return:maps/main
+
     # 보스바
     #   
     #   이곳에서 정의된 tag functions
@@ -60,6 +61,7 @@ function eternal_return:sys/player/shift
     #   clear_bossbar()
     #   
     execute as @a[tag=player] at @s run function eternal_return:sys/bossbar/main
+    
     # 액션바
     #   
     #   이곳에서 정의된 tag functions
