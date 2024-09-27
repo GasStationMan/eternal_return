@@ -43,13 +43,25 @@ function eternal_return:sys/player/shift
 
 ## 플레이어
     # 플레이어 설정
-    execute as @a at @s run function eternal_return:sys/player/main
+    execute \
+    as @a \
+    at @s run \
+    function eternal_return:sys/player/main
     # 채팅 클릭 -> 더 이상 필요 없을 것으로 사료됨.
-    execute as @a[tag=player] at @s run function eternal_return:sys/trigger/main
+    execute \
+    as @a[tag=player] \
+    at @s run \
+    function eternal_return:sys/trigger/main
     # GUI 화면
-    execute as @a if entity @s[tag=player,tag=ER.gui_on] run function eternal_return:sys/gui/main
+    execute \
+    as @a \
+    if entity @s[tag=player,tag=ER.gui_on] run \
+    function eternal_return:sys/gui/main
     # 맵 창 / 키오스크 / 부활 선택창
-    execute as @a[tag=player] at @s run function eternal_return:maps/main
+    execute \
+    as @a[tag=player] \
+    at @s run \
+    function eternal_return:maps/main
 
     # 보스바
     #   
@@ -59,8 +71,11 @@ function eternal_return:sys/player/shift
     #   show_bossbar()
     #   hide_bossbar()
     #   clear_bossbar()
-    #   
-    execute as @a[tag=player] at @s run function eternal_return:sys/bossbar/main
+    #
+    execute \
+    as @a[tag=player] \
+    at @s run \
+    function eternal_return:sys/bossbar/main
     
     # 액션바
     #   
@@ -71,7 +86,9 @@ function eternal_return:sys/player/shift
     #   loading()
     #   pouse_loading() -> loading()과는 배타적
     # 
-    execute as @a[tag=player] run function eternal_return:sys/actionbar/main
+    execute \
+    as @a[tag=player] run \
+    function eternal_return:sys/actionbar/main
 
 
 
@@ -93,18 +110,32 @@ function eternal_return:sys/kiosk/main
 # 점프패드
 function eternal_return:sys/jumppad/main
 # 하이퍼 루프
-execute as @a[tag=player] at @s run function eternal_return:sys/hyperloop/main
+execute \
+as @a[tag=player] \
+at @s run \
+function eternal_return:sys/hyperloop/main
 # 생명의 나무
-execute as @a[tag=player] at @s run function eternal_return:sys/tree_of_life/main
+execute \
+as @a[tag=player] \
+at @s run \
+function eternal_return:sys/tree_of_life/main
 # 운석
-execute as @a[tag=player] at @s run function eternal_return:sys/meteor/main
+execute \
+as @a[tag=player] \
+at @s run \ 
+function eternal_return:sys/meteor/main
 
 
 # 야생동물 업데이트
-execute as @e[type=!player,tag=ER] run function eternal_return:entity/main/main
+execute \
+as @e[type=!player,tag=ER] run \
+function eternal_return:entity/main/main
 
 # 벽뚫화살 업데이트
-execute as @e[type= minecraft:arrow] at @s run function eternal_return:entity/arrow_pen/main
+execute \
+as @e[type= minecraft:arrow] \
+at @s run \
+function eternal_return:entity/arrow_pen/main
 
 
 
@@ -112,7 +143,7 @@ execute as @e[type= minecraft:arrow] at @s run function eternal_return:entity/ar
 #execute as @a[gamemode= creative] at @s run function eternal_return:entity/animal_spawn/
 
 ##> 디버그
-function eternal_return:debug
+#function eternal_return:debug
 
 ## 이전 버전 데이터팩 함수 루프
 #function eternal_return:sys/game/noarea

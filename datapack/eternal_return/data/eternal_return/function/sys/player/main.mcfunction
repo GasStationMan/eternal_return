@@ -1,5 +1,7 @@
 ## 플레이어 초기설정
-execute if entity @s[tag=!player] run function eternal_return:sys/player/frist_setting
+execute \
+if entity @s[tag=!player] run \
+    function eternal_return:sys/player/frist_setting
 
 # 은신 메커니즘
 
