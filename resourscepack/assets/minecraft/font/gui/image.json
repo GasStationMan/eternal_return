@@ -1,0 +1,8 @@
+{
+	"providers": [
+		{"type": "bitmap","file": "minecraft:font/character/select_window.png","ascent": 0, "height": 50,"chars": ["0"]},
+		{"type": "bitmap","file": "minecraft:font/character/random.png","ascent": 0, "height": 50,"chars": ["1"]},
+		{"type": "bitmap","file": "minecraft:font/character/bg.png","ascent": 100, "height": 800,"chars": ["2"]},
+		{"type": "bitmap","file": "minecraft:font/character/select_ui.png","ascent": -7, "height": 250,"chars": ["3"]}
+	]
+}
