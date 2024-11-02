@@ -17,25 +17,24 @@ kill @e[tag=standing_point]
 
 ## 마커 소환
 # 브리핑 룸 플레이어별 위치 표시 마커
-summon marker -289 63 432 {Tags:["standing_point","s_id1"]}
-summon marker -284 63 434 {Tags:["standing_point","s_id2"]}
-summon marker -280 63 438 {Tags:["standing_point","s_id3"]}
-summon marker -278 63 443 {Tags:["standing_point","s_id4"]}
-summon marker -277 63 448 {Tags:["standing_point","s_id5"]}
-summon marker -278 63 453 {Tags:["standing_point","s_id6"]}
-summon marker -280 63 458 {Tags:["standing_point","s_id7"]}
-summon marker -284 63 462 {Tags:["standing_point","s_id8"]}
-summon marker -289 63 464 {Tags:["standing_point","s_id9"]}
-summon marker -299 63 464 {Tags:["standing_point","s_id10"]}
-summon marker -304 63 462 {Tags:["standing_point","s_id11"]}
-summon marker -308 63 458 {Tags:["standing_point","s_id12"]}
-summon marker -310 63 453 {Tags:["standing_point","s_id13"]}
-summon marker -311 63 448 {Tags:["standing_point","s_id14"]}
-summon marker -310 63 443 {Tags:["standing_point","s_id15"]}
-summon marker -308 63 438 {Tags:["standing_point","s_id16"]}
-summon marker -304 63 434 {Tags:["standing_point","s_id17"]}
-summon marker -299 63 432 {Tags:["standing_point","s_id18"]}
-execute as @e[tag=standing_point] at @s run tp @s ~ ~ ~ facing -294 64 448
+summon interaction -246 64 484 {width:0.8f,height:0.8f,Tags:["standing_point","s_id1"]}
+summon interaction -246 64 482 {width:0.8f,height:0.8f,Tags:["standing_point","s_id2"]}
+summon interaction -246 64 480 {width:0.8f,height:0.8f,Tags:["standing_point","s_id3"]}
+summon interaction -246 64 478 {width:0.8f,height:0.8f,Tags:["standing_point","s_id4"]}
+summon interaction -246 64 476 {width:0.8f,height:0.8f,Tags:["standing_point","s_id5"]}
+summon interaction -246 64 474 {width:0.8f,height:0.8f,Tags:["standing_point","s_id6"]}
+summon interaction -246 64 472 {width:0.8f,height:0.8f,Tags:["standing_point","s_id7"]}
+summon interaction -246 64 470 {width:0.8f,height:0.8f,Tags:["standing_point","s_id8"]}
+summon interaction -246 64 468 {width:0.8f,height:0.8f,Tags:["standing_point","s_id9"]}
+summon interaction -244 64 484 {width:0.8f,height:0.8f,Tags:["standing_point","s_id10"]}
+summon interaction -244 64 482 {width:0.8f,height:0.8f,Tags:["standing_point","s_id11"]}
+summon interaction -244 64 480 {width:0.8f,height:0.8f,Tags:["standing_point","s_id12"]}
+summon interaction -244 64 478 {width:0.8f,height:0.8f,Tags:["standing_point","s_id13"]}
+summon interaction -244 64 476 {width:0.8f,height:0.8f,Tags:["standing_point","s_id14"]}
+summon interaction -244 64 474 {width:0.8f,height:0.8f,Tags:["standing_point","s_id15"]}
+summon interaction -244 64 472 {width:0.8f,height:0.8f,Tags:["standing_point","s_id16"]}
+summon interaction -244 64 470 {width:0.8f,height:0.8f,Tags:["standing_point","s_id17"]}
+summon interaction -244 64 468 {width:0.8f,height:0.8f,Tags:["standing_point","s_id18"]}
 
 
 # 구역별 마커

@@ -1,2 +1,0 @@
-# 로딩바 표시
-$title @s actionbar [{"nbt":"players[{id:$(id)}].loading","storage":"player_data","color":"white","interpret":true,"color":"#4e5c24","font":"actionbar/loading"},{"interpret":true,"nbt":"players[{id:$(id)}].text","storage":"player_data","color":"#4e5c24","font":"minecraft:default"}]

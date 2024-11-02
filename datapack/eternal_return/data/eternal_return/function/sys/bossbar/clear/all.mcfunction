@@ -1,6 +1,0 @@
-$bossbar set line1.id$(id) name ""
-$bossbar set line2.id$(id) name ""
-$bossbar set line3.id$(id) name ""
-$bossbar set line4.id$(id) name ""
-$bossbar set line5.id$(id) name ""
-$bossbar set line6.id$(id) name ""
