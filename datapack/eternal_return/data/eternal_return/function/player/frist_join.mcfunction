@@ -19,8 +19,8 @@ function pdb:get_me
     # 보스바 생성 및 표기
         function eternal_return:gui/bossbar/new with storage pdb:main args
         function eternal_return:gui/bossbar/show with storage pdb:main args
-    
-    # 캐릭터 추가
+
+    # 캐릭터 추가 test data
         execute unless data storage pdb:main out[{Class:"gay"}] run data modify storage pdb:main in.Class set value "gay"
 
 function pdb:save_me

@@ -4,9 +4,24 @@ forceload add -561 512 -585 536
 
 #function eternal_return:init
 
+# 스코어 보드 추가
+scoreboard objectives add ptemp dummy
+scoreboard objectives add loading.tick dummy
+scoreboard objectives add loading.pixel dummy
 
-# 빈 HPbar
-execute unless data storage minecraft:hp_bar data run data modify storage minecraft:hp_bar data set value ["-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0", "-0"]
+scoreboard objectives add Page.slot dummy
+scoreboard objectives add Page.ct dummy
+scoreboard objectives add Page.num dummy
+
+scoreboard objectives add old_scroll_num dummy
+scoreboard objectives add now_scroll_num dummy
+
+# 정수
+    scoreboard objectives add NUM dummy
+    # 정수 리스트
+        scoreboard players set #1 NUM 1
+        scoreboard players set #1000 NUM 1000
+
 
 # 야생동물 관련 스코어보드 생성
 scoreboard players set #ER.place.null ER.sys 0
@@ -47,4 +62,3 @@ scoreboard players set #ER.animal.wolf.cooltime ER.sys 120
 scoreboard players set #ER.animal.alpha.health ER.sys 150
 scoreboard players set #ER.animal.alpha.attack ER.sys 10
 scoreboard players set #ER.animal.alpha.cooltime ER.sys 120
-
