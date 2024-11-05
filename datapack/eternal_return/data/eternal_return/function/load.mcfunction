@@ -12,9 +12,12 @@ scoreboard objectives add loading.pixel dummy
 scoreboard objectives add Page.slot dummy
 scoreboard objectives add Page.ct dummy
 scoreboard objectives add Page.num dummy
+scoreboard objectives add Page.frame dummy
 
 scoreboard objectives add old_scroll_num dummy
 scoreboard objectives add now_scroll_num dummy
+scoreboard objectives add quit minecraft.custom:minecraft.leave_game
+
 
 # 정수
     scoreboard objectives add NUM dummy

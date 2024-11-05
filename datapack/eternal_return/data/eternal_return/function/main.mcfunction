@@ -52,8 +52,8 @@
 
     # 맵 창 / 키오스크 / 부활 선택창
 
-## 게임 타임라인
-#function eternal_return:sys/game/main
+## 게임 
+    execute as @a if entity @s[tag=player] run function eternal_return:game/tick
 
 
 

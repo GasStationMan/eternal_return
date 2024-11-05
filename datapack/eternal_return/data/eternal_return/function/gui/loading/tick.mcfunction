@@ -2,7 +2,6 @@
 
 ## 로딩바
 
-
     # 틱 레이트
         scoreboard players operation @s loading.tick += @s ptemp
     # 픽셀 갯수 계산
@@ -20,7 +19,6 @@
 
     # type 2 : 로딩바 2개
         execute if entity @s[tag=loading_type2] run function eternal_return:gui/loading/show_bar/type2
-
 
     # 종료조건
         execute if score @s loading.pixel matches 200.. run tag @s add done_loading

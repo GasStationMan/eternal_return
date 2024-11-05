@@ -21,7 +21,7 @@
 
 ## 전환 중 트리거
     # 보스바
-    execute if score @s Page.ct matches 30 run tag @s add clear_bossbar
+    #execute if score @s Page.ct matches 30 run tag @s add clear_bossbar
     # 액션바 
     execute if score @s Page.ct matches 30 run title @s actionbar ""
     # 타이틀

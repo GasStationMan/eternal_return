@@ -18,6 +18,7 @@
 ## 키 입력
     
     # Mouse Rclick = 화면 전환
+        execute if entity @s[tag=Rclick] run function eternal_return:gui/screen/display/select_character/set_char_data
         execute if entity @s[tag=Rclick] run tag @s add TRAN.fade_in
         # 다음 화면 스코어보드로 전환
         execute if score @s Page.ct matches 30 run scoreboard players set @s Page.num 1

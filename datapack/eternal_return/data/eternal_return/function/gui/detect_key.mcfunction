@@ -34,7 +34,3 @@
     # 좌클릭
     execute as @e[tag=standing_point] if data entity @s attack on attacker run tag @s add Lclick
     execute as @e[tag=standing_point] if data entity @s attack run data remove entity @s attack
-
-
-
-    

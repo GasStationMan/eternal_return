@@ -10,7 +10,8 @@ function pdb:get_me
 
     # 스코어보드 설정
         # 페이지
-        scoreboard players set @s Page.slot 0
+        scoreboard players set @s Page.frame 0
+        scoreboard players set @s Page.slot 1
         scoreboard players set @s Page.ct 0
         scoreboard players set @s Page.num 0
         # 슬롯 저장
