@@ -1,5 +1,5 @@
 
-function df_library:window/resetchat
+function df_lib:window/resetchat
 tellraw @s "======================================="
 tellraw @s "                       ⓒ키오스크\n"
 tellraw @s ["                      ",{"text":"▶ 특수 재료 ◀","color":"gray"}]
