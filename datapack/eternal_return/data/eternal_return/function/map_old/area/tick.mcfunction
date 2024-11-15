@@ -18,7 +18,7 @@ execute as @e[tag=battle_zone,tag=zplace] run data modify entity @s data.type se
 
 #execute if entity @e[tag=sort_low_score] run scoreboard objectives add sorting dummy
 #execute if entity @e[tag=sort_low_score] run data remove storage score low
-#execute if entity @e[tag=sort_low_score] run function eternal_return:sys/map/area/sort_low
+#execute if entity @e[tag=sort_low_score] run function eternal_return:map/area/sort_low
 #execute if entity @e[tag=sort_low_score] run scoreboard objectives remove sorting
 #execute if entity @e[tag=sort_low_score] run tag @e[tag=dones] remove dones
 #execute if entity @e[tag=sort_low_score] run tag @e[tag=lowscore] remove lowscore

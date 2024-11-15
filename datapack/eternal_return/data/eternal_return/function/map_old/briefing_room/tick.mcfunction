@@ -6,7 +6,7 @@
 
 ## 첫 입장 시 
     # 플레이어 초기설정
-    execute if entity @a[tag=first_join] as @a[tag=first_join] at @s run function eternal_return:sys/map/briefing_room/frist_join
+    execute if entity @a[tag=first_join] as @a[tag=first_join] at @s run function eternal_return:map/briefing_room/frist_join
 
 
 ## 대기 시

@@ -5,9 +5,9 @@ function eternal_return:temp/input/id
 
 
 ## 플레이어 위치 고정
-    function eternal_return:sys/map/briefing_room/fix_location with storage player_data temp[0]
+    function eternal_return:map/briefing_room/fix_location with storage player_data temp[0]
+   
     
-
 
 
 

@@ -1,11 +1,7 @@
-#
-#   필요 태그 : 없음
-#   
+## 화면 전환
+# 입력, 출력 : 없음
+# 상위 함수 : function eternal_return:gui/screen/tick
 
-
-
-
-## 화면 전환 효과
     # 전환 시 쿨타임 추가
     execute if score @s[tag=TRAN.fade_in] Page.ct matches 0 run scoreboard players set @s Page.ct 60
     # 전환 중이 아닐 때 시간 고정
@@ -16,8 +12,6 @@
         execute if entity @s[tag=TRAN.fade_in] run function eternal_return:gui/screen/transition/fade_in
         
     # 슬라이드(미정)
-
-
 
 ## 전환 중 트리거
     # 보스바

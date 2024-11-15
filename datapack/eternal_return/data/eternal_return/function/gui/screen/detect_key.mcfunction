@@ -1,4 +1,6 @@
 ## 키 감지
+# 상위 함수 : function eternal_return:gui/screen/tick
+# WASD,SHIFT,SPACE,좌/우클릭,F,Q 키 감지 후 태그 부여
 
     # W
     execute if predicate eternal_return:is_forward run tag @s add Wkey

@@ -12,9 +12,9 @@ scoreboard players reset #gametime.tick CT1
 scoreboard players reset #gametime.sec CT1
 scoreboard players reset #gametime.min CT1
 # 기물 초기화
-function eternal_return:sys/map/defualt_setting
+function eternal_return:map/defualt_setting
 # 구역 정보 초기화
-function eternal_return:sys/map/init
+function eternal_return:map/init
 # 서버 메시지 켜기
 gamerule sendCommandFeedback true
 

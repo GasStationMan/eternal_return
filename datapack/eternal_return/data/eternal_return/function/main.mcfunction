@@ -47,20 +47,20 @@
     # 로딩바
     execute as @a if entity @s[tag=player] run function eternal_return:gui/loading/tick
     # 커스텀 스크린
-    #execute as @a if entity @s[tag=player] run function eternal_return:gui/screen/tick
+    execute as @a if entity @s[tag=player] run function eternal_return:gui/screen/tick
 
 
     # 맵 창 / 키오스크 / 부활 선택창
 
 ## 게임 
     execute as @a if entity @s[tag=player] run function eternal_return:game/tick
-
+## 맵
+    execute as @a if entity @s[tag=player] run function eternal_return:map/tick
 
 
 
 ## 기물
-# 맵
-#function eternal_return:sys/map/main
+
 # 부시
 #function eternal_return:sys/player/bush
 # 키오스크

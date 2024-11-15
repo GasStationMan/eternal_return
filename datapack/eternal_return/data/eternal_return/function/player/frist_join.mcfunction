@@ -7,6 +7,9 @@ function pdb:get_me
         tag @s add frist_join
         tag @s add player
         tag @s add screen
+    
+    # 태그 삭제
+        tag @s remove waiting
 
     # 스코어보드 설정
         # 페이지

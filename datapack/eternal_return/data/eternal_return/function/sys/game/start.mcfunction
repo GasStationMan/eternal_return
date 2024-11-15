@@ -18,9 +18,9 @@ gamerule sendCommandFeedback false
 
 ## 맵
 # 기물
-function eternal_return:sys/map/defualt_setting
+function eternal_return:map/defualt_setting
 # 구역 초기화
-function eternal_return:sys/map/init
+function eternal_return:map/init
 # 낮으로 변경
 time set day
 

@@ -109,7 +109,7 @@ execute if score #timer.day CT1 matches 2 \
     if score #timer.halfday CT1 matches 1 \
     if score #timer.sec CT1 matches 30 \
     if score #timer.tick CT1 matches 19 \
-        run function eternal_return:sys/map/area/set_type {type:"scheduled_battle_zone"}
+        run function eternal_return:map/area/set_type {type:"scheduled_battle_zone"}
 execute if score #timer.day CT1 matches 2 \
     if score #timer.halfday CT1 matches 2 \
     if score #timer.sec CT1 matches 59 \
@@ -119,7 +119,7 @@ execute if score #timer.day CT1 matches 2 \
     if score #timer.halfday CT1 matches 2 \
     if score #timer.sec CT1 matches 59 \
     if score #timer.tick CT1 matches 19 \
-        run function eternal_return:sys/map/area/set_type {type:"battle_zone"}
+        run function eternal_return:map/area/set_type {type:"battle_zone"}
 ## 키오스크
 execute if score #timer.day CT1 matches 2 \
     if score #timer.halfday CT1 matches 1 \
@@ -138,32 +138,32 @@ execute if score #timer.day CT1 matches 3..4 \
     if score #timer.halfday CT1 matches 1..2 \
     if score #timer.sec CT1 matches 59 \
     if score #timer.tick CT1 matches 19 \
-        run function eternal_return:sys/map/area/set_type {type:"restricted_zone"}
+        run function eternal_return:map/area/set_type {type:"restricted_zone"}
 # 5일차
 execute if score #timer.day CT1 matches 5 \
     if score #timer.halfday CT1 matches 1..2 \
     if score #timer.sec CT1 matches 29 \
     if score #timer.tick CT1 matches 19 \
-        run function eternal_return:sys/map/area/set_type {type:"restricted_zone"}
+        run function eternal_return:map/area/set_type {type:"restricted_zone"}
 # 6일차
 execute if score #timer.day CT1 matches 6 \
     if score #timer.halfday CT1 matches 1 \
     if score #timer.sec CT1 matches 29 \
     if score #timer.tick CT1 matches 19 \
-        run function eternal_return:sys/map/area/set_type {type:"restricted_zone"}
+        run function eternal_return:map/area/set_type {type:"restricted_zone"}
 # 임시 금지 구역 지정
 # 3~4일차
 execute if score #timer.day CT1 matches 3..4 \
     if score #timer.halfday CT1 matches 1..2 \
     if score #timer.sec CT1 matches 59 \
     if score #timer.tick CT1 matches 19 \
-        run function eternal_return:sys/map/area/set_type {type:"scheduled_restricted_zone"}
+        run function eternal_return:map/area/set_type {type:"scheduled_restricted_zone"}
 # 5일차
 execute if score #timer.day CT1 matches 5 \
     if score #timer.halfday CT1 matches 1..2 \
     if score #timer.sec CT1 matches 29 \
     if score #timer.tick CT1 matches 19 \
-        run function eternal_return:sys/map/area/set_type {type:"scheduled_restricted_zone"}
+        run function eternal_return:map/area/set_type {type:"scheduled_restricted_zone"}
 #
 
 ## 임시 안전 구역

@@ -1,82 +1,48 @@
-#
-#   사용되는 시점 : 캐릭터를 선택할 때
+## 캐릭터 선택화면 요소
+#   상위 함수 : function eternal_return:gui/screen/display
 #   필요 스코어보드 : Page.num == 1
 #   화면 전환 방식 : fade
 #
+#   입력 가능 키 : W,A,S,D,F,SHIFT
+#   사용하는 gui : 보스바, 액션바, 아이템 카메라 오버레이(투구)
 
-function pdb:get_me
+## 화면 요소
+    # 기능
+        # 캐릭터 데이터에서 프레임 배열에 저장된 3줄만 가져오기
+            function eternal_return:gui/screen/display/select_character/get_inframe_char
+        # 캐릭터 테두리가 선택됨으로 변경
+            function eternal_return:gui/screen/display/select_character/change_to_selected_num
+        # 화면 프레임 변동 감지 후 변경하기
+            function eternal_return:gui/screen/display/select_character/is_scrollable
+        # 배열의 정수값을 텍스트 형식으로 변환
+            function eternal_return:gui/screen/display/select_character/change_to_text_array
 
-## 화면
-    # 보스바
-    $bossbar set line1.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [{"text":"25","font":"gui/late_time","color":"aqua"}]
-    $bossbar set line2.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [ \
-    {"interpret":true,"nbt":"in.character_array_frame[0][0]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[0][1]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[0][2]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[0][3]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[0][4]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"}]
-    $bossbar set line2.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [ \
-    {"interpret":true,"nbt":"in.character_array_frame[1][0]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[1][1]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[1][2]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[1][3]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[1][4]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"}]
-    $bossbar set line2.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [ \
-    {"interpret":true,"nbt":"in.character_array_frame[2][0]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[2][1]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[2][2]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[2][3]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"},{"translate":"space.7","font":"minecraft:default"}, \
-    {"interpret":true,"nbt":"in.character_array_frame[2][4]","storage":"pdb:main","color":"#4e5c24","font":"minecraft:default"}]
-    $bossbar set line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
-    $bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
+    # 남은시간 (보스바 line1)
+        execute if score @s Page.sec matches 1.. run scoreboard players remove @s Page.tick 1
+        execute if score @s Page.sec matches 1.. if score @s Page.tick matches ..0 run scoreboard players remove @s Page.sec 1
+        execute if score @s Page.sec matches 1.. if score @s Page.tick matches ..0 run scoreboard players add @s Page.tick 20
+        # 남은시간이 만료되었을 때
+            execute if score @s Page.num matches 1 if score @s Page.sec matches 0 run \
+                function eternal_return:gui/screen/display/select_character/goto_next_page
 
-    # 액션바
-        title @s actionbar [{"text":"4","font":"gui/image","color":"#4e5c24"}]
+    ## 보스바 (캐릭터 슬롯)
+        execute if score @s Page.num matches 1..2 run function eternal_return:gui/screen/display/select_character/bossbar with storage pdb:main args
 
-    # 타이틀
+    ## 액션바 (바로시작 버튼)
+        execute if score @s Page.num matches 1 run title @s actionbar [{"text":"4","font":"gui/image","color":"#4e5c24"}]
+        execute if score @s Page.num matches 2 run title @s actionbar [{"text":"5","font":"gui/image","color":"#4e5c24"}]
+
+    ## camera_overlay
+        # 머리 슬롯 (스크롤 배경)
+            function eternal_return:gui/screen/display/select_character/camera_overlay
 
 ## 키 입력
-        execute if score @s Page.slot matches ..1 run scoreboard players set @s Page.slot 1
-        execute if score @s Page.slot matches 31.. run scoreboard players set @s Page.slot 31
-    # WASD
-        execute if score @s[tag=Wkey] Page.slot matches 6..31 run scoreboard players remove @s Page.slot 5
-        execute if score @s[tag=Skey] Page.slot matches 1..26 run scoreboard players add @s Page.slot 5
-        execute if score @s[tag=Akey] Page.slot matches 2..31 run scoreboard players remove @s Page.slot 1
-        execute if score @s[tag=Dkey] Page.slot matches 1..30 run scoreboard players add @s Page.slot 1
+    # 캐릭터를 선택 시 (이동 범위 제한 및 버튼 선택)
+        execute if score @s Page.num matches 1 run function eternal_return:gui/screen/display/select_character/key
+    # 캐릭터를 선택 후 (SHIFT 키로 돌아가기)
+        execute if score @s[tag=SHIFT] Page.num matches 2 run scoreboard players set @s Page.num 1
+    # 다음 화면으로 전환 (F 키로 캐릭터 선택 및 이동)
+        execute if score @s[tag=select_Fkey] Page.num matches 2 if score @s[tag=select_Fkey] Page.ct matches 0 run \
+            function eternal_return:gui/screen/display/select_character/goto_next_page
 
-    # Q key
 
-    # F key
-
-    # Mouse Rclick
-
-    # Mouse Scroll Up/Down
-        execute if score @s[tag=scroll_up] Page.slot matches 2..31 run scoreboard players remove @s Page.slot 1
-        execute if score @s[tag=scroll_down] Page.slot matches 1..30 run scoreboard players add @s Page.slot 1
-
-# 캐릭터가 선택됨 표시로 변경
-function eternal_return:gui/screen/display/select_character/change_to_selected_num
-
-# 캐릭터 데이터에서 프레임에 넣은 3줄만 가져오기
-function eternal_return:gui/screen/display/select_character/get_inframe_char
-
-# 캐릭터 스크롤 변경
-function eternal_return:gui/screen/display/select_character/is_scrollable
-
-# camera_overlay
-    # 머리
-    execute if score @s Page.frame matches 1 run \
-        item replace entity @s armor.head with \
-        paper[equippable={slot:"head",equip_sound:"ui.toast.in",model:"none",camera_overlay:"font/character/bg_ui_scroll1"},item_model="air"] 1
-    execute if score @s Page.frame matches 2 run \
-        item replace entity @s armor.head with \
-        paper[equippable={slot:"head",equip_sound:"ui.toast.in",model:"none",camera_overlay:"font/character/bg_ui_scroll2"},item_model="air"] 1
-    execute if score @s Page.frame matches 3 run \
-        item replace entity @s armor.head with \
-        paper[equippable={slot:"head",equip_sound:"ui.toast.in",model:"none",camera_overlay:"font/character/bg_ui_scroll3"},item_model="air"] 1
-    execute if score @s Page.frame matches 4 run \
-        item replace entity @s armor.head with \
-        paper[equippable={slot:"head",equip_sound:"ui.toast.in",model:"none",camera_overlay:"font/character/bg_ui_scroll4"},item_model="air"] 1
-    execute if score @s Page.frame matches 5 run \
-        item replace entity @s armor.head with \
-        paper[equippable={slot:"head",equip_sound:"ui.toast.in",model:"none",camera_overlay:"font/character/bg_ui_scroll5"},item_model="air"] 1

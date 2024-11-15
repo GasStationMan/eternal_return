@@ -12,4 +12,4 @@ scoreboard players reset @s sorting
 # 마지막 태그 추가
 tag @e[tag=zplace,tag=lowscore,tag=!dones] add dones
 # 끝날 때까지 반복
-execute if entity @e[tag=!lowscore,tag=zplace] run function eternal_return:sys/map/area/sort_low
+execute if entity @e[tag=!lowscore,tag=zplace] run function eternal_return:map/area/sort_low

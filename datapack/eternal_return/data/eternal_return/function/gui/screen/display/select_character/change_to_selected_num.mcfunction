@@ -1,7 +1,13 @@
 ## 캐릭터를 선택했을 때 배열 숫자 변경
+# 입출력 없음
+# 상위 함수 : function eternal_return:gui/screen/display/select_character
+# 현재 선택한 슬롯 값이 가진 배열의 위치(좌표)를 저장하는 함수
+# 가로 좌표 : (현재 슬롯 - 1) % 5
+# 세로 좌표 : (현재 슬롯 - 1) / 5 
+
 function pdb:get_me
+
     # 정수 입력
-    scoreboard players set #1 NUM 1
     scoreboard players set #5 NUM 5
     scoreboard players set #500 NUM 500
 
@@ -26,11 +32,11 @@ function pdb:get_me
     # 선택됨으로 바꾸기
         function eternal_return:gui/screen/display/select_character/change_array_data with storage pdb:main in.point
 
-    scoreboard players reset #1 NUM
-    scoreboard players reset #5 NUM
-    scoreboard players reset #500 NUM
-    scoreboard players reset #input.temp NUM
-    scoreboard players reset #input.width NUM
-    scoreboard players reset #input.length NUM
+    # free
+        scoreboard players reset #5 NUM
+        scoreboard players reset #500 NUM
+        scoreboard players reset #input.temp NUM
+        scoreboard players reset #input.width NUM
+        scoreboard players reset #input.length NUM
 
 function pdb:save_me
