@@ -44,5 +44,3 @@
     # 다음 화면으로 전환 (F 키로 캐릭터 선택 및 이동)
         execute if score @s[tag=select_Fkey] Page.num matches 2 if score @s[tag=select_Fkey] Page.ct matches 0 run \
             function eternal_return:gui/screen/display/select_character/goto_next_page
-
-

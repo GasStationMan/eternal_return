@@ -1,5 +1,16 @@
-$bossbar set line4.id$(id) name [{"text":"남은 시간 : ","font":"centerbar/wait/remaining_text"},{"score":{"name":"#wait.remaining","objective":"CT1"},"font":"centerbar/wait/remaining_num","color":"aqua"},{"text":"초","font":"centerbar/wait/remaining_text","color":"white"}]
-$bossbar set line3.id$(id) name [\
-    {"score":{"name":"#wait.bg","objective":"CT1"},"font":"centerbar/wait/bg","color":"#4e5c24"},\
-    {"translate":"space.-75","font":"minecraft:default"},\
-    {"nbt":"wait_char","storage":"text","interpret":true,"font":"centerbar/wait/count","color":"#4e5c24"},{"text":"/18","font":"centerbar/wait/count","color":"#4e5c24"},{"translate":"space.53","font":"minecraft:default"}]
+## 대기 중인 인원 수 표기
+# 입출력 없음
+# 상위 함수 : function eternal_return:game/briefing_room
+# 브리핑 룸에서 대기 중인 플레이어 수와 게임 시작까지 남은 시간 보스바에 표기
+
+# 플레이어 숫자 표기방식 변경
+    scoreboard players operation #input.number NUM = #game.player CT1
+    function eternal_return:gui/bossbar/display/get_number {type:"space"}
+    data modify storage ui_temp temp.player set from storage temp format_num
+
+# 보스바에 저장
+    function eternal_return:gui/bossbar/display/ui/wait_bar with storage pdb:main args
+
+# free
+data remove storage temp format_num
+data remove storage ui_temp temp

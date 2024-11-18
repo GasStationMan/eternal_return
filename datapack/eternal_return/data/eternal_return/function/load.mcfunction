@@ -1,25 +1,16 @@
 tellraw @a {"text":"새로 고침 완료! 제발 제발 F3 + T !!!!!","color":"green"}
 forceload add -561 512 -585 536
+forceload add -243 485 -243 479
 
 
-#function eternal_return:init
+
+# 맵 기본 설정
+function eternal_return:map/init
 
 
 ## 게임 룰
     # 포탈 대기시간 무한
     gamerule playersNetherPortalCreativeDelay 1000000000
-
-
-## 스토리지
-    # 구역별 이름
-        data modify storage init map_name set value {\
-        alley:"   골목길  ",archery_range:"   양궁장  ",beach:"  모래사장 ",cemetery:"    묘지   ",\
-        chapel:"    성당   ",dock:"    항구   ",factory:"    공장   ",fire_station:"   소방서  ",\
-        forest:"     숲    ",gas_station:"   주유소  ",hospital:"    병원   ",hotel:"    호텔   ",\
-        police_station:"   경찰서  ",pond:"    연못   ",school:"    학교   ",stream:"    개울   ",\
-        temple:"     절    ",uptown:"고급 주택가",warehouse:"    창고   ",research_center:"   연구소  ",\
-        briefing_room:" 브리핑 룸 "}
-
 
 
 ## 스코어 보드 추가
@@ -54,10 +45,12 @@ forceload add -561 512 -585 536
             scoreboard players set #1 NUM 1
             scoreboard players set #1000 NUM 1000
 
+    # 금지구역 남은 시간
+        scoreboard objectives add bantime dummy
+    
     # 쿨타임
         scoreboard objectives add CT1 dummy
         scoreboard objectives add CT2 dummy
-        scoreboard objectives add CT3 dummy
         scoreboard objectives add SC dummy
 
     # 야생동물 관련 스코어보드 생성
@@ -109,3 +102,7 @@ forceload add -561 512 -585 536
         scoreboard players set #ER.place.port ER.sys 17
         scoreboard players set #ER.place.factory ER.sys 18
         scoreboard players set #ER.place.jul ER.sys 19
+    
+    # 브리핑룸 남은 시간/인원 표기 창
+        scoreboard players set #wait.bg CT1 1
+        scoreboard players set #wait.bg.tick CT1 1

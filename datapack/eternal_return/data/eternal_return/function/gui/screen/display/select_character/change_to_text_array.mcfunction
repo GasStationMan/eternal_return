@@ -69,4 +69,6 @@ function eternal_return:gui/screen/format_num with storage temp
 data modify storage temp show_charlist[2] append from storage temp intTotext
 
 
+data remove storage temp int
+data remove storage temp intTotext
 data remove storage temp temp_array

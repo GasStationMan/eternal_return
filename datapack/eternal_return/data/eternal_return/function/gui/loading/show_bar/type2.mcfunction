@@ -21,3 +21,6 @@
         execute if score @s loading.pixel matches 10..99 run function eternal_return:gui/loading/show_bar/type2/bar1/01 with storage minecraft:temp args
         # 102 ~ 199
         execute if score @s loading.pixel matches 102..199 run function eternal_return:gui/loading/show_bar/type2/bar2/1 with storage minecraft:temp args
+
+    # free
+        data remove storage temp args

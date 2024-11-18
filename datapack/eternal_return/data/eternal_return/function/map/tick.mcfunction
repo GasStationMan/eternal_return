@@ -9,7 +9,7 @@
         
     # 구역별 이름 개인 스토리지에 저장
     function pdb:get_me
-        function eternal_return:map/get_place_name with storage pdb:main in
+        function eternal_return:map/get_place with storage pdb:main in
     function pdb:save_me
 
 

@@ -1,43 +1,44 @@
-$bossbar set line1.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [\
-    {"score":{"name":"#game.respawn","objective":"CT1"},"font":"boss/respawn","color":"#4e5c24"},\
-    {"translate":"space.-30","font":"minecraft:default"},\
-    {"score":{"name":"@s","objective":"resurrection"},"font":"boss/resurrection","color":"#4e5c24"},\
-    {"translate":"space.3","font":"minecraft:default"},\
-    {"text":"2","font":"boss/icon","color":"#4e5c24"},\
-\
-    {"translate":"space.-158","font":"minecraft:default"},\
-    {"nbt":"in.place_name","storage":"pdb:main","font":"boss/text"},\
-\
-    {"translate":"space.21","font":"minecraft:default"},\
-    {"score":{"name":"#timer.halfday","objective":"CT1"},"font":"boss/halfday","color":"#4e5c24"},\
-    {"translate":"space.1","font":"minecraft:default"},\
-    {"text":"0","font":"boss/timer"},\
-    {"score":{"name":"#timer.min","objective":"CT1"},"font":"boss/timer"},\
-    {"text":":","interpret":true,"font":"boss/timer"},\
-    {"text":"00","font":"boss/timer"},\
-\
-    {"translate":"space.27","font":"minecraft:default"},\
-    {"text":"10","font":"boss/team"},\
-    {"text":" ","font":"minecraft:default"},\
-    {"text":"TEAM ","color":"#69A3C7","font":"boss/text"},\
-\
-    {"translate":"space.7","font":"minecraft:default"},\
-    {"text":"1","font":"boss/icon","color":"#4e5c24"},\
-\
-    {"translate":"space.-24","font":"minecraft:default"},\
-    {"text":"10","font":"boss/player"},\
-    {"translate":"space.17","font":"minecraft:default"}\
-    ]
+## 상단 중앙 ui
+# 입출력 없음
+# 상위 함수 : function eternal_return:game/briefing_room
+# 스코어를 텍스트로 변환 후 보스바에 입력
 
-$bossbar set line2.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [\
-    {"translate":"space.-7","font":"minecraft:default"},\
-    {"text":" 0","font":"boss/day"},\
-    {"text":"일차 ","color":"white","font":"boss/text2"},\
-    {"translate":"space.-7","font":"minecraft:default"}]
+# 숫자 표기 방식 변경
+    # 분
+        scoreboard players operation #input.number NUM = #timer.min CT1
+        function eternal_return:gui/bossbar/display/get_number {type:"two"}
+        data modify storage ui_temp temp.time_min set from storage temp format_num
+    # 초
+        scoreboard players operation #input.number NUM = #timer.sec CT1
+        function eternal_return:gui/bossbar/display/get_number {type:"two"}
+        data modify storage ui_temp temp.time_sec set from storage temp format_num
+    # 팀원 수
+        scoreboard players operation #input.number NUM = #game.team CT1
+        function eternal_return:gui/bossbar/display/get_number {type:"space"}
+        data modify storage ui_temp temp.team set from storage temp format_num
+    # 인원 수
+        scoreboard players operation #input.number NUM = #game.player CT1
+        function eternal_return:gui/bossbar/display/get_number {type:"space"}
+        data modify storage ui_temp temp.player set from storage temp format_num
+    # 일차
+        scoreboard players operation #input.number NUM = #game.day CT1
+        function eternal_return:gui/bossbar/display/get_number {type:"space"}
+        data modify storage ui_temp temp.day set from storage temp format_num
+    # 금지구역 남은시간
+        scoreboard players operation #input.number NUM = @s bantime
+        function eternal_return:gui/bossbar/display/get_number {type:"two"}
+        data modify storage ui_temp temp.bantime set from storage temp format_num
 
-$bossbar set line3.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [\
-    {"text":"0","font":"boss/icon","color":"#4e5c24"},\
-    {"translate":"space.2","font":"minecraft:default"},\
-    {"text":"20","font":"boss/bantime","color":"red"},\
-    {"translate":"space.0","font":"minecraft:default"}\
-    ]
+# 문자열 표기 방식 변경
+    # 현재 구역의 상태 받아오기
+        data modify storage temp place.name set from storage pdb:main in.place_name
+        data modify storage temp place.color set from storage pdb:main in.place_color
+        function eternal_return:gui/bossbar/display/format/place_and_color with storage temp place
+
+# 플레이어별 보스바에 변환된 텍스트 입력
+    function eternal_return:gui/bossbar/display/ui/interface with storage pdb:main args
+
+
+# free
+    data remove storage temp format_num
+    data remove storage ui_temp temp

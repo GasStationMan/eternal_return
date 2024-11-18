@@ -22,3 +22,5 @@ $bossbar set line4.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [ \
 {"interpret":true,"nbt":"show_charlist[2][4]","storage":"temp","color":"#4e5c24","font":"gui/character/line3"}]
 $bossbar set line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
 $bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
+
+data remove storage temp show_charlist
