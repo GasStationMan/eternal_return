@@ -17,6 +17,8 @@ function pdb:get_me
         scoreboard players set @s Page.slot 1
         scoreboard players set @s Page.ct 0
         scoreboard players set @s Page.num 0
+        # 부활
+        scoreboard players set @s resurrection 0
         # 슬롯 저장
         execute store result score #temp.now_scroll_num NUM run data get entity @s SelectedItemSlot
 

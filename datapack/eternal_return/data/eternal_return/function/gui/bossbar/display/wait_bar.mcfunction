@@ -5,7 +5,7 @@
 
 # 플레이어 숫자 표기방식 변경
     scoreboard players operation #input.number NUM = #game.player CT1
-    function eternal_return:gui/bossbar/display/get_number {type:"space"}
+    function eternal_return:gui/bossbar/display/format_number {type:"space"}
     data modify storage ui_temp temp.player set from storage temp format_num
 
 # 보스바에 저장

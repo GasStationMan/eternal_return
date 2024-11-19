@@ -5,12 +5,14 @@ forceload add -243 485 -243 479
 
 
 # 맵 기본 설정
-function eternal_return:map/init
-
+    function eternal_return:map/init
+# 캐릭터 설정
+    function eternal_return:character/init
 
 ## 게임 룰
     # 포탈 대기시간 무한
     gamerule playersNetherPortalCreativeDelay 1000000000
+    gamerule playersNetherPortalDefaultDelay 1000000000
 
 
 ## 스코어 보드 추가

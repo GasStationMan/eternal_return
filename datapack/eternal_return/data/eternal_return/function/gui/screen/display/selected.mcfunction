@@ -15,6 +15,8 @@
         $execute if score @s Page.ct matches 20 run bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
 
 ## 부가 기능
+    # 캐릭터 부여
+        execute if score @s Page.ct matches 20 run function eternal_return:character/get_character
     # 브리핑 룸으로 이동
         spreadplayers -293 448 3 30 under 63 false @s[tag=frist_join]
     # 태그

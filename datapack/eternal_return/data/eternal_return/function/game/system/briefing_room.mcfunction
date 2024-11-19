@@ -47,3 +47,10 @@
     # 화면 페이드 아웃
         execute if score #wait.remaining CT1 matches 1 if score #wait.remaining.tick CT1 matches 1 run title @a times 10t 2s 10t
         execute if score #wait.remaining CT1 matches 1 if score #wait.remaining.tick CT1 matches 2 run title @a title {"text":"1","font":"screen_effect","color":"#4e5c24"}
+    
+    # 플레이어 지역별 한 명씩 워프
+
+        # 임시 좌표배열
+            scoreboard players set #warp.player.count NUM 18
+            data modify storage map warp.initial set from storage map position
+            

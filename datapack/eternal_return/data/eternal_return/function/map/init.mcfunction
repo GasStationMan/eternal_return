@@ -18,6 +18,27 @@ function eternal_return:map/set_object
         police_station:{text:"   경찰서  ",color:"white"},pond:{text:"    연못   ",color:"white"},school:{text:"    학교   ",color:"white"},stream:{text:"    개울   ",color:"white"},\
         temple:{text:"     절    ",color:"white"},uptown:{text:"고급 주택가",color:"white"},warehouse:{text:"    창고   ",color:"white"},research_center:{text:"   연구소  ",color:"white"},\
         briefing_room:{text:" 브리핑 룸 ",color:"white"}}
+    # 구역 TP 좌표
+        data modify storage map position set value [\
+        {name:alley,1:"-760 82 616",2:"-723 82 667",3:"-750 82 638"},\
+        {name:archery_range,1:"-575 84 685",2:"-559 84 668",3:"-603 84 673"},\
+        {name:beach,1:"-452 80 598",2:"-433 80 619",3:"-411 80 549"},\
+        {name:cemetery,1:"-582 82 437",2:"-591 84 417",3:"-611 82 389"},\
+        {name:chapel,1:"-537 84 447",2:"-554 82 425",3:"-561 82 394"},\
+        {name:dock,1:"-464 82 352",2:"-465 82 364",3:"-488 82 354"},\
+        {name:factory,1:"-609 82 329",2:"-584 82 342",3:"-542 82 358"},\
+        {name:fire_station,1:"-669 82 548",2:"-684 82 590",3:"-649 82 534"},\
+        {name:forest,1:"-517 82 537",2:"-540 82 498",3:"-512 82 515"},\
+        {name:gas_station,1:"-678 82 628",2:"-693 82 697",3:"-657 82 698"},\
+        {name:hospital,1:"-674 82 414",2:"-652 82 417",3:"-672 82 388"},\
+        {name:hotel,1:"-497 80 617",2:"-517 82 639",3:"-518 80 616"},\
+        {name:police_station,1:"-734 82 598",2:"-726 82 576",3:"-718 82 525"},\
+        {name:pond,1:"-629 82 457",2:"-629 82 496",3:"-681 79 494"},\
+        {name:school,1:"-587 86 605",2:"-613 84 604",3:"-629 82 647"},\
+        {name:stream,1:"-719 79 495",2:"-720 82 444",3:"-692 82 460"},\
+        {name:temple,1:"-770 82 528",2:"-777 84 505",3:"-742 82 457"},\
+        {name:uptown,1:"-389 82 501",2:"-414 82 496",3:"-453 82 493"},\
+        {name:warehouse,1:"-441 82 403",2:"-431 82 431",3:"-469 82 424"}]
 
 ## 마커 소환
     # 마커 제거

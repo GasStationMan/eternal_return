@@ -10,6 +10,10 @@
         # 곧 이동 텍스트 UI
             execute if score #wait.remaining CT1 matches ..5 if entity @s[tag=waiting] run function eternal_return:gui/bossbar/display/now_bar
 
+
+    # 게임 필드로 이동
+        execute if score #wait.remaining CT1 matches 1 run function eternal_return:game/player/warp
+
     # 포션 효과
         effect clear @s invisibility
         effect give @s saturation infinite 100 true
