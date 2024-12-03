@@ -12,3 +12,7 @@
     # 플레이어
 
     # 시스템
+
+    # debug
+    #execute as Money5645 at @s run function eternal_return:map/warp/get_place
+    #execute as Money5645 at @s run function eternal_return:map/warp/teleport

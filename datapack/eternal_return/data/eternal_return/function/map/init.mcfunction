@@ -21,7 +21,7 @@ function eternal_return:map/set_object
     # 구역 TP 좌표
         data modify storage map position set value [\
         {name:alley,1:"-760 82 616",2:"-723 82 667",3:"-750 82 638"},\
-        {name:archery_range,1:"-575 84 685",2:"-559 84 668",3:"-603 84 673"},\
+        {name:archery_range,1:"-575 85 685",2:"-559 84 668",3:"-603 84 673"},\
         {name:beach,1:"-452 80 598",2:"-433 80 619",3:"-411 80 549"},\
         {name:cemetery,1:"-582 82 437",2:"-591 84 417",3:"-611 82 389"},\
         {name:chapel,1:"-537 84 447",2:"-554 82 425",3:"-561 82 394"},\

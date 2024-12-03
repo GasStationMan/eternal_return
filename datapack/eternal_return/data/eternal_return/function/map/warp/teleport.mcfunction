@@ -5,11 +5,11 @@
 
 function pdb:get_me
 ## 저장된 구역 이동
-    # 저장된 값이 없는 경우 구문 탈출
+    # 저장된 값이 없는 경우 함수 종료
         execute unless data storage pdb:main in.warp_pos run return fail
     # 이동
-        function eternal_return:map/warp/goto with storage pdb:main in
-    # 저장된 좌표 지우기
+        function eternal_return:map/warp/move_to_point with storage pdb:main in
+    # 저장된 좌표 지우기f
         data remove storage pdb:main in.warp_pos
 
 function pdb:save_me

@@ -5,6 +5,7 @@
 # 화면 전환 방식 : fade
 # 캐릭터 선택 후 브리핑 룸 이동 및 스크린 종료 
 
+
 ## 화면
     # 보스바
         $execute if score @s Page.ct matches 20 run bossbar set line1.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
@@ -13,6 +14,15 @@
         $execute if score @s Page.ct matches 20 run bossbar set line4.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
         $execute if score @s Page.ct matches 20 run bossbar set line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
         $execute if score @s Page.ct matches 20 run bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
+
+# 플레이어 스토리지 free
+    function pdb:get_me
+    
+    data remove storage pdb:main in.character_array
+    data remove storage pdb:main in.character_array_frame
+    data remove storage pdb:main in.point
+
+    function pdb:save_me
 
 ## 부가 기능
     # 캐릭터 부여
