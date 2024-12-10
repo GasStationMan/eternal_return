@@ -1,0 +1,11 @@
+{
+	"providers": [
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/center_bg.png",
+			"ascent": 5,
+			"height": 13,
+			"chars": ["0"]
+		}
+	]
+}

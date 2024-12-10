@@ -1,0 +1,11 @@
+{
+	"providers": [
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/late_time.png",
+			"ascent": 28,
+			"height": 55,
+			"chars": ["0"]
+		}
+	]
+}

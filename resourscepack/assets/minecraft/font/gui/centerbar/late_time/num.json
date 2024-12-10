@@ -1,0 +1,11 @@
+{
+    "providers": [
+        {
+            "type": "ttf",
+            "file": "minecraft:godo.ttf",
+            "oversample": 12.0,
+            "size": 25,
+            "shift": [ 0.0, -9.0 ]
+        }
+]
+}
