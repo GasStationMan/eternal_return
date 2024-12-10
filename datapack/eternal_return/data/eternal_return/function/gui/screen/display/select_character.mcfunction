@@ -29,8 +29,8 @@
         execute if score @s Page.num matches 1..2 run function eternal_return:gui/screen/display/select_character/bossbar with storage pdb:main args
 
     ## 액션바 (바로시작 버튼)
-        execute if score @s Page.num matches 1 run title @s actionbar [{"text":"4","font":"gui/image","color":"#4e5c24"}]
-        execute if score @s Page.num matches 2 run title @s actionbar [{"text":"5","font":"gui/image","color":"#4e5c24"}]
+        execute if score @s Page.num matches 1 run title @s actionbar [{"text":"4","font":"gui/image","shadow_color":0}]
+        execute if score @s Page.num matches 2 run title @s actionbar [{"text":"5","font":"gui/image","shadow_color":0}]
 
     ## camera_overlay
         # 머리 슬롯 (스크롤 배경)

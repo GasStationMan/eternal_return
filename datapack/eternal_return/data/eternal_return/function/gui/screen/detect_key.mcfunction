@@ -27,7 +27,7 @@
     # Q
     execute at @s if data entity @e[type=item,limit=1,distance=..2] Item.components."minecraft:custom_data"{tag:"selectmod"} run tag @s add select_Qkey
     execute if entity @s[tag=select_Qkey] run function eternal_return:gui/screen/blank_item
-    execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data"{tag:"selectmod"} run kill @s
+    
 
     # 우클릭
     execute as @e[tag=standing_point] if data entity @s interaction on target run tag @s add Rclick

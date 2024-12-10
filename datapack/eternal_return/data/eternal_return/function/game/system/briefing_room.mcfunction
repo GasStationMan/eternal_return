@@ -10,10 +10,9 @@
         scoreboard players set #timer.halfday CT1 1
         scoreboard players set #timer.min CT1 0
         scoreboard players set #timer.sec CT1 0
-        execute store result score #game.team CT1 if entity @a[tag=waiting]
-        execute store result score #game.player CT1 if entity @e[tag=waiting]
         scoreboard players set #timer.day CT1 1
         scoreboard players set @a[tag=waiting] bantime 20
+
 
     ## 남은시간/대기 플레이어 UI
         # 배경 애니메이션 스코어보드 연산
@@ -29,26 +28,30 @@
             execute if score #game.player CT1 matches ..9 run scoreboard players set #wait.remaining CT1 120
             execute if score #game.player CT1 matches ..9 run scoreboard players set #wait.remaining.tick CT1 1
 
+
     ## "곧 루미아 섬으로 이동" 텍스트 UI
+
         # 남은 시간이 5초 남았을 때 열리는 애니메이션 재생
             execute if score #wait.remaining CT1 matches 5 run scoreboard players set #now.trigger CT1 1
             execute if score #wait.remaining CT1 matches 6.. run scoreboard players set #now.bg CT1 0
         # 루미아 섬으로 워프시 닫히는 애니메니션 재생
-            execute if score #wait.remaining CT1 matches 1 run scoreboard players set #now.trigger CT1 2
+            execute if score #wait.remaining CT1 matches 2 if score #wait.remaining.tick CT1 matches 10 run scoreboard players set #now.trigger CT1 2
+        # 배경 애니메이션 스코어보드
+            function eternal_return:gui/bossbar/display/now_bar_tickrate
 
     ## 플에이어 수별 UI 스코어 변동
         # 게임시작 5초전 플레이어가 일정수 이상 빠진 경우 남은 시간 120초 고정
             execute if score #wait.remaining CT1 matches 1..5 if score #game.player CT1 matches ..9 run scoreboard players set #wait.remaining CT1 120
         # 플레이어 수가 17명 이상 대기 중인 경우 남은 시간 10초로 스킵
             execute if score #wait.remaining CT1 matches 11.. if score #game.player CT1 matches 17.. run scoreboard players set #wait.remaining CT1 10
-
+    # 아이템 제거
+        execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data"{tag:"selectmod"} run kill @s
 
 ## 루미아 섬으로 이동
     # 화면 페이드 아웃
-        execute if score #wait.remaining CT1 matches 1 if score #wait.remaining.tick CT1 matches 1 run title @a times 10t 2s 10t
-        execute if score #wait.remaining CT1 matches 1 if score #wait.remaining.tick CT1 matches 2 run title @a title {"text":"1","font":"screen_effect","color":"#4e5c24"}
+        execute if score #wait.remaining CT1 matches 1 if score #wait.remaining.tick CT1 matches 1 run title @a times 10t 2s 4t
+        execute if score #wait.remaining CT1 matches 1 if score #wait.remaining.tick CT1 matches 2 run title @a title {"text":"1","font":"screen_effect","shadow_color":0}
     
-    # 플레이어에게 워프할 구역 배정
-        execute if score #wait.remaining CT1 matches 1 run \
-        function eternal_return:game/system/briefing_room/tp_to_area
-    
+    # 태그 변경
+        execute if score #wait.remaining CT1 matches 1 if score #wait.remaining.tick CT1 matches 1 run \
+            function eternal_return:game/system/briefing_room/starting

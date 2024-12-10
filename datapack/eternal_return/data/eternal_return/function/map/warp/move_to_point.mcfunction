@@ -6,4 +6,4 @@
 ## 이동하기
     $tp @s $(warp_pos)
     # debug
-    $tellraw @a [{"selector":"@s"},{"text":"이(가)"},{"text":" $(warp_pos)","color":"green"},{"text":"로 이동하였습니다.","color":"white"}]
+    #$tellraw @a [{"selector":"@s"},{"text":"이(가)"},{"text":" $(warp_pos)","color":"green"},{"text":"로 이동하였습니다.","color":"white"}]

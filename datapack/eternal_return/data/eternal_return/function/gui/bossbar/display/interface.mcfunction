@@ -1,7 +1,10 @@
 ## 상단 중앙 ui
 # 입출력 없음
-# 상위 함수 : function eternal_return:game/briefing_room
+# 상위 함수 : function eternal_return:game/briefing_room \
+            function eternal_return:game/player/in_game
 # 스코어를 텍스트로 변환 후 보스바에 입력
+
+
 
 # 숫자 표기 방식 변경
     # 분

@@ -4,7 +4,7 @@
 
 
 $bossbar set minecraft:line5.id$(id) name [\
-    {"font":"minecraft:map/hyper_loop", "text":"\u4000","color":"#4e5c24"},\
+    {"font":"minecraft:map/hyper_loop", "text":"\u4000","shadow_color":0},\
     {"font":"minecraft:x_transform",    "text":"\u4250"},\
     {"font":"minecraft:x_transform",    "text":"\u4250"},\
     {"font":"minecraft:map/beach",      "text":"\u4142","color":"$(beach)"},\
@@ -48,10 +48,10 @@ $bossbar set minecraft:line5.id$(id) name [\
     {"font":"minecraft:map/storage",    "text":"\u4196","color":"$(storage)"},\
     {"font":"minecraft:x_transform",    "text":"\u1108"},\
     {"font":"minecraft:x_transform",    "text":"\u4$(mouseX)"},\
-    {"font":"minecraft:map/icon",       "text":"\u1$(mouseY)","color":"#4e5c24"},\
+    {"font":"minecraft:map/icon",       "text":"\u1$(mouseY)","shadow_color":0},\
     {"font":"minecraft:x_transform",    "text":"\u1$(mouseX)"},\
     {"font":"minecraft:x_transform",    "text":"\u4230"},\
-    {"font":"minecraft:map/hyper_loop", "text":"\u4001","color":"#4e5c24"},\
+    {"font":"minecraft:map/hyper_loop", "text":"\u4001","shadow_color":0},\
     {"font":"minecraft:x_transform",    "text":"\u1250"},\
     {"font":"minecraft:x_transform",    "text":"\u1110"}\
     ]

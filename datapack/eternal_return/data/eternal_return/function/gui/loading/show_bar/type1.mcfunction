@@ -9,8 +9,8 @@
 
 
     # 스코어별 표기
-        execute if score @s loading.pixel matches ..0 run title @s actionbar {"text":"\u5000","font":"gui/loading/bar","color":"#4e5c24"}
+        execute if score @s loading.pixel matches ..0 run title @s actionbar {"text":"\u5000","font":"gui/loading/bar","shadow_color":0}
         execute if score @s loading.pixel matches 1..9 run function eternal_return:gui/loading/show_bar/type1/1 with storage minecraft:temp args
         execute if score @s loading.pixel matches 10..99 run function eternal_return:gui/loading/show_bar/type1/01 with storage minecraft:temp args
         execute if score @s loading.pixel matches 100..199 run function eternal_return:gui/loading/show_bar/type1/001 with storage minecraft:temp args
-        execute if score @s loading.pixel matches 200.. run title @s actionbar {"text":"\u5200","font":"gui/loading/bar","color":"#4e5c24"}
+        execute if score @s loading.pixel matches 200.. run title @s actionbar {"text":"\u5200","font":"gui/loading/bar","shadow_color":0}

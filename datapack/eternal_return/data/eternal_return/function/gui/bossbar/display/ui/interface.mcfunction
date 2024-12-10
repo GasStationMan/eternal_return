@@ -6,17 +6,17 @@
 ## 보스바 라인별 요소
     # 부활 가능 여부(전체/개인), 게임시간 (분/초), 남은 수(팀/인원)
         $bossbar set line1.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [\
-            {"score":{"name":"#game.respawn","objective":"CT1"},"font":"boss/respawn","color":"#4e5c24"},\
+            {"score":{"name":"#game.respawn","objective":"CT1"},"font":"boss/respawn","shadow_color":0},\
             {"translate":"space.-30","font":"minecraft:default"},\
-            {"score":{"name":"@s","objective":"resurrection"},"font":"boss/resurrection","color":"#4e5c24"},\
+            {"score":{"name":"@s","objective":"resurrection"},"font":"boss/resurrection","shadow_color":0},\
             {"translate":"space.4","font":"minecraft:default"},\
-            {"text":"2","font":"boss/icon","color":"#4e5c24"},\
+            {"text":"2","font":"boss/icon","shadow_color":0},\
         \
             {"translate":"space.-158","font":"minecraft:default"},\
             {"nbt":"temp.place","storage":"ui_temp","interpret":true,"font":"boss/text"},\
         \
             {"translate":"space.21","font":"minecraft:default"},\
-            {"score":{"name":"#timer.halfday","objective":"CT1"},"font":"boss/halfday","color":"#4e5c24"},\
+            {"score":{"name":"#timer.halfday","objective":"CT1"},"font":"boss/halfday","shadow_color":0},\
             {"translate":"space.1","font":"minecraft:default"},\
             {"nbt":"temp.time_min","storage":"ui_temp","font":"boss/timer"},\
             {"text":":","interpret":true,"font":"boss/timer"},\
@@ -28,7 +28,7 @@
             {"text":"TEAM ","color":"#69A3C7","font":"boss/text"},\
         \
             {"translate":"space.8","font":"minecraft:default"},\
-            {"text":"1","font":"boss/icon","color":"#4e5c24"},\
+            {"text":"1","font":"boss/icon","shadow_color":0},\
         \
             {"translate":"space.-24","font":"minecraft:default"},\
             {"nbt":"temp.player","storage":"ui_temp","font":"boss/player"},\
@@ -45,6 +45,6 @@
     # 금지구역 남은시간
         $bossbar set line3.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [\
             {"translate":"space.-3","font":"minecraft:default"},\
-            {"text":"0","font":"boss/icon","color":"#4e5c24"},\
+            {"text":"0","font":"boss/icon","shadow_color":0},\
             {"translate":"space.2","font":"minecraft:default"},\
-            {"nbt":"temp.bantime","storage":"ui_temp","font":"boss/bantime","color":"red"}]
+            {"nbt":"temp.bantime","storage":"ui_temp","font":"boss/bantime","color":"white","shadow_color":[1,0.4,0.4,1]}]

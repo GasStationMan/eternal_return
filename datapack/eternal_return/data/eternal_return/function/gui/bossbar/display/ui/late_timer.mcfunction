@@ -1,0 +1,3 @@
+$bossbar set line4.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name {"text":"0","font":"gui/centerbar/late_time/bg","shadow_color":0}
+$bossbar set line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name {"score":{"name":"#late_time_sec","objective":"CT1"},"font":"gui/centerbar/late_time/num","color":"white","shadow_color":0}
+$bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name {"text":"실험을 곧 시작합니다.","font":"gui/centerbar/late_time/text","color":"white","shadow_color":0}

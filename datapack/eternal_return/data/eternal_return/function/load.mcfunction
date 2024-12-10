@@ -8,6 +8,8 @@ forceload add -243 485 -243 479
     function eternal_return:map/init
 # 캐릭터 설정
     function eternal_return:character/init
+# 게임 시간 초기화
+    function eternal_return:sys/game/time/start
 
 ## 게임 룰
     # 포탈 대기시간 무한

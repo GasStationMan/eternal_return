@@ -9,7 +9,7 @@ function pdb:get_me
         execute unless data storage pdb:main in.warp_pos run return fail
     # 이동
         function eternal_return:map/warp/move_to_point with storage pdb:main in
-    # 저장된 좌표 지우기f
+    # 저장된 좌표 지우기
         data remove storage pdb:main in.warp_pos
 
 function pdb:save_me

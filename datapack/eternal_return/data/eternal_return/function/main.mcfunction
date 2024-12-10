@@ -53,7 +53,7 @@
     # 맵 창 / 키오스크 / 부활 선택창
 
 ## 게임 
-    execute as @a if entity @s[tag=player] run function eternal_return:game/tick
+    function eternal_return:game/tick
 ## 맵
     execute as @a if entity @s[tag=player] run function eternal_return:map/tick
 
