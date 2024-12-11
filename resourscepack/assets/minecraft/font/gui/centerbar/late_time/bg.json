@@ -6,6 +6,13 @@
 			"ascent": 28,
 			"height": 55,
 			"chars": ["0"]
+		},
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/late_time.png",
+			"ascent": -120,
+			"height": 55,
+			"chars": ["1"]
 		}
 	]
 }

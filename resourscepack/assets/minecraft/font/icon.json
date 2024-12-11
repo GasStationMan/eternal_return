@@ -256,7 +256,8 @@
 		{"type": "bitmap","file": "minecraft:font/icon/icon.png","ascent": -189, "height": 128,"chars": ["\u1253"]},
 		{"type": "bitmap","file": "minecraft:font/icon/icon.png","ascent": -190, "height": 128,"chars": ["\u1254"]},
 		{"type": "bitmap","file": "minecraft:font/icon/icon.png","ascent": -191, "height": 128,"chars": ["\u1255"]},
-		{"type": "bitmap","file": "minecraft:font/icon/icon.png","ascent": -192, "height": 128,"chars": ["\u1256"]}
+		{"type": "bitmap","file": "minecraft:font/icon/icon.png","ascent": -192, "height": 128,"chars": ["\u1256"]},
+		{"type": "bitmap","file": "minecraft:font/question.png","ascent": 22, "height": 24,"chars": ["!"]}
 		
 	]
 }
