@@ -6,17 +6,14 @@
 ## 보스바 라인별 요소
     # 부활 가능 여부(전체/개인), 게임시간 (분/초), 남은 수(팀/인원)
         $bossbar set line1.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [\
-            {"score":{"name":"#game.respawn","objective":"CT1"},"font":"boss/respawn","shadow_color":0},\
-            {"translate":"space.-30","font":"minecraft:default"},\
-            {"score":{"name":"@s","objective":"resurrection"},"font":"boss/resurrection","shadow_color":0},\
-            {"translate":"space.4","font":"minecraft:default"},\
+            {"translate":"space.33","font":"minecraft:default"},\
             {"text":"2","font":"boss/icon","shadow_color":0},\
         \
             {"translate":"space.-158","font":"minecraft:default"},\
             {"nbt":"temp.place","storage":"ui_temp","interpret":true,"font":"boss/text"},\
         \
             {"translate":"space.21","font":"minecraft:default"},\
-            {"score":{"name":"#timer.halfday","objective":"CT1"},"font":"boss/halfday","shadow_color":0},\
+            {"score":{"name":"#timer.halfday","objective":"NUM"},"font":"boss/halfday","shadow_color":0},\
             {"translate":"space.1","font":"minecraft:default"},\
             {"nbt":"temp.time_min","storage":"ui_temp","font":"boss/timer"},\
             {"text":":","interpret":true,"font":"boss/timer"},\

@@ -4,6 +4,13 @@
 # 출력 값 없음
 # 금지예정구역/금지구역/일반구역 랜덤으로 세 곳을 지정한 타입으로 바꾸는 함수
 
+
+## (type) 종류                         \
+    safe : 안전구역                     \
+    restricted : 금지구역               \
+    schedule_restricted : 금지 예정구역 
+#
+
 # 타입 받아오기
     $data modify storage temp type.type set value "$(type)"
     # 잘못된 타입을 입력받은 경우

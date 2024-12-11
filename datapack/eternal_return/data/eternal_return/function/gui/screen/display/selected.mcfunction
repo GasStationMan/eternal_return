@@ -31,6 +31,8 @@
         spreadplayers -293 448 3 30 under 63 false @s[tag=frist_join]
     # 태그
         execute if score @s Page.ct matches 1 run tag @s add waiting
+        execute if score @s Page.ct matches 1 run function eternal_return:send_msg {target:"@s",text:'{"text":"본 서버는 공정한 게임의 가치를 중요하게 생각합니다."}',color:"gold",timer:0}
+        execute if score @s Page.ct matches 1 run function eternal_return:send_msg {target:"@s",text:'{"text":"부당한 티밍은 제재 대상이 될 수 있습니다."}',color:"gold",timer:0}
         tag @s remove frist_join
     # 갑옷 슬롯 제거
         execute if score @s Page.ct matches 20 run clear @s paper

@@ -1,2 +1,2 @@
-execute store result storage text timer.sec int 1 run scoreboard players get #timer.sec CT1
+execute store result storage text timer.sec int 1 run scoreboard players get #timer.sec NUM
 function eternal_return:sys/game/set/tensec with storage text timer

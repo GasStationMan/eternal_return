@@ -3,8 +3,7 @@
 
 
 ## 메시지
-function eternal_return:send_msg {target:"@a",text:'{"text":"본 서버는 공정한 게임의 가치를 중요하게 생각합니다."}',color:"gold",timer:0}
-function eternal_return:send_msg {target:"@a",text:'{"text":"부당한 티밍은 제재 대상이 될 수 있습니다."}',color:"gold",timer:0}
+
 
 
 ## 게임 룰
@@ -28,7 +27,7 @@ function eternal_return:sys/game/give/recipes
 # 도전과제 초기화
 advancement revoke @a everything
 # 스코어보드 초기화
-scoreboard players set #give.credit.tick CT1 1
+scoreboard players set #give.credit.tick NUM 1
 scoreboard players set @a credit 0
 scoreboard players set @e ER.resurrection 0
 scoreboard players set @a CT3 20

@@ -3,6 +3,8 @@ function pdb:new_player
 function pdb:get_me
 
  # 플레이어 초기 데이터
+    # 아이템 제거
+        clear @s
     # 태그 부여
         tag @s add frist_join
         tag @s add player
@@ -10,6 +12,7 @@ function pdb:get_me
     
     # 태그 삭제
         tag @s remove waiting
+        tag @s remove in_game
 
     # 스코어보드 설정
         # 페이지
@@ -17,10 +20,8 @@ function pdb:get_me
         scoreboard players set @s Page.slot 1
         scoreboard players set @s Page.ct 0
         scoreboard players set @s Page.num 0
-        # 부활
-        scoreboard players set @s resurrection 0
         # 슬롯 저장
-        execute store result score #temp.now_scroll_num NUM run data get entity @s SelectedItemSlot
+        execute store result score #temp.now.scroll.num NUM run data get entity @s SelectedItemSlot
 
     # 보스바 생성 및 표기
         function eternal_return:gui/bossbar/new with storage pdb:main args

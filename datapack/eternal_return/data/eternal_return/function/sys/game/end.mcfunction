@@ -2,15 +2,15 @@
 
 ## 맵
 # 타이머
-scoreboard players reset #timer.tick CT1
-scoreboard players reset #timer.sec CT1
-scoreboard players reset #timer.min CT1
-scoreboard players reset #timer.halfday CT1
-scoreboard players reset #timer.day CT1
+scoreboard players reset #timer.tick NUM
+scoreboard players reset #timer.sec NUM
+scoreboard players reset #timer.min NUM
+scoreboard players reset #timer.halfday NUM
+scoreboard players reset #timer.day NUM
 # 게임 시간
-scoreboard players reset #gametime.tick CT1
-scoreboard players reset #gametime.sec CT1
-scoreboard players reset #gametime.min CT1
+scoreboard players reset #gametime.tick NUM
+scoreboard players reset #gametime.sec NUM
+scoreboard players reset #gametime.min NUM
 # 기물 초기화
 function eternal_return:map/defualt_setting
 # 구역 정보 초기화
@@ -29,7 +29,7 @@ clear @a
 scoreboard players set @a CT3 20
 scoreboard players set @a credit 0
 scoreboard players set @e ER.resurrection 0
-scoreboard players set #give.credit.tick CT1 0
+scoreboard players set #give.credit.tick NUM 0
 # 도전과제
 advancement revoke @a everything
 # 태그

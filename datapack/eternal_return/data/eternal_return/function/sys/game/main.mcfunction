@@ -20,7 +20,7 @@ execute if entity @a[tag=!game_start,tag=wait_bar] run function eternal_return:s
 #       #gametime.sec        CT1
 #       #timer.day           CT1
 #       #timer.halfday       CT1
-#       ##game.daycycle.tick CT1
+#       ##game.daycycle.tick NUM
 #   }
 #   
 function eternal_return:sys/game/time/tick

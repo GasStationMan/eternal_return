@@ -13,15 +13,15 @@
 
     # 스크롤
         # 선택된 슬롯번호 저장
-        execute store result score @s now_scroll_num run data get entity @s SelectedItemSlot
+        execute store result score @s now.scroll.num run data get entity @s SelectedItemSlot
 
         # 업다운 감지
-        execute unless score @s now_scroll_num = @s old_scroll_num if score @s Page.ct matches 0 run \
+        execute unless score @s now.scroll.num = @s old.scroll.num if score @s Page.ct matches 0 run \
         function eternal_return:gui/screen/detect_scroll
 
         # 변경된 슬롯번호 동기화
-        execute unless score @s now_scroll_num = @s old_scroll_num run \
-        scoreboard players operation @s old_scroll_num = @s now_scroll_num
+        execute unless score @s now.scroll.num = @s old.scroll.num run \
+        scoreboard players operation @s old.scroll.num = @s now.scroll.num
 
     # 입력 딜레이 설정
         execute if score @s Page.ct matches 1.. run scoreboard players remove @s Page.ct 1

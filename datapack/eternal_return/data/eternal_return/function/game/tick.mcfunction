@@ -27,3 +27,4 @@
         execute if entity @a[tag=in_game] run function eternal_return:game/system/in_game
     # 게임 시간
         function eternal_return:game/system/in_game/game_timer
+

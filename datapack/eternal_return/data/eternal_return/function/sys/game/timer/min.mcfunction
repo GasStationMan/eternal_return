@@ -1,2 +1,2 @@
-scoreboard players set #timer.sec CT1 59
-scoreboard players remove #timer.min CT1 1
+scoreboard players set #timer.sec NUM 59
+scoreboard players remove #timer.min NUM 1

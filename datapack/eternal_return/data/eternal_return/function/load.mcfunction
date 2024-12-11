@@ -10,6 +10,9 @@ forceload add -243 485 -243 479
     function eternal_return:character/init
 # 게임 시간 초기화
     function eternal_return:sys/game/time/start
+# 일차별 맵 초기 값 설정
+    function eternal_return:game/init
+
 
 ## 게임 룰
     # 포탈 대기시간 무한
@@ -30,8 +33,8 @@ forceload add -243 485 -243 479
         scoreboard objectives add Page.num dummy
         scoreboard objectives add Page.frame dummy
     # 스크롤
-        scoreboard objectives add old_scroll_num dummy
-        scoreboard objectives add now_scroll_num dummy
+        scoreboard objectives add old.scroll.num dummy
+        scoreboard objectives add now.scroll.num dummy
     # 나갈 때
         scoreboard objectives add quit minecraft.custom:minecraft.leave_game
 
@@ -40,8 +43,9 @@ forceload add -243 485 -243 479
 
     # 크레딧
         scoreboard objectives add credit dummy
-    # 부활 가능
-        scoreboard objectives add resurrection dummy
+    # 센터 스코어
+        scoreboard objectives add centerbar.tick dummy
+        scoreboard objectives add centerbar.sec dummy
 
     # 정수
         scoreboard objectives add NUM dummy
@@ -109,4 +113,4 @@ forceload add -243 485 -243 479
     
     # 브리핑룸 남은 시간/인원 표기 창
         scoreboard players set #wait.bg CT1 1
-        scoreboard players set #wait.bg.tick CT1 1
+        scoreboard players set #wait.bg.tick NUM 1

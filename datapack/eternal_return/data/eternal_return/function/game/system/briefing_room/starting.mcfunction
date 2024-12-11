@@ -7,5 +7,5 @@
     tag @a[tag=waiting] remove waiting
 
 # 게임 시작 5초전 타이머
-    scoreboard players set #late_time_sec CT1 7
-    scoreboard players set #late_time_tick CT1 0
+    scoreboard players set #left.time.sec NUM 7
+    scoreboard players set #left.time.tick NUM 0

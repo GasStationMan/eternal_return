@@ -48,8 +48,7 @@
     execute as @a if entity @s[tag=player] run function eternal_return:gui/loading/tick
     # 커스텀 스크린
     execute as @a if entity @s[tag=player] run function eternal_return:gui/screen/tick
-
-
+    
     # 맵 창 / 키오스크 / 부활 선택창
 
 ## 게임 

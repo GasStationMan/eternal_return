@@ -9,3 +9,6 @@
 
 # 플레이어 재접속 시
     execute if entity @s[tag=player] run function eternal_return:gui/bossbar/leave_game
+
+# 플레이어 고정
+    execute at @s if entity @s[tag=player] run function eternal_return:player/freeze_player

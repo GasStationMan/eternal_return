@@ -5,11 +5,18 @@
 
 ## 플레이어
     # 각 구역 입/퇴장시 태그 설정
-        function eternal_return:map/set_tag
+        function eternal_return:map/place/set_tag
         
     # 구역별 이름 개인 스토리지에 저장
     function pdb:get_me
-        function eternal_return:map/get_place with storage pdb:main in
+        function eternal_return:map/player/get_place with storage pdb:main in
+    
+    # 다른 구역으로 이동 했을 때
+        #execute store result score #temp.now.map.number NUM run data get storage pdb:main in.place_no
+        #execute unless score #temp.old.map.number NUM = #temp.now.map.number NUM run \
+            function eternal_return:gui/bossbar/display/center_bar {text:'[{"nbt":"in.place_name","storage":"pdb:main","font":"gui/centerbar/bar/text"}]',sec:5}
+        #execute unless score #temp.old.map.number NUM = #temp.now.map.number NUM run scoreboard players operation #temp.old.map.number NUM = #temp.now.map.number NUM
+
     function pdb:save_me
 
 

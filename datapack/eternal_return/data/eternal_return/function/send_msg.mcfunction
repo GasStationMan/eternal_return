@@ -17,25 +17,25 @@
 
 # 타이머를 사용하는 경우
     $execute \
-        if score #usetimer CT1 matches 1 if score #gametime.min CT1 matches ..9 if score #gametime.sec CT1 matches ..9 \
+        if score #usetimer CT1 matches 1 if score #gametime.min NUM matches ..9 if score #gametime.sec NUM matches ..9 \
             run tellraw $(target) [\
                 {"text":"[0","color":"$(color)","font":"godo"},{"score":{"name":"#gametime.min","objective":"CT1"}}," : 0",{"score":{"name":"#gametime.sec","objective":"CT1"}},"] ",\
                 {"nbt":"msg","storage":"text","interpret":true}\
             ]
     $execute \
-        if score #usetimer CT1 matches 1 if score #gametime.min CT1 matches ..9 if score #gametime.sec CT1 matches 10.. \
+        if score #usetimer CT1 matches 1 if score #gametime.min NUM matches ..9 if score #gametime.sec NUM matches 10.. \
             run tellraw $(target) [\
                 {"text":"[0","color":"$(color)","font":"godo"},{"score":{"name":"#gametime.min","objective":"CT1"}}," : ",{"score":{"name":"#gametime.sec","objective":"CT1"}},"] ",\
                 {"nbt":"msg","storage":"text","interpret":true}\
             ]
     $execute \
-        if score #usetimer CT1 matches 1 if score #gametime.min CT1 matches 10.. if score #gametime.sec CT1 matches ..9 \
+        if score #usetimer CT1 matches 1 if score #gametime.min NUM matches 10.. if score #gametime.sec NUM matches ..9 \
             run tellraw $(target) [\
                 {"text":"[","color":"$(color)","font":"godo"},{"score":{"name":"#gametime.min","objective":"CT1"}}," : 0",{"score":{"name":"#gametime.sec","objective":"CT1"}},"] ",\
                 {"nbt":"msg","storage":"text","interpret":true}\
             ]
     $execute \
-        if score #usetimer CT1 matches 1 if score #gametime.min CT1 matches 10.. if score #gametime.sec CT1 matches 10.. \
+        if score #usetimer CT1 matches 1 if score #gametime.min NUM matches 10.. if score #gametime.sec NUM matches 10.. \
             run tellraw $(target) [\
                 {"text":"[","color":"$(color)","font":"godo"},{"score":{"name":"#gametime.min","objective":"CT1"}}," : ",{"score":{"name":"#gametime.sec","objective":"CT1"}},"] ",\
                 {"nbt":"msg","storage":"text","interpret":true}\

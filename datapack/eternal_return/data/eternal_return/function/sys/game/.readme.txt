@@ -6,11 +6,11 @@
 - 타이머
     => 게임을 시작할 때 상단에 표기되는 타이머 변수
     => 각각 틱, 초, 분, 낮밤, 일차
-    #timer.tick CT1
-    #timer.sec CT1
-    #timer.min CT1
-    #timer.halfday CT1
-    #timer.day CT1
+    #timer.tick NUM
+    #timer.sec NUM
+    #timer.min NUM
+    #timer.halfday NUM
+    #timer.day NUM
 
 
 - 플레이어 및 팀 수

@@ -8,11 +8,11 @@
 
 # 숫자 표기 방식 변경
     # 분
-        scoreboard players operation #input.number NUM = #timer.min CT1
+        scoreboard players operation #input.number NUM = #timer.min NUM
         function eternal_return:gui/bossbar/display/format_number {type:"two"}
         data modify storage ui_temp temp.time_min set from storage temp format_num
     # 초
-        scoreboard players operation #input.number NUM = #timer.sec CT1
+        scoreboard players operation #input.number NUM = #timer.sec NUM
         function eternal_return:gui/bossbar/display/format_number {type:"two"}
         data modify storage ui_temp temp.time_sec set from storage temp format_num
     # 팀원 수
@@ -24,7 +24,7 @@
         function eternal_return:gui/bossbar/display/format_number {type:"space"}
         data modify storage ui_temp temp.player set from storage temp format_num
     # 일차
-        scoreboard players operation #input.number NUM = #timer.day CT1
+        scoreboard players operation #input.number NUM = #timer.day NUM
         function eternal_return:gui/bossbar/display/format_number {type:"space"}
         data modify storage ui_temp temp.day set from storage temp format_num
     # 금지구역 남은시간

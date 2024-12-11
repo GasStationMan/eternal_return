@@ -1,2 +1,2 @@
-scoreboard players set #timer.halfday CT1 1
-scoreboard players add #timer.day CT1 1
+scoreboard players set #timer.halfday NUM 1
+scoreboard players add #timer.day NUM 1
