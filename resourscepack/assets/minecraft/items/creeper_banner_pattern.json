@@ -1,0 +1,46 @@
+{
+	"model": {
+	  "type": "minecraft:select",
+	  "property": "minecraft:custom_model_data",
+	  "fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/creeper_banner_pattern"
+	  },
+	  "cases": [
+		{
+		  "when": "advencement","model": {"type": "minecraft:range_dispatch","property": "minecraft:custom_model_data",
+			"entries": [
+			  {"threshold": 0,"model": {"type": "minecraft:model","model": "advencement/alpha"}},
+			  {"threshold": 1,"model": {"type": "minecraft:model","model": "advencement/alpha_30"}},
+			  {"threshold": 2,"model": {"type": "minecraft:model","model": "advencement/alpha_death"}},
+			  {"threshold": 3,"model": {"type": "minecraft:model","model": "advencement/battle_zone"}},
+			  {"threshold": 4,"model": {"type": "minecraft:model","model": "advencement/battle_zone_30"}},
+			  {"threshold": 5,"model": {"type": "minecraft:model","model": "advencement/meteor"}},
+			  {"threshold": 6,"model": {"type": "minecraft:model","model": "advencement/meteor_30"}},
+			  {"threshold": 7,"model": {"type": "minecraft:model","model": "advencement/omega"}},
+			  {"threshold": 8,"model": {"type": "minecraft:model","model": "advencement/omega_30"}},
+			  {"threshold": 9,"model": {"type": "minecraft:model","model": "advencement/omega_death"}},
+			  {"threshold": 10,"model": {"type": "minecraft:model","model": "advencement/tree_of_life"}},
+			  {"threshold": 11,"model": {"type": "minecraft:model","model": "advencement/tree_of_life_30"}},
+			  {"threshold": 12,"model": {"type": "minecraft:model","model": "advencement/wickeline"}},
+			  {"threshold": 13,"model": {"type": "minecraft:model","model": "advencement/wickeline_30"}},
+			  {"threshold": 14,"model": {"type": "minecraft:model","model": "advencement/wickeline_death"}}
+			]}},
+		{
+			"when": "jumppad","model": {"type": "minecraft:range_dispatch","property": "minecraft:custom_model_data",
+			  "entries": [
+				{"threshold": 0,"model": {"type": "minecraft:model","model": "map/jumppad/deactivate"}},
+				{"threshold": 1,"model": {"type": "minecraft:model","model": "map/jumppad/1"}},
+				{"threshold": 2,"model": {"type": "minecraft:model","model": "map/jumppad/2"}},
+				{"threshold": 3,"model": {"type": "minecraft:model","model": "map/jumppad/3"}},
+				{"threshold": 4,"model": {"type": "minecraft:model","model": "map/jumppad/4"}},
+				{"threshold": 5,"model": {"type": "minecraft:model","model": "map/jumppad/5"}},
+				{"threshold": 6,"model": {"type": "minecraft:model","model": "map/jumppad/6"}},
+				{"threshold": 7,"model": {"type": "minecraft:model","model": "map/jumppad/7"}},
+				{"threshold": 8,"model": {"type": "minecraft:model","model": "map/jumppad/8"}}
+			  ]}},
+		{"when": "kiosk","model": {"type": "minecraft:model","model": "map/kiosk"}},
+		{"when": "hyperloop","model": {"type": "minecraft:model","model": "map/hyperloop"}}
+	  ]
+	}
+}

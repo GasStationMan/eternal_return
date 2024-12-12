@@ -1,0 +1,11 @@
+{
+	"providers": [
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/mono_color/black.png",
+			"ascent": 300,
+			"height": 1000,
+			"chars": ["b"]
+		}
+	]
+}

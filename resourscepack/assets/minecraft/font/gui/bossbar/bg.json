@@ -1,0 +1,15 @@
+{
+    "providers": [
+		{
+			"type": "bitmap","file": "minecraft:font/bg/upper.png",
+			"ascent": 10.5,"height": 35,
+			"chars": ["1"]
+		},
+		{
+			"type": "bitmap","file": "minecraft:font/bg/players.png",
+			"ascent": 10,"height": 13.5,
+			"chars": ["2"]
+		}
+    ]
+}
+

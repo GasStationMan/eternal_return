@@ -2,18 +2,9 @@
 	"model":{
 		"type":"select",
 		"property":"custom_model_data",
-		"fallback":{
-			"type":"model",
-			"model":"item/warped_fungus_on_a_stick"
-		},
+		"fallback":{"type":"model","model":"item/warped_fungus_on_a_stick"},
 		"cases":[
-			{
-				"when":"empty",
-				"model":{
-					"type":"model",
-					"model":"item/empty"
-				}
-			}
+			{"when":"empty","model":{"type":"model","model":"item/empty"}}
 		]
 	}
 }

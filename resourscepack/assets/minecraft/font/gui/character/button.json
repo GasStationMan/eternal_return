@@ -1,0 +1,6 @@
+{
+	"providers": [
+		{"type": "bitmap","file": "minecraft:font/character/button/playnow_button.png","ascent": -20, "height": 20,"chars": ["0"]},
+		{"type": "bitmap","file": "minecraft:font/character/button/playnow_button_selected.png","ascent": -20, "height": 20,"chars": ["1"]}
+	]
+}
