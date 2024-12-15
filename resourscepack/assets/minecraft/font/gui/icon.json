@@ -2,6 +2,7 @@
 	"providers": [
 		{"type": "bitmap","file": "minecraft:font/icon/sun.png","ascent": 6,"height": 20,"chars": ["1"]},
 		{"type": "bitmap","file": "minecraft:font/icon/moon.png","ascent": 6,"height": 20,"chars": ["2"]},
+		{"type": "bitmap","file": "minecraft:font/icon/sun.png","ascent": 6,"height": 20,"chars": ["3"]},
 		{"type": "bitmap","file": "minecraft:font/icon/clock.png","ascent": 24,"height": 30,"chars": ["c"]},
 		{"type": "bitmap","file": "minecraft:font/icon/rclick.png","ascent": 14, "height": 15,"chars": ["r"]},
 		{"type": "bitmap","file": "minecraft:font/icon/question.png","ascent": 22, "height": 24,"chars": ["!"]}

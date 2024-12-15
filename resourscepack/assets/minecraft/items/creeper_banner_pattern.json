@@ -39,6 +39,7 @@
 				{"threshold": 7,"model": {"type": "minecraft:model","model": "map/jumppad/7"}},
 				{"threshold": 8,"model": {"type": "minecraft:model","model": "map/jumppad/8"}}
 			  ]}},
+		{"when": "test","model": {"type": "minecraft:model","model": "item/test"}},
 		{"when": "kiosk","model": {"type": "minecraft:model","model": "map/kiosk"}},
 		{"when": "hyperloop","model": {"type": "minecraft:model","model": "map/hyperloop"}}
 	  ]
