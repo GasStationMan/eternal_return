@@ -11,11 +11,11 @@ execute as @e[tag=elenaskill1] run tag @s remove elenaskill1
 tag @a[tag=elenaskill] remove elenaskill
 
 ## 엘레나 스킬 쿨타임
-execute if entity @s[tag=elenacool] run scoreboard players add @s SC 1
-execute if entity @s[scores={SC=140}] run tellraw @s ["",{"text":"3초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute if entity @s[scores={SC=160}] run tellraw @s ["",{"text":"2초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute if entity @s[scores={SC=180}] run tellraw @s ["",{"text":"1초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute if entity @s[scores={SC=200}] run tellraw @s ["",{"text":"스킬 사용 가능!","color":"aqua"}]
-execute if entity @s[scores={SC=200..}] run clear @s barrier
-execute if entity @s[scores={SC=200..}] run tag @s remove elenacool
-execute if entity @s[scores={SC=200..}] run scoreboard players reset @s SC
+execute if entity @s[tag=elenacool] run scoreboard players add @s sc 1
+execute if entity @s[scores={sc=140}] run tellraw @s ["",{"text":"3초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute if entity @s[scores={sc=160}] run tellraw @s ["",{"text":"2초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute if entity @s[scores={sc=180}] run tellraw @s ["",{"text":"1초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute if entity @s[scores={sc=200}] run tellraw @s ["",{"text":"스킬 사용 가능!","color":"aqua"}]
+execute if entity @s[scores={sc=200..}] run clear @s barrier
+execute if entity @s[scores={sc=200..}] run tag @s remove elenacool
+execute if entity @s[scores={sc=200..}] run scoreboard players reset @s sc

@@ -11,17 +11,24 @@ function pdb:get_me
         tag @s add screen
     
     # 태그 삭제
+        tag @s remove on_camera_overlay
         tag @s remove waiting
         tag @s remove in_game
 
     # 스코어보드 설정
         # 페이지
-        scoreboard players set @s Page.frame 0
-        scoreboard players set @s Page.slot 1
-        scoreboard players set @s Page.ct 0
-        scoreboard players set @s Page.num 0
+            scoreboard players set @s Page.frame 0
+            scoreboard players set @s Page.slot 1
+            scoreboard players set @s Page.ct 0
+            scoreboard players set @s Page.num 0
         # 슬롯 저장
-        execute store result score #temp.now.scroll.num NUM run data get entity @s SelectedItemSlot
+            execute store result score #temp.now.scroll.num NUM run data get entity @s SelectedItemSlot
+        # 크래딧 설정
+            scoreboard players set @s credit 0
+        # kill
+            scoreboard players set @s kill 0
+        # death
+            scoreboard players set @s death 0
 
     # 보스바 생성 및 표기
         function eternal_return:gui/bossbar/new with storage pdb:main args

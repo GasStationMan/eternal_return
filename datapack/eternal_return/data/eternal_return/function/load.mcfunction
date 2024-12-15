@@ -3,16 +3,25 @@ forceload add -561 512 -585 536
 forceload add -243 485 -243 479
 
 
+##################### CONFIG ####################
 
-# 맵 기본 설정
-    function eternal_return:map/init
-# 캐릭터 설정
-    function eternal_return:character/init
-# 게임 시간 초기화
-    function eternal_return:sys/game/time/start
-# 일차별 맵 초기 값 설정
-    function eternal_return:game/init
+    # 밸런싱을 위해 만든 load 함수
 
+    function eternal_return:config/game
+    function eternal_return:config/map
+    function eternal_return:config/character
+
+#################################################
+
+
+
+## 게임 설정
+    # 맵 기본 설정
+        function eternal_return:map/init
+    # 캐릭터 설정
+        function eternal_return:character/init
+    # 게임 시간 초기화
+        function eternal_return:sys/game/time/start
 
 ## 게임 룰
     # 포탈 대기시간 무한
@@ -38,8 +47,12 @@ forceload add -243 485 -243 479
     # 나갈 때
         scoreboard objectives add quit minecraft.custom:minecraft.leave_game
 
-    # 플레이어 체력
+    ## 플레이어
+        # hp, k/d
         scoreboard objectives add hp health {"text":"♥","color":"red"}
+        scoreboard objectives add kill minecraft.killed:minecraft.player
+        scoreboard objectives add death deathCount
+
 
     # 크레딧
         scoreboard objectives add credit dummy
@@ -57,9 +70,10 @@ forceload add -243 485 -243 479
         scoreboard objectives add bantime dummy
     
     # 쿨타임
-        scoreboard objectives add CT1 dummy
-        scoreboard objectives add CT2 dummy
-        scoreboard objectives add SC dummy
+        scoreboard objectives add ct1 dummy
+        scoreboard objectives add ct2 dummy
+        scoreboard objectives add sc dummy
+
 
     # 야생동물 관련 스코어보드 생성
         scoreboard objectives add ER.sys dummy
@@ -112,5 +126,5 @@ forceload add -243 485 -243 479
         scoreboard players set #ER.place.jul ER.sys 19
     
     # 브리핑룸 남은 시간/인원 표기 창
-        scoreboard players set #wait.bg CT1 1
+        scoreboard players set #wait.bg ct1 1
         scoreboard players set #wait.bg.tick NUM 1

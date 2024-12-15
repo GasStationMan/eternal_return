@@ -15,11 +15,11 @@ execute if entity @a[tag=!game_start,tag=wait_bar] run function eternal_return:s
 #   
 #   게임시간의 변수인 #gametime.tick을 분/초/틱 으로 표시
 #   struct gametime {
-#       #gametime.tick       CT1
-#       #gametime.min        CT1
-#       #gametime.sec        CT1
-#       #timer.day           CT1
-#       #timer.halfday       CT1
+#       #gametime.tick       ct1
+#       #gametime.min        ct1
+#       #gametime.sec        ct1
+#       #timer.day           ct1
+#       #timer.halfday       ct1
 #       ##game.daycycle.tick NUM
 #   }
 #   
@@ -29,9 +29,9 @@ function eternal_return:sys/game/time/tick
 #   
 #   PlayerGameDataManager{
 #       #player_count   NUM
-#       #wait.player    CT1
-#       #game.player    CT1
-#       #game.respawn   CT1
+#       #wait.player    ct1
+#       #game.player    ct1
+#       #game.respawn   ct1
 #   }
 #
 function eternal_return:sys/game/total

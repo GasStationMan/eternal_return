@@ -29,8 +29,10 @@
         execute if score @s Page.num matches 1..2 run function eternal_return:gui/screen/display/select_character/bossbar with storage pdb:main args
 
     ## 액션바 (바로시작 버튼)
-        execute if score @s Page.num matches 1 run title @s actionbar [{"text":"4","font":"gui/image","shadow_color":0}]
-        execute if score @s Page.num matches 2 run title @s actionbar [{"text":"5","font":"gui/image","shadow_color":0}]
+        execute if score @s Page.num matches 1 run item replace entity @s armor.head with air
+        execute if score @s Page.num matches 1 run title @s actionbar [{"text":"0","font":"gui/character/button","shadow_color":0}]
+        execute if score @s Page.num matches 2 run item replace entity @s armor.head with paper[equippable={slot:"head",equip_sound:"ui.toast.in",model:"none",camera_overlay:"gui/screen_image/black_op10"},item_model="air"] 1
+        execute if score @s Page.num matches 2 run title @s actionbar [{"text":"1","font":"gui/character/button","shadow_color":0}]
 
     ## camera_overlay
         # 머리 슬롯 (스크롤 배경)

@@ -9,10 +9,10 @@ execute if entity @s[scores={lenoxskill=40..}] run tag @s remove lenoxskill
 execute if entity @s[scores={lenoxskill=40..}] run scoreboard players reset @s lenoxskill
 
 ## 레녹스 스킬 쿨타임
-execute if entity @s[tag=lenoxcool] run scoreboard players add @s SC 1
-execute if entity @s[scores={SC=140}] run tellraw @s ["",{"text":"3초 후 패시브 스킬이 활성화 됩니다.","color":"yellow"}]
-execute if entity @s[scores={SC=160}] run tellraw @s ["",{"text":"2초 후 패시브 스킬이 활성화 됩니다.","color":"yellow"}]
-execute if entity @s[scores={SC=180}] run tellraw @s ["",{"text":"1초 후 패시브 스킬이 활성화 됩니다.","color":"yellow"}]
-execute if entity @s[scores={SC=200}] run tellraw @s ["",{"text":"패시브 활성화!","color":"aqua"}]
-execute if entity @s[scores={SC=200..}] run tag @s remove lenoxcool
-execute if entity @s[scores={SC=200..}] run scoreboard players reset @s SC
+execute if entity @s[tag=lenoxcool] run scoreboard players add @s sc 1
+execute if entity @s[scores={sc=140}] run tellraw @s ["",{"text":"3초 후 패시브 스킬이 활성화 됩니다.","color":"yellow"}]
+execute if entity @s[scores={sc=160}] run tellraw @s ["",{"text":"2초 후 패시브 스킬이 활성화 됩니다.","color":"yellow"}]
+execute if entity @s[scores={sc=180}] run tellraw @s ["",{"text":"1초 후 패시브 스킬이 활성화 됩니다.","color":"yellow"}]
+execute if entity @s[scores={sc=200}] run tellraw @s ["",{"text":"패시브 활성화!","color":"aqua"}]
+execute if entity @s[scores={sc=200..}] run tag @s remove lenoxcool
+execute if entity @s[scores={sc=200..}] run scoreboard players reset @s sc

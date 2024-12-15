@@ -1,7 +1,7 @@
 ## 하이퍼루프
 # 스코어보드
-scoreboard players add @s[tag=loop,scores={CT1=..120}] CT1 1
-scoreboard players set @s[tag=!loop] CT1 0
+scoreboard players add @s[tag=loop,scores={ct1=..120}] ct1 1
+scoreboard players set @s[tag=!loop] ct1 0
 
 ## 페이지 열기
 # 개인 인터렉션 소환 및 태그 부여
@@ -14,7 +14,7 @@ execute as @e[tag=hyperloop,tag=interaction] at @s run data remove entity @s att
 
 ## 위치 선정 후
 # 선택한 위치로 이동
-execute if score @s CT1 matches 62 run function eternal_return:sys/hyperloop/warp
+execute if score @s ct1 matches 62 run function eternal_return:sys/hyperloop/warp
 # 만약 빈 공간을 선택한 경우
 execute if score @s ER.sys matches 0 run tag @s remove loop
 

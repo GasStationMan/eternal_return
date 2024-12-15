@@ -16,13 +16,21 @@
         function eternal_return:gui/bossbar/display/format_number {type:"two"}
         data modify storage ui_temp temp.time_sec set from storage temp format_num
     # 팀원 수
-        scoreboard players operation #input.number NUM = #game.team CT1
+        scoreboard players operation #input.number NUM = #game.team ct1
         function eternal_return:gui/bossbar/display/format_number {type:"space"}
         data modify storage ui_temp temp.team set from storage temp format_num
     # 인원 수
-        scoreboard players operation #input.number NUM = #game.player CT1
+        scoreboard players operation #input.number NUM = #game.player ct1
         function eternal_return:gui/bossbar/display/format_number {type:"space"}
         data modify storage ui_temp temp.player set from storage temp format_num
+    # 킬
+        scoreboard players operation #input.number NUM = @s kill
+        function eternal_return:gui/bossbar/display/format_number {type:"space"}
+        data modify storage ui_temp temp.kill set from storage temp format_num
+    # 데스
+        scoreboard players operation #input.number NUM = @s death
+        function eternal_return:gui/bossbar/display/format_number {type:"space"}
+        data modify storage ui_temp temp.death set from storage temp format_num
     # 일차
         scoreboard players operation #input.number NUM = #timer.day NUM
         function eternal_return:gui/bossbar/display/format_number {type:"space"}

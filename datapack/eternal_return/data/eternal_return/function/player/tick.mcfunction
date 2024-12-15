@@ -12,3 +12,7 @@
 
 # 플레이어 고정
     execute at @s if entity @s[tag=player] run function eternal_return:player/freeze_player
+
+# 크래딧
+    execute if score @s credit matches 1.. run function eternal_return:player/credit/tick
+    execute if score @s credit matches 0 run experience set @s 0 levels

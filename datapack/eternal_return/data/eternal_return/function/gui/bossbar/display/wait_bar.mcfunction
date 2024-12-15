@@ -4,7 +4,7 @@
 # 브리핑 룸에서 대기 중인 플레이어 수와 게임 시작까지 남은 시간 보스바에 표기
 
 # 플레이어 숫자 표기방식 변경
-    scoreboard players operation #input.number NUM = #game.player CT1
+    scoreboard players operation #input.number NUM = #game.player ct1
     function eternal_return:gui/bossbar/display/format_number {type:"space"}
     data modify storage ui_temp temp.player set from storage temp format_num
 

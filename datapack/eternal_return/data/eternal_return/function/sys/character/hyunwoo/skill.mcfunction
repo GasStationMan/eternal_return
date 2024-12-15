@@ -23,11 +23,11 @@ execute if entity @s[scores={hyunwooskill=12..}] run scoreboard players reset @s
 
 
 ## 현우 스킬 쿨타임
-execute if entity @s[tag=hyunwoocool] run scoreboard players add @s SC 1
-execute if entity @s[scores={SC=180}] run tellraw @s ["",{"text":"3초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute if entity @s[scores={SC=200}] run tellraw @s ["",{"text":"2초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute if entity @s[scores={SC=220}] run tellraw @s ["",{"text":"1초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute if entity @s[scores={SC=240}] run tellraw @s ["",{"text":"스킬 사용 가능!","color":"aqua"}]
-execute if entity @s[scores={SC=240..}] run clear @s barrier
-execute if entity @s[scores={SC=240..}] run tag @s remove hyunwoocool
-execute if entity @s[scores={SC=240..}] run scoreboard players reset @s SC
+execute if entity @s[tag=hyunwoocool] run scoreboard players add @s sc 1
+execute if entity @s[scores={sc=180}] run tellraw @s ["",{"text":"3초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute if entity @s[scores={sc=200}] run tellraw @s ["",{"text":"2초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute if entity @s[scores={sc=220}] run tellraw @s ["",{"text":"1초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute if entity @s[scores={sc=240}] run tellraw @s ["",{"text":"스킬 사용 가능!","color":"aqua"}]
+execute if entity @s[scores={sc=240..}] run clear @s barrier
+execute if entity @s[scores={sc=240..}] run tag @s remove hyunwoocool
+execute if entity @s[scores={sc=240..}] run scoreboard players reset @s sc

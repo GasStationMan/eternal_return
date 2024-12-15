@@ -13,4 +13,4 @@ execute positioned -622 82 465 run function eternal_return:sys/jumppad/summon {r
 execute positioned -593 82 485 run function eternal_return:sys/jumppad/summon {rotation:125,place:"zpondB_2"}
 
 # 모델링 넘버 0번 부여
-scoreboard players set @e[tag=jumppad] CT2 0
+scoreboard players set @e[tag=jumppad] ct2 0

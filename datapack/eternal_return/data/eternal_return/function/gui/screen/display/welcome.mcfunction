@@ -9,7 +9,7 @@ clear @s paper
 
 ## 화면 구성
     # 보스바
-        $execute if score @s Page.ct matches 0 run bossbar set line1.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [{"text":"1","font":"screen_effect"}]
+        $execute if score @s Page.ct matches 0 run bossbar set line1.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [{"text":"b","font":"mono_color"}]
         $execute if score @s Page.ct matches 0 run bossbar set line2.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
         $execute if score @s Page.ct matches 0 run bossbar set line3.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
         $execute if score @s Page.ct matches 0 run bossbar set line4.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
@@ -17,7 +17,7 @@ clear @s paper
         $execute if score @s Page.ct matches 0 run bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [{"text":"이터널 리턴에 오신걸 환영합니다","font":"gui/title"}]
 
     # 액션바
-        execute if score @s Page.ct matches 0 run title @s actionbar [{"text":"0","font":"gui/icon"},{"text":"  다음 페이지","font":"gui/actionbar","color":"gray"}]
+        execute if score @s Page.ct matches 0 run title @s actionbar [{"text":"r","font":"gui/icon"},{"text":"  다음 페이지","font":"gui/actionbar","color":"gray"}]
 
 ## 키 입력
     # Mouse Rclick = 화면 전환

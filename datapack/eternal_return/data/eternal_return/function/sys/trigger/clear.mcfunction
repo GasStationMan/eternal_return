@@ -5,7 +5,7 @@ title @s actionbar ""
 # 개인 스토리지 비우기
 $data remove storage minecraft:player_data players[{id:$(id)}].text
 # 스코어 제거
-$scoreboard players reset #$(id).loading CT1
+$scoreboard players reset #$(id).loading ct1
 # 태그 제거
 tag @s remove pause_loading
 tag @s remove charge2

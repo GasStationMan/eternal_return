@@ -156,7 +156,7 @@ execute as @a[tag=happycopy] run attribute @s minecraft:generic.jump_strength ba
 execute as @a[tag=happycopy,scores={hp=5..}] at @s run damage @s 4 magic
 execute as @a[tag=happycopy,scores={hp=4}] at @s run damage @s 3 magic
 execute as @a[tag=happycopy] at @s run tp @s ^ ^ ^ ~ 0
-execute as @a[tag=happycopy] at @s run summon armor_stand ^ ^ ^-0.00001 {NoBasePlate:1b,DisabledSlots:4144959,ShowArms:1b,Pose:{LeftLeg:[0f,0f,350f],RightLeg:[10f,0f,6f],LeftArm:[211f,0f,18f],RightArm:[221f,24f,0f]},HandItems:[{id:"minecraft:carrot_on_a_stick",count:1,components:{"minecraft:custom_model_data":215}},{}],ArmorItems:[{id:"iron_boots",Count:1b},{id:"iron_leggings",Count:1b},{id:"iron_chestplate",Count:1b},{id:"player_head",Count:1b,components:{"minecraft:profile":{name:"KSnsrod",id:[I;1228426741,-876658542,-2054852773,-1789121659],properties:[{name:"textures",value:"ewogICJ0aW1lc3RhbXAiIDogMTcxOTQyODEzNDY1NywKICAicHJvZmlsZUlkIiA6ICI0OTM4NGRmNWNiYmY0MDkyODU4NTZmNWI5NTVjMmI4NSIsCiAgInByb2ZpbGVOYW1lIiA6ICJLU25zcm9kIiwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2YzMjg3MjgxNzA1N2VhYzQ4ZDA0MTNhYTdhMzE4OWQ1M2VlZDU2MTNmNjNmMmM2ZjJjMjI0NmZjNzBkYmViMWQiLAogICAgICAibWV0YWRhdGEiIDogewogICAgICAgICJtb2RlbCIgOiAic2xpbSIKICAgICAgfQogICAgfQogIH0KfQ=="}]}}}],Tags:["happycopycat"]}
+execute as @a[tag=happycopy] at @s run summon armor_stand ^ ^ ^-0.00001 {NoBasePlate:1b,DisabledSlots:4144959,ShowArms:1b,Pose:{LeftLeg:[0f,0f,350f],RightLeg:[10f,0f,6f],LeftArm:[211f,0f,18f],RightArm:[221f,24f,0f]},HandItems:[{id:"minecraft:carrot_on_a_stick",count:1,components:{"minecraft:custom_model_data":215}},{}],ArmorItems:[{id:"iron_boots",Count:1b},{id:"iron_leggings",Count:1b},{id:"iron_chestplate",Count:1b},{id:"player_head",Count:1b,components:{"minecraft:profile":{name:"KSnsrod",id:[I;1228426741,-876658542,-2054852773,-1789121659],properties:[{name:"textures",value:"ewogICJ0aW1lc3RhbXAiIDogMTcxOTQyODEzNDY1NywKICAicHJvZmlsZUlkIiA6ICI0OTM4NGRmNWNiYmY0MDkyODU4NTZmNWI5NTVjMmI4NSIsciAgInByb2ZpbGVOYW1lIiA6ICJLU25zcm9kIiwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2YzMjg3MjgxNzA1N2VhYzQ4ZDA0MTNhYTdhMzE4OWQ1M2VlZDU2MTNmNjNmMmM2ZjJjMjI0NmZjNzBkYmViMWQiLAogICAgICAibWV0YWRhdGEiIDogewogICAgICAgICJtb2RlbCIgOiAic2xpbSIKICAgICAgfQogICAgfQogIH0KfQ=="}]}}}],Tags:["happycopycat"]}
 execute at @a[tag=happycopy] as @n[tag=happycopycat] at @s run tp @s ~ ~ ~ facing entity @n[tag=happycopy]
 function eternal_return:sys/character/happychaos/copy_move
 execute as @a[tag=happycopy] run effect give @s slowness 1 4 true
@@ -200,14 +200,14 @@ execute as @a[scores={happyhalfs=20..}] run tag @s remove happyhalfs
 execute as @a[scores={happyhalfs=20..}] run scoreboard players reset @s happyhalfs
 
 # 해피 데엑마 쿨타임
-execute as @a[tag=happycool] run scoreboard players add @s SC 1
-execute as @a[tag=happy,scores={SC=140}] run tellraw @s ["",{"text":"3초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute as @a[tag=happy,scores={SC=160}] run tellraw @s ["",{"text":"2초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute as @a[tag=happy,scores={SC=180}] run tellraw @s ["",{"text":"1초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
-execute as @a[tag=happy,scores={SC=200}] run tellraw @s ["",{"text":"스킬 사용 가능!","color":"aqua"}]
-execute as @a[tag=happy,scores={SC=200..}] run item replace entity @s container.4 with nether_star[custom_model_data=214,item_name='{"color":"dark_purple","text":"[ 데우스 엑스 마키나 ]"}',food={nutrition:0,saturation:0,can_always_eat:true,eat_seconds:1000000}] 1
-execute as @a[tag=happy,scores={SC=200..}] run tag @s remove happycool
-execute as @a[tag=happy,scores={SC=200..}] run scoreboard players reset @s SC
+execute as @a[tag=happycool] run scoreboard players add @s sc 1
+execute as @a[tag=happy,scores={sc=140}] run tellraw @s ["",{"text":"3초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute as @a[tag=happy,scores={sc=160}] run tellraw @s ["",{"text":"2초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute as @a[tag=happy,scores={sc=180}] run tellraw @s ["",{"text":"1초 후 스킬을 다시 사용할 수 있습니다.","color":"yellow"}]
+execute as @a[tag=happy,scores={sc=200}] run tellraw @s ["",{"text":"스킬 사용 가능!","color":"aqua"}]
+execute as @a[tag=happy,scores={sc=200..}] run item replace entity @s container.4 with nether_star[custom_model_data=214,item_name='{"color":"dark_purple","text":"[ 데우스 엑스 마키나 ]"}',food={nutrition:0,saturation:0,can_always_eat:true,eat_seconds:1000000}] 1
+execute as @a[tag=happy,scores={sc=200..}] run tag @s remove happycool
+execute as @a[tag=happy,scores={sc=200..}] run scoreboard players reset @s sc
 
 
 execute as @e[scores={happytarget=100..}] run scoreboard players reset @s happytarget
