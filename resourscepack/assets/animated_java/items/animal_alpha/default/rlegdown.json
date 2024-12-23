@@ -1,0 +1,7 @@
+{
+    "model": {
+      "type": "minecraft:model",
+      "model": "animated_java:item/animal_alpha/default/rlegdown",
+      "tints": []
+    }
+  }
