@@ -85,23 +85,43 @@ forceload add -243 485 -243 479
         scoreboard objectives add ER.cooltime dummy
         scoreboard objectives add df_id dummy
 
-    # 야생동물 체력 및 공격력 설정
+    # 야생동물 체력 및 공격력 및 애니메이션 틱 설정
         # 멧돼지
             scoreboard players set #ER.animal.boar.health ER.sys 37
             scoreboard players set #ER.animal.boar.attack ER.sys 5
             scoreboard players set #ER.animal.boar.cooltime ER.sys 120
+            scoreboard players set #ER.animal.boar.skill_effect_tick ER.sys 20
+            scoreboard players set #ER.animal.boar.skill_end_tick ER.sys 24
+            scoreboard players set #ER.animal.boar.attack_tick_first ER.sys 7
+            scoreboard players set #ER.animal.boar.attack_tick_second ER.sys 7
         # 곰
             scoreboard players set #ER.animal.bear.health ER.sys 60
             scoreboard players set #ER.animal.bear.attack ER.sys 6
             scoreboard players set #ER.animal.bear.cooltime ER.sys 120
+            scoreboard players set #ER.animal.bear.skill_effect_tick ER.sys 14
+            scoreboard players set #ER.animal.bear.skill_end_tick ER.sys 15
+            scoreboard players set #ER.animal.bear.attack_tick_first ER.sys 8
+            scoreboard players set #ER.animal.bear.attack_tick_second ER.sys 8
         # 늑대
             scoreboard players set #ER.animal.wolf.health ER.sys 25
             scoreboard players set #ER.animal.wolf.attack ER.sys 4
             scoreboard players set #ER.animal.wolf.cooltime ER.sys 120
+            scoreboard players set #ER.animal.wolf.skill_effect_tick ER.sys 20
+            scoreboard players set #ER.animal.wolf.skill_end_tick ER.sys 30
+            scoreboard players set #ER.animal.wolf.attack_tick_first ER.sys 8
+            scoreboard players set #ER.animal.wolf.attack_tick_second ER.sys 8
         # 알파
             scoreboard players set #ER.animal.alpha.health ER.sys 150
             scoreboard players set #ER.animal.alpha.attack ER.sys 10
             scoreboard players set #ER.animal.alpha.cooltime ER.sys 120
+            scoreboard players set #ER.animal.alpha.skill_effect_tick ER.sys 42
+            scoreboard players set #ER.animal.alpha.skill_end_tick ER.sys 65
+            scoreboard players set #ER.animal.alpha.attack_tick_first ER.sys 12
+            scoreboard players set #ER.animal.alpha.attack_tick_second ER.sys 34
+
+            
+
+
 
     # 하이퍼루프 영역 번호 지정
         scoreboard players set #ER.place.null ER.sys 0
