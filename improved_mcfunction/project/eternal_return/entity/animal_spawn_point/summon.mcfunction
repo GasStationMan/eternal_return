@@ -31,7 +31,7 @@ summon minecraft:marker with animal:
         thisEntity nbt text = '{"text":"test"}'
         ride @n[type=minecraft:marker,tag=this] mount @s
     
-execute rotated as @s as @e[type=minecraft:marker,tag=this] run tp @s ~ ~ ~ ~ 0
+#execute rotated as @s as @e[type=minecraft:marker,tag=this] run tp @s ~ ~ ~ ~ 0
 $say $(animal) spawn point has been summoned!
 tag @e[tag=this] remove this
 

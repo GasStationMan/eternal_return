@@ -3,3 +3,4 @@ execute positioned as @s if entity @p[distance=..40] run function eternal_return
 execute if score @s[type=minecraft:marker] ER.cooltime matches 1.. if score @s ER.sys matches ..0 run function eternal_return:entity/animal_spawn/b2/code
 title @a actionbar [{"text":"nbt = "},{"nbt":"temp","storage":"minecraft:temp"}]
 data modify entity @s data.animal set from storage minecraft:temp temp.animal
+data remove storage minecraft:temp temp
