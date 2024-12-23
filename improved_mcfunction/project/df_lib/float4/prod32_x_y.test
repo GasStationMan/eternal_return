@@ -1,0 +1,13 @@
+#prod technic :
+#   
+# 1.9999  
+# 1.9904
+
+op #x float /= #32 float
+op #y float /= #32 float
+op #x float *= #y float 
+op #x float += #x float
+execute store result score #float4.prod float run op #x float /= #625 float
+op #float4.prod float *= #32 float
+reset #x float
+reset #y float

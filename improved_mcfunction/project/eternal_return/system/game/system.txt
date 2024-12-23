@@ -1,0 +1,113 @@
+1. 화면이 나왔을 때 아무것도 선택되지 않은 경우
+랜덤으로 선택될 수 있게끔.
+
+
+player.fade_out()
+
+if 플레이어 is 오도짜세 :
+	아무 키나 눌러 클릭 띄우는 함수()
+if 아무 키나 누른 경우 :
+	캐릭터 선택 창 띄우기()
+	
+if 시간이 다 되지 않은 경우 :
+	if 고른 경우:
+		캐릭터 선택()
+	else if 아무 것도 고르지 않고 타임 오버:
+		캐릭터 선택(랜덤)
+
+else if 시간이 다 된 경우 :
+	모든 플레이어 . 랜덤 떨구기()
+
+player.fade_out()
+player.show_loading()
+player.bossbar_waitbar()
+
+if player.isSelectedPlayer() >= 10 :
+	시작시간 = 10초
+elif player.isSelectedPlayer() < 10 :
+	시작시간 = 120초
+else :
+	#성공()
+	player.removeTag(wait_bar)
+	player.addTag(last_waiting)	
+	player.fade_out()
+	if player.spreadPlayers_intoAreas(seed) == True:
+		showLoadingPage()
+		player.fade_out()
+		if showCountDown(sec = 5) == True : 
+			game_start()
+	else :
+		stop_game()
+		err("에러 ! 에러 !") 
+
+def spreadPlayers_intoAreas():
+	return tp allPlayer into AllMarkers[tag] with Random_seed
+
+def game_start():
+	player.removeTag(last_waiting)
+	player.addTag(game_start)
+	player.setPlayerRole(player.data.selectedCharacter)
+	real_game_start()
+
+def game_end():
+
+
+execute as @a[tag=winner] :
+    funciton player:show_page_winner
+
+
+if player.count == 1:
+    game_end()
+    player.tpAll(briefing_room)
+else :
+    showPageLose(player.win == False)
+
+
+
+
+
+
+
+
+
+
+
+1. 보스바 6번 까지 ㄱㄱ
+ 보스바 1번 : 회색 배경
+ 보스바 2번 : 스코어보드, 사다리꼴, 캐릭터 선택 텍스트, 배경 하나로 그룹화
+ 보스바 3번 : 캐릭터 선택 뒷배경
+ 보스바 4번 : 캐릭터 리스트 5 * 4 인데 예비로 5 * 3개 더 추가
+ 보스바 5번 : 캐릭터 선택 버튼, 바로 시작 버튼
+
+
+보스바 1번 회색 배경 -> 꾸미는 건 나중에, 일단 회색만 추가
+보스바 2번 사다리꼴, 텍스트, 배경
+
+희재에게 질문할 것
+
+1.  배경 블럭
+	- 테두리 밝아지는 효과
+		내부 광선 사용 ->
+			광선 색깔 교체 필요성 확인됨
+			-> 1d4c79로 변경
+			광선이 위쪽까지 침범
+			-> 레이어 병합 후 위쪽만 자름
+			-> 해결...?
+
+	- 테두리 검정색 효과
+		획 사용 후 -> 	
+			칠해지지 않아야 하는 곳(위쪽) 까지 칠해져 난감.   
+			-> 물체를 윗부분에 맞추고 설정을 "바깥"으로 변경 후 해결
+	- 위아래 그라데이션 (밑 : 청색 / 위 : 남색) 0
+2. 퍼져나가는 효과
+	- 두 레이어 선택 후 alt
+	- 아래 레이어에 점박이 레이어 종속 (클리핑 마스크)
+	- 구멍 뚫린 종이 아이콘 클릭
+		- 레이어 마스크에 그레디언트 적용
+	- 원해는 색깔 추출 후 혼합 옵션 그레디언트 오버레이에서 방사형 선택
+	- 끝
+
+3. 숫자
+
+
+

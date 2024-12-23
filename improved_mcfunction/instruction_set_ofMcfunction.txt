@@ -1,0 +1,26 @@
+mcfunction의 instruction set
+
+다음에 있을 instruction set을 제외하고는 모두 인라인 함수 또는 일반 함수로 라이브러리에 넣는다.
+
+
+add
+sub 
+lw  
+sw  
+execute if
+
+
+ex :
+
+rotate @s facing entity @n feet (x)
+
+def rotateToEntityWithFeet(TargetSelector t1, TargetSelector t2) :
+    $$rotate <t1> entity <t2> feet
+
+위의 $$표시는 네이티브 커맨드를 사용하겠다는 의미
+
+def rotateToAbsolutePosition(TargetSelector t, x, y, z) :
+    $$rotate <t> entity <x> <y> <z>
+
+
+

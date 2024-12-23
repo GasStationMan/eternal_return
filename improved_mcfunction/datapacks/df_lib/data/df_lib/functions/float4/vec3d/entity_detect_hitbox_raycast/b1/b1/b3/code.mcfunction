@@ -1,0 +1,9 @@
+scoreboard players operation maxX df_debug = #max_X float
+scoreboard players operation maxY df_debug = #max_Y float
+scoreboard players operation maxZ df_debug = #max_Z float
+scoreboard players operation minX df_debug = #min_X float
+scoreboard players operation minY df_debug = #min_Y float
+scoreboard players operation minZ df_debug = #min_Z float
+scoreboard players operation x df_debug = #float4.vec3d.detect_inf_plane.x float
+scoreboard players operation y df_debug = #float4.vec3d.detect_inf_plane.y float
+scoreboard players operation z df_debug = #float4.vec3d.detect_inf_plane.z float
