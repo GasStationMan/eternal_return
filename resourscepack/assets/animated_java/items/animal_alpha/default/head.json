@@ -1,7 +1,1 @@
-{
-    "model": {
-      "type": "minecraft:model",
-      "model": "animated_java:item/animal_alpha/default/head",
-      "tints": []
-    }
-  }
+{"model": {"type": "minecraft:model","model": "animated_java:item/animal_alpha/default/head","tints": []}}
