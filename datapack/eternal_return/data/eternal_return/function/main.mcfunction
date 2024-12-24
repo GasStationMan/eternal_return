@@ -59,7 +59,6 @@
     execute as @a if entity @s[tag=player] run function eternal_return:map/tick
 
 
-
 ## 기물
 
 # 부시
@@ -86,7 +85,7 @@ function eternal_return:sys/meteor/main
 
 
 # 야생동물 업데이트
-#execute \
+execute \
 as @e[type=!player,tag=ER] run \
 function eternal_return:entity/main/main
 
@@ -100,6 +99,7 @@ function eternal_return:entity/arrow_pen/main
 
 # 플레이어 야생동물 에딧 모드 진입
 #execute as @a[gamemode= creative] at @s run function eternal_return:entity/animal_spawn/
+
 
 ##> 디버그
 #function eternal_return:debug
@@ -117,3 +117,17 @@ function eternal_return:entity/arrow_pen/main
 
 ## 낮밤 변경
 #function eternal_return:sys/game/daycycle
+
+
+
+
+
+
+
+
+
+
+
+
+execute as @a[tag=tri] if score @s rc matches 0 run attribute @s minecraft:movement_speed base reset
+execute as @a[tag=tri] if score @s rc matches 1.. run scoreboard players set @s rc 0

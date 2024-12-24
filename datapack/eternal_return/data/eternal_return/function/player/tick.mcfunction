@@ -16,3 +16,6 @@
 # 크래딧
     execute if score @s credit matches 1.. run function eternal_return:player/credit/tick
     execute if score @s credit matches 0 run experience set @s 0 levels
+
+# 부시
+    execute if entity @s[tag=player] at @s run function eternal_return:player/bush/tick
