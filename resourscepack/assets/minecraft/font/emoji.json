@@ -1,0 +1,6 @@
+{
+	"providers": [
+		{"type": "bitmap","file": "minecraft:font/emoji/leni.png","ascent": 25, "height": 50,"chars": ["0"]}
+		
+	]
+}
