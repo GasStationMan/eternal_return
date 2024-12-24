@@ -734,7 +734,8 @@ class code_line(_command_):
             elif state == 32: #after execute if
                 if   token == "data"    : state = 36
                 elif token == "score"   : state = 33
-                elif token == "entity"  : state = 31 #일단 우회
+                elif token == "entity"  : state = 31
+                elif token == "function": state = 365
                 elif token == "block"   : 
                     if self.tokens[i+1].startswith("~") or isDigit(self.tokens[i+1]):
                             if self.tokens[i+2].startswith("~") or isDigit(self.tokens[i+2]):
@@ -758,8 +759,9 @@ class code_line(_command_):
                         else : state = 33
             
             elif state == 33 or state == 332 : #after execute if <>
-                if token == "data" or token == "score" or token == "entity" or token == "block" or token =="bossboar" : break
-                
+                if token == "data" or token == "score" or token == "entity" or token == "block" or token =="bossboar": 
+                    break
+
                 VARINFO = self.isVAR(VAR_TABLE,i)
                 VARTYPE = VARINFO[0]
 
@@ -875,6 +877,9 @@ class code_line(_command_):
                         i += 1
                     else : break
             
+            elif state == 365 : #execute if function
+                state = 3
+
             elif state == 37 : 
                 state = 3 #execute summon ...
 
