@@ -8,20 +8,22 @@ storage   IDtemp       is    minecraft:temp temp
 
 #> 아이디 체크 및 동일한 아이디의 구성 엔티티에게 this 태그 부여
 IDtemp.id = selfID
-tag @s += this
-execute on passengers run tag @s += this
-execute at @s with IDtemp :
-    $tag @n[type=minecraft:ghast,       scores={df_id=$(id)}] += this
-    $tag @n[type=minecraft:text_display,scores={df_id=$(id)}] += this
+tag @s add this
+execute on passengers run tag @s add this
+op #this.id ER.sys = @s df_id
+execute as @e[type=minecraft:ghast, tag=ER.animal.hitbox] if score @s df_id = #this.id ER.sys:
+    tag @s add this
+    execute on passengers run tag @s add this
 
-#> 변수 얻어오기
-entity hitBoxEntity is @e[type=minecraft:ghast       ,tag=ER.animal.hitbox,tag=this] 
-entity modelEntity  is @e[type=minecraft:item_display,tag=ER.animal.model ,tag=this] 
-entity HPbarEntity  is @e[type=minecraft:text_display,tag=ER.animal.model ,tag=this] 
-entity rootEntity   is @e[type=minecraft:husk      ,tag=ER.animal.root  ,tag=this] 
+#> 엔티티 매크로
+entity hitBoxEntity is @n[type=minecraft:ghast       ,tag=ER.animal.hitbox,tag=this] 
+entity modelEntity  is @n[type=minecraft:item_display,tag=ER.animal.model ,tag=this] 
+entity hpBarEntity  is @n[type=minecraft:text_display,tag=ER.animal.model ,tag=this] 
+entity rootEntity   is @n[type=minecraft:husk        ,tag=ER.animal.root  ,tag=this] 
 entity thisEntity   is @s
 
-
+# thisHP : 루트 엔티티가 갖고 있는 체력값 : 최대체력
+# thisMaxHP : 히트박스 엔티티가 갖고 있는 체력값 : 현재 체력
 thisHP    = hitBoxEntity score ER.health
 thisMaxHP = thisEntity   score ER.health
 
@@ -34,36 +36,37 @@ set #this.AI ER.sys 1
 if data entity @s {NoAI:1b} run set #this.AI ER.sys 0
 
 
-#> 최적화 [엔티티 쇼 / 노쇼]
-#function eternal_return:entity/animal/alpha/optimize/main
+##> 최적화 [엔티티 쇼 / 노쇼]
+function eternal_return:entity/animal/alpha/optimize/main
 
 
 #> 엔티티의 행동
 #> HP > 0
-if thisHP matches 1..:
-    if thisAI matches 0 :
+if thisHP == 1.. run goto:
+
+    if thisAI == 1 run return run\
+        function eternal_return:entity/animal/alpha/behav/main
+
+    if thisAI == 0:
         # 체력이 최대 체력 미만인 경우 AI -> true
-        if score #this.HP ER.sys < #this.MaxHP ER.sys : 
+        if thisHP < thisMaxHP : 
             data modify entity @s NoAI set value 0b
             set #this.AI ER.sys 1
-
-
-
+        
         # 플레이어가 근처에 가면 발동 -> ready 애니메이션
-        execute at @s \
+        execute positioned as @s \
         if entity @p[distance=0..6] \
         if score #this.HP ER.sys = #this.MaxHP ER.sys \
         as modelEntity[tag=!aj.animal_alpha.animation.ready.playing] run\
             function animated_java:animal_alpha/animations/ready/play
 
-    if thisAI matches 1 run\
-        function eternal_return:entity/animal/alpha/behav/main
+    
 
 
 #DEATH()
 #> HP <= 0
-if thisHP matches ..0 :
-    if score #this.AI ER.sys matches 1 run\
+if thisHP == ..0 :
+    if score #this.AI ER.sys == 1 run\
         data modify entity @s NoAI set value 1b
 
     execute on passengers if entity @s[tag=this]:
@@ -89,5 +92,6 @@ if thisHP matches ..0 :
             function animated_java:animal_alpha/animations/death/play
 
 # 히트박스 위치 조정
-execute at @s run tp hitBoxEntity ~ ~ ~
+hitBoxEntity nbt Pos = thisEntity nbt Pos
+
 tag @e[tag=ER.animal, tag=this] -= this

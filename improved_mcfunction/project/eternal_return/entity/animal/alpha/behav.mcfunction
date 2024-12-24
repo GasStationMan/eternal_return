@@ -40,64 +40,71 @@ def    animal:skill        is eternal_return:entity/animal/alpha/skill
 #  +---------------+--------------------------------------------------------------------------------------------+
 
 execute on target run tag @s += targeted
+
+execute store result score #x ER.sys run data get entity @s Motion[0] 1000000
+execute store result score #y ER.sys run data get entity @s Motion[1] 1000000
+execute store result score #z ER.sys run data get entity @s Motion[2] 1000000
+
 set #motionExist ER.sys 1
-if data entity @s {Motion:[0.0d,0.0d,0.0d]} run set #motionExist ER.sys 0
+if score #x ER.sys matches 0 if score #y ER.sys matches 0 if score #z ER.sys matches 0 run\
+    set #motionExist ER.sys 0
 
 #쿨타임 저장
 op #cooltime ER.sys = @s ER.cooltime
 
-execute at @s on passengers :
+execute positioned as @s on passengers :
 
-    #> ON ModelEntity
+    #> ON modelEntity
     #ready 애니메이션 종료
     if entity @s[tag= aj.animal_alpha.animation.ready.playing] run\
         function animal:ready_anim_stop
     
-    #ATTACK 애니메이션 실행 및 로직 발동 cooltime >= 100 까지
+    #ATTACK & MOVE cooltime >= 100 까지
     if cooltime == 1.. run goto:
+
 
         # 플레이어 방향으로 시선 고정
         rotate @s facing entity @p[tag=targeted,distance=..20]
         data modify entity @s Rotation[1] set value 0.0f
 
+        #> ON rootEntity
         # 쿨타임 제거 및 isMotionExist 처리
-
-        if entity @s[tag= aj.animal_alpha.animation.attack.playing] on vehicle:
-            #> ON RootEntity               
-            data modify entity @s Motion set value [0.0d,0.0d,0.0d]
-            isMotionExist = 0
-
-        #> ON RootEntity               
         execute on vehicle run\
             sub @s ER.cooltime 1
 
-        #타겟 범위 확인
-        if entity @p[tag=targeted, distance=..4] run goto:       
+        #> ON rootEntity
+        #공격 중에 실행되는 부분
+        if entity @s[tag= aj.animal_alpha.animation.attack.playing] run goto:
             
-            if entity @s[tag= aj.animal_alpha.animation.attack.playing] run goto:
+            execute on vehicle :
+                thisEntity nbt Motion = [0.0d,0.0d,0.0d]
+                isMotionExist = 0
 
-                if score @s aj.attack.frame = #ER.animal.alpha.attack_tick_first ER.sys run return run\
-                    damage @p[tag=targeted] 5 minecraft:player_attack
+            if score @s aj.attack.frame = #ER.animal.alpha.attack_tick_first ER.sys run return run\
+                damage @p[tag=targeted, distance=..4] 5 minecraft:player_attack
 
-                if score @s aj.attack.frame = #ER.animal.alpha.attack_tick_second ER.sys run return run\
-                    damage @p[tag=targeted] 5 minecraft:player_attack
-            
+            if score @s aj.attack.frame = #ER.animal.alpha.attack_tick_second ER.sys run return run\
+                damage @p[tag=targeted, distance=..4] 5 minecraft:player_attack
+
+        #> ON rootEntity
+        #공격 시작 조건
+        if entity @s[tag=!aj.animal_alpha.animation.attack.playing] if entity @p[tag=targeted, distance=..4] run goto:       
             if entity @s[tag=aj.animal_alpha.animation.move.playing] run\
                 function animal:move_anim_stop
-                
             function animal:attack_anim_play
-            
-        #MOVE 애니메이션 종료
+
+        ##> ELSE
+        #isMotionExist 가 0일 시 MOVE 애니메이션 종료
         if isMotionExist == 0 if entity @s[tag= aj.animal_alpha.animation.move.playing] run return run\
             function animal:move_anim_stop
-
-        #MOVE 애니메이션 실행 (스킬 사용 중 제외)
+        
+        #모든 애니메이션이 실행 중이 아닌 경우 MOVE 애니메이션 실행 (스킬 사용 중 제외)
         if isMotionExist == 1 if entity @s[\
         tag=!aj.animal_alpha.animation.move.playing,\
         tag=!aj.animal_alpha.animation.attack.playing,\
         tag=!aj.animal_alpha.animation.skill.playing] run return run\
             function animal:move_anim_play
-
+        
     #======# 0틱 때 스킬 발동
 
     if cooltime == 0 :

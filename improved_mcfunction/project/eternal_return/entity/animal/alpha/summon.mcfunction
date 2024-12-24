@@ -14,7 +14,7 @@ $summon minecraft:husk ^$(dx) ^$(dy) ^$(dz) {\
     attributes:[{id:"minecraft:scale",base: 1.0d},{id:"minecraft:attack_damage",base: 0.0d},{id:"minecraft:movement_speed",base: 0.3d}]\
     }
 # 히트박스 소환
-$summon ghast ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.hitbox"],NoAI:1b,Silent:1b,Health:1000f,DeathTime:18,CustomName:'{"color":"green","text":"[ER][ER.animal.hitbox]"}',PersistenceRequired:1b,attributes:[{id:"minecraft:max_health", base: 1000.0d},{id:"minecraft:scale", base: 0.7d}]}
+$summon ghast ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.hitbox"],NoAI:1b,Silent:1b,Health:1000f,DeathTime:18,CustomName:'{"color":"green","text":"[ER][ER.animal.hitbox]"}',PersistenceRequired:1b,attributes:[{id:"minecraft:max_health", base: 1000.0d},{id:"minecraft:scale", base: 0.6d}]}
 
 # 체력바 소환
 $summon text_display ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.HPbar"],CustomNameVisible:0b,billboard:"center"}
@@ -77,29 +77,30 @@ execute as @e[tag=this] :
             ride @s mount @n[tag= this, tag= ER.animal.hitbox]
 
 
-#execute at @s on vehicle run tp @e[tag=this] ~ ~-3 ~
-
 #> 아이디 부여
 
 
 
 #> 아이디 저장
 storage animalList        is minecraft:temp temp.animal
-storage animalStructure   is minecraft:temp temp.animalStr
+storage animalStructure   is minecraft:temp temp.animalStructure
 
 ##animalStructure의 구조
 #   animalStructure{
-#       Pos : [double, double, double]
-#       id  : int
+#       Pos : [double, double, double]  위치값
+#       Rot : [float, float]            회전값
+#       id  : int                       아이디
 #   }
-#위에 #temp에 아이디 저장해서 한번 돌려쓰기
 
 score   tempID      is #tempID ER.sys
 entity  rootEntity  is @n[tag=this, tag=ER.animal.root]
+entity  thisEntity  is @s
 
 tag @s add ER.summoned
 animalStructure.id = tempID
 animalStructure.Pos = rootEntity nbt Pos
+execute on vehicle :
+    animalStructure.Rot = thisEntity nbt Rotation
 data modify animalList append from animalStructure
 
 data remove animalStructure

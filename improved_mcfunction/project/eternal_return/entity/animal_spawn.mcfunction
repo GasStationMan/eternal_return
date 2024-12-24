@@ -47,15 +47,17 @@ execute positioned as @s if entity @p[distance=..40] :
             # #this.MaxHP ER.health : 야생동물들 위치 재조정 후 체력 초기화 용도
             op  #this.MaxHP ER.health = @s ER.health
 
+            #-------------------------- 원래 위치로 복귀 -------------------------- #
 
             execute if entity @s[tag= ER.animal.bear, distance= 20..] run goto :
                 data modify entity @s NoAI set value 1b
                 op @e[tag= this, tag= ER.animal.hitbox] ER.health = #this.MaxHP ER.health
+
                 execute on passengers as @e[tag= ER.animal.model] :
                     function animated_java:animal_bear/animations/attack/stop
                     function animated_java:animal_bear/animations/move/stop
-                    tp @s ~ ~ ~ ~ 0
-                data modify entity @s Pos set from animalList[0].Pos
+                    thisEntity nbt Rotation[0] = animalList[0].Rot[0]
+                thisEntity nbt Pos = animalList[0].Pos
                 set @s ER.cooltime 400
 
             execute if entity @s[tag= ER.animal.boar, distance= 20..] run goto :
@@ -65,8 +67,8 @@ execute positioned as @s if entity @p[distance=..40] :
                 execute on passengers as @e[tag= ER.animal.model] :
                     function animated_java:animal_boar/animations/attack/stop
                     function animated_java:animal_boar/animations/move/stop
-                    tp @s ~ ~ ~ ~ 0
-                data modify entity @s Pos set from animalList[0].Pos
+                    thisEntity nbt Rotation[0] = animalList[0].Rot[0]
+                thisEntity nbt Pos = animalList[0].Pos
                 set @s ER.cooltime 400
 
             execute if entity @s[tag= ER.animal.wolf, distance= 20..] run goto :
@@ -75,8 +77,8 @@ execute positioned as @s if entity @p[distance=..40] :
                 execute on passengers as @e[tag= ER.animal.model] :
                     function animated_java:animal_wolf/animations/attack/stop
                     function animated_java:animal_wolf/animations/move/stop
-                    tp @s ~ ~ ~ ~ 0
-                data modify entity @s Pos set from animalList[0].Pos
+                    thisEntity nbt Rotation[0] = animalList[0].Rot[0]
+                thisEntity nbt Pos = animalList[0].Pos
                 set @s ER.cooltime 400
             
             execute if entity @s[tag= ER.animal.alpha, distance= 20..] run goto :
@@ -85,8 +87,8 @@ execute positioned as @s if entity @p[distance=..40] :
                 execute on passengers as @e[tag= ER.animal.model] :
                     function animated_java:animal_alpha/animations/attack/stop
                     function animated_java:animal_alpha/animations/move/stop
-                    tp @s ~ ~ ~ ~ 0
-                data modify entity @s Pos set from animalList[0].Pos
+                    thisEntity nbt Rotation[0] = animalList[0].Rot[0]
+                thisEntity nbt Pos = animalList[0].Pos
                 set @s ER.cooltime 400
 
     # 엔티티가 없다면 -> 제거
@@ -151,7 +153,7 @@ if summonCool == 1.. if lenOfList == ..0 :
     #> 쿨타임 표시기 설정
     
 
-title @a actionbar [{"text":"nbt = "},{"nbt":"temp","storage":"minecraft:temp"}]
+#title @a actionbar [{"text":"nbt = "},{"nbt":"temp","storage":"minecraft:temp"}]
 
 
 
