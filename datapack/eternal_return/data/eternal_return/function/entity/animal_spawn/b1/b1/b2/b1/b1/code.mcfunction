@@ -1,3 +1,3 @@
 function animated_java:animal_bear/animations/attack/stop
 function animated_java:animal_bear/animations/move/stop
-tp @s ~ ~ ~ ~ 0
+data modify entity @s Rotation[0] set from storage minecraft:temp temp.animal[0].Rot[0]

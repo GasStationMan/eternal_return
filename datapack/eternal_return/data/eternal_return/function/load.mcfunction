@@ -90,8 +90,8 @@ forceload add -243 485 -243 479
             scoreboard players set #ER.animal.boar.health ER.sys 37
             scoreboard players set #ER.animal.boar.attack ER.sys 5
             scoreboard players set #ER.animal.boar.cooltime ER.sys 120
-            scoreboard players set #ER.animal.boar.skill_effect_tick ER.sys 20
-            scoreboard players set #ER.animal.boar.skill_end_tick ER.sys 24
+            scoreboard players set #ER.animal.boar.skill_effect_tick ER.sys 25
+            scoreboard players set #ER.animal.boar.skill_end_tick ER.sys 45
             scoreboard players set #ER.animal.boar.attack_tick_first ER.sys 7
             scoreboard players set #ER.animal.boar.attack_tick_second ER.sys 7
         # 곰
@@ -115,7 +115,7 @@ forceload add -243 485 -243 479
             scoreboard players set #ER.animal.alpha.attack ER.sys 10
             scoreboard players set #ER.animal.alpha.cooltime ER.sys 120
             scoreboard players set #ER.animal.alpha.skill_effect_tick ER.sys 42
-            scoreboard players set #ER.animal.alpha.skill_end_tick ER.sys 65
+            scoreboard players set #ER.animal.alpha.skill_end_tick ER.sys 60
             scoreboard players set #ER.animal.alpha.attack_tick_first ER.sys 12
             scoreboard players set #ER.animal.alpha.attack_tick_second ER.sys 34
 

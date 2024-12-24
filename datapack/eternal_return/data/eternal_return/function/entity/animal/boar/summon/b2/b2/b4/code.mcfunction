@@ -1,1 +1,1 @@
-ride @s mount @e[tag= this, tag= ER.animal.hitbox, limit=1]
+ride @s mount @n[tag= this, tag= ER.animal.hitbox]

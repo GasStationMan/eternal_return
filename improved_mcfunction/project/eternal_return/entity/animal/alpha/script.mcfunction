@@ -16,10 +16,10 @@ execute as @e[type=minecraft:ghast, tag=ER.animal.hitbox] if score @s df_id = #t
     execute on passengers run tag @s add this
 
 #> 엔티티 매크로
-entity hitBoxEntity is @n[type=minecraft:ghast       ,tag=ER.animal.hitbox,tag=this] 
-entity modelEntity  is @n[type=minecraft:item_display,tag=ER.animal.model ,tag=this] 
-entity hpBarEntity  is @n[type=minecraft:text_display,tag=ER.animal.model ,tag=this] 
-entity rootEntity   is @n[type=minecraft:husk        ,tag=ER.animal.root  ,tag=this] 
+entity hitBoxEntity is @e[type=minecraft:ghast       ,tag=ER.animal.hitbox, tag=this, limit=1] 
+entity modelEntity  is @e[type=minecraft:item_display,tag=ER.animal.model , tag=this, limit=1] 
+entity hpBarEntity  is @e[type=minecraft:text_display,tag=ER.animal.HPbar , tag=this, limit=1] 
+entity rootEntity   is @e[type=minecraft:husk        ,tag=ER.animal.root  , tag=this, limit=1] 
 entity thisEntity   is @s
 
 # thisHP : 루트 엔티티가 갖고 있는 체력값 : 최대체력
@@ -37,13 +37,13 @@ if data entity @s {NoAI:1b} run set #this.AI ER.sys 0
 
 
 ##> 최적화 [엔티티 쇼 / 노쇼]
-function eternal_return:entity/animal/alpha/optimize/main
+#function eternal_return:entity/animal/alpha/optimize/main
 
 
 #> 엔티티의 행동
 #> HP > 0
-if thisHP == 1.. run goto:
-
+if thisHP == 1..:
+    
     if thisAI == 1 run return run\
         function eternal_return:entity/animal/alpha/behav/main
 
@@ -93,5 +93,4 @@ if thisHP == ..0 :
 
 # 히트박스 위치 조정
 hitBoxEntity nbt Pos = thisEntity nbt Pos
-
-tag @e[tag=ER.animal, tag=this] -= this
+tag @e[tag=ER.animal, tag=this] remove this

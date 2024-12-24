@@ -1,2 +1,1 @@
-effect clear @s minecraft:slowness
-scoreboard players set @s ER.cooltime 200
+function eternal_return:entity/animal/bear/skill/main

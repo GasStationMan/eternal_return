@@ -1,14 +1,14 @@
-$summon minecraft:husk ^$(dx) ^$(dy) ^$(dz) { Tags:["this","ER.animal.root"], NoAI:1b, Silent:1b, Invulnerable:1b, DeathTime:18, CustomName:'{"color":"green","text":"[ER][ER.animal.root]"}', HasVisualFire:0b, PersistenceRequired:1b, ArmorItems:[{},{},{},{id:"minecraft:warped_fungus_on_a_stick",count:1,components:{"minecraft:custom_model_data":1}}], attributes:[{id:"generic.scale",base: 1.0d},{id:"generic.attack_damage",base: 0.0d},{id:"generic.movement_speed",base: 0.3d}] }
-$summon ghast ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.hitbox"],NoAI:1b,Silent:1b,Health:1000f,DeathTime:18,CustomName:'{"color":"green","text":"[ER][ER.animal.hitbox]"}',PersistenceRequired:1b,attributes:[{id:"generic.max_health", base: 1000.0d},{id:"generic.scale", base: 0.7d}]}
+$summon minecraft:husk ^$(dx) ^$(dy) ^$(dz) { Tags:["this","ER.animal.root"], NoAI:1b, Silent:1b, CustomName:'{"color":"green","text":"[ER][ER.animal.root]"}', attributes:[{id:"minecraft:scale",base: 1.0d},{id:"minecraft:attack_damage",base: 0.0d},{id:"minecraft:movement_speed",base: 0.3d}] }
+$summon ghast ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.hitbox"],NoAI:1b,Silent:1b,Health:1000f,DeathTime:18,CustomName:'{"color":"green","text":"[ER][ER.animal.hitbox]"}',PersistenceRequired:1b,attributes:[{id:"minecraft:max_health", base: 1000.0d},{id:"minecraft:scale", base: 0.6d}]}
 $summon text_display ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.HPbar"],CustomNameVisible:0b,billboard:"center"}
-execute as @e[type=minecraft:husk, tag= this, tag= ER.animal.root] at @s run function eternal_return:entity/animal/bear/summon/b1/code
+scoreboard players operation #health ER.sys = #ER.animal.bear.health ER.sys
+scoreboard players operation #cooltime ER.sys = #ER.animal.bear.cooltime ER.sys
+execute as @e[type=minecraft:husk, tag= this, tag= ER.animal.root] run function eternal_return:entity/animal/bear/summon/b1/code
 execute as @e[tag=this] run function eternal_return:entity/animal/bear/summon/b2/code
-execute on vehicle at @s run tp @e[tag=this] ~ ~-3 ~ ~ 0
-function df_library:id/set_id
 tag @s add ER.summoned
-scoreboard players operation #temp df_id = @e[tag=this,limit=1] df_id
-execute store result storage minecraft:df_temp temp.id int 1 run scoreboard players get #temp df_id
-data modify storage minecraft:df_temp temp.Pos set from entity @e[tag=this, tag=ER.animal.root, limit=1] Pos
-data modify storage minecraft:temp temp.animal append from storage minecraft:df_temp temp
-data remove storage minecraft:df_temp temp
+execute store result storage minecraft:temp temp.animalStructure.id int 1 run scoreboard players get #tempID ER.sys
+data modify storage minecraft:temp temp.animalStructure.Pos set from entity @n[tag=this, tag=ER.animal.root] Pos
+execute on vehicle run function eternal_return:entity/animal/bear/summon/b3/code
+data modify storage minecraft:temp temp.animal append from storage minecraft:temp temp.animalStructure
+data remove storage minecraft:temp temp.animalStructure
 tag @e[tag=this] remove this

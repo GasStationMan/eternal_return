@@ -1,28 +1,31 @@
 #> 알파 스크립트
-score     self.df_id   is    @s df_id
-score     ThisHP       is    #this.HP ER.sys
-score     ThisMaxHP    is    #this.MaxHP ER.sys
-score     ThisAI       is    #this.AI ER.sys
+score     selfID       is    @s df_id
+score     thisHP       is    #this.HP ER.sys
+score     thisMaxHP    is    #this.MaxHP ER.sys
+score     thisAI       is    #this.AI ER.sys
 storage   IDtemp       is    minecraft:temp temp
 
+
 #> 아이디 체크 및 동일한 아이디의 구성 엔티티에게 this 태그 부여
-IDtemp.id = self.df_id
-tag @s += this
-function with IDtemp :
-    $tag @e[type=minecraft:ghast,       scores={df_id=$(id)}] += this
-    $tag @e[type=minecraft:text_display,scores={df_id=$(id)}] += this
-execute on passengers run tag @s += this
+IDtemp.id = selfID
+tag @s add this
+execute on passengers run tag @s add this
+op #this.id ER.sys = @s df_id
+execute as @e[type=minecraft:ghast, tag=ER.animal.hitbox] if score @s df_id = #this.id ER.sys:
+    tag @s add this
+    execute on passengers run tag @s add this
 
-#> 변수 얻어오기
-entity HitBox_Entity is @e[type=minecraft:ghast       ,tag=ER.animal.hitbox,tag=this] 
-entity Model_Entity  is @e[type=minecraft:item_display,tag=ER.animal.model ,tag=this] 
-entity HPbar_Entity  is @e[type=minecraft:text_display,tag=ER.animal.model ,tag=this] 
-entity Root_Entity   is @e[type=minecraft:husk      ,tag=ER.animal.root  ,tag=this] 
+#> 엔티티 매크로
+entity hitBoxEntity is @e[type=minecraft:ghast       ,tag=ER.animal.hitbox, tag=this, limit=1] 
+entity modelEntity  is @e[type=minecraft:item_display,tag=ER.animal.model , tag=this, limit=1] 
+entity hpBarEntity  is @e[type=minecraft:text_display,tag=ER.animal.HPbar , tag=this, limit=1] 
+entity rootEntity   is @e[type=minecraft:husk        ,tag=ER.animal.root  , tag=this, limit=1] 
+entity thisEntity   is @s
 
-
-
-ThisHP    = HitBox_Entity score ER.health
-ThisMaxHP = Root_Entity   score ER.health
+# thisHP : 루트 엔티티가 갖고 있는 체력값 : 최대체력
+# thisMaxHP : 히트박스 엔티티가 갖고 있는 체력값 : 현재 체력
+thisHP    = hitBoxEntity score ER.health
+thisMaxHP = thisEntity   score ER.health
 
 
 
@@ -30,38 +33,40 @@ ThisMaxHP = Root_Entity   score ER.health
 
 #> AI 체크
 set #this.AI ER.sys 1
-if data Root_Entity[limit=1] NoAI run set #this.AI ER.sys 0
+if data entity @s {NoAI:1b} run set #this.AI ER.sys 0
 
 
-#> 최적화 [엔티티 쇼 / 노쇼]
-function eternal_return:entity/animal/bear/optimize/main
+##> 최적화 [엔티티 쇼 / 노쇼]
+#function eternal_return:entity/animal/bear/optimize/main
 
 
 #> 엔티티의 행동
 #> HP > 0
-if ThisHP matches 1..:
-    if ThisAI matches 0 :
+if thisHP == 1..:
+
+    if thisAI == 1 run return run\
+        function eternal_return:entity/animal/bear/behav/main
+
+    if thisAI == 0:
         # 체력이 최대 체력 미만인 경우 AI -> true
-        if score #this.HP ER.sys < #this.MaxHP ER.sys : 
+        if thisHP < thisMaxHP : 
             data modify entity @s NoAI set value 0b
-            scoreboard players set #this.AI ER.sys 1
-
-
-
+            set #this.AI ER.sys 1
+        
         # 플레이어가 근처에 가면 발동 -> ready 애니메이션
-        execute at @s \
+        execute positioned as @s \
         if entity @p[distance=0..6] \
         if score #this.HP ER.sys = #this.MaxHP ER.sys \
-        as Model_Entity[tag=!aj.animal_bear.animation.ready.playing] run function animated_java:animal_bear/animations/ready/play
+        as modelEntity[tag=!aj.animal_bear.animation.ready.playing] run\
+            function animated_java:animal_bear/animations/ready/play
 
-    if ThisAI matches 1 run\
-        function eternal_return:entity/animal/bear/behav/main
+    
 
 
 #DEATH()
 #> HP <= 0
-if ThisHP matches ..0 :
-    if score #this.AI ER.sys matches 1 run\
+if thisHP == ..0 :
+    if score #this.AI ER.sys == 1 run\
         data modify entity @s NoAI set value 1b
 
     execute on passengers if entity @s[tag=this]:
@@ -87,5 +92,5 @@ if ThisHP matches ..0 :
             function animated_java:animal_bear/animations/death/play
 
 # 히트박스 위치 조정
-execute at @s run tp HitBox_Entity ~ ~ ~
-tag @e[type=#animal_entity, tag=ER.animal, tag=this] -= this
+hitBoxEntity nbt Pos = thisEntity nbt Pos
+tag @e[tag=ER.animal, tag=this] remove this

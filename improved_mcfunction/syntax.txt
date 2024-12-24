@@ -48,6 +48,27 @@ function with FUNCTIONNAME:
     if i matches ..10 function BACK :
 
 
+def와 import의 차이
+
+def의 경우는 함수의 이름을 바꿔주고 맨 뒤에 main을 붙인다
+import의 경우에는 함수의 이름을 바꾸기만 한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @Entity
 def entityDetectHitboxRaycast():
 

@@ -2,7 +2,7 @@
 
 
 #> function eternal_return:entity/animal/boar/summon/data
-#>곰 소환
+#>알파 소환
 
 #>SUMMON ENTITY
 #좀비 소환
@@ -10,16 +10,11 @@ $summon minecraft:husk ^$(dx) ^$(dy) ^$(dz) {\
     Tags:["this","ER.animal.root"],\
     NoAI:1b,\
     Silent:1b,\
-    Invulnerable:1b,\
-    DeathTime:18,\
     CustomName:'{"color":"green","text":"[ER][ER.animal.root]"}',\
-    HasVisualFire:0b,\
-    PersistenceRequired:1b,\
-    ArmorItems:[{},{},{},{id:"minecraft:warped_fungus_on_a_stick",count:1,components:{"minecraft:custom_model_data":1}}],\
-    attributes:[{id:"generic.scale",base: 1.0d},{id:"generic.attack_damage",base: 0.0d},{id:"generic.movement_speed",base: 0.4d}]\
+    attributes:[{id:"minecraft:scale",base: 1.0d},{id:"minecraft:attack_damage",base: 0.0d},{id:"minecraft:movement_speed",base: 0.3d}]\
     }
 # 히트박스 소환
-$summon ghast ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.hitbox"],NoAI:1b,Silent:1b,Health:1000f,DeathTime:18,CustomName:'{"color":"green","text":"[ER][ER.animal.hitbox]"}',PersistenceRequired:1b,attributes:[{id:"generic.max_health", base: 1000.0d},{id:"generic.scale", base: 0.7d}]}
+$summon ghast ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.hitbox"],NoAI:1b,Silent:1b,Health:1000f,DeathTime:18,CustomName:'{"color":"green","text":"[ER][ER.animal.hitbox]"}',PersistenceRequired:1b,attributes:[{id:"minecraft:max_health", base: 1000.0d},{id:"minecraft:scale", base: 0.6d}]}
 
 # 체력바 소환
 $summon text_display ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.HPbar"],CustomNameVisible:0b,billboard:"center"}
@@ -32,63 +27,83 @@ $summon text_display ^$(dx) ^$(dy) ^$(dz) {Tags:["this","ER.animal.HPbar"],Custo
 entity RootEntity  is @e[type=minecraft:husk, tag= this, tag= ER.animal.root]
 entity ModelEntity is @e[type=minecraft:item_display, tag= this, tag= aj.animal_boar.root]
 entity HPbarEntity is @e[type=minecraft:text_display, tag= this, tag= ER.animal.HPbar]
-entity ThisEntity  is @s
 
-score  Health      is #ER.animal.boar.health   ER.sys
-score  Cooltime    is #ER.animal.boar.cooltime ER.sys
+##params
+op #health ER.sys = #ER.animal.boar.health ER.sys
+op #cooltime ER.sys = #ER.animal.boar.cooltime ER.sys
 
 
 
-execute as @e[type=minecraft:husk, tag= this, tag= ER.animal.root] at @s :
+execute as @e[type=minecraft:husk, tag= this, tag= ER.animal.root]:
     #> 안 보이게 하기
     effect give @s invisibility infinite 1 true
     effect give @e[type=minecraft:ghast, tag= this, tag= ER.animal.hitbox] invisibility infinite 1 true
     
     #> 모델 소환
-    function animated_java:animal_boar/summon/default
+    function animated_java:animal_boar/summon {args:{}}
     execute as @e[type=minecraft:item_display, tag= aj.animal_boar.root] if score @s aj.id = aj.last_id aj.id :
-        tag @s += this
-        tag @s += ER.animal.model
+        op #tempID ER.sys = @s aj.id
+        tag @s add this
+        tag @s add ER.animal.model
 
 #================================================[야생동물 설정]================================================
 execute as @e[tag=this] :
+
+    #>아이디 부여
+    #temp에 아이디 저장되어 있음
+    op @s df_id = #tempID ER.sys
+
     #> 공통 태그 부여
-    tag @s += ER.animal.boar
-    tag @s += ER.animal
-    tag @s += ER
-    set @s ER.animal.this 0
+    tag @s add ER.animal.boar
+    tag @s add ER.animal
+    tag @s add ER
     #> 체력 및 스킬 쿨타임
-    begin :
+    #> if - else if
+    function : 
         if entity @s[tag=ER.animal.root]    run goto :
-            ThisEntity score ER.health      = Health
-            ThisEntity score ER.cooltime    = 80
-            ThisEntity score ER.maxCooltime = Cooltime
+            op @s ER.health      = #health ER.sys
+            op @s ER.cooltime    = #cooltime ER.sys
 
         if entity @s[tag=ER.animal.hitbox]  run goto :
-            ThisEntity score ER.health      = Health
+            op @s ER.health      = #health ER.sys
+
             #ER.sys scoreboard는 이 엔티티가 처음 소환 된 것인지 파악하는 지표로 쓰입니다.
-            ThisEntity score ER.sys         = 0
+            set @s ER.sys 0
 
         if entity @s[tag=ER.animal.model]   run goto :
-            ride @s mount @e[tag= this, tag= ER.animal.root, limit=1]
+            ride @s mount @n[tag= this, tag= ER.animal.root]
 
         if entity @s[tag=ER.animal.HPbar]   run goto :
-            ride @s mount @e[tag= this, tag= ER.animal.hitbox, limit=1]
+            ride @s mount @n[tag= this, tag= ER.animal.hitbox]
 
-
-execute on vehicle at @s run tp @e[tag=this] ~ ~-3 ~ ~ 0
 
 #> 아이디 부여
-function df_library:id/set_id
+
+
 
 #> 아이디 저장
-tag @s add ER.summoned
-scoreboard players operation #temp df_id = @e[tag=this,limit=1] df_id
-execute store result storage minecraft:df_temp temp.id int 1 run scoreboard players get #temp df_id
-data modify storage minecraft:df_temp temp.Pos set from entity @e[tag=this, tag=ER.animal.root, limit=1] Pos
-data modify storage minecraft:temp temp.animal append from storage minecraft:df_temp temp
-data remove storage minecraft:df_temp temp
+storage animalList        is minecraft:temp temp.animal
+storage animalStructure   is minecraft:temp temp.animalStructure
 
+##animalStructure의 구조
+#   animalStructure{
+#       Pos : [double, double, double]  위치값
+#       Rot : [float, float]            회전값
+#       id  : int                       아이디
+#   }
+
+score   tempID      is #tempID ER.sys
+entity  rootEntity  is @n[tag=this, tag=ER.animal.root]
+entity  thisEntity  is @s
+
+tag @s add ER.summoned
+animalStructure.id = tempID
+animalStructure.Pos = rootEntity nbt Pos
+execute on vehicle :
+    animalStructure.Rot = thisEntity nbt Rotation
+data modify animalList append from animalStructure
+
+data remove animalStructure
 #> this 태그 제거
 tag @e[tag=this] remove this
 

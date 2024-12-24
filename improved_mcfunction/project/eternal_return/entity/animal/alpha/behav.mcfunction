@@ -1,27 +1,3 @@
-
-# 공격 중인 엔티티 얻어오기
-
-storage Animal_info         is      minecraft:temp temp
-entity  ModelEntity         is      @e[type=minecraft:item_display,tag=ER.animal.model,tag=this]
-entity  thisEntity          is      @s
-score   motionX             is      #motion_x ER.sys
-score   motionY             is      #motion_y ER.sys
-score   isMotionExist       is      #motionExist ER.sys
-score   cooltime            is      #cooltime ER.sys
-
-import animal:ready_anim_play   is animated_java:animal_alpha/animations/ready/play
-import animal:ready_anim_stop   is animated_java:animal_alpha/animations/ready/stop
-import animal:skill_anim_play   is animated_java:animal_alpha/animations/skill/play
-import animal:skill_anim_stop   is animated_java:animal_alpha/animations/skill/stop
-import animal:attack_anim_play  is animated_java:animal_alpha/animations/attack/play
-import animal:attack_anim_stop  is animated_java:animal_alpha/animations/attack/stop
-import animal:move_anim_play    is animated_java:animal_alpha/animations/move/play
-import animal:move_anim_stop    is animated_java:animal_alpha/animations/move/stop
-
-def    animal:skill        is eternal_return:entity/animal/alpha/skill
-
-#>Motion 얻어오기
-
 #  틱에 따른 행동 알고리즘
 #  +-----------+--------------------------------+
 #  |TIME_STAMP |           Behave               |
@@ -39,14 +15,34 @@ def    animal:skill        is eternal_return:entity/animal/alpha/skill
 #  | Animal_info   | - {animal : "alpha", OPTdistance : 20, damage : 5, attackTick : 12, attackDistance : 5}    |
 #  +---------------+--------------------------------------------------------------------------------------------+
 
-execute on target run tag @s += targeted
 
+entity  modelEntity         is      @e[type=minecraft:item_display,tag=ER.animal.model,tag=this]
+entity  thisEntity          is      @s
+score   isMotionExist       is      #motionExist ER.sys
+score   cooltime            is      #cooltime ER.sys
+
+import animal:ready_anim_play   is animated_java:animal_alpha/animations/ready/play
+import animal:ready_anim_stop   is animated_java:animal_alpha/animations/ready/stop
+import animal:skill_anim_play   is animated_java:animal_alpha/animations/skill/play
+import animal:skill_anim_stop   is animated_java:animal_alpha/animations/skill/stop
+import animal:attack_anim_play  is animated_java:animal_alpha/animations/attack/play
+import animal:attack_anim_stop  is animated_java:animal_alpha/animations/attack/stop
+import animal:move_anim_play    is animated_java:animal_alpha/animations/move/play
+import animal:move_anim_stop    is animated_java:animal_alpha/animations/move/stop
+
+def    animal:skill             is eternal_return:entity/animal/alpha/skill
+
+#공격 대상 얻어오기
+execute on target run tag @s add targeted
+
+#Motion 얻어오기
 execute store result score #x ER.sys run data get entity @s Motion[0] 1000000
 execute store result score #y ER.sys run data get entity @s Motion[1] 1000000
 execute store result score #z ER.sys run data get entity @s Motion[2] 1000000
 
+#얻어온 Motion에 따른 isMotionExist 판정
 set #motionExist ER.sys 1
-if score #x ER.sys matches 0 if score #y ER.sys matches 0 if score #z ER.sys matches 0 run\
+if score #x ER.sys == 0 if score #y ER.sys == 0 if score #z ER.sys == 0 run\
     set #motionExist ER.sys 0
 
 #쿨타임 저장
@@ -138,7 +134,5 @@ execute positioned as @s on passengers :
             
         
 
-execute on target run tag @s -= targeted
+execute on target run tag @s remove targeted
 
-#>엔티티 시선처리
-#execute at @s run tp ModelEntity ~ ~ ~
