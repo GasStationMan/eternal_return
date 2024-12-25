@@ -399,6 +399,7 @@ class code_line(_command_):
                 
 
                 ### 명령어들 ### 
+                elif token == "bossbar" : return True
                 elif token == "rotate": return True
                 elif token == "return": 
                     i += 1

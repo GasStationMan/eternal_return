@@ -38,6 +38,18 @@ def getFileMode(OutputDir:str,OutputName:str,FileList:list) -> str:
     else:
         return "a+"
 
+def replaceLinebreak(string : str) -> str:
+    i = 0
+    length = len(string)
+    while(i < length):
+        if(string[i] == "\\"):
+            if(i + 1 < length and string[i + 1] != "u"): #\u0000 형태인지 확인
+                string = string[:i] + " " + string[i+1:]
+            elif(i + 1 == length):
+                string = string[:i] + " " + string[i+1:]
+        i = i + 1
+    return string
+
 def compile_to_mcfunction(current_dir,FILE_NAME,projectName):
 
     #코드 위치 구해서 열기 & 읽기
@@ -79,7 +91,7 @@ def compile_to_mcfunction(current_dir,FILE_NAME,projectName):
                 mcf_code[i] = ""
                 continue
             if state == getLineBreaked :
-                lineBreaked_line += mcf_code[i].strip().replace("\\"," ")
+                lineBreaked_line += replaceLinebreak(mcf_code[i].strip())
                 mcf_code[i] = ""
                 continue
 
