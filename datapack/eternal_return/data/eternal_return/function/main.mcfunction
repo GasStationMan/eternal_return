@@ -128,6 +128,6 @@ function eternal_return:entity/arrow_pen/main
 
 
 
-
+# 삼지창을 던질때 설정
 execute as @a[tag=tri] if score @s rc matches 0 run attribute @s minecraft:movement_speed base reset
 execute as @a[tag=tri] if score @s rc matches 1.. run scoreboard players set @s rc 0
