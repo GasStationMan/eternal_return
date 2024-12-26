@@ -1,1 +1,6 @@
-$bossbar set minecraft:line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [ {"font":"minecraft:map/kiosk",  "text":"\u4000"},  {"translate":"space.-400",      "font":"minecraft:default"}, {"translate":"space.-100",      "font":"minecraft:default"}, {"font":"minecraft:map/kiosk",  "text":"\u4001"}, {"translate":"space.400",      "font":"minecraft:default"},  {"translate":"space.-50",      "font":"minecraft:default"}, {"translate":"space.-$(x)",     "font":"minecraft:default"}, {"translate":"space.-7",        "font":"minecraft:default"}, {"font":"minecraft:map/icon",   "text":"\u1$(mouseY)"}, {"translate":"space.$(x)",      "font":"minecraft:default"} ]
+execute if function eternal_return:maps/kiosk/cursor_in_place/tree_of_life run function df_lib:hud/show/b1/b2/b1/code {place:"tree_of_life",color:"blue"}
+execute if function eternal_return:maps/kiosk/cursor_in_place/vf_blood run function df_lib:hud/show/b1/b2/b2/code {place:"vf_blood",color:"blue"}
+execute if function eternal_return:maps/kiosk/cursor_in_place/random run function df_lib:hud/show/b1/b2/b3/code {place:"random",color:"blue"}
+execute if function eternal_return:maps/kiosk/cursor_in_place/mithril run function df_lib:hud/show/b1/b2/b4/code {place:"mithril",color:"blue"}
+execute if function eternal_return:maps/kiosk/cursor_in_place/meteorite run function df_lib:hud/show/b1/b2/b5/code {place:"meteorite",color:"blue"}
+execute if function eternal_return:maps/kiosk/cursor_in_place/force_core run function df_lib:hud/show/b1/b2/b6/code {place:"force_core",color:"blue"}

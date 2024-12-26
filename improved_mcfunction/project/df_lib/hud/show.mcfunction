@@ -24,10 +24,6 @@ if entity @s[tag=kiosk] :
     set #hud_main.mouse_pointer_limit_width ER.sys 800
     set #hud_main.mouse_pointer_limit_height ER.sys 250
 
-    #============================================================#vvv수정vvv#============================================================#
-    bossbarStructure.buttons = {tree_of_life:"white",vf_blood:"white",random:"white",mithril:"white",meteorite:"white",force_core:"white"}
-    #============================================================#^^^수정^^^#============================================================#
-
     ## vvvv DO NOT MODIFY vvvv
 
     #>플레이어 버튼 위치 상수값 세팅
@@ -66,19 +62,10 @@ if entity @s[tag=kiosk] :
         set #rotY ER.sys 256
 
 
-    bossbarStructure.x = rotX
+    ## 커서 위치 조정에는 y좌표만 필요 (남은 x좌표는 space.$(x)로 조절할 예정)
     bossbarStructure.y = rotY
 
     function with bossbarStructure :
-        if score #rotX ER.sys matches ..-1 run\
-            data modify bossbarStructure.mouseX set value "000"
-        $if score #rotX ER.sys matches 0..9 run\
-            data modify bossbarStructure.mouseX set value "00$(x)"
-        $if score #rotX ER.sys matches 10..99 run\
-            data modify bossbarStructure.mouseX set value "0$(x)"
-        $if score #rotX ER.sys matches 100..999 run\
-            data modify bossbarStructure.mouseX set value "$(x)"
-
         if score #rotY ER.sys matches ..-1 run \
             data modify bossbarStructure.mouseY set value "000"
         $if score #rotY ER.sys matches 0..9 run \
@@ -88,40 +75,46 @@ if entity @s[tag=kiosk] :
         $if score #rotY ER.sys matches 100..999 run \
             data modify bossbarStructure.mouseY set value "$(y)"
             
-    scoreboard players set #cnt ER.sys 0
+    set #cnt ER.sys 0
 
-    if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/tree_of_life run\
-        function eternal_return:maps/select_place {place:"tree_of_life",color:"blue"}
+    ##버튼 감지
+    if score #cnt ER.sys matches 0 :
+        
+        ##버튼 추가
+        bossbarStructure.buttons = {tree_of_life:"white",vf_blood:"white",random:"white",mithril:"white",meteorite:"white",force_core:"white"}
+
+        if function eternal_return:maps/kiosk/cursor_in_place/tree_of_life run\
+            function df_lib:hud/get_selected_place/main {place:"tree_of_life",color:"blue"}
            
-    if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/vf_blood run\
-        function eternal_return:maps/select_place {place:"vf_blood",color:"blue"}
-          
-    if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/random run\
-        function eternal_return:maps/select_place {place:"random",color:"blue"}
-          
-    if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/mithril run\
-        function eternal_return:maps/select_place {place:"mithril",color:"blue"}
-          
-    if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/meteorite run\
-        function eternal_return:maps/select_place {place:"meteorite",color:"blue"}
-           
-    if score #cnt ER.sys matches 0 if function eternal_return:maps/kiosk/cursor_in_place/force_core run\
-        function eternal_return:maps/select_place {place:"force_core",color:"blue"}
+        if function eternal_return:maps/kiosk/cursor_in_place/vf_blood run
+            function df_lib:hud/get_selected_place/main {place:"vf_blood",color:"blue"}
+        
+        if function eternal_return:maps/kiosk/cursor_in_place/random run\
+            function df_lib:hud/get_selected_place/main {place:"random",color:"blue"}
+        
+        if function eternal_return:maps/kiosk/cursor_in_place/mithril run\
+            function df_lib:hud/get_selected_place/main {place:"mithril",color:"blue"}
+        
+        if function eternal_return:maps/kiosk/cursor_in_place/meteorite run\
+            function df_lib:hud/get_selected_place/main {place:"meteorite",color:"blue"}
+        
+        if function eternal_return:maps/kiosk/cursor_in_place/force_core run\
+            function df_lib:hud/get_selected_place/main {place:"force_core",color:"blue"}
             
     function with bossbarStructure :
         $bossbar set minecraft:line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name [\
-            {"font":"minecraft:map/kiosk",  "text":"\u4000"},\
+            {"font":"minecraft:map/kiosk", "text":"\u4000"},\
             \
-            {"translate":"space.-400",      "font":"minecraft:default"},\
-            {"translate":"space.-100",      "font":"minecraft:default"},\
-            {"font":"minecraft:map/kiosk",  "text":"\u4001"},\
+            {"translate":"space.-400",     "font":"minecraft:default"},\
+            {"translate":"space.-100",     "font":"minecraft:default"},\
+            {"font":"minecraft:map/kiosk", "text":"\u4001"},\
             {"translate":"space.400",      "font":"minecraft:default"},\
             \
             {"translate":"space.-50",      "font":"minecraft:default"},\
-            {"translate":"space.-$(x)",     "font":"minecraft:default"},\
-            {"translate":"space.-7",        "font":"minecraft:default"},\
-            {"font":"minecraft:map/icon",   "text":"\u1$(mouseY)"},\
-            {"translate":"space.$(x)",      "font":"minecraft:default"}\
+            {"translate":"space.-$(x)",    "font":"minecraft:default"},\
+            {"translate":"space.-7",       "font":"minecraft:default"},\
+            {"font":"minecraft:map/icon",  "text":"\u1$(mouseY)"},\
+            {"translate":"space.$(x)",     "font":"minecraft:default"}\
             ]
         #============================================================#^^^수정^^^#============================================================#
     #DEBUG for mousePointer vvv
