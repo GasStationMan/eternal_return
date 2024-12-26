@@ -48,7 +48,10 @@
 					{"threshold": 3,"model": {"type": "minecraft:model","model": "map/cctv/system_offline"}}
 				]}},
 		{"when": "kiosk","model": {"type": "minecraft:model","model": "map/kiosk"}},
-		{"when": "hyperloop","model": {"type": "minecraft:model","model": "map/hyperloop"}}
+		{"when": "hyperloop","model": {"type": "minecraft:model","model": "map/hyperloop"}},
+		{"when": "cobblestone","model": {"type": "minecraft:model","model": "map/cobblestone"}},
+		{"when": "branch","model": {"type": "minecraft:model","model": "map/branch"}},
+		{"when": "fishing_rod","model": {"type": "minecraft:model","model": "map/fishing_rod"}}
 	  ]
 	}
 }
