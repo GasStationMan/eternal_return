@@ -1,4 +1,2 @@
-execute if score #rotY ER.sys matches ..-1 run data modify storage minecraft:temp temp.mouseY set value "000"
-$execute if score #rotY ER.sys matches 0..9 run data modify storage minecraft:temp temp.mouseY set value "00$(y)"
-$execute if score #rotY ER.sys matches 10..99 run data modify storage minecraft:temp temp.mouseY set value "0$(y)"
-$execute if score #rotY ER.sys matches 100..999 run data modify storage minecraft:temp temp.mouseY set value "$(y)"
+tp @s ~ ~ ~ 0 0
+tag @s add choosing

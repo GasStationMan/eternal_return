@@ -481,8 +481,9 @@ class code_line(_command_):
                                                                     i += 2
                     elif isTargetSelector(self.tokens[i])       :   i += 2
                     else : break
+
                     if isDigit(self.tokens[i])                  : return True
-                    else : break
+                    else : return True
                 elif token == "sub"     :
                     self.tokens[i] = "scoreboard players remove"
                     #buffer checking
@@ -1022,7 +1023,7 @@ class code_line(_command_):
         LAST_BRAKET_INDEX = 0
         STATE_NONE        = 0
         STATE_STORE_TOKEN = 1
-        FLAG_HAVE_DOLLOR  = 0
+        FLAG_HAVE_DOLLAR  = 0
         while True:
             
             if state == STATE_NONE :
@@ -1038,7 +1039,7 @@ class code_line(_command_):
             elif state == STATE_STORE_TOKEN : 
                 if len(stack) == 0:
                     if i == len(line) : 
-                        if FLAG_HAVE_DOLLOR == 0 and self.isMacro == True : 
+                        if FLAG_HAVE_DOLLAR == 0 and self.isMacro == True : 
                             break
                         
                         elif token != ":" and token.endswith(":") :
@@ -1090,13 +1091,13 @@ class code_line(_command_):
                     
                     elif c[i] == "$" :
                         if self.isMacro == False : 
-                            FLAG_HAVE_DOLLOR = 1
+                            FLAG_HAVE_DOLLAR = 1
                             self.isMacro = True
                             token += c[i]
                             i = i + 1
                             continue
                         elif self.isMacro == True:
-                            FLAG_HAVE_DOLLOR = 1
+                            FLAG_HAVE_DOLLAR = 1
                             token += c[i]
                             i = i + 1
                             continue
@@ -1116,13 +1117,13 @@ class code_line(_command_):
                     if i == len(line) : break
                     elif c[i] == "$" :
                         if self.isMacro == False : 
-                            FLAG_HAVE_DOLLOR = 1
+                            FLAG_HAVE_DOLLAR = 1
                             self.isMacro = True
                             token += c[i]
                             i = i + 1
                             continue
                         elif self.isMacro == True:
-                            FLAG_HAVE_DOLLOR = 1
+                            FLAG_HAVE_DOLLAR = 1
                             token += c[i]
                             i = i + 1
                             continue

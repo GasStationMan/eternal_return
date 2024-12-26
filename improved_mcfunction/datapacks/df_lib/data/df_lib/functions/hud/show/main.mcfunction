@@ -1,2 +1,2 @@
-execute if entity @s[tag=kiosk] run function df_lib:hud/show/b1/code
-execute if entity @s[tag=!kiosk, tag=choosing_kiosk] run function df_lib:hud/show/b2/code
+$execute if entity @s[tag=$(tag)] run function df_lib:hud/show/b1/code {x:$(x),y:$(y),button_listener_function:"$(button_listener_function)",button_position_function:"$(button_position_function)"}
+$execute if entity @s[tag=!$(tag), tag=choosing] run function df_lib:hud/show/b2/code
