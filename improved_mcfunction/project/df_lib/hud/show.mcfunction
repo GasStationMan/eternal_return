@@ -1,4 +1,4 @@
-import pdb:get_me is pdb:get_me
+import pdb:get_uuid is pdb:get_me
 
 storage playerUUID       is pdb:main args
 storage bossbarStructure is minecraft:temp temp
@@ -10,7 +10,7 @@ score rotY is #rotY ER.sys
 
 
 
-$if entity @s[tag=$(tag)] run function {x:$(x),y:$(y),button_listener_function:"$(button_listener_function)",button_position_function:"$(button_position_function)"}:
+$if entity @s[tag=$(tag)] run return run function {tag : "$(tag)",x:$(x),y:$(y),button_listener_function:"$(button_listener_function)",button_position_function:"$(button_position_function)"}:
 
     function pdb:get_uuid
     bossbarStructure.UUID0 = playerUUID.UUID0
@@ -18,9 +18,9 @@ $if entity @s[tag=$(tag)] run function {x:$(x),y:$(y),button_listener_function:"
     bossbarStructure.UUID2 = playerUUID.UUID2
     bossbarStructure.UUID3 = playerUUID.UUID3
 
-    execute if entity @s[tag=!choosing] at @s :
+    execute if entity @s[tag=!choosing_$(tag)] at @s run function {tag : $(tag)}:
         tp @s ~ ~ ~ 0 0
-        tag @s add choosing
+        tag @s add choosing_$(tag)
 
 
     ## vvvv DO NOT MODIFY vvvv
@@ -49,13 +49,13 @@ $if entity @s[tag=$(tag)] run function {x:$(x),y:$(y),button_listener_function:"
         set #rotX ER.sys 1
     
     if rotX == $(x).. run\
-        set #rotX ER.sys 800
+        set #rotX ER.sys $(x)
     
     if rotY == ..0 run\
         set #rotY ER.sys 1
     
     if rotY == $(y).. run\
-        set #rotY ER.sys 256
+        set #rotY ER.sys $(y)
 
 
     bossbarStructure.x = rotX
@@ -89,7 +89,7 @@ $if entity @s[tag=$(tag)] run function {x:$(x),y:$(y),button_listener_function:"
     scoreboard players reset #modifyRotX ER.sys
     data remove bossbarStructure
 
-if entity @s[tag=!$(tag), tag=choosing] :
+$if entity @s[tag=!$(tag), tag=choosing_$(tag)] run function {tag : "$(tag)"}:
     function pdb:get_uuid
     bossbarStructure.UUID0 = playerUUID.UUID0
     bossbarStructure.UUID1 = playerUUID.UUID1
@@ -97,5 +97,5 @@ if entity @s[tag=!$(tag), tag=choosing] :
     bossbarStructure.UUID3 = playerUUID.UUID3
     function with bossbarStructure :
         $bossbar set minecraft:line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
-    tag @s remove choosing
+    $tag @s remove choosing_$(tag)
     data remove bossbarStructure

@@ -95,7 +95,23 @@ as @e[type= minecraft:arrow] \
 at @s run \
 function eternal_return:entity/arrow_pen/main
 
+execute as @a run function df_lib:hud/show/main {tag: kiosk,\
+    x: 800,\
+    y: 250,\
+    button_listener_function: "eternal_return:maps/kiosk/button_listener",\
+    button_position_function: "eternal_return:maps/kiosk/button_position"}
 
+execute as @a run function df_lib:hud/show/main {tag: hyperloop,\
+    x: 256,\
+    y: 256,\
+    button_listener_function: "eternal_return:maps/hyperloop/button_listener",\
+    button_position_function: "eternal_return:maps/hyperloop/button_position"}
+
+execute as @a run function df_lib:hud/show/main {tag: resurrection,\
+    x: 256,\
+    y: 256,\
+    button_listener_function: "eternal_return:maps/resurrection/button_listener",\
+    button_position_function: "eternal_return:maps/resurrection/button_position"}
 
 # 플레이어 야생동물 에딧 모드 진입
 #execute as @a[gamemode= creative] at @s run function eternal_return:entity/animal_spawn/
