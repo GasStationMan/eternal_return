@@ -15,7 +15,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.Vector;
 
+import java.util.Set;
 import java.util.Stack;
 
 
@@ -26,14 +28,15 @@ public class ERPlayer {
 
     private final Player player;
     private final Inventory upgradeGui;
+    public boolean isOpenHyperloopGui;
     private boolean isOpenUpgradeGui;
-    private BossbarHud bossBarHud;
+    private final BossbarHud hyperloop;
 
 
     public ERPlayer(Player p){
         player = p;
         upgradeGui = createUpgradeGui(p);
-        bossBarHud = new BossbarHud(p);
+        hyperloop = new BossbarHud(p);
 
     }
 
@@ -126,8 +129,8 @@ public class ERPlayer {
         return isOpenUpgradeGui;
     }
 
-    public BossbarHud getBossbarHud(){
-        return bossBarHud;
+    public BossbarHud getHyperloopHud(){
+        return hyperloop;
     }
 
 
@@ -239,6 +242,24 @@ public class ERPlayer {
         }
     }
 
+    public void encodeVelocityTag(){
+        Set<String> tagSet = player.getScoreboardTags();
+        for(String tag : tagSet){
+            if(tag.startsWith("v")){
+                String[] velocity = tag.split("_");
+                // move 1 1 1
+                // 0    1 2 3
+                player.setVelocity(new Vector(
+                        Float.parseFloat(velocity[1]),
+                        Float.parseFloat(velocity[2]),
+                        Float.parseFloat(velocity[3])
+                ));
+                tagSet.remove(tag);
+                break;
+            }
+        }
+    }
+
     //upgradeGui를 control하는 함수
     public void upgradeGuiFunction(InventoryClickEvent e) {
 
@@ -253,5 +274,9 @@ public class ERPlayer {
                 p.closeInventory();
             }
         }
+    }
+
+    public void sendMessage(String str) {
+        player.sendMessage(str);
     }
 }

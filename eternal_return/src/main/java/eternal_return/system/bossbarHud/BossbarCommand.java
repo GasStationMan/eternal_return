@@ -13,14 +13,14 @@ public class BossbarCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 
-        Player p;
+
         if(!(sender instanceof Player)){
             sender.sendMessage("Only players can use this command");
         }
 
-        p = (Player)sender;
+        Player p = (Player)sender;
         ERPlayer erPlayer = SystemManager.getInstance().getERPlayer(p);
-        erPlayer.getBossbarHud().open();
+        erPlayer.getHyperloopHud().open();
         return true;
     }
 }

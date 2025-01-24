@@ -62,7 +62,14 @@ public class SystemManager {
 
     //free (메모리 할당 해제)
     public void free() {
+
+        erPlayerHashMap.clear();
+        uuidPlayerHashMap.clear();
         erPlayerHashMap = null;
         uuidPlayerHashMap = null;
+    }
+
+    public HashMap<Player, ERPlayer> getErPlayerHashMap() {
+        return erPlayerHashMap;
     }
 }

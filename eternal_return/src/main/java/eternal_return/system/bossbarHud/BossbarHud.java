@@ -1,43 +1,43 @@
 package eternal_return.system.bossbarHud;
 
 import eternal_return.system.EternalReturnMain;
-import eternal_return.system.SystemManager;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.key.Key;
-import net.kyori.adventure.text.ComponentLike;
+import net.kyori.adventure.text.ComponentBuilder;
 import org.bukkit.entity.Player;
 
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class BossbarHud {
 
     private BossBar bufferShower;
     private Audience audience;
-    private Component buffer;
     private ArrayList<Component> components;
+    private boolean isOpen;
+
+    private static String space = "space.";
+
 
     public BossbarHud(Player p){
 
-        hyperLoopHudSetup();
+        isOpen = false;
 
-        buffer = Component.text("")
-                .children((List<Component>) components);
+        bossbarHudSetup();
 
-
+        Component buffer = Component.text("").children((List<Component>) components);
 
         bufferShower = BossBar.bossBar(buffer,0, BossBar.Color.BLUE, BossBar.Overlay.PROGRESS);
+
         audience = EternalReturnMain.adventure().player(p);
 
 
     }
 
-    public void hyperLoopHudSetup(){
+    public void bossbarHudSetup(){
         components = new ArrayList<>(64);
         components.add(Component.text("\u4000").font(Key.key("map/hyper_loop")));
         components.add(Component.translatable("space.-500").font(Key.key("default")));
@@ -82,16 +82,44 @@ public class BossbarHud {
         components.add(Component.text("\u4236").font(Key.key("map/storage")));
         components.add(Component.translatable("space.108").font(Key.key("default")));
         components.add(Component.translatable("space.-230").font(Key.key("default")));
+        components.add(Component.translatable("space.-270").font(Key.key("default")));
+        components.add(Component.text("\u1100").font(Key.key("map/icon")));
+        components.add(Component.translatable("space.270").font(Key.key("default")));
         components.add(Component.text("\u4001").font(Key.key("map/hyper_loop")));
         components.add(Component.translatable("space.250").font(Key.key("default")));
         components.add(Component.translatable("space.110").font(Key.key("default")));
     }
 
+    public void moveCursorPoint(int x, int y){
+
+        y = (y + 150);
+        x = (x + 130);
+
+        int mouseY = ('\u1000');
+        mouseY += 256 * (y/100);
+        y %= 100;
+        mouseY += 16 * (y/10);
+        y %= 10;
+        mouseY += y;
+
+        components.set(43,Component.translatable(space + (x)).font(Key.key("default")));
+        components.set(44,Component.text((char)mouseY).font(Key.key("map/icon")));
+        components.set(45,Component.translatable(space + (-x)).font(Key.key("default")));
+        bufferShower.name(Component.text("").children(components));
+
+    }
+
     public void open() {
+        isOpen = true;
         bufferShower.addViewer(audience);
     }
 
     public void close(){
+        isOpen = false;
         bufferShower.removeViewer(audience);
+    }
+
+    public boolean isOpen() {
+        return isOpen;
     }
 }
