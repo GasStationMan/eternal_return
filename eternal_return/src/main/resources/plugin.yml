@@ -4,4 +4,8 @@ main: eternal_return.system.EternalReturnMain
 api-version: '1.21'
 
 commands:
+    er:
+        showtags:
+        removetag:
     show:
+    hyperloop:
