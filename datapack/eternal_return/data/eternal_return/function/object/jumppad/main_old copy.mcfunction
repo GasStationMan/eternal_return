@@ -10,18 +10,7 @@ execute as @e[tag=jumppad,scores={ct2=1..9}] store result entity @s ArmorItems[3
 # 태그 부여
 execute as @e[tag=jumppad,scores={ct1=..5,ct2=8}] at @s run function eternal_return:sys/jumppad/get_tag with entity @s ArmorItems[3].components.minecraft:custom_data
 
-# 공장
-execute as @e[tag=jumppad,tag=zfactory,scores={ct1=..5,ct2=8}] at @s run function eternal_return:sys/jumppad/jumping {vector:[0.0,0.8,4.9]}
-# 항구
-execute as @e[tag=jumppad,tag=zharbor,scores={ct1=..5,ct2=8}] at @s run function eternal_return:sys/jumppad/jumping {vector:[-2.65,0.8,0.0]}
-# 고급 주택가
-execute as @e[tag=jumppad,tag=zresidential_area,scores={ct1=..5,ct2=8}] at @s run function eternal_return:sys/jumppad/jumping {vector:[-3.3,1.5,-3.0]}
-# 연못1
-execute as @e[tag=jumppad,tag=zpondA_1,scores={ct1=..5,ct2=8}] at @s run function eternal_return:sys/jumppad/jumping {vector:[-1.3,0.6,0.75]}
-execute as @e[tag=jumppad,tag=zpondA_2,scores={ct1=..5,ct2=8}] at @s run function eternal_return:sys/jumppad/jumping {vector:[1.4,1.0,-0.4]}
-# 연못2
-execute as @e[tag=jumppad,tag=zpondB_1,scores={ct1=..5,ct2=8}] at @s run function eternal_return:sys/jumppad/jumping {vector:[3.4,0.8,1.8]}
-execute as @e[tag=jumppad,tag=zpondB_2,scores={ct1=..5,ct2=8}] at @s run function eternal_return:sys/jumppad/jumping {vector:[-3.5,0.8,-2.1]}
+
 
 # 플레이어와 돼지에게 같은 태그 부여
 
