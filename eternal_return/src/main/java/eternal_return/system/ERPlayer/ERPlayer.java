@@ -1,13 +1,12 @@
 package eternal_return.system.ERPlayer;
 
-import eternal_return.system.EternalReturnMain;
+import eternal_return.system.PluginInstance;
 import eternal_return.system.SystemManager;
 import eternal_return.system.bossbarHud.BossbarHud;
 import eternal_return.system.guiGenerator.GuiGenerator;
 import eternal_return.system.guiGenerator.GuiPos;
 import eternal_return.system.itemUtill.ItemModifier;
 import eternal_return.system.itemUtill.ItemMover;
-import net.kyori.adventure.bossbar.BossBar;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -28,18 +27,22 @@ public class ERPlayer {
 
     private final Player player;
     private final Inventory upgradeGui;
-    public boolean isOpenHyperloopGui;
+    private boolean isOpenHyperloopGui;
     private boolean isOpenUpgradeGui;
-    private final BossbarHud hyperloop;
+    private final BossbarHud hyperloopGui;
 
 
     public ERPlayer(Player p){
         player = p;
         upgradeGui = createUpgradeGui(p);
-        hyperloop = new BossbarHud(p);
+        hyperloopGui = new BossbarHud(p);
+
+        isOpenHyperloopGui = false;
+        isOpenHyperloopGui = false;
 
     }
 
+    //initializer
     private Inventory createUpgradeGui(Player p) {
         try{
             return new GuiGenerator(p, 54)
@@ -117,6 +120,7 @@ public class ERPlayer {
         }
     }
 
+    //getter
     public Player getPlayer() {
         return player;
     }
@@ -125,15 +129,32 @@ public class ERPlayer {
         return upgradeGui;
     }
 
+    public BossbarHud getHyperloop(){
+        return hyperloopGui;
+    }
+
     public boolean isOpenUpgradeGui(){
         return isOpenUpgradeGui;
     }
 
-    public BossbarHud getHyperloopHud(){
-        return hyperloop;
+    public boolean isHyperloopGuiOpened(){
+        return isOpenHyperloopGui;
+    }
+
+    //setter
+
+    public void openHyperloopGui(){
+        isOpenHyperloopGui = true;
+        hyperloopGui.open();
     }
 
 
+    public void setOpenUpgradeGui(){
+        isOpenUpgradeGui = true;
+        player.openInventory(upgradeGui);
+    }
+
+    //updater
     public void updateUpgradeGuiWhenClose(){
         if(!isOpenUpgradeGui){
             return;
@@ -242,23 +263,6 @@ public class ERPlayer {
         }
     }
 
-    public void encodeVelocityTag(){
-        Set<String> tagSet = player.getScoreboardTags();
-        for(String tag : tagSet){
-            if(tag.startsWith("v")){
-                String[] velocity = tag.split("_");
-                // move 1 1 1
-                // 0    1 2 3
-                player.setVelocity(new Vector(
-                        Float.parseFloat(velocity[1]),
-                        Float.parseFloat(velocity[2]),
-                        Float.parseFloat(velocity[3])
-                ));
-                tagSet.remove(tag);
-                break;
-            }
-        }
-    }
 
     //upgradeGui를 control하는 함수
     public void upgradeGuiFunction(InventoryClickEvent e) {
@@ -270,7 +274,7 @@ public class ERPlayer {
         if(guiPos.getX() != 2){ //세번째 열 제외하고 모두 버튼으로 만들기
             e.setCancelled(true);
             if(guiPos.onPositon(4,4)){
-                EternalReturnMain.dfLogUTF8("upgrading...");
+                PluginInstance.dfLogUTF8("upgrading...");
                 p.closeInventory();
             }
         }

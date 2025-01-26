@@ -54,7 +54,7 @@ jar{
     archiveFileName = 'eternal_return.jar'
     destinationDirectory = file("C:\\Users\\21kim\\Desktop\\1.21.4 server\\plugins")
     manifest{
-        attributes 'Main-Class': 'eternal_return.system.EternalReturnMain'
+        attributes 'Main-Class': 'eternal_return.system.PluginInstance'
     }
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE

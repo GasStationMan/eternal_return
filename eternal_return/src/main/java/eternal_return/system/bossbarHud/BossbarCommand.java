@@ -20,7 +20,7 @@ public class BossbarCommand implements CommandExecutor {
 
         Player p = (Player)sender;
         ERPlayer erPlayer = SystemManager.getInstance().getERPlayer(p);
-        erPlayer.getHyperloopHud().open();
+        erPlayer.openHyperloopGui();
         return true;
     }
 }

@@ -4,7 +4,8 @@ package eternal_return.system;
 import java.io.UnsupportedEncodingException;
 
 import eternal_return.system.ERPlayer.ERPlayerDebugCommand;
-import eternal_return.system.ERPlayer.ERPlayerUpdateThread;
+import eternal_return.system.ERPlayer.ERPlayerScript;
+import eternal_return.system.ScriptUtill.ScriptUpdateThread;
 import eternal_return.system.bossbarHud.BossbarCommand;
 import eternal_return.system.guiGenerator.GuiCommand;
 import eternal_return.system.guiGenerator.GuiListener;
@@ -15,7 +16,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-public final class EternalReturnMain extends JavaPlugin{
+public final class PluginInstance extends JavaPlugin{
 
     private static Plugin serverInstance;
     private SystemManager systemManager;
@@ -56,14 +57,13 @@ public final class EternalReturnMain extends JavaPlugin{
 
         loadCommands();
 
-
-        Bukkit.getScheduler().runTaskTimer(this, new ERPlayerUpdateThread(),0,1);
+        //스크립트 업데이트
+        Bukkit.getScheduler().runTaskTimer(this, new ScriptUpdateThread(new ERPlayerScript()),0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");
 
     }
-
 
     //커맨드 로드용. 너무 길어질 것 같아서 미리 뺐음
     private void loadCommands() {
