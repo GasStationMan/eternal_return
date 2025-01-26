@@ -1,10 +1,9 @@
 package eternal_return.system.bossbarHud;
 
-import eternal_return.system.EternalReturnMain;
+import eternal_return.system.PluginInstance;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.key.Key;
-import net.kyori.adventure.text.ComponentBuilder;
 import org.bukkit.entity.Player;
 
 import net.kyori.adventure.text.Component;
@@ -32,11 +31,12 @@ public class BossbarHud {
 
         bufferShower = BossBar.bossBar(buffer,0, BossBar.Color.BLUE, BossBar.Overlay.PROGRESS);
 
-        audience = EternalReturnMain.adventure().player(p);
+        audience = PluginInstance.adventure().player(p);
 
 
     }
-
+    
+    //파일 입출력으로 구현 필요
     public void bossbarHudSetup(){
         components = new ArrayList<>(64);
         components.add(Component.text("\u4000").font(Key.key("map/hyper_loop")));

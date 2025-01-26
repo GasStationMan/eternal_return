@@ -1,6 +1,6 @@
 name: eternal_return_system
 version: '1.0-SNAPSHOT'
-main: eternal_return.system.EternalReturnMain
+main: eternal_return.system.PluginInstance
 api-version: '1.21'
 
 commands:
