@@ -20,10 +20,8 @@
     # 인터렉션
         execute as @e[type=interaction,tag=click_interaction,tag=cctv] run function eternal_return:object/cctv/tick
     # 플레이어
-        execute as @a[tag=use_cctv,tag=loading] at @s if entity @e[type=interaction,tag=cctv,distance=3..5,limit=1] run function eternal_return:gui/loading/cancel
-        execute as @a[tag=use_cctv] at @s if entity @e[type=interaction,tag=cctv,distance=3..5,limit=1] run tag @s remove use_cctv
+        execute as @a[tag=loading] at @s if entity @e[type=interaction,tag=cctv,distance=2.5..5,limit=1] run function eternal_return:gui/loading/cancel
     # 텍스트 디스플레이 [쿨타임]
         execute as @e[type=text_display,tag=cool] run function eternal_return:object/cctv/cooltime/tick
-
 # 점프패드
     execute as @e[type=armor_stand,tag=jumppad] run function eternal_return:object/jumppad/tick

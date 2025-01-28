@@ -3,7 +3,8 @@
 # 입출력 없음
 
 # 텍스트 표기 갱신
-    data modify entity @s text set value '{"color":"#FF0000","score":{"name":"@s","objective":"ct2"}}'
+    execute if entity @s[tag=red] run data modify entity @s text set value '{"color":"#FF0000","score":{"name":"@s","objective":"ct2"}}'
+    execute if entity @s[tag=white] run data modify entity @s text set value '{"color":"white","score":{"name":"@s","objective":"ct2"}}'
 
 # 스코어보드
     # tick++

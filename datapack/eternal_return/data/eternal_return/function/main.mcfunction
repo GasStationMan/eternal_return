@@ -52,6 +52,7 @@
     execute as @a if entity @s[tag=player] run function eternal_return:gui/screen/tick
     
     # 맵 창 / 키오스크 / 부활 선택창
+    function eternal_return:object/tick
 
 ## 게임 
     function eternal_return:game/tick

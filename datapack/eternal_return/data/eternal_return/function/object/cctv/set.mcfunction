@@ -2,10 +2,6 @@
 # 상위 함수 : function eternal_return:object/cctv/set
 # 입출력 : 없음
 
-
-
-
-
 # 위치
     # 경찰서
         execute positioned -722 82 568 run function eternal_return:object/cctv/summon {rotate:-90}
