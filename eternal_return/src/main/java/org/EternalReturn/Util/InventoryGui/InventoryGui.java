@@ -1,21 +1,22 @@
 package org.EternalReturn.Util.InventoryGui;
 
+import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class InventoryGuiGenerator implements GuiGenerator{
+public class InventoryGui{
 
     protected Inventory gui;
-    protected Player player;
+    protected ERPlayer erPlayer;
 
-    public InventoryGuiGenerator(Player p, int size){
-        gui = Bukkit.createInventory(p,size);
-        player = p;
+    public InventoryGui(ERPlayer erPlayer, int size){
+        this.gui = Bukkit.createInventory(erPlayer.getPlayer(),size);
+        this.erPlayer = erPlayer;
     }
 
-    public InventoryGuiGenerator(int size){
+    public InventoryGui(int size){
         gui = Bukkit.createInventory(null,size);
     }
 
@@ -33,13 +34,16 @@ public class InventoryGuiGenerator implements GuiGenerator{
         }
     }
 
-    public void free() {
-        gui = null;
-        player = null;
+    public Inventory getGui(){
+        return gui;
     }
 
-    @Override
-    public Inventory generateGui() {
-        return gui;
+    public void free() {
+        gui = null;
+        erPlayer = null;
+    }
+
+    public ERPlayer getERPlayer() {
+        return erPlayer;
     }
 }

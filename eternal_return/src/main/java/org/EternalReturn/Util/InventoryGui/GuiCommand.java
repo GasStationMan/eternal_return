@@ -1,6 +1,7 @@
 package org.EternalReturn.Util.InventoryGui;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
+import org.EternalReturn.System.Gui.Control.GuiController;
 import org.EternalReturn.System.SystemManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,8 +21,9 @@ public class GuiCommand implements CommandExecutor {
 
         p = (Player)sender;
         ERPlayer erPlayer = SystemManager.getInstance().getERPlayer(p);
-        erPlayer.updateUpgradeGuiWhenOpen();
-        p.openInventory(erPlayer.getInventory());
+        GuiController controller = erPlayer.getUpgradeGuiController();
+        controller.whenClose();
+        controller.openGui();
         return true;
     }
 }

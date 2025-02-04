@@ -2,6 +2,8 @@ package org.EternalReturn.System;
 
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.EternalReturn.System.ERPlayer.ERPlayerDebugCommand;
 import org.EternalReturn.System.ERPlayer.ERPlayerScript;
@@ -9,9 +11,10 @@ import org.EternalReturn.System.ERPlayer.PlayerJoinListener;
 import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
 import org.EternalReturn.Util.bossbarHud.BossbarCommand;
 import org.EternalReturn.Util.InventoryGui.GuiCommand;
-import org.EternalReturn.System.Gui.Listener.GuiListener;
+import org.EternalReturn.System.Gui.Control.GuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -49,11 +52,15 @@ public final class PluginInstance extends JavaPlugin{
         //시스템매니저 객체 생성
         systemManager = SystemManager.getInstance();
         adventure = BukkitAudiences.create(this);
-
+        
+        //온라인인 플레이어들 다시 해시맵에 등록
+        for(Player onlinePlayer : Bukkit.getOnlinePlayers()){
+            systemManager.addPlayer(onlinePlayer);
+        }
 
         //GuiOpen 리스너 등록. 이런 식으로 해야 함...
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(systemManager), this);
-        getServer().getPluginManager().registerEvents(new GuiListener(), this);
+        getServer().getPluginManager().registerEvents(new GuiListener(systemManager), this);
 
         loadCommands();
 
