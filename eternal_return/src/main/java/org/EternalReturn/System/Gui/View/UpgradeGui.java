@@ -1,17 +1,14 @@
 package org.EternalReturn.System.Gui.View;
-import org.EternalReturn.Util.InventoryGui.GuiGenerator;
-import org.EternalReturn.Util.InventoryGui.InventoryGuiGenerator;
+import org.EternalReturn.System.ERPlayer.ERPlayer;
+import org.EternalReturn.Util.InventoryGui.InventoryGui;
 import org.EternalReturn.Util.itemUtill.ItemGenerator;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
-public class UpgradeGuiGenerator extends InventoryGuiGenerator{
+public class UpgradeGui extends InventoryGui{
 
-
-    public UpgradeGuiGenerator(@Nullable Player p){
+    public UpgradeGui(@Nullable ERPlayer p){
         super(p, 54);
         setGui();
     }
@@ -32,4 +29,6 @@ public class UpgradeGuiGenerator extends InventoryGuiGenerator{
                         "행에 맞는 더 강한 아이템으로 변합니다."})
                 .generate());
     }
+
+
 }

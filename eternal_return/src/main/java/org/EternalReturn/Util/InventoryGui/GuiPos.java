@@ -9,6 +9,11 @@ public class GuiPos {
         this.y = y;
     }
 
+    public GuiPos(){
+        this.x = 0;
+        this.y = 0;
+    }
+
     public static GuiPos getClickedPosition(int clickedPosition){
         GuiPos guiPos = new GuiPos((clickedPosition % 9),(clickedPosition / 9));
         return guiPos;
@@ -30,4 +35,20 @@ public class GuiPos {
         return y;
     }
 
+    public int toIndex(){
+        return x + y * 9;
+    }
+
+    public void setPos(int posX, int posY){
+        x = posX;
+        y = posY;
+    }
+
+    public void setX(int posX){
+        x = posX;
+    }
+
+    public void setY(int posY){
+        y = posY;
+    }
 }

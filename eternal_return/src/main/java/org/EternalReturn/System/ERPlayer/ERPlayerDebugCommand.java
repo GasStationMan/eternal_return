@@ -1,9 +1,16 @@
 package org.EternalReturn.System.ERPlayer;
 
+import com.google.gson.JsonParser;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.EnchantingInventory;
+import org.bukkit.inventory.EntityEquipment;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.EnchantmentStorageMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
@@ -25,15 +32,34 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             p.sendMessage(tagSet.toString());
             return true;
         }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("enchant")){
+
+            EntityEquipment equipment = null;
+            ItemStack mainHandItem = null;
+            ItemMeta mainHandItemMeta = null;
+            if((equipment = p.getEquipment()) == null
+                    || (mainHandItem = equipment.getItemInMainHand()).getType().equals(Material.AIR)
+                    || (mainHandItemMeta = mainHandItem.getItemMeta()) == null){
+                return false;
+            }
+
+            if(mainHandItem.getType().equals(Material.ENCHANTED_BOOK)){
+
+                EnchantmentStorageMeta meta = (EnchantmentStorageMeta)mainHandItemMeta;
+
+                p.sendMessage(meta.getStoredEnchants().toString());
+            }
+            else{
+                p.sendMessage(mainHandItemMeta.getEnchants().toString());
+            }
+
+
+        }
         else if(args.length == 2 && args[0].equalsIgnoreCase("removetag")){
             tagSet.remove(args[1]);
             p.sendMessage(tagSet.toString());
             return true;
         }
-        else{
-            return false;
-        }
-
-
+        return false;
     }
 }
