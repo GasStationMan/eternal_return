@@ -6,18 +6,17 @@ import org.EternalReturn.Util.InventoryGui.InventoryGui;
 import org.EternalReturn.Util.itemUtill.ItemMover;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.EntityEquipment;
-import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
+import java.util.Vector;
+import java.util.Set;
 import java.util.Stack;
 
 public class UpgradeGuiController implements GuiController{
@@ -38,6 +37,7 @@ public class UpgradeGuiController implements GuiController{
 
     @Override
     public void openGui(){
+        whenOpen();
         isOpen = true;
         Player p = erPlayer.getPlayer();
         p.openInventory(upgradeGui.getGui());
@@ -45,6 +45,7 @@ public class UpgradeGuiController implements GuiController{
 
     @Override
     public void closeGui() {
+        whenClose();
         isOpen = false;
         Player p = erPlayer.getPlayer();
         p.closeInventory();
@@ -199,89 +200,131 @@ public class UpgradeGuiController implements GuiController{
             player.sendMessage("changed : " + upgrade);
         }
 
+        //인챈트 스토리지 메타데이터 추출 (레벨과 인챈트 종류)
+        Vector<EnchantmentStorageMeta> enchantList = extractEnchantList(gui, e.getCursor(), row, column);
 
 
+        if(upgrade){
+            //방어구 수정
+            upgradeArmor(gui, player.getEquipment(), enchantList);
+            //무기 수정
+            //upgradeWeapon(gui, player, enchantList);
+            closeGui();
+        }
+        else{
+            showEnchantment(gui, enchantList);
+        }
+        enchantList.clear();
+    }
+
+    //vvvvv 코드가 너무 길어져서 따로 뺀 함수들 vvvvv
+
+
+    //인챈트 보여주기 함수
+    private void showEnchantment(Inventory gui, Vector<EnchantmentStorageMeta> enchantmentStorageMetas){
         for(int i = 0 ; i < 6; i ++){
-
-            pos.setPos(2, i);
-            ItemStack enchantBook = null;
-            if(i == row){
-                enchantBook = e.getCursor();
+            int objectIndex = GuiPos.getPositionOnInventory(7,i);
+            ItemStack objectItem = gui.getItem(objectIndex);
+            EnchantmentStorageMeta enchantStorageMeta = enchantmentStorageMetas.get(i);
+            
+            if(enchantStorageMeta == null && objectItem != null){
+                //해당하는 행에 인챈트 북이 없는 경우 인챈트 제거
+                removeEnchant(objectItem);
+            }else{
+                //해당하는 행에 인챈트 북이 있는 경우 인챈트 부여
+                addEnchantsToItem(enchantStorageMeta,objectItem);
             }
-            else{
-                enchantBook = gui.getItem(pos.toIndex());
-            }
-
-            ItemMeta enchantBookMeta = null;
-
-            //objectItem position
-            pos.setPos(7,i);
-            ItemStack objectItem = gui.getItem(pos.toIndex());
-
-            //******************************널체크******************************
-            //오브젝트 아이템이 null이어도 안 됨.
-            if(objectItem == null
-                    || objectItem.getItemMeta() == null
-                    || objectItem.getType().equals(Material.GRAY_STAINED_GLASS_PANE)){
-                continue;
-            }
-
-            //인챈트 아이템이 null이어도 안 됨 + 인챈트북이 아니어도 안 됨.
-            ItemMeta objMeta = objectItem.getItemMeta();
-            if(enchantBook == null
-                    || !enchantBook.getType().equals(Material.ENCHANTED_BOOK)
-                    || (enchantBookMeta = enchantBook.getItemMeta()) == null){
-                if(objMeta.hasEnchants()){
-                    objMeta.removeEnchantments();
-                    objectItem.setItemMeta(objMeta);
-                }
-                continue;
-            }
-            //******************************널체크******************************
-            //여기서부터가 로직
-
-
-            EnchantmentStorageMeta enchantMeta = (EnchantmentStorageMeta)enchantBookMeta;
-            for(Enchantment enchantment : enchantMeta.getStoredEnchants().keySet()){
-                if(i <= 3 && enchantment.equals(Enchantment.PROTECTION)){
-                    int enchantLevel = enchantMeta.getStoredEnchantLevel(enchantment);
-
-                    if(upgrade){
-                        player.sendMessage("test");
-                        enchantBook.setAmount(enchantBook.getAmount() - 1);
-                        EntityEquipment equipment = player.getEquipment();
-
-                        int index = 3-i;
-                        ItemStack armor = equipment.getArmorContents()[index];
-                        ItemMeta armorMeta = armor.getItemMeta();
-                        armorMeta.addEnchant(enchantment, enchantLevel, false);
-                        armor.setItemMeta(armorMeta);
-
-                        if(index == 0){
-                            equipment.setBoots(armor);
-                        }
-                        else if(index == 1){
-                            equipment.setLeggings(armor);
-                        }
-                        else if(index == 2){
-                            equipment.setChestplate(armor);
-                        }
-                        else if(index == 3){
-                            equipment.setHelmet(armor);
-                        }
-                    }
-                    else{
-                        objMeta.addEnchant(enchantment, enchantLevel, false);
-                        objectItem.setItemMeta(objMeta);
-                    }
-                }
-            }
-
-            if(upgrade){
-                closeGui();
-            }
+            gui.setItem(objectIndex,objectItem);
         }
     }
+
+    //방어구를 upgrade 하는 함수
+    private void upgradeArmor(Inventory gui, EntityEquipment playerEquipment, Vector<EnchantmentStorageMeta> enchantmentStorageMetas){
+
+        if(playerEquipment == null){
+            return;
+        }
+
+        if(playerEquipment.getHelmet() != null){
+            playerEquipment.setHelmet(addEnchantsToItem(enchantmentStorageMetas.get(3),gui.getItem(GuiPos.getPositionOnInventory(7, 0))));
+        }
+
+        if(playerEquipment.getChestplate() != null){
+            playerEquipment.setChestplate(addEnchantsToItem(enchantmentStorageMetas.get(2),gui.getItem(GuiPos.getPositionOnInventory(7, 1))));
+        }
+
+        if(playerEquipment.getLeggings() != null){
+            playerEquipment.setLeggings(addEnchantsToItem(enchantmentStorageMetas.get(1),gui.getItem(GuiPos.getPositionOnInventory(7, 2))));
+        }
+
+        if(playerEquipment.getBoots() != null){
+            playerEquipment.setBoots(addEnchantsToItem(enchantmentStorageMetas.get(0),gui.getItem(GuiPos.getPositionOnInventory(7, 3))));
+        }
+
+
+    }
+    
+    //인챈트를 제거하는 함수
+    private void removeEnchant(@NotNull ItemStack item){
+        ItemMeta meta = null;
+        if((meta = item.getItemMeta())== null){
+            return;
+        }
+        meta.removeEnchantments();
+        item.setItemMeta(meta);
+    }
+
+    //아이템을 인챈트하는 함수
+    private ItemStack addEnchantsToItem(EnchantmentStorageMeta enchantmentStorageMeta, ItemStack itemToEnchant){
+        ItemMeta toBeEnchantedItemMeta = null;
+        if(enchantmentStorageMeta == null
+                || itemToEnchant == null
+                || (toBeEnchantedItemMeta = itemToEnchant.getItemMeta()) == null){
+            return itemToEnchant;
+        }
+
+        Set<Enchantment> enchantments = enchantmentStorageMeta.getStoredEnchants().keySet();
+
+        for(Enchantment enchantment : enchantments){
+            // 항상 인챈트 북 내의 인챈트 레벨을 가져올 때나, 인챈트를 가져올 때는 항상
+            //  getStoredEnchantLevel()
+            //  getStoredEnchants()
+            // 을 이용하자. 컴파일로도 못 잡아낸다 ㄷㄷ
+            int level = enchantmentStorageMeta.getStoredEnchantLevel(enchantment);
+            toBeEnchantedItemMeta.addEnchant(enchantment, level,false);
+            itemToEnchant.setItemMeta(toBeEnchantedItemMeta);
+        }
+
+        return itemToEnchant;
+    }
+    
+    //행에 맞게 인챈트를 선별해서 vector으로 반환하는 함수
+    private Vector<EnchantmentStorageMeta> extractEnchantList(Inventory gui, ItemStack itemOnCursor, int row, int column){
+        Vector<EnchantmentStorageMeta> enchantList = new Vector<>(6);
+        for(int i = 0 ; i < 6; i ++){
+            ItemStack enchantBook = null;
+            enchantBook = (column == 2 && i == row) ? itemOnCursor : gui.getItem(GuiPos.getPositionOnInventory(2, i));
+
+            ItemMeta enchantBookMeta = null;
+            if(enchantBook == null || (enchantBookMeta = enchantBook.getItemMeta()) == null){
+                enchantList.add(null);
+                continue;
+            }
+            EnchantmentStorageMeta enchantMeta = (EnchantmentStorageMeta)enchantBookMeta;
+            if(i <= 3 && enchantMeta.hasStoredEnchant(Enchantment.PROTECTION)){
+                enchantList.add(enchantMeta);
+            }
+            else if(i > 3 && enchantMeta.hasStoredEnchant(Enchantment.SHARPNESS)){
+                enchantList.add(enchantMeta);
+            }
+            else{
+                enchantList.add(null);
+            }
+        }
+        return enchantList;
+    }
+
+    //칼인가? (아직은 안 쓰임)
     private boolean isSword(ItemStack item){
         Material type = item.getType();
         return type.equals(Material.IRON_SWORD)
