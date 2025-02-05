@@ -8,7 +8,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.inventory.Inventory;
 
 import java.util.HashMap;
@@ -55,10 +54,8 @@ public class GuiListener implements Listener {
             e.setCancelled(true);
             if(!controller.isOpen()){
                 controller.openGui();
-                controller.whenOpen();
             }
             else{
-                controller.whenClose();
                 controller.closeGui();
             }
         }
