@@ -1,9 +1,10 @@
-package org.EternalReturn.System.Gui.Control;
+package org.EternalReturn.System.UpgradeSystem;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.InventoryGui.GuiPos;
-import org.EternalReturn.Util.InventoryGui.InventoryGui;
+import org.EternalReturn.Util.Gui.GuiController;
+import org.EternalReturn.Util.Gui.InventoryGui.GuiPos;
+import org.EternalReturn.Util.Gui.InventoryGui.InventoryGui;
 import org.EternalReturn.Util.itemUtill.ItemMover;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -15,19 +16,25 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitScheduler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-public class UpgradeGuiController implements GuiController{
+public class UpgradeGuiController implements GuiController {
 
     private ERPlayer erPlayer;
     private InventoryGui upgradeGui;
+    private final BukkitScheduler scheduler;
+    private final Plugin pluginInstance;
     private boolean isOpen;
 
     public UpgradeGuiController(InventoryGui gui){
         upgradeGui = gui;
         erPlayer = upgradeGui.getERPlayer();
+        scheduler = Bukkit.getScheduler();
+        pluginInstance = PluginInstance.getServerInstance();
     }
 
     public void free(){
@@ -37,10 +44,12 @@ public class UpgradeGuiController implements GuiController{
 
     @Override
     public void openGui(){
-        whenOpen();
         isOpen = true;
+        whenOpen();
         Player p = erPlayer.getPlayer();
-        p.openInventory(upgradeGui.getGui());
+        scheduler.runTaskLater(pluginInstance, ()->{
+            p.openInventory(upgradeGui.getGui());
+        }, 0);
     }
 
     @Override
@@ -49,6 +58,7 @@ public class UpgradeGuiController implements GuiController{
         isOpen = false;
         Player p = erPlayer.getPlayer();
         p.closeInventory();
+
     }
 
     @Override
@@ -128,44 +138,47 @@ public class UpgradeGuiController implements GuiController{
         int guiIndex = 0;
 
         Player player = erPlayer.getPlayer();
+
         Inventory upgGui = upgradeGui.getGui();
         Inventory playerInventory = player.getInventory();
 
+        ItemStack[] guiContent = upgGui.getContents();
+        ItemStack[] invContent = playerInventory.getContents();
+
         Stack<ItemMover> stack = new Stack<>();
-
-        while(guiIndex < 6 && invIndex < playerInventory.getSize()){
-
-            if(playerInventory.getItem(invIndex) != null){
+        int invContentLength = invContent.length;
+        int guiContentLength = guiContent.length;
+        while(guiIndex < 6 && invIndex < invContentLength){
+            if(invContent[invIndex] != null){
                 invIndex++;
                 continue;
             }
 
-            if(upgGui.getItem(guiIndex) == null){
+            int guiPosition = GuiPos.getPositionOnInventory(2, guiIndex);
+            if(guiContent[guiPosition] == null){
                 guiIndex++;
                 continue;
             }
 
-            int guiPosition = GuiPos.getPositionOnInventory(2, guiIndex);
-
-            ItemStack moveItem = upgGui.getItem(guiPosition);
-            stack.add(new ItemMover(moveItem, invIndex));
+            invContent[invIndex] = guiContent[guiPosition];
+            guiContent[guiPosition] = null;
             invIndex++;
             guiIndex++;
-
         }
 
         //게으른 계산 (이렇게 해야 안 꼬임.)
-        int i = 0;
-        while(!stack.isEmpty()){
+        scheduler.runTaskLater(pluginInstance,()->{
+            playerInventory.setContents(invContent);
+            upgGui.setContents(guiContent);
 
-            upgGui.clear(GuiPos.getPositionOnInventory(2, i++));
+            for(int i = 0 ; i < invContentLength; i ++){
+                invContent[i] = null;
+            }
 
-            ItemMover itemToMove = stack.pop();
-            int index = itemToMove.getIndex();
-            ItemStack item = itemToMove.getItemStack();
-            player.getInventory().setItem(index,item);
-        }
-
+            for(int i = 0 ; i < guiContentLength; i ++){
+                guiContent[i] = null;
+            }
+        },0);
         isOpen = false;
     }
 
@@ -220,9 +233,11 @@ public class UpgradeGuiController implements GuiController{
     //인챈트 보여주기 함수
     private void showEnchantment(Inventory gui, Vector<EnchantmentStorageMeta> enchantmentStorageMetas){
 
+        ItemStack[] guiContent = gui.getContents();
+
         for(int i = 0 ; i < 6; i ++){
             int objectIndex = GuiPos.getPositionOnInventory(7,i);
-            ItemStack objectItem = gui.getItem(objectIndex);
+            ItemStack objectItem = guiContent[objectIndex];
             EnchantmentStorageMeta enchantStorageMeta = enchantmentStorageMetas.get(i);
 
             if(enchantStorageMeta == null && objectItem != null){
@@ -230,16 +245,21 @@ public class UpgradeGuiController implements GuiController{
                 int subjectIndex = GuiPos.getPositionOnInventory(1,i);
 
                 //인벤토리 내의 아이템도 메인 틱에 맞춰야 정확하게 동작함.
-                Bukkit.getScheduler().runTaskLater(PluginInstance.getServerInstance(),()->{
-                    gui.setItem(objectIndex, gui.getItem(subjectIndex));
-                },0);
+                guiContent[objectIndex] = guiContent[subjectIndex];
             }
             else{
-                addEnchantsToItem(enchantStorageMeta,objectItem);
+                guiContent[objectIndex] = addEnchantsToItem(enchantStorageMeta,objectItem);
             }
-
-            gui.setItem(objectIndex,objectItem);
         }
+
+        scheduler.runTaskLater(pluginInstance, ()->{
+            gui.setContents(guiContent);
+            int guiContentLength = guiContent.length;
+            for(int i = 0 ; i < guiContentLength; i ++){
+                guiContent[i] = null;
+            }
+        }, 0);
+
     }
 
     //무기를 upgrade 하는 함수
@@ -260,14 +280,14 @@ public class UpgradeGuiController implements GuiController{
                 EnchantmentStorageMeta meta = enchantmentStorageMetas.get(4);
                 itemListToModify[i] = addEnchantsToItem(meta, finder);
                 if(meta != null){
-                    gui.setItem(GuiPos.getPositionOnInventory(2, 4), new ItemStack(Material.AIR));
+                    gui.clear(GuiPos.getPositionOnInventory(2, 4));
                 }
             }
             else if(finder.equals(bowToEnchant)){
                 EnchantmentStorageMeta meta = enchantmentStorageMetas.get(5);
                 itemListToModify[i] = addEnchantsToItem(meta, finder);
                 if(meta != null){
-                    gui.setItem(GuiPos.getPositionOnInventory(2, 5), new ItemStack(Material.AIR));
+                    gui.clear(GuiPos.getPositionOnInventory(2, 5));
                 }
             }
         }
@@ -290,7 +310,7 @@ public class UpgradeGuiController implements GuiController{
             EnchantmentStorageMeta meta = enchantmentStorageMetas.getFirst(); //.get(0)
             playerEquipment.setHelmet(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 0))));
             if(meta != null){
-                gui.setItem(GuiPos.getPositionOnInventory(2, 0), new ItemStack(Material.AIR));
+                gui.clear(GuiPos.getPositionOnInventory(2, 0));
             }
         }
 
@@ -298,7 +318,7 @@ public class UpgradeGuiController implements GuiController{
             EnchantmentStorageMeta meta = enchantmentStorageMetas.get(1);
             playerEquipment.setChestplate(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 1))));
             if(meta != null){
-                gui.setItem(GuiPos.getPositionOnInventory(2, 1), new ItemStack(Material.AIR));
+                gui.clear(GuiPos.getPositionOnInventory(2, 1));
             }
         }
 
@@ -306,7 +326,7 @@ public class UpgradeGuiController implements GuiController{
             EnchantmentStorageMeta meta = enchantmentStorageMetas.get(2);
             playerEquipment.setLeggings(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 2))));
             if(meta != null){
-                gui.setItem(GuiPos.getPositionOnInventory(2, 2), new ItemStack(Material.AIR));
+                gui.clear(GuiPos.getPositionOnInventory(2, 2));
             }
         }
 
@@ -314,7 +334,7 @@ public class UpgradeGuiController implements GuiController{
             EnchantmentStorageMeta meta = enchantmentStorageMetas.get(3);
             playerEquipment.setBoots(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 3))));
             if(meta != null){
-                gui.setItem(GuiPos.getPositionOnInventory(2, 3), new ItemStack(Material.AIR));
+                gui.clear(GuiPos.getPositionOnInventory(2, 3));
             }
         }
     }

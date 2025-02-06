@@ -1,6 +1,6 @@
-package org.EternalReturn.System.Gui.View;
+package org.EternalReturn.System.UpgradeSystem.View;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.InventoryGui.InventoryGui;
+import org.EternalReturn.Util.Gui.InventoryGui.InventoryGui;
 import org.EternalReturn.Util.itemUtill.ItemGenerator;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

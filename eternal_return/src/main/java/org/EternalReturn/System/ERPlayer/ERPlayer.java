@@ -1,8 +1,8 @@
 package org.EternalReturn.System.ERPlayer;
 
-import org.EternalReturn.System.Gui.Control.UpgradeGuiController;
-import org.EternalReturn.System.Gui.View.UpgradeGui;
-import org.EternalReturn.Util.bossbarHud.BossbarHud;
+import org.EternalReturn.System.UpgradeSystem.UpgradeGuiController;
+import org.EternalReturn.System.UpgradeSystem.View.UpgradeGui;
+import org.EternalReturn.Util.Gui.bossbarGui.BossbarGui;
 import org.bukkit.entity.Player;
 
 
@@ -13,7 +13,7 @@ public class ERPlayer {
     private final UpgradeGui upgradeGui;
     private final UpgradeGuiController upgradeGuiController;
 
-    private final BossbarHud hyperloopGui;
+    private final BossbarGui hyperloopGui;
 
     private boolean isHyperloopGuiOpened;
 
@@ -23,7 +23,7 @@ public class ERPlayer {
         upgradeGui = new UpgradeGui(this);
         upgradeGuiController = new UpgradeGuiController(upgradeGui);
 
-        hyperloopGui = new BossbarHud(p);
+        hyperloopGui = new BossbarGui(p);
         isHyperloopGuiOpened = false;
     }
 
@@ -32,7 +32,7 @@ public class ERPlayer {
         return player;
     }
 
-    public BossbarHud getHyperloop(){
+    public BossbarGui getHyperloop(){
         return hyperloopGui;
     }
 

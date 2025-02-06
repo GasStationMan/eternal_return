@@ -2,16 +2,12 @@ package org.EternalReturn.System;
 
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.EternalReturn.System.ERPlayer.ERPlayerDebugCommand;
 import org.EternalReturn.System.ERPlayer.ERPlayerScript;
 import org.EternalReturn.System.ERPlayer.PlayerJoinListener;
 import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
-import org.EternalReturn.Util.bossbarHud.BossbarCommand;
-import org.EternalReturn.Util.InventoryGui.GuiCommand;
-import org.EternalReturn.System.Gui.Control.GuiListener;
+import org.EternalReturn.Util.Gui.GuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -75,8 +71,6 @@ public final class PluginInstance extends JavaPlugin{
     //커맨드 로드용. 너무 길어질 것 같아서 미리 뺐음
     private void loadCommands() {
         getCommand("er").setExecutor(new ERPlayerDebugCommand());
-        getCommand("show").setExecutor(new GuiCommand());
-        getCommand("hyperloop").setExecutor(new BossbarCommand());
     }
 
     @Override

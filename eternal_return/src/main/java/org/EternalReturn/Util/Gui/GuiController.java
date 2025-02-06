@@ -1,6 +1,6 @@
-package org.EternalReturn.System.Gui.Control;
+package org.EternalReturn.Util.Gui;
 
-import org.EternalReturn.Util.InventoryGui.GuiPos;
+import org.EternalReturn.Util.Gui.InventoryGui.GuiPos;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
