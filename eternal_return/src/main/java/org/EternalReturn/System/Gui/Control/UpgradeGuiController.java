@@ -1,9 +1,11 @@
 package org.EternalReturn.System.Gui.Control;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
+import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.Util.InventoryGui.GuiPos;
 import org.EternalReturn.Util.InventoryGui.InventoryGui;
 import org.EternalReturn.Util.itemUtill.ItemMover;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -15,9 +17,7 @@ import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Vector;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
 public class UpgradeGuiController implements GuiController{
 
@@ -208,33 +208,74 @@ public class UpgradeGuiController implements GuiController{
             //방어구 수정
             upgradeArmor(gui, player.getEquipment(), enchantList);
             //무기 수정
-            //upgradeWeapon(gui, player, enchantList);
+            upgradeWeapon(gui, player.getInventory(), enchantList);
             closeGui();
-        }
-        else{
+        }else{
             showEnchantment(gui, enchantList);
         }
         enchantList.clear();
     }
 
     //vvvvv 코드가 너무 길어져서 따로 뺀 함수들 vvvvv
-
-
     //인챈트 보여주기 함수
     private void showEnchantment(Inventory gui, Vector<EnchantmentStorageMeta> enchantmentStorageMetas){
+
         for(int i = 0 ; i < 6; i ++){
             int objectIndex = GuiPos.getPositionOnInventory(7,i);
             ItemStack objectItem = gui.getItem(objectIndex);
             EnchantmentStorageMeta enchantStorageMeta = enchantmentStorageMetas.get(i);
-            
+
             if(enchantStorageMeta == null && objectItem != null){
-                //해당하는 행에 인챈트 북이 없는 경우 인챈트 제거
-                removeEnchant(objectItem);
-            }else{
                 //해당하는 행에 인챈트 북이 있는 경우 인챈트 부여
+                int subjectIndex = GuiPos.getPositionOnInventory(1,i);
+
+                //인벤토리 내의 아이템도 메인 틱에 맞춰야 정확하게 동작함.
+                Bukkit.getScheduler().runTaskLater(PluginInstance.getServerInstance(),()->{
+                    gui.setItem(objectIndex, gui.getItem(subjectIndex));
+                },0);
+            }
+            else{
                 addEnchantsToItem(enchantStorageMeta,objectItem);
             }
+
             gui.setItem(objectIndex,objectItem);
+        }
+    }
+
+    //무기를 upgrade 하는 함수
+    private void upgradeWeapon(Inventory gui, Inventory playerInventory, Vector<EnchantmentStorageMeta> enchantmentStorageMetas){
+        ItemStack swordToEnchant = gui.getItem(GuiPos.getPositionOnInventory(1,4));
+        ItemStack bowToEnchant = gui.getItem(GuiPos.getPositionOnInventory(1,5));
+
+        ItemStack[] itemListToModify = playerInventory.getContents();
+
+        int length = itemListToModify.length;
+        ItemStack finder = null;
+        for(int i = 0 ; i < length ; i ++){
+            finder = itemListToModify[i];
+            if(finder == null){
+                continue;
+            }
+            if(finder.equals(swordToEnchant)){
+                EnchantmentStorageMeta meta = enchantmentStorageMetas.get(4);
+                itemListToModify[i] = addEnchantsToItem(meta, finder);
+                if(meta != null){
+                    gui.setItem(GuiPos.getPositionOnInventory(2, 4), new ItemStack(Material.AIR));
+                }
+            }
+            else if(finder.equals(bowToEnchant)){
+                EnchantmentStorageMeta meta = enchantmentStorageMetas.get(5);
+                itemListToModify[i] = addEnchantsToItem(meta, finder);
+                if(meta != null){
+                    gui.setItem(GuiPos.getPositionOnInventory(2, 5), new ItemStack(Material.AIR));
+                }
+            }
+        }
+
+        playerInventory.setContents(itemListToModify);
+
+        for(int i = 0 ; i < length; i ++){
+            itemListToModify[i] = null;
         }
     }
 
@@ -246,22 +287,36 @@ public class UpgradeGuiController implements GuiController{
         }
 
         if(playerEquipment.getHelmet() != null){
-            playerEquipment.setHelmet(addEnchantsToItem(enchantmentStorageMetas.get(3),gui.getItem(GuiPos.getPositionOnInventory(7, 0))));
+            EnchantmentStorageMeta meta = enchantmentStorageMetas.getFirst(); //.get(0)
+            playerEquipment.setHelmet(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 0))));
+            if(meta != null){
+                gui.setItem(GuiPos.getPositionOnInventory(2, 0), new ItemStack(Material.AIR));
+            }
         }
 
         if(playerEquipment.getChestplate() != null){
-            playerEquipment.setChestplate(addEnchantsToItem(enchantmentStorageMetas.get(2),gui.getItem(GuiPos.getPositionOnInventory(7, 1))));
+            EnchantmentStorageMeta meta = enchantmentStorageMetas.get(1);
+            playerEquipment.setChestplate(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 1))));
+            if(meta != null){
+                gui.setItem(GuiPos.getPositionOnInventory(2, 1), new ItemStack(Material.AIR));
+            }
         }
 
         if(playerEquipment.getLeggings() != null){
-            playerEquipment.setLeggings(addEnchantsToItem(enchantmentStorageMetas.get(1),gui.getItem(GuiPos.getPositionOnInventory(7, 2))));
+            EnchantmentStorageMeta meta = enchantmentStorageMetas.get(2);
+            playerEquipment.setLeggings(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 2))));
+            if(meta != null){
+                gui.setItem(GuiPos.getPositionOnInventory(2, 2), new ItemStack(Material.AIR));
+            }
         }
 
         if(playerEquipment.getBoots() != null){
-            playerEquipment.setBoots(addEnchantsToItem(enchantmentStorageMetas.get(0),gui.getItem(GuiPos.getPositionOnInventory(7, 3))));
+            EnchantmentStorageMeta meta = enchantmentStorageMetas.get(3);
+            playerEquipment.setBoots(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 3))));
+            if(meta != null){
+                gui.setItem(GuiPos.getPositionOnInventory(2, 3), new ItemStack(Material.AIR));
+            }
         }
-
-
     }
     
     //인챈트를 제거하는 함수
@@ -303,7 +358,7 @@ public class UpgradeGuiController implements GuiController{
         Vector<EnchantmentStorageMeta> enchantList = new Vector<>(6);
         for(int i = 0 ; i < 6; i ++){
             ItemStack enchantBook = null;
-            enchantBook = (column == 2 && i == row) ? itemOnCursor : gui.getItem(GuiPos.getPositionOnInventory(2, i));
+            enchantBook = (column == 2 && row == i) ? itemOnCursor : gui.getItem(GuiPos.getPositionOnInventory(2, i));
 
             ItemMeta enchantBookMeta = null;
             if(enchantBook == null || (enchantBookMeta = enchantBook.getItemMeta()) == null){
