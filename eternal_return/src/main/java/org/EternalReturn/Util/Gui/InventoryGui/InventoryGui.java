@@ -1,8 +1,7 @@
-package org.EternalReturn.Util.InventoryGui;
+package org.EternalReturn.Util.Gui.InventoryGui;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 

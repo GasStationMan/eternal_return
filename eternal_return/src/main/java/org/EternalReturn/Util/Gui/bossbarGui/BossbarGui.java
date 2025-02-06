@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.bossbarHud;
+package org.EternalReturn.Util.Gui.bossbarGui;
 
 import org.EternalReturn.System.PluginInstance;
 import net.kyori.adventure.audience.Audience;
@@ -11,7 +11,7 @@ import net.kyori.adventure.text.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BossbarHud {
+public class BossbarGui {
 
     private final BossBar bufferShower;
     private final Audience audience;
@@ -20,18 +20,13 @@ public class BossbarHud {
 
     private static final String space = "space.";
 
-    public BossbarHud(Player p){
+    public BossbarGui(Player p){
 
         isOpen = false;
-
         bossbarHudSetup();
-
-        Component buffer = Component.text("").children((List<Component>) components);
-
+        Component buffer = Component.text("").children(components);
         bufferShower = BossBar.bossBar(buffer,0, BossBar.Color.BLUE, BossBar.Overlay.PROGRESS);
-
         audience = PluginInstance.adventure().player(p);
-
 
     }
     

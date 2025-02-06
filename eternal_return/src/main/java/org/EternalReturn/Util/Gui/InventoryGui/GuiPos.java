@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.InventoryGui;
+package org.EternalReturn.Util.Gui.InventoryGui;
 
 public class GuiPos {
     private int x;
