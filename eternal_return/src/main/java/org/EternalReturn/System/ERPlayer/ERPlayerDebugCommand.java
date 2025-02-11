@@ -1,6 +1,7 @@
 package org.EternalReturn.System.ERPlayer;
 
 import com.google.gson.JsonParser;
+import org.EternalReturn.System.SystemManager;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -26,9 +27,29 @@ public class ERPlayerDebugCommand implements CommandExecutor {
         }
 
         Player p = (Player)sender;
+        ERPlayer erPlayer = SystemManager.getInstance().getERPlayer(p);
         Set<String> tagSet = p.getScoreboardTags();
-
-        if(args.length == 1 && args[0].equalsIgnoreCase("showtags")){
+        if(args.length == 1 && args[0].equalsIgnoreCase("kiosk")){
+            if(erPlayer.isKioskGuiOpened()){
+                erPlayer.sendMessage("kioskClosed");
+                erPlayer.closeKioskGui();
+            }
+            else{
+                erPlayer.sendMessage("kioskOpened");
+                erPlayer.openKioskGui();
+            }
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("hyperloop")){
+            if(erPlayer.isHyperloopGuiOpened()){
+                erPlayer.sendMessage("hyperloopClosed");
+                erPlayer.closeHyperloopGui();
+            }
+            else{
+                erPlayer.sendMessage("hyperloopOpened");
+                erPlayer.openHyperloopGui();
+            }
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("showtags")){
             p.sendMessage(tagSet.toString());
             return true;
         }

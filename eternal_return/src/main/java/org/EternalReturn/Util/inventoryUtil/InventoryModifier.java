@@ -29,6 +29,13 @@ public class InventoryModifier {
         this.scheduler = Bukkit.getScheduler();
     }
 
+    public static void clear(ItemStack[] list){
+        int length = list.length;
+        for(int i = 0 ; i < length ; i ++){
+            list[i] = null;
+        }
+    }
+
     public void setContent(Inventory fromInv){
 
         try{
@@ -78,9 +85,7 @@ public class InventoryModifier {
     }
 
     public void confirm(){
-        scheduler.runTaskLater(pluginInstance, ()->{
-            inventory.setContents(content);
-        }, 0);
+        inventory.setContents(content);
     }
 
     public <T> void clearArray(T[] array){

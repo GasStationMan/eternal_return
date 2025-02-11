@@ -6,9 +6,9 @@ import java.io.UnsupportedEncodingException;
 import org.EternalReturn.System.ERPlayer.ERPlayerDebugCommand;
 import org.EternalReturn.System.ERPlayer.ERPlayerScript;
 import org.EternalReturn.System.ERPlayer.PlayerJoinListener;
-import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
-import org.EternalReturn.Util.Gui.GuiListener;
+import org.EternalReturn.Util.Gui.Inventory.GuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -48,17 +48,17 @@ public final class PluginInstance extends JavaPlugin{
         //시스템매니저 객체 생성
         systemManager = SystemManager.getInstance();
         adventure = BukkitAudiences.create(this);
-        
-        //온라인인 플레이어들 다시 해시맵에 등록
-        for(Player onlinePlayer : Bukkit.getOnlinePlayers()){
-            systemManager.addPlayer(onlinePlayer);
-        }
 
         //GuiOpen 리스너 등록. 이런 식으로 해야 함...
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(systemManager), this);
         getServer().getPluginManager().registerEvents(new GuiListener(systemManager), this);
-
         loadCommands();
+
+        //온라인인 플레이어들 다시 해시맵에 등록
+        for(Player onlinePlayer : Bukkit.getOnlinePlayers()){
+            onlinePlayer.sendMessage("해시맵에 다시 등록");
+            systemManager.addPlayer(onlinePlayer);
+        }
 
         //스크립트 업데이트
         Bukkit.getScheduler().runTaskTimer(this, new ScriptUpdateThread(new ERPlayerScript()),0,1);
