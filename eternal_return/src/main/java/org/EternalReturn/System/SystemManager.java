@@ -54,6 +54,8 @@ public class SystemManager {
     
     //해시맵에서 플레이어 제거
     public void removePlayer(Player p){
+        ERPlayer erPlayer = erPlayerHashMap.get(p);
+        erPlayer.free();
         erPlayerHashMap.remove(p);
         uuidPlayerHashMap.remove(p.getUniqueId());
     }

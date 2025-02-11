@@ -21,13 +21,10 @@ public class ERPlayerScript implements Script {
             Player p = erPlayer.getPlayer();
 
             //보스바 gui업데이트
-            if(erPlayer.isHyperloopGuiOpened()){
-                erPlayer.getHyperloop().moveCursorPoint(
-                        (int)(p.getLocation().getYaw() * 2),
-                        (int)(p.getLocation().getPitch() * 2)
-                );
-
-
+            if(erPlayer.isKioskGuiOpened()){
+                erPlayer.getKioskGui().moveMousePointer(
+                        (int)p.getLocation().getYaw(),
+                        ((int)p.getLocation().getPitch() + 100) * 2);
             }
         }
     }

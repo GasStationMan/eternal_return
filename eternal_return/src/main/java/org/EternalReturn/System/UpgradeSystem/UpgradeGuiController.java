@@ -2,10 +2,10 @@ package org.EternalReturn.System.UpgradeSystem;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.Gui.GuiController;
-import org.EternalReturn.Util.Gui.InventoryGui.GuiPos;
-import org.EternalReturn.Util.Gui.InventoryGui.InventoryGui;
-import org.EternalReturn.Util.itemUtill.ItemMover;
+import org.EternalReturn.Util.Gui.Inventory.GuiController;
+import org.EternalReturn.Util.Gui.Inventory.InventoryGui.GuiPos;
+import org.EternalReturn.Util.Gui.Inventory.InventoryGui.InventoryGui;
+import org.EternalReturn.Util.inventoryUtil.InventoryModifier;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -18,7 +18,6 @@ import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -58,7 +57,6 @@ public class UpgradeGuiController implements GuiController {
         isOpen = false;
         Player p = erPlayer.getPlayer();
         p.closeInventory();
-
     }
 
     @Override
@@ -72,70 +70,63 @@ public class UpgradeGuiController implements GuiController {
         if(equipments == null){
             return;
         }
-        ItemStack[] armorContent = player.getEquipment().getArmorContents();
-        //갑옷 보여주기
 
-        int i;
-        for(i = 0 ; i < 4; i ++){
+        //갑옷 보여주기
+        ItemStack[] armorContent = player.getEquipment().getArmorContents();
+        ItemStack[] upgContent = upgGui.getContents();
+        for(int i = 0 ; i < 4; i ++){
             ItemStack itemToInsert = armorContent[3-i];
             if(itemToInsert == null){
                 itemToInsert = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
             }
-            upgGui.setItem(GuiPos.getPositionOnInventory(1,i),itemToInsert);
-            upgGui.setItem(GuiPos.getPositionOnInventory(7,i),itemToInsert);
+            upgContent[GuiPos.getPos(1,i + 1)] = itemToInsert;
         }
 
         //무기 보여주기 (인벤토리 전체 선형탐색 후 결과 보여주기)
-        Inventory playerInventory = player.getInventory();
         boolean findSword = false;
         boolean findBow = false;
-        int length = playerInventory.getSize();
-        for(i = 0 ; i < length; i ++){
-            ItemStack currentItem = playerInventory.getItem(i);
+        Inventory playerInventory = player.getInventory();
+        ItemStack[] inventoryContent = playerInventory.getContents();
+        int inventoryLength = inventoryContent.length;
+        
+        //선형탐색으로 검과 활 찾기
+        ItemStack sword = null;
+        ItemStack bow = null;
+        ItemStack currentItem = null;
+        for(int i = 0 ; i < inventoryLength ; i ++){
+
+            currentItem = inventoryContent[i];
+
+            if(!(findSword) && isSword(currentItem)){
+                sword = currentItem;
+                findSword = true;
+            }
+            else if(!(findBow) && currentItem != null && currentItem.getType().equals(Material.BOW)){
+                bow = currentItem;
+                findBow = true;
+            }
 
             if(findSword && findBow){
                 break;
             }
-
-            if(currentItem == null){
-                continue;
-            }
-
-            Material itemType = currentItem.getType();
-            //검인 경우
-            if(itemType.equals(Material.IRON_SWORD)
-                    ||itemType.equals(Material.DIAMOND_SWORD)
-                    ||itemType.equals(Material.NETHERITE_SWORD)){
-
-                upgGui.setItem(GuiPos.getPositionOnInventory(1,4),currentItem);
-                upgGui.setItem(GuiPos.getPositionOnInventory(7,4),currentItem);
-                findSword = true;
-            }
-            //활인 경우
-            else if(itemType.equals(Material.BOW) || itemType.equals(Material.FISHING_ROD)){
-                upgGui.setItem(GuiPos.getPositionOnInventory(1,5),currentItem);
-                upgGui.setItem(GuiPos.getPositionOnInventory(7,5),currentItem);
-                findBow = true;
-            }
         }
 
-        if(!findSword){
-            upgGui.setItem(GuiPos.getPositionOnInventory(1,4),new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
-            upgGui.setItem(GuiPos.getPositionOnInventory(7,4),new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
-        }
+        upgContent[GuiPos.getPos(5,2)] = findSword ? sword : new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        upgContent[GuiPos.getPos(5,3)] = findBow ? bow : new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
 
-        if(!findBow){
-            upgGui.setItem(GuiPos.getPositionOnInventory(1,5),new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
-            upgGui.setItem(GuiPos.getPositionOnInventory(7,5),new ItemStack(Material.GRAY_STAINED_GLASS_PANE));
-        }
+        upgGui.setContents(upgContent);
+
+        //배열을 썼으면 내부를 비워 줘야 함.
+        InventoryModifier.clear(upgContent);
+        InventoryModifier.clear(armorContent);
+        InventoryModifier.clear(inventoryContent);
 
     }
 
     @Override
     public void whenClose(){
         //upgradeGui 내의 물건을 다시 플레이어 인벤토리로 되돌리는 기능
-        int invIndex = 0;
-        int guiIndex = 0;
+
 
         Player player = erPlayer.getPlayer();
 
@@ -144,41 +135,52 @@ public class UpgradeGuiController implements GuiController {
 
         ItemStack[] guiContent = upgGui.getContents();
         ItemStack[] invContent = playerInventory.getContents();
+        ItemStack[] returnToInv = new ItemStack[6];
 
-        Stack<ItemMover> stack = new Stack<>();
-        int invContentLength = invContent.length;
-        int guiContentLength = guiContent.length;
-        while(guiIndex < 6 && invIndex < invContentLength){
+        returnToInv[0] = guiContent[GuiPos.getPos(2,1)];
+        guiContent[GuiPos.getPos(2,1)] = null;
+        returnToInv[1] = guiContent[GuiPos.getPos(2,2)];
+        guiContent[GuiPos.getPos(2,2)] = null;
+        returnToInv[2] = guiContent[GuiPos.getPos(2,3)];
+        guiContent[GuiPos.getPos(2,3)] = null;
+        returnToInv[2] = guiContent[GuiPos.getPos(2,4)];
+        guiContent[GuiPos.getPos(2,4)] = null;
+        returnToInv[3] = guiContent[GuiPos.getPos(2,4)];
+        guiContent[GuiPos.getPos(6,2)] = null;
+        returnToInv[4] = guiContent[GuiPos.getPos(6,2)];
+        guiContent[GuiPos.getPos(6,3)] = null;
+        returnToInv[5] = guiContent[GuiPos.getPos(6,3)];
+
+        //게으른 계산 (이렇게 해야 안 꼬임.)
+        int returnToInvIndex = 0;
+        int invIndex = 0;
+        while(returnToInvIndex <= 5){
+
             if(invContent[invIndex] != null){
                 invIndex++;
                 continue;
             }
 
-            int guiPosition = GuiPos.getPositionOnInventory(2, guiIndex);
-            if(guiContent[guiPosition] == null){
-                guiIndex++;
+            if(returnToInv[returnToInvIndex] == null){
+                returnToInvIndex++;
                 continue;
             }
 
-            invContent[invIndex] = guiContent[guiPosition];
-            guiContent[guiPosition] = null;
+            // 만약에 넣어야 할 곳이 null, 선택된 returnToInv[returnToInvIndex]가 null이 아닌 경우
+            invContent[invIndex] = returnToInv[returnToInvIndex];
+            returnToInv[returnToInvIndex] = null; //가비지 컬렉터가 더 잘 회수하도록 함.
             invIndex++;
-            guiIndex++;
+            returnToInvIndex ++;
+
         }
 
-        //게으른 계산 (이렇게 해야 안 꼬임.)
-        scheduler.runTaskLater(pluginInstance,()->{
-            playerInventory.setContents(invContent);
-            upgGui.setContents(guiContent);
+        playerInventory.setContents(invContent);
+        upgGui.setContents(guiContent);
 
-            for(int i = 0 ; i < invContentLength; i ++){
-                invContent[i] = null;
-            }
-
-            for(int i = 0 ; i < guiContentLength; i ++){
-                guiContent[i] = null;
-            }
-        },0);
+        //가비지 컬렉터 회수 때문
+        InventoryModifier.clear(returnToInv);
+        InventoryModifier.clear(invContent);
+        InventoryModifier.clear(guiContent);
         isOpen = false;
     }
 
@@ -196,7 +198,7 @@ public class UpgradeGuiController implements GuiController {
     public void doEvent(GuiPos pos, InventoryClickEvent e) {
 
         int posIndex = e.getSlot();
-        GuiPos indexPos = GuiPos.getClickedPosition(posIndex);
+        GuiPos indexPos = GuiPos.getClickedPos(posIndex);
         int column = indexPos.getX();
         int row = indexPos.getY();
         Inventory gui = upgradeGui.getGui();
@@ -204,7 +206,8 @@ public class UpgradeGuiController implements GuiController {
         boolean upgrade = false;
 
         //2번 열 제외하고 전부 클릭 취소 처리
-        if(column != 2){
+        if(!((column == 2 && 1 <= row && row <= 4)
+                ||(column == 6 && (row == 2 || row == 3)))){
             e.setCancelled(true);
         }
 
@@ -214,7 +217,7 @@ public class UpgradeGuiController implements GuiController {
         }
 
         //인챈트 스토리지 메타데이터 추출 (레벨과 인챈트 종류)
-        Vector<EnchantmentStorageMeta> enchantList = extractEnchantList(gui, e.getCursor(), row, column);
+        ArrayList<EnchantmentStorageMeta> enchantList = extractEnchantList(gui, row, column);
 
 
         if(upgrade){
@@ -223,49 +226,17 @@ public class UpgradeGuiController implements GuiController {
             //무기 수정
             upgradeWeapon(gui, player.getInventory(), enchantList);
             closeGui();
-        }else{
-            showEnchantment(gui, enchantList);
         }
         enchantList.clear();
+
     }
 
     //vvvvv 코드가 너무 길어져서 따로 뺀 함수들 vvvvv
-    //인챈트 보여주기 함수
-    private void showEnchantment(Inventory gui, Vector<EnchantmentStorageMeta> enchantmentStorageMetas){
-
-        ItemStack[] guiContent = gui.getContents();
-
-        for(int i = 0 ; i < 6; i ++){
-            int objectIndex = GuiPos.getPositionOnInventory(7,i);
-            ItemStack objectItem = guiContent[objectIndex];
-            EnchantmentStorageMeta enchantStorageMeta = enchantmentStorageMetas.get(i);
-
-            if(enchantStorageMeta == null && objectItem != null){
-                //해당하는 행에 인챈트 북이 있는 경우 인챈트 부여
-                int subjectIndex = GuiPos.getPositionOnInventory(1,i);
-
-                //인벤토리 내의 아이템도 메인 틱에 맞춰야 정확하게 동작함.
-                guiContent[objectIndex] = guiContent[subjectIndex];
-            }
-            else{
-                guiContent[objectIndex] = addEnchantsToItem(enchantStorageMeta,objectItem);
-            }
-        }
-
-        scheduler.runTaskLater(pluginInstance, ()->{
-            gui.setContents(guiContent);
-            int guiContentLength = guiContent.length;
-            for(int i = 0 ; i < guiContentLength; i ++){
-                guiContent[i] = null;
-            }
-        }, 0);
-
-    }
 
     //무기를 upgrade 하는 함수
-    private void upgradeWeapon(Inventory gui, Inventory playerInventory, Vector<EnchantmentStorageMeta> enchantmentStorageMetas){
-        ItemStack swordToEnchant = gui.getItem(GuiPos.getPositionOnInventory(1,4));
-        ItemStack bowToEnchant = gui.getItem(GuiPos.getPositionOnInventory(1,5));
+    private void upgradeWeapon(Inventory gui, Inventory playerInventory, ArrayList<EnchantmentStorageMeta> enchantmentStorageMetas){
+        ItemStack swordToEnchant = gui.getItem(GuiPos.getPos(1,4));
+        ItemStack bowToEnchant = gui.getItem(GuiPos.getPos(1,5));
 
         ItemStack[] itemListToModify = playerInventory.getContents();
 
@@ -280,18 +251,18 @@ public class UpgradeGuiController implements GuiController {
                 EnchantmentStorageMeta meta = enchantmentStorageMetas.get(4);
                 itemListToModify[i] = addEnchantsToItem(meta, finder);
                 if(meta != null){
-                    gui.clear(GuiPos.getPositionOnInventory(2, 4));
+                    gui.clear(GuiPos.getPos(6, 2));
                 }
             }
             else if(finder.equals(bowToEnchant)){
                 EnchantmentStorageMeta meta = enchantmentStorageMetas.get(5);
                 itemListToModify[i] = addEnchantsToItem(meta, finder);
                 if(meta != null){
-                    gui.clear(GuiPos.getPositionOnInventory(2, 5));
+                    gui.clear(GuiPos.getPos(6, 3));
                 }
             }
         }
-
+        // 2025 02 06  23:10 수정
         playerInventory.setContents(itemListToModify);
 
         for(int i = 0 ; i < length; i ++){
@@ -300,7 +271,7 @@ public class UpgradeGuiController implements GuiController {
     }
 
     //방어구를 upgrade 하는 함수
-    private void upgradeArmor(Inventory gui, EntityEquipment playerEquipment, Vector<EnchantmentStorageMeta> enchantmentStorageMetas){
+    private void upgradeArmor(Inventory gui, EntityEquipment playerEquipment, ArrayList<EnchantmentStorageMeta> enchantmentStorageMetas){
 
         if(playerEquipment == null){
             return;
@@ -308,45 +279,35 @@ public class UpgradeGuiController implements GuiController {
 
         if(playerEquipment.getHelmet() != null){
             EnchantmentStorageMeta meta = enchantmentStorageMetas.getFirst(); //.get(0)
-            playerEquipment.setHelmet(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 0))));
+            playerEquipment.setHelmet(addEnchantsToItem(meta,gui.getItem(GuiPos.getPos(7, 0))));
             if(meta != null){
-                gui.clear(GuiPos.getPositionOnInventory(2, 0));
+                gui.clear(GuiPos.getPos(2, 1));
             }
         }
 
         if(playerEquipment.getChestplate() != null){
             EnchantmentStorageMeta meta = enchantmentStorageMetas.get(1);
-            playerEquipment.setChestplate(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 1))));
+            playerEquipment.setChestplate(addEnchantsToItem(meta,gui.getItem(GuiPos.getPos(7, 1))));
             if(meta != null){
-                gui.clear(GuiPos.getPositionOnInventory(2, 1));
+                gui.clear(GuiPos.getPos(2, 2));
             }
         }
 
         if(playerEquipment.getLeggings() != null){
             EnchantmentStorageMeta meta = enchantmentStorageMetas.get(2);
-            playerEquipment.setLeggings(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 2))));
+            playerEquipment.setLeggings(addEnchantsToItem(meta,gui.getItem(GuiPos.getPos(7, 2))));
             if(meta != null){
-                gui.clear(GuiPos.getPositionOnInventory(2, 2));
+                gui.clear(GuiPos.getPos(2, 3));
             }
         }
 
         if(playerEquipment.getBoots() != null){
             EnchantmentStorageMeta meta = enchantmentStorageMetas.get(3);
-            playerEquipment.setBoots(addEnchantsToItem(meta,gui.getItem(GuiPos.getPositionOnInventory(7, 3))));
+            playerEquipment.setBoots(addEnchantsToItem(meta,gui.getItem(GuiPos.getPos(7, 3))));
             if(meta != null){
-                gui.clear(GuiPos.getPositionOnInventory(2, 3));
+                gui.clear(GuiPos.getPos(2, 4));
             }
         }
-    }
-    
-    //인챈트를 제거하는 함수
-    private void removeEnchant(@NotNull ItemStack item){
-        ItemMeta meta = null;
-        if((meta = item.getItemMeta())== null){
-            return;
-        }
-        meta.removeEnchantments();
-        item.setItemMeta(meta);
     }
 
     //아이템을 인챈트하는 함수
@@ -372,35 +333,53 @@ public class UpgradeGuiController implements GuiController {
 
         return itemToEnchant;
     }
-    
-    //행에 맞게 인챈트를 선별해서 vector으로 반환하는 함수
-    private Vector<EnchantmentStorageMeta> extractEnchantList(Inventory gui, ItemStack itemOnCursor, int row, int column){
-        Vector<EnchantmentStorageMeta> enchantList = new Vector<>(6);
-        for(int i = 0 ; i < 6; i ++){
-            ItemStack enchantBook = null;
-            enchantBook = (column == 2 && row == i) ? itemOnCursor : gui.getItem(GuiPos.getPositionOnInventory(2, i));
 
-            ItemMeta enchantBookMeta = null;
-            if(enchantBook == null || (enchantBookMeta = enchantBook.getItemMeta()) == null){
-                enchantList.add(null);
-                continue;
-            }
-            EnchantmentStorageMeta enchantMeta = (EnchantmentStorageMeta)enchantBookMeta;
-            if(i <= 3 && enchantMeta.hasStoredEnchant(Enchantment.PROTECTION)){
-                enchantList.add(enchantMeta);
-            }
-            else if(i > 3 && enchantMeta.hasStoredEnchant(Enchantment.SHARPNESS)){
-                enchantList.add(enchantMeta);
-            }
-            else{
-                enchantList.add(null);
-            }
+    //인벤토리의 특정 칸에 있는 인챈트를 가져와 반환하는 함수
+    //아머의 인챈트 가져오기
+    private EnchantmentStorageMeta getArmorEnchantStorage(Inventory gui, int row, int column){
+        ItemStack enchantBook = null;
+        ItemMeta enchantBookMeta = null;
+        if((enchantBook = gui.getItem(GuiPos.getPos(row, column))) == null
+            || (enchantBookMeta = enchantBook.getItemMeta()) == null
+            || enchantBookMeta.hasEnchant(Enchantment.SHARPNESS)){
+            return null;
         }
+        return (EnchantmentStorageMeta)enchantBookMeta;
+    }
+
+    //무기의 인챈트 가져오기
+    private EnchantmentStorageMeta getWeaponEnchantStorage(Inventory gui, int row, int column){
+        ItemStack enchantBook = null;
+        ItemMeta enchantBookMeta = null;
+        if((enchantBook = gui.getItem(GuiPos.getPos(row, column))) == null
+                || (enchantBookMeta = enchantBook.getItemMeta()) == null
+                || enchantBookMeta.hasEnchant(Enchantment.PROTECTION)){
+            return null;
+        }
+        return (EnchantmentStorageMeta)enchantBookMeta;
+    }
+
+
+    //행에 맞게 인챈트를 선별해서 vector으로 반환하는 함수
+    private ArrayList<EnchantmentStorageMeta> extractEnchantList(Inventory gui, int row, int column){
+        ArrayList<EnchantmentStorageMeta> enchantList = new ArrayList<>(6);
+
+        enchantList.add(getArmorEnchantStorage(gui, 2,1));
+        enchantList.add(getArmorEnchantStorage(gui, 2,2));
+        enchantList.add(getArmorEnchantStorage(gui, 2,3));
+        enchantList.add(getArmorEnchantStorage(gui, 2,4));
+
+        enchantList.add(getArmorEnchantStorage(gui, 6,2));
+        enchantList.add(getArmorEnchantStorage(gui, 6,3));
+
         return enchantList;
     }
 
     //칼인가? (아직은 안 쓰임)
     private boolean isSword(ItemStack item){
+        if(item == null){
+            return false;
+        }
         Material type = item.getType();
         return type.equals(Material.IRON_SWORD)
                 || type.equals(Material.DIAMOND_SWORD)
