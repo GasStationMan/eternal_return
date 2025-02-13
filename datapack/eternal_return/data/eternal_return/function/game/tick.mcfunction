@@ -29,4 +29,8 @@
 
 ## 맵 타이머
         function eternal_return:game/system/in_game/game_timer
-    
+
+
+
+## 게임 종료
+    #execute if score #

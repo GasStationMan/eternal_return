@@ -3,4 +3,4 @@
 # 출력 없음
 # 상위 함수 : 없음
 
-$bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
+$bossbar set line6.$(UUID0) name ""

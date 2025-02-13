@@ -15,7 +15,7 @@
         execute store result storage temp warp.j int 1 run scoreboard players get #arr.j NUM
     # 좌표배열 섞기 (재귀)
         function eternal_return:game/system/briefing_room/number_shuffle with storage temp warp
-        # 18명이 지정되기 때문에 구역 한 곳 제거
+        # 16명이 지정되기 때문에 구역 한 곳 제거
             data remove storage temp pos_list[0]
     # free
         scoreboard players reset #arr.sizeof NUM

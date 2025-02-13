@@ -12,6 +12,7 @@ scoreboard objectives add shift minecraft.custom:minecraft.sneak_time
 
 # sidebar 로그 스코어 생성
 scoreboard objectives add ER.log dummy
+## 게임 최초 초기값 설정
 
 
 
@@ -22,7 +23,7 @@ scoreboard objectives add ER.log dummy
 #function df_library:init
 
 # 보스바 기본 설정
-function eternal_return:sys/bossbar/init
+#function eternal_return:sys/bossbar/init
 
 # 게임 설정
-function eternal_return:sys/game/defualt_setting
+#function eternal_return:sys/game/defualt_setting

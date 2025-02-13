@@ -9,8 +9,8 @@ scoreboard players set #timer.day NUM 1
 scoreboard players set @a CT3 20
 
 # 플레이어, 팀 수
-scoreboard players set #game.player ct1 18
-scoreboard players set #game.team ct1 18
+scoreboard players set #game.player ct1 16
+scoreboard players set #game.team ct1 16
 
 # 부활
 scoreboard players set @a ER.resurrection 0

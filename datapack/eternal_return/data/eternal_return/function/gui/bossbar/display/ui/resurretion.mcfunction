@@ -1,3 +1,3 @@
-$bossbar set line4.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name {"text":"1","font":"gui/centerbar/left_time/bg","shadow_color":0}
-$bossbar set line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name {"score":{"name":"@s","objective":"centerbar.sec"},"font":"gui/centerbar/left_time/num2","color":"white","shadow_color":0}
-$bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name {"text":"부활까지 남은 시간","font":"gui/centerbar/left_time/text2","color":"white","shadow_color":0}
+$bossbar set line4.$(UUID0) name {"text":"1","font":"gui/centerbar/left_time/bg","shadow_color":0}
+$bossbar set line5.$(UUID0) name {"score":{"name":"@s","objective":"centerbar.sec"},"font":"gui/centerbar/left_time/num2","color":"white","shadow_color":0}
+$bossbar set line6.$(UUID0) name {"text":"부활까지 남은 시간","font":"gui/centerbar/left_time/text2","color":"white","shadow_color":0}

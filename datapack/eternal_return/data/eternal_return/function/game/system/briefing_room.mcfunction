@@ -36,8 +36,8 @@
     ## 플에이어 수별 UI 스코어 변동
         # 게임시작 5초전 플레이어가 일정수 이상 빠진 경우 남은 시간 120초 고정
             execute if score #wait.remaining ct1 matches 1..5 if score #game.player ct1 matches ..9 run scoreboard players set #wait.remaining ct1 120
-        # 플레이어 수가 17명 이상 대기 중인 경우 남은 시간 10초로 스킵
-            execute if score #wait.remaining ct1 matches 11.. if score #game.player ct1 matches 17.. run scoreboard players set #wait.remaining ct1 10
+        # 플레이어 수가 15명 이상 대기 중인 경우 남은 시간 10초로 스킵
+            execute if score #wait.remaining ct1 matches 11.. if score #game.player ct1 matches 15.. run scoreboard players set #wait.remaining ct1 10
     # 아이템 제거
         execute as @e[type=item] if data entity @s Item.components."minecraft:custom_data"{tag:"selectmod"} run kill @s
 

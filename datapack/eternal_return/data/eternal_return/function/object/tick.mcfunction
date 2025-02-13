@@ -17,10 +17,12 @@
         execute as @a[tag=use_hyperloop] at @s if entity @e[type=interaction,tag=hyperloop,distance=2..5,limit=1] run tag @s remove use_hyperloop
 
 # CCTV
+    # 플레이어
+        execute as @a[tag=loading] at @s if entity @a[tag=done_loading,distance=..5,limit=1] run function eternal_return:gui/loading/cancel
+        execute as @a[tag=loading] at @s if entity @e[type=interaction,tag=cctv,distance=2.5..5,limit=1] run function eternal_return:gui/loading/cancel
+        execute as @a[tag=loading] at @s if entity @e[type=interaction,tag=cctv,distance=2.5..5,limit=1] if score #timer.day NUM matches 6.. run function eternal_return:gui/loading/cancel
     # 인터렉션
         execute as @e[type=interaction,tag=click_interaction,tag=cctv] run function eternal_return:object/cctv/tick
-    # 플레이어
-        execute as @a[tag=loading] at @s if entity @e[type=interaction,tag=cctv,distance=2.5..5,limit=1] run function eternal_return:gui/loading/cancel
     # 텍스트 디스플레이 [쿨타임]
         execute as @e[type=text_display,tag=cool] run function eternal_return:object/cctv/cooltime/tick
 # 점프패드

@@ -52,7 +52,10 @@ forceload add -243 485 -243 479
         scoreboard objectives add hp health {"text":"♥","color":"red"}
         scoreboard objectives add kill minecraft.killed:minecraft.player
         scoreboard objectives add death deathCount
-
+        # 레벨, 스킬포인트
+        scoreboard objectives add level dummy
+        scoreboard objectives add skill_point dummy
+        scoreboard objectives add skill_exp dummy
 
     # 크레딧
         scoreboard objectives add credit dummy

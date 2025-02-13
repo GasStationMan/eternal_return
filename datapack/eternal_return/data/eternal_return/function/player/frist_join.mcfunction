@@ -14,6 +14,10 @@ function pdb:get_me
         tag @s remove on_camera_overlay
         tag @s remove waiting
         tag @s remove in_game
+        function eternal_return:character/remove_tag with storage pdb:main in.character
+
+    # 사이드바 제거
+        function eternal_return:gui/sidebar/remove with storage pdb:main args
 
     # 스코어보드 설정
         # 페이지
@@ -29,7 +33,6 @@ function pdb:get_me
             scoreboard players set @s kill 0
         # death
             scoreboard players set @s death 0
-
     # 보스바 생성 및 표기
         function eternal_return:gui/bossbar/new with storage pdb:main args
         function eternal_return:gui/bossbar/show with storage pdb:main args
