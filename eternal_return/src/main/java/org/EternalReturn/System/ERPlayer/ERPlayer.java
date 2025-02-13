@@ -1,12 +1,11 @@
 package org.EternalReturn.System.ERPlayer;
 
-import org.EternalReturn.System.HyperLoopSystem.HyperLoopGui;
-import org.EternalReturn.System.KioskSystem.KioskGui;
+import org.EternalReturn.System.ERPlayer.Gui.HyperLoopGui;
+import org.EternalReturn.System.ERPlayer.Gui.KioskGui;
 import org.EternalReturn.System.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.System.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.Util.Gui.bossbarGui.BossbarGui;
 import org.EternalReturn.Util.MathVector.Vec2d;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 
@@ -51,6 +50,7 @@ public class ERPlayer {
 
         kioskGui = new KioskGui(this);
         hyperloopGui = new HyperLoopGui(this);
+
         isHyperloopGuiOpened = false;
     }
 
