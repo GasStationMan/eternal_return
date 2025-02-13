@@ -3,6 +3,9 @@
 # 입출력 없음
 # 게임에 전반적인 시스템을 다루는 프로시저
 
+# 게임 타이머
+    function eternal_return:game/game_timer
+
 
 ## 수치 조정
     execute store result score #game.team ct1 if entity @a
@@ -25,10 +28,6 @@
         execute if entity @a[tag=in_game] run function eternal_return:game/system/in_game
         # 게임 중인 플레이어가 없을 때 게임스코어 제거
         execute unless entity @a[tag=in_game] run scoreboard players reset #game.start NUM
-
-
-## 맵 타이머
-        function eternal_return:game/system/in_game/game_timer
 
 
 

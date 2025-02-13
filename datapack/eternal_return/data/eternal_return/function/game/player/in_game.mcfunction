@@ -21,5 +21,6 @@ function pdb:get_me
         # 관전모드
             execute if score #left.time.sec NUM matches 5 run effect clear @s
             execute if score #left.time.sec NUM matches 5 run gamemode spectator @s
+            execute if score #left.time.sec NUM matches 5 run scoreboard players set @s level 0
         # 타이머 표기
             execute if score #left.time.sec NUM matches 1..5 run function eternal_return:gui/bossbar/display/ui/left_timer with storage pdb:main args

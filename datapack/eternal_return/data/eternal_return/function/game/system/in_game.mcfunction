@@ -29,3 +29,6 @@
 ## 게임 진행중
     # 크래딧 기본 지급
         execute if score #game.start NUM matches 1 run function eternal_return:game/player/in_game/credit
+
+## 타임라인
+    function eternal_return:game/system/timeline

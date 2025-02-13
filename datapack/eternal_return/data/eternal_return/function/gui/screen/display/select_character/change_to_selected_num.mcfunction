@@ -12,7 +12,7 @@ function pdb:get_me
     scoreboard players set #500 NUM 500
 
     # 미선택으로 배열 초기화
-        data modify storage pdb:main in.character_array set value [[999,998,997,996,995],[994,993,992,991,990],[989,988,987,986,985],[984,983,982,981,980],[979,978,977,976,975],[974,973,972,971,970],[969,0,0,0,0]]
+        data modify storage pdb:main in.character_array set from storage config character_array
     
     ## 선택된 캐릭터의 배열 인데스 가져오기
 

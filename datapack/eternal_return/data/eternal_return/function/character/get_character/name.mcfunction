@@ -5,6 +5,6 @@
 
 
 # 번호에 맞는 이름 가져오기
-    $data modify storage pdb:main in.character.name set from storage character list[{no:$(char_no)}].name
+    $data modify storage pdb:main in.character set from storage config character_list[{no:$(char_no)}]
 # 태그 설정하기
     function eternal_return:character/get_character/tag with storage pdb:main in.character

@@ -15,4 +15,4 @@
 
 ## 게임 진행 중
     # 크래딧 지급 간격
-        scoreboard players set #credit.tick.value NUM 30
+        scoreboard players set #credit.tick.value NUM 40

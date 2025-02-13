@@ -18,10 +18,8 @@ forceload add -243 485 -243 479
 ## 게임 설정
     # 맵 기본 설정
         function eternal_return:map/init
-    # 캐릭터 설정
-        function eternal_return:character/init
     # 게임 시간 초기화
-        function eternal_return:sys/game/time/start
+        function eternal_return:game/game_timer_reset
 
 ## 게임 룰
     # 포탈 대기시간 무한
@@ -56,7 +54,15 @@ forceload add -243 485 -243 479
         scoreboard objectives add level dummy
         scoreboard objectives add skill_point dummy
         scoreboard objectives add skill_exp dummy
-
+        # 스킬 쿨타임 이미지
+            # 패시브
+                scoreboard objectives add active_image dummy
+                scoreboard objectives add active_cool dummy
+                scoreboard objectives add active_tick dummy
+            # 액티브
+                scoreboard objectives add passive_image dummy
+                scoreboard objectives add passive_cool dummy
+                scoreboard objectives add passive_tick dummy
     # 크레딧
         scoreboard objectives add credit dummy
     # 센터 스코어
@@ -75,7 +81,6 @@ forceload add -243 485 -243 479
     # 쿨타임
         scoreboard objectives add ct1 dummy
         scoreboard objectives add ct2 dummy
-        scoreboard objectives add sc dummy
 
 
     # 야생동물 관련 스코어보드 생성

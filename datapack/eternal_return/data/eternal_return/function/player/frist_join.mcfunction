@@ -29,6 +29,16 @@ function pdb:get_me
             execute store result score #temp.now.scroll.num NUM run data get entity @s SelectedItemSlot
         # 크래딧 설정
             scoreboard players set @s credit 0
+        # 스킬
+            # 스킬 레벨
+                scoreboard players set @s level 20
+            # 패시브
+                scoreboard players set @s active_image 0
+                scoreboard players set @s active_cool 0
+            # 액티브
+                scoreboard players set @s passive_image 0
+                scoreboard players set @s passive_cool 0
+            
         # kill
             scoreboard players set @s kill 0
         # death

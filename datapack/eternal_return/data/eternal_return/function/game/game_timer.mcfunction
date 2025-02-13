@@ -1,6 +1,6 @@
 ##> 게임 시간 타이머
 # 입출력 없음
-# 상위 함수 : function eternal_return:game/system/in_game
+# 상위 함수 : function eternal_return:game/tick
 # 맵이 실행될 때부터 경과 시간을 연산하는 함수
 
 ## 스코어보드
