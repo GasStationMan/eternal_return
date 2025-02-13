@@ -10,6 +10,12 @@ public class InventoryGui{
     protected Inventory gui;
     protected ERPlayer erPlayer;
 
+    public void free() {
+        gui.clear();
+        gui = null;
+        erPlayer = null;
+    }
+
     public InventoryGui(ERPlayer erPlayer, int size){
         this.gui = Bukkit.createInventory(erPlayer.getPlayer(),size);
         this.erPlayer = erPlayer;
@@ -37,10 +43,7 @@ public class InventoryGui{
         return gui;
     }
 
-    public void free() {
-        gui = null;
-        erPlayer = null;
-    }
+
 
     public ERPlayer getERPlayer() {
         return erPlayer;

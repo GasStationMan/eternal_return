@@ -25,8 +25,8 @@ public class UpgradeGuiController implements GuiController {
 
     private ERPlayer erPlayer;
     private InventoryGui upgradeGui;
-    private final BukkitScheduler scheduler;
-    private final Plugin pluginInstance;
+    private BukkitScheduler scheduler;
+    private Plugin pluginInstance;
     private boolean isOpen;
 
     public UpgradeGuiController(InventoryGui gui){
@@ -39,6 +39,8 @@ public class UpgradeGuiController implements GuiController {
     public void free(){
         erPlayer = null;
         upgradeGui = null;
+        scheduler = null;
+        pluginInstance = null;
     }
 
     @Override
