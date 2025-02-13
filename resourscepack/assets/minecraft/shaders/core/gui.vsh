@@ -15,7 +15,7 @@ void main() {
 	
 	//Isolating Scoreboard Display
 	// Mojang Changed the Z position in 1.21, idk exact value but its huge
-	if(gl_Position.y > -0.5 && gl_Position.y < 0.85 && gl_Position.x > 0.0 && gl_Position.x <= 1.0 && Position.z > 1000.0 && Position.z < 2750.0) {
+	if(gl_Position.y > -0.5 && gl_Position.y < 0.85 && gl_Position.x > -1.1 && gl_Position.x <= 1.0 && Position.z > 1000.0 && Position.z < 2750.0) {
 		//vertexColor = vec4(vec3(0.0,0.0,1.0),1.0); // Debugger
 		vertexColor.a = 0.0;
 	}

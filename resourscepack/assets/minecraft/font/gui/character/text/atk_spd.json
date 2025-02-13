@@ -1,0 +1,11 @@
+{
+    "providers": [
+        {
+            "type": "ttf",
+            "file": "minecraft:mono.ttf",
+            "oversample": 8.0,
+            "size": 6,
+            "shift": [ -333.0, 323.0 ]
+        }
+]
+}

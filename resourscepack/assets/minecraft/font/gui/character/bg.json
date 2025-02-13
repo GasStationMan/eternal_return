@@ -1,0 +1,46 @@
+{
+	"providers": [
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/bg/hotbar.png",
+			"ascent": -330,
+			"height": 19,
+			"chars": ["2","3","4"]
+		},
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/bg/credit.png",
+			"ascent": -333,
+			"height": 12,
+			"chars": ["c"]
+		},
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/bg/stats_bg1.png",
+			"ascent": -303,
+			"height": 47,
+			"chars": ["1"]
+		},
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/bg/stats_bg.png",
+			"ascent": -303,
+			"height": 47,
+			"chars": ["s"]
+		},
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/bg/stat.png",
+			"ascent": -303,
+			"height": 47,
+			"chars": ["b"]
+		},
+		{
+			"type": "bitmap",
+			"file": "minecraft:font/bg/kd.png",
+			"ascent": 10,
+			"height": 13,
+			"chars": ["k"]
+		}
+	]
+}
