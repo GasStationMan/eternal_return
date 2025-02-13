@@ -50,11 +50,19 @@ public class BossbarGui {
         this.bButtons = new ArrayList<>(16);
         this.audience = PluginInstance.adventure().player(player);
 
+        BMouseCursorObserver.getInstance().registerBossbarGui(this);
     }
 
     //getter
     public BGuiLocation getMousePointerLocation(){
+        if(cursor == null){
+            return null;
+        }
         return cursor.getLocation();
+    }
+
+    public BComponent getMouseCursor(){
+        return cursor;
     }
 
     public List<BButton> getBButtons(){
@@ -91,6 +99,11 @@ public class BossbarGui {
 
     }
 
+    /**
+     * 마우스커서 위치를 옮기는 함수
+     * @param dx 마우스 x방향 변위
+     * @param dy 마우스 y방향 변위
+     * */
     public void moveMousePointer(int dx, int dy){
         BGuiLocation loc = cursor.getLocation();
         Location pLoc = player.getLocation();
@@ -99,7 +112,7 @@ public class BossbarGui {
         int yToModify = loc.getY() - dy / 2;
 
 
-        if((-350 <= xToModify && xToModify <= 350) && (40 <= yToModify && yToModify <= 400)){
+        if((-350 <= xToModify && xToModify <= 350) && (0 <= yToModify && yToModify <= 400)){
 
             erPlayer.sendMessage("( " + xToModify + " , " + yToModify + " )");
 
