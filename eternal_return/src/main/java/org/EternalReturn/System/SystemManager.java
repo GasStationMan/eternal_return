@@ -15,6 +15,19 @@ public class SystemManager {
     private HashMap<UUID, Player> uuidPlayerHashMap;
     private BukkitAudiences bukkitAudiences;
 
+    //free (메모리 할당 해제)
+    public void free() {
+
+        for(ERPlayer erPlayer : erPlayerHashMap.values()){
+            erPlayer.free();
+        }
+
+        erPlayerHashMap.clear();
+        uuidPlayerHashMap.clear();
+        erPlayerHashMap = null;
+        uuidPlayerHashMap = null;
+    }
+
     private SystemManager() {
         erPlayerHashMap = new HashMap<>();
         uuidPlayerHashMap = new HashMap<>();
@@ -60,18 +73,7 @@ public class SystemManager {
         uuidPlayerHashMap.remove(p.getUniqueId());
     }
 
-    //free (메모리 할당 해제)
-    public void free() {
 
-        for(ERPlayer erPlayer : erPlayerHashMap.values()){
-            erPlayer.free();
-        }
-
-        erPlayerHashMap.clear();
-        uuidPlayerHashMap.clear();
-        erPlayerHashMap = null;
-        uuidPlayerHashMap = null;
-    }
 
     public HashMap<Player, ERPlayer> getErPlayerHashMap() {
         return erPlayerHashMap;

@@ -1,7 +1,9 @@
 package org.EternalReturn.System.ERPlayer;
 
+import org.EternalReturn.Util.MathVector.Vec2d;
 import org.EternalReturn.Util.ScriptUtill.Script;
 import org.EternalReturn.System.SystemManager;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -19,13 +21,58 @@ public class ERPlayerScript implements Script {
         for(ERPlayer erPlayer : erPlayerHashMap.values()){
 
             Player p = erPlayer.getPlayer();
+            Location location = null;
 
             //보스바 gui업데이트
             if(erPlayer.isKioskGuiOpened()){
-                erPlayer.getKioskGui().moveMousePointer(
-                        (int)p.getLocation().getYaw(),
-                        ((int)p.getLocation().getPitch() + 100) * 2);
+                location = p.getLocation();
+                float yaw = location.getYaw();
+                float pitch = location.getPitch() * 4;
+
+                Vec2d currentVecX = erPlayer.getRot2dVecX();
+                Vec2d secondVecX = new Vec2d(
+                        Math.cos(Math.toRadians(yaw)),
+                        Math.sin(Math.toRadians(yaw))
+                );
+                double distanceOfAngleX = getDegreeDistance(secondVecX,currentVecX);
+
+                Vec2d currentVecY = erPlayer.getRot2dVecY();
+                Vec2d secondVecY = new Vec2d(
+                        Math.cos(Math.toRadians(pitch)),
+                        Math.sin(Math.toRadians(pitch))
+                );
+                double distanceOfAngleY = getDegreeDistance(secondVecY,currentVecY);
+
+                if(0.0009765625d <= Math.abs(distanceOfAngleX) || 0.0009765625d <= Math.abs(distanceOfAngleY)){
+
+                    erPlayer.getKioskGui().moveMousePointer((int)distanceOfAngleX, (int)distanceOfAngleY);
+
+                    if(Math.abs(pitch) == 360){
+                        location.setPitch(-pitch);
+                        p.teleport(location);
+                    }
+
+                    erPlayer.setRot2dVecX(secondVecX);
+                    erPlayer.setRot2dVecY(secondVecY);
+
+                }
+
+
+
             }
         }
     }
+
+    /**
+     * 두 벡터의 각도의 크기와 방향을 같이 반환.
+     * @return 두 벡터간 Degree 값 * 외적방향
+     * */
+    public double getDegreeDistance(Vec2d secondVector, Vec2d currentVector){
+        double direction = currentVector.crossProd(secondVector);
+        double distanceOfAngle = Math.toDegrees(Vec2d.getAngleOfVectors(secondVector, currentVector));
+        return direction > 0 ? distanceOfAngle : -distanceOfAngle;
+    }
+
+
+
 }
