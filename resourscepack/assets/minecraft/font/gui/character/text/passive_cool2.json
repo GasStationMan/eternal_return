@@ -3,9 +3,9 @@
         {
             "type": "ttf",
             "file": "minecraft:mono.ttf",
-            "oversample": 10.0,
-            "size": 7,
-            "shift": [ -302.0, 341.0 ]
+            "oversample": 8.0,
+            "size": 6,
+            "shift": [ -209.8, 318.5 ]
         }
 ]
 }
