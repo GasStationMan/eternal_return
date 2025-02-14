@@ -1,5 +1,6 @@
 package org.EternalReturn.System.ERPlayer;
 
+import org.EternalReturn.Util.Gui.bossbarGui.BossbarGui;
 import org.EternalReturn.Util.MathVector.Vec2d;
 import org.EternalReturn.Util.ScriptUtill.Script;
 import org.EternalReturn.System.SystemManager;
@@ -25,7 +26,10 @@ public class ERPlayerScript implements Script {
 
             //보스바 gui업데이트
             if(erPlayer.isKioskGuiOpened()){
-                updateMouseCursor(erPlayer);
+                updateMouseCursor(erPlayer, erPlayer.getKioskGui());
+            }
+            else if(erPlayer.isHyperloopGuiOpened()){
+                updateMouseCursor(erPlayer, erPlayer.getHyperloop());
             }
         }
     }
@@ -36,7 +40,7 @@ public class ERPlayerScript implements Script {
      * 디버그 함수 erPlayer.sendMessage()가 주석 처리 되어 있는 지 확인할 것.
      * @return void
      * */
-    private void updateMouseCursor(ERPlayer erPlayer){
+    private void updateMouseCursor(ERPlayer erPlayer, BossbarGui gui){
         Player p = erPlayer.getPlayer();
         Location location = p.getLocation();
         float yaw = location.getYaw();
@@ -58,7 +62,7 @@ public class ERPlayerScript implements Script {
 
         if(0.0009765625d <= Math.abs(distanceOfAngleX) || 0.0009765625d <= Math.abs(distanceOfAngleY)){
 
-            erPlayer.getKioskGui().moveMousePointer((int)distanceOfAngleX, (int)distanceOfAngleY);
+            gui.moveMousePointer((int)distanceOfAngleX, (int)distanceOfAngleY);
 
             if(Math.abs(pitch) == 360){
                 location.setPitch(-pitch);
