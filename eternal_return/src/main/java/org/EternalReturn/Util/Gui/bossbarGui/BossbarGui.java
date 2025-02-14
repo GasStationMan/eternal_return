@@ -71,7 +71,7 @@ public class BossbarGui {
 
     //setter
     public void generate(){
-        convBcomponentsToComponents();
+        repaint();
         Component buffer = Component.text("").children(components);
         this.bufferShower = BossBar.bossBar(buffer,0, BossBar.Color.BLUE, BossBar.Overlay.PROGRESS);
     }
@@ -83,7 +83,13 @@ public class BossbarGui {
         }
     }
 
-    private void convBcomponentsToComponents(){
+
+
+    /**
+     * BossbarGui객체가 가지고 있는 bComponent 리스트를 kyori component리스트로 바꾸어 <br>
+     * 다시 보스바의 이름 버퍼로 표시하는 함수
+     * */
+    private void repaint(){
         int length = bComponents.size();
 
         //널체크 + 비우기
@@ -114,10 +120,10 @@ public class BossbarGui {
 
         if((-350 <= xToModify && xToModify <= 350) && (0 <= yToModify && yToModify <= 400)){
 
-            erPlayer.sendMessage("( " + xToModify + " , " + yToModify + " )");
+            //erPlayer.sendMessage("( " + xToModify + " , " + yToModify + " )");
 
             cursor.setLocation(xToModify,yToModify);
-            convBcomponentsToComponents();
+            repaint();
             bufferShower.name(Component.text("").children(components));
         }
     }

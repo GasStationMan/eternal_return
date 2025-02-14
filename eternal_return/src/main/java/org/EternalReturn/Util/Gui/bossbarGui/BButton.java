@@ -6,6 +6,11 @@ import net.kyori.adventure.text.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * BButton 클래스 <br>
+ * Made by TDanfung <br>
+ * BossbarGui에서 버튼 기능을 하는 객체를 생성함.
+ * */
 public class BButton extends BComponent {
 
 
@@ -15,8 +20,19 @@ public class BButton extends BComponent {
     private int maxY;
     private int minY;
 
+    @Override
+    public void free(){
+        super.free();
+        buttonPolygon.clear();
+        buttonPolygon = null;
+    }
+
     public BButton(int sizeX, int sizeY, String font, BGuiLocation location){
         super(sizeX, sizeY, font, location);
+    }
+
+    public BButton(float sizeX, float sizeY, String font, BGuiLocation location){
+        super((int)sizeX, (int)sizeY, font, location);
     }
 
     public void setButtonPolygon(BButtonDot[] dots){
