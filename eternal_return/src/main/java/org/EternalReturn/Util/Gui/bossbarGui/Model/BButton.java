@@ -1,7 +1,4 @@
-package org.EternalReturn.Util.Gui.bossbarGui;
-
-import net.kyori.adventure.key.Key;
-import net.kyori.adventure.text.Component;
+package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +20,15 @@ public class BButton extends BComponent {
     @Override
     public void free(){
         super.free();
-        buttonPolygon.clear();
+        if(!buttonPolygon.isEmpty()){
+            buttonPolygon.clear();
+        }
         buttonPolygon = null;
     }
 
     public BButton(int sizeX, int sizeY, String font, BGuiLocation location){
         super(sizeX, sizeY, font, location);
+        buttonPolygon = new ArrayList<>(4);
     }
 
     public BButton(float sizeX, float sizeY, String font, BGuiLocation location){

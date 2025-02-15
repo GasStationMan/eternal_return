@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.Gui.bossbarGui;
+package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 public class BGuiLocation {
 

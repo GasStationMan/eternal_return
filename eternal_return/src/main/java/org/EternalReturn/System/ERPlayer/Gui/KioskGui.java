@@ -1,9 +1,9 @@
 package org.EternalReturn.System.ERPlayer.Gui;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.Gui.bossbarGui.*;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
 
-public class KioskGui extends BossbarGui {
+public class KioskGui extends BossbarGuiFrame {
     public KioskGui(ERPlayer p) {
         super(p);
         

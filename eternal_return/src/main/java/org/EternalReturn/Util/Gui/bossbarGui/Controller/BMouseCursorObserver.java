@@ -1,5 +1,9 @@
-package org.EternalReturn.Util.Gui.bossbarGui;
+package org.EternalReturn.Util.Gui.bossbarGui.Controller;
 
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BComponent;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BGuiLocation;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
@@ -9,14 +13,14 @@ public class BMouseCursorObserver implements Runnable{
 
     private static BMouseCursorObserver instance;
     private Plugin plugin;
-    private List<BossbarGui> guiList;
+    private List<BossbarGuiFrame> guiList;
 
     private BMouseCursorObserver(Plugin plugin){
         this.plugin = plugin;
         this.guiList = new ArrayList<>(16);
     }
 
-    public void registerBossbarGui(BossbarGui gui){
+    public void registerBossbarGui(BossbarGuiFrame gui){
         guiList.add(gui);
     }
 
@@ -39,13 +43,13 @@ public class BMouseCursorObserver implements Runnable{
     @Override
     public void run() {
 
-        for(BossbarGui bossbarGui : guiList){
+        for(BossbarGuiFrame bossbarGuiFrame : guiList){
 
-            if(!bossbarGui.isOpen()){//안 열려 있으면 옵저버 대상에서 제외
+            if(!bossbarGuiFrame.isOpen()){//안 열려 있으면 옵저버 대상에서 제외
                 continue;
             }
 
-            BComponent cursor = bossbarGui.getMouseCursor();
+            BComponent cursor = bossbarGuiFrame.getMouseCursor();
             if(cursor == null){
                 continue;
             }
@@ -55,7 +59,7 @@ public class BMouseCursorObserver implements Runnable{
                 continue;
             }
 
-            for(BButton bButton : bossbarGui.getBButtons()){
+            for(BButton bButton : bossbarGuiFrame.getBButtons()){
 
                 if(bButton.dotInPoly(mloc,700)){
 
