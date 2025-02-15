@@ -59,7 +59,7 @@ public class ERPlayer {
         return player;
     }
 
-    public BossbarGuiFrame getHyperloop(){
+    public BossbarGuiFrame getHyperloopGui(){
         return hyperloopGui;
     }
 
