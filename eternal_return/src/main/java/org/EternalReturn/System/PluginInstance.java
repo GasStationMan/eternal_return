@@ -8,7 +8,7 @@ import org.EternalReturn.System.ERPlayer.ERPlayerScript;
 import org.EternalReturn.System.ERPlayer.PlayerJoinListener;
 import org.EternalReturn.Util.Gui.Inventory.GuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
-import org.EternalReturn.Util.Gui.bossbarGui.BMouseCursorObserver;
+import org.EternalReturn.Util.Gui.bossbarGui.Controller.BMouseCursorObserver;
 import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

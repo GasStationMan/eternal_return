@@ -1,7 +1,8 @@
-package org.EternalReturn.Util.Gui.bossbarGui;
+package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.Util.Gui.bossbarGui.Controller.BMouseCursorObserver;
 import org.EternalReturn.Util.MathVector.Vec2d;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -13,7 +14,7 @@ import net.kyori.adventure.text.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BossbarGui {
+public class BossbarGuiFrame {
 
     private BossBar bufferShower;
     private Audience audience;
@@ -26,12 +27,21 @@ public class BossbarGui {
     private boolean isOpen;
 
     public void free() {
-        for(BComponent bcmp : bComponents){
-            bcmp.free();
+
+        bufferShower.removeViewer(audience);
+
+        if(!components.isEmpty()){
+            components.clear();
         }
-        components.clear();
-        bComponents.clear();
-        bButtons.clear();
+        if(!bComponents.isEmpty()){
+            for(BComponent bcmp : bComponents){
+                bcmp.free();
+            }
+            bComponents.clear();
+        }
+        if(!bButtons.isEmpty()){
+            bButtons.clear();
+        }
         components = null;
         bComponents = null;
         bufferShower = null;
@@ -41,7 +51,7 @@ public class BossbarGui {
         cursor = null;
     }
 
-    public BossbarGui(ERPlayer erPlayer){
+    public BossbarGuiFrame(ERPlayer erPlayer){
         this.player = erPlayer.getPlayer();
         this.erPlayer = erPlayer;
         this.isOpen = false;

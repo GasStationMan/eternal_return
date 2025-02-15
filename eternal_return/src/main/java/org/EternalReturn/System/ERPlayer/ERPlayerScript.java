@@ -1,6 +1,6 @@
 package org.EternalReturn.System.ERPlayer;
 
-import org.EternalReturn.Util.Gui.bossbarGui.BossbarGui;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
 import org.EternalReturn.Util.MathVector.Vec2d;
 import org.EternalReturn.Util.ScriptUtill.Script;
 import org.EternalReturn.System.SystemManager;
@@ -40,7 +40,7 @@ public class ERPlayerScript implements Script {
      * 디버그 함수 erPlayer.sendMessage()가 주석 처리 되어 있는 지 확인할 것.
      * @return void
      * */
-    private void updateMouseCursor(ERPlayer erPlayer, BossbarGui gui){
+    private void updateMouseCursor(ERPlayer erPlayer, BossbarGuiFrame gui){
         Player p = erPlayer.getPlayer();
         Location location = p.getLocation();
         float yaw = location.getYaw();

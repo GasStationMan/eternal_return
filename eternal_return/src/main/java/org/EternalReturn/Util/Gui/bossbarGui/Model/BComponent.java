@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.Gui.bossbarGui;
+package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
