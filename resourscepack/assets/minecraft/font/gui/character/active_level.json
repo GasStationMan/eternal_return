@@ -1,0 +1,5 @@
+{
+	"providers": [
+		{"type": "bitmap","file": "minecraft:font/character/level.png","ascent": -308, "height": 20,"chars": ["0","1","2","3","4","5"]}
+	]
+}
