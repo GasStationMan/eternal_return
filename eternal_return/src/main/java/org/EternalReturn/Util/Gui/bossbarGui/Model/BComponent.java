@@ -22,7 +22,13 @@ public class BComponent{
         metaData.clear();
         location = null;
     }
-
+    /**
+     * BButton, BImage의 틀이 되어 기본 메소드들을 제공하는 클래스
+     * @param sizeX     : font가 가리키는 이미지의 공백을 제거한 x픽셀 수
+     * @param sizeY     : font가 가리키는 이미지의 y픽셀 수
+     * @param font      : 리소스팩의 font의 위치
+     * @param location  : BComponent의 위치 정보를 담는 객체
+     * */
     public BComponent(int sizeX, int sizeY, String font, BGuiLocation location){
         this.sizeX = sizeX;
         this.sizeY = sizeY;

@@ -67,7 +67,7 @@ public final class PluginInstance extends JavaPlugin{
         Bukkit.getScheduler().runTaskTimer(this, new ScriptUpdateThread(new ERPlayerScript()),0,1);
         
         //보스바 옵저버 업데이트
-        //Bukkit.getScheduler().runTaskTimer(this, bMouseCursorObserver ,0,1);
+        Bukkit.getScheduler().runTaskTimer(this, bMouseCursorObserver ,0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");

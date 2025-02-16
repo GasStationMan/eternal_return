@@ -1,5 +1,6 @@
 package org.EternalReturn.Util.Gui.bossbarGui.Controller;
 
+import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BComponent;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BGuiLocation;
@@ -61,8 +62,10 @@ public class BMouseCursorObserver implements Runnable{
 
             for(BButton bButton : bossbarGuiFrame.getBButtons()){
 
-                if(bButton.dotInPoly(mloc,700)){
-
+                if(bButton.dotInPoly(mloc,300)){
+                    PluginInstance.getServerInstance().getLogger().info(mloc.getX() + " , " + mloc.getY());
+                    bButton.print();
+                    break;
                 }
             }
         }

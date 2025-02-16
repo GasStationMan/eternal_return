@@ -1,5 +1,7 @@
 package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
+import org.EternalReturn.System.PluginInstance;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,7 @@ import java.util.List;
 public class BButton extends BComponent {
 
 
-    private List<BButtonDot> buttonPolygon;
+    private List<BDot> buttonPolygon;
     private int maxX;
     private int minX;
     private int maxY;
@@ -26,6 +28,13 @@ public class BButton extends BComponent {
         buttonPolygon = null;
     }
 
+    /**
+     * BButton을 생성하는 함수 extends BComponent
+     * @param sizeX     : font가 가리키는 이미지의 공백을 제거한 x픽셀 수
+     * @param sizeY     : font가 가리키는 이미지의 y픽셀 수
+     * @param font      : 리소스팩의 font의 위치
+     * @param location  : BComponent의 위치 정보를 담는 객체
+     * */
     public BButton(int sizeX, int sizeY, String font, BGuiLocation location){
         super(sizeX, sizeY, font, location);
         buttonPolygon = new ArrayList<>(4);
@@ -35,29 +44,61 @@ public class BButton extends BComponent {
         super((int)sizeX, (int)sizeY, font, location);
     }
 
-    public void setButtonPolygon(BButtonDot[] dots){
+    public void setButtonPolygon(BDot[] dots){
         buttonPolygon = new ArrayList<>(List.of(dots));
+
+        int minX, minY, maxX, maxY;
+
+        minX = buttonPolygon.getFirst().x;
+        maxX = buttonPolygon.getFirst().x;
+        minY = buttonPolygon.getFirst().y;
+        maxY = buttonPolygon.getFirst().y;
+
+
+        for(BDot dot : buttonPolygon){
+            if(dot.x >= maxX){
+                maxX = dot.x;
+            }
+
+            if(dot.x < minX){
+                minX = dot.x;
+            }
+
+            if(dot.y >= maxY){
+                maxY = dot.y;
+            }
+
+            if(dot.y < minY) {
+                minY = dot.y;
+            }
+        }
+
+        this.minX = minX;
+        this.minY = minY;
+        this.maxX = maxX;
+        this.maxY = maxY;
+
     }
 
     public boolean dotInPoly(BGuiLocation location, int laserLength){
 
         int length = buttonPolygon.size();
 
-        int x = location.getX();
-        int y = location.getY();
+        float x = location.getX();
+        float y = location.getY();
 
         if((minX <= x && x <= maxX) && (minY <= y && y <= maxY)){
             int cnt = 0;
 
             for(int i = 0 ; i < length ; i ++){
-                BButtonDot d1 = buttonPolygon.get(i % length);
-                BButtonDot d2 = buttonPolygon.get((i + 1) % length);
+                BDot d1 = buttonPolygon.get(i % length);
+                BDot d2 = buttonPolygon.get((i + 1) % length);
                 if(d1.y == d2.y){
                     continue;
                 }
 
-                int dx = d2.x - d1.x;
-                int dy = d2.y - d1.y;
+                float dx = d2.x - d1.x;
+                float dy = d2.y - d1.y;
 
                 if(((x - d1.x) - (y - d1.y) * dx / dy) * ((x - d1.x - laserLength) - (y - d1.y) * dx / dy) < 0){
                     cnt ++;
@@ -75,10 +116,10 @@ public class BButton extends BComponent {
         int posX = location.getX();
         int posY = location.getY();
 
-        buttonPolygon.add(new BButtonDot(posX - sizeX/2, posY));
-        buttonPolygon.add(new BButtonDot(posX + sizeX/2, posY));
-        buttonPolygon.add(new BButtonDot(posX + sizeX/2, posY + sizeY));
-        buttonPolygon.add(new BButtonDot(posX - sizeX/2, posY + sizeY));
+        buttonPolygon.add(new BDot(posX - sizeX/2, posY));
+        buttonPolygon.add(new BDot(posX + sizeX/2, posY));
+        buttonPolygon.add(new BDot(posX + sizeX/2, posY + sizeY));
+        buttonPolygon.add(new BDot(posX - sizeX/2, posY + sizeY));
 
         this.minX = posX - sizeX/2;
         this.maxX = posX + sizeX/2;
@@ -93,10 +134,14 @@ public class BButton extends BComponent {
         int posX = location.getX();
         int posY = location.getY();
 
-        buttonPolygon.add(new BButtonDot(posX - width/2, posY));
-        buttonPolygon.add(new BButtonDot(posX + width/2, posY));
-        buttonPolygon.add(new BButtonDot(posX + width/2, posY + height));
-        buttonPolygon.add(new BButtonDot(posX - width/2, posY + height));
+        buttonPolygon.add(new BDot(posX - width/2, posY));
+        buttonPolygon.add(new BDot(posX + width/2, posY));
+        buttonPolygon.add(new BDot(posX + width/2, posY + height));
+        buttonPolygon.add(new BDot(posX - width/2, posY + height));
+    }
+
+    public void print(){
+        PluginInstance.getServerInstance().getLogger().info(font + " : (" + this.minX + "," + this.minY + ") -> (" + this.maxX + "," + this.maxY + ")");
     }
 
 }

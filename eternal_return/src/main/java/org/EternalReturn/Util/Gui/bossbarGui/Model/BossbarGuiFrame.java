@@ -122,13 +122,28 @@ public class BossbarGuiFrame {
         BGuiLocation loc = cursor.getLocation();
         Location pLoc = player.getLocation();
 
-        int xToModify = loc.getX() + dx;
-        int yToModify = loc.getY() - dy / 2;
+        int xToModify;
+        int yToModify;
 
+        //if(dx == 1 || dx == -1){
+        //    xToModify = loc.getX() + dx;
+        //}
+        //else {
+        //    xToModify = loc.getX() + dx / 2;
+        //}
+        //
+        //if(dy == 1 || dy == -1){
+        //    yToModify = loc.getY() - dy;
+        //}
+        //else {
+        //    yToModify = loc.getY() - dy / 2;
+        //}
 
+        xToModify = loc.getX() + dx / 2;
+        yToModify = loc.getY() - dy / 2;
         if((-350 <= xToModify && xToModify <= 350) && (0 <= yToModify && yToModify <= 400)){
 
-            //erPlayer.sendMessage("( " + xToModify + " , " + yToModify + " )");
+            erPlayer.sendMessage("( " + xToModify + " , " + yToModify + " )");
 
             cursor.setLocation(xToModify,yToModify);
             repaint();
@@ -165,26 +180,33 @@ public class BossbarGuiFrame {
     public void updateMouseCursor(ERPlayer erPlayer){
         Player p = erPlayer.getPlayer();
         Location location = p.getLocation();
-        float yaw = location.getYaw();
+        float yaw = location.getYaw() * 2;
         float pitch = location.getPitch() * 4;
 
-        Vec2d currentVecX = erPlayer.getRot2dVecX();
-        Vec2d secondVecX = new Vec2d(
-                Math.cos(Math.toRadians(yaw)),
-                Math.sin(Math.toRadians(yaw))
-        );
-        double distanceOfAngleX = getDegreeDistance(secondVecX,currentVecX);
+        Vec2d secondVecX ;
+        double distanceOfAngleX = getDegreeDistance(
+                secondVecX = new Vec2d(
+                        Math.cos(Math.toRadians(yaw)),
+                        Math.sin(Math.toRadians(yaw))
+                ),erPlayer.getRot2dVecX());
 
-        Vec2d currentVecY = erPlayer.getRot2dVecY();
-        Vec2d secondVecY = new Vec2d(
-                Math.cos(Math.toRadians(pitch)),
-                Math.sin(Math.toRadians(pitch))
-        );
-        double distanceOfAngleY = getDegreeDistance(secondVecY,currentVecY);
 
-        if(0.0009765625d <= Math.abs(distanceOfAngleX) || 0.0009765625d <= Math.abs(distanceOfAngleY)){
+        Vec2d secondVecY;
+        double distanceOfAngleY = getDegreeDistance(
+                secondVecY = new Vec2d(
+                        Math.cos(Math.toRadians(pitch)),
+                        Math.sin(Math.toRadians(pitch))
+        ),erPlayer.getRot2dVecY());
 
-            moveMousePointer((int)distanceOfAngleX, (int)distanceOfAngleY);
+
+
+        if(0 < Math.abs(distanceOfAngleX) || 0 < Math.abs(distanceOfAngleY)){
+
+
+            moveMousePointer(
+                    setMinimumDistance(distanceOfAngleX),
+                    setMinimumDistance(distanceOfAngleY)
+            );
 
             if(Math.abs(pitch) == 360){
                 location.setPitch(-pitch);
@@ -205,6 +227,18 @@ public class BossbarGuiFrame {
         double direction = currentVector.crossProd(secondVector);
         double distanceOfAngle = Math.toDegrees(Vec2d.getAngleOfVectors(secondVector, currentVector));
         return direction > 0 ? distanceOfAngle : -distanceOfAngle;
+    }
+
+    private int setMinimumDistance(double distance){
+        if(0.0d < distance && distance <= 1){
+            return 1;
+        }
+        else if(-1 <= distance && distance < 0.0d){
+            return -1;
+        }
+        else{
+            return (int)distance;
+        }
     }
 
 }

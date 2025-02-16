@@ -35,6 +35,102 @@ public class HyperLoopGui extends BossbarGuiFrame {
         BButton storage = new BButton(120/scaler,108/scaler,"map/storage"               ,new BGuiLocation(28 + dx,142));
         BButton port = new BButton(132/scaler,99/scaler,"map/port"                      ,new BGuiLocation(8 + dx,150));
 
+        alley.setButtonPolygon(new BDot[]{
+                new BDot(9,93), new BDot(-6,80), new BDot(-40,110), new BDot(-31,119),
+                new BDot(-23,113), new BDot(-9,127), new BDot(7,110), new BDot(0,102)
+        });
+
+        gas_station.setButtonPolygon(new BDot[]{
+                new BDot(9,93), new BDot(0,102), new BDot(7,110), new BDot(-9,127),
+                new BDot(2,138), new BDot(-27,113)
+        });
+
+        archery_range.setButtonPolygon(new BDot[]{
+                new BDot(57,137), new BDot(30,110), new BDot(17,125), new BDot(27,135),
+                new BDot(23,139), new BDot(39,156)
+        });
+
+        hotel.setButtonPolygon(new BDot[]{
+                new BDot(76,168), new BDot(57,137), new BDot(20,173), new BDot(42,196),
+                new BDot(55,190)
+        });
+
+        school.setButtonPolygon(new BDot[]{
+                new BDot(17,125), new BDot(-6,149), new BDot(1,155), new BDot(-4,160),
+                new BDot(15,179), new BDot(39,156)
+        });
+
+        fire.setButtonPolygon(new BDot[]{
+                new BDot(-9,127), new BDot(-28,145), new BDot(-31,149), new BDot(-27,153),
+                new BDot(-17,173), new BDot(1,155), new BDot(-6,149), new BDot(2,138)
+        });
+
+        police.setButtonPolygon(new BDot[]{
+                new BDot(-23,113), new BDot(-47,136), new BDot(-42,141), new BDot(-48,147),
+                new BDot(-36,158), new BDot(-33,156), new BDot(-27,153), new BDot(-31,149),
+                new BDot(-28,145)
+        });
+
+        temple.setButtonPolygon(new BDot[]{
+                new BDot(-31,119), new BDot(-48,101), new BDot(-89,148), new BDot(-72,163),
+                new BDot(-57,148), new BDot(-53,151), new BDot(-42,141), new BDot(-47,136)
+        });
+
+        beach.setButtonPolygon(new BDot[]{
+                new BDot(77,192), new BDot(63,181), new BDot(55,190), new BDot(42,196),
+                new BDot(39,193), new BDot(27,205), new BDot(46,224)
+        });
+
+        forest.setButtonPolygon(new BDot[]{
+                new BDot(39, 193), new BDot(20, 173), new BDot(-11, 208), new BDot(7, 225)
+        });
+
+        cemetery.setButtonPolygon(new BDot[]{
+                new BDot(-5, 201), new BDot(-23, 182), new BDot(-59,216), new BDot(-43, 232),
+                new BDot(-43, 232), new BDot(-25, 222), new BDot(-29, 218)
+        });
+
+        pond.setButtonPolygon(new BDot[]{
+                new BDot(-17, 173), new BDot(-33, 156), new BDot(-46, 169), new BDot(-43, 171),
+                new BDot(-43, 171), new BDot(-43, 180), new BDot(-54, 192), new BDot(-44, 202)
+        });
+
+        stream.setButtonPolygon(new BDot[]{
+                new BDot(-36, 158), new BDot(-48, 147), new BDot(-53, 151), new BDot(-57, 148),
+                new BDot(-80, 171), new BDot(-68, 182), new BDot(-65, 178), new BDot(-59, 183),
+                new BDot(-61, 185), new BDot(-54, 192), new BDot(-43, 180), new BDot(-43, 171),
+                new BDot(-49, 169)
+        });
+
+        village.setButtonPolygon(new BDot[]{
+                new BDot(46, 224), new BDot(27, 205), new BDot(7, 225), new BDot(-2, 230),
+                new BDot(-20, 248), new BDot(4, 242), new BDot(6, 238), new BDot(19, 252),
+        });
+
+        chapel.setButtonPolygon(new BDot[]{
+                new BDot(7, 225), new BDot(-11, 208), new BDot(-25, 222), new BDot(-29, 218),
+                new BDot(-43, 232), new BDot(-23, 251), new BDot(2, 230)
+        });
+
+        hospital.setButtonPolygon(new BDot[]{
+                new BDot(-44, 202), new BDot(-61, 185), new BDot(-59, 183), new BDot(-65, 178),
+                new BDot(-68, 182), new BDot(-80, 171), new BDot(-90, 190), new BDot(-66, 214),
+                new BDot(-64, 211), new BDot(-59, 216)
+        });
+
+        storage.setButtonPolygon(new BDot[]{
+                new BDot(19, 252), new BDot(6, 238), new BDot(4, 242), new BDot(-20, 248),
+                new BDot(-20, 248), new BDot(3, 269)
+        });
+
+        port.setButtonPolygon(new BDot[]{
+                new BDot(3, 269), new BDot(-20, 248), new BDot(-23, 251), new BDot(-31, 244),
+                new BDot(-39, 253), new BDot(-6, 282)
+        });
+
+        factory.setButtonPolygon(new BDot[]{
+                new BDot(-31, 244), new BDot(-64, 211), new BDot(-39, 235), new BDot(-53, 266)
+        });
 
         add(alley);
         add(archery_range);
