@@ -773,6 +773,12 @@
 			}
 		}
 	],
+	"display": {
+		"head": {
+			"translation": [0, 7.3, 0],
+			"scale": [1.2, 1.2, 1.2]
+		}
+	},
 	"groups": [
 		0,
 		1,

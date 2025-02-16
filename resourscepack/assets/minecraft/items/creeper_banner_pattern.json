@@ -51,7 +51,17 @@
 		{"when": "hyperloop","model": {"type": "minecraft:model","model": "map/hyperloop"}},
 		{"when": "cobblestone","model": {"type": "minecraft:model","model": "map/cobblestone"}},
 		{"when": "branch","model": {"type": "minecraft:model","model": "map/branch"}},
-		{"when": "fishing_rod","model": {"type": "minecraft:model","model": "map/fishing_rod"}}
+		{"when": "fishing_rod","model": {"type": "minecraft:model","model": "map/fishing_rod"}},
+		{"when": "food_box","model": {"type": "minecraft:model","model": "map/food_box"}},
+		{"when": "epic_box","model": {"type": "minecraft:model","model": "map/epic_box"}},
+		{"when": "mythic_box","model": {"type": "minecraft:model","model": "map/mythic_box"}},
+		{"when": "meteor_info","model": {"type": "minecraft:model","model": "map/meteor_info"}},
+		{"when": "meteor_info_in","model": {"type": "minecraft:model","model": "map/meteor_info_in"}},
+		{"when": "box_info","model": {"type": "minecraft:range_dispatch","property": "minecraft:custom_model_data",
+			  "entries": [
+				{"threshold": 0,"model": {"type": "minecraft:model","model": "map/box_info"}},
+				{"threshold": 1,"model": {"type": "minecraft:model","model": "map/box_info_rotate"}}
+			]}}
 	  ]
 	}
 }
