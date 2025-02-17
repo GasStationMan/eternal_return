@@ -1,0 +1,1 @@
+execute if entity @s[tag=markus_skill] at @s run function eternal_return:character/list/markus/passive/skill

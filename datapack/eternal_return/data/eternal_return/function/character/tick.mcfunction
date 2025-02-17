@@ -1,0 +1,61 @@
+## 캐릭터 틱
+# 상위 함수 : function eternal_return:main
+# 입력 값 : @s pdb:main in
+
+
+
+## 스킬
+    # 스킬 쿨타임
+        function eternal_return:character/skill_cool
+    # Q키 감지
+        function eternal_return:character/detect_key
+    
+    # 캐릭터별 스킬
+        # 나딘
+        # 레녹스
+        # 실비아
+        # 레온
+        # 제니
+        # 카티야
+        # 레니
+            execute if entity @s[tag=leni,tag=Qskill,tag=!active_cool] run title @s actionbar "뿅!"
+            execute if entity @s[tag=leni,tag=Qskill,tag=!active_cool] run scoreboard players set @s active_cool 12
+            execute if entity @s[tag=leni,tag=Fskill,tag=!passive_cool] run title @s actionbar "인사해"
+            execute if entity @s[tag=leni,tag=Fskill,tag=!passive_cool] run scoreboard players set @s passive_cool 5
+        # 다니엘
+        # 클로에
+        # 매그너스
+        # 아드리아나
+        # 아이솔
+        # 현우
+        # 유키
+        # 피올로
+        # 아르다
+        # 비앙카
+        # 이안
+        # 버니스
+        # 시셀라
+        # 루크
+        # 재키
+        # 바냐
+        # 엘레나
+        # 나타폰
+        # 하트
+        # 알렉스
+        # 셀린
+        # 쇼우
+        # 마커스
+            execute if entity @s[tag=markus] at @s run function eternal_return:character/list/markus/active/main
+            execute if entity @s[tag=markus] at @s run function eternal_return:character/list/markus/passive/main
+        # 에스텔
+
+# 쿨타임 대기중입니다 액션바로 추가
+
+
+
+
+
+# FREE
+    # 키 태그 제거
+        tag @s remove Qskill
+        tag @s remove Fskill
