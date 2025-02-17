@@ -1,6 +1,7 @@
 package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.Util.Gui.bossbarGui.Exception.ButtonPolyNullException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,15 @@ public class BButton extends BComponent {
         super((int)sizeX, (int)sizeY, font, location);
     }
 
+
+    public List<BDot> getButtonPolygon(){
+        return buttonPolygon;
+    }
+
+    public String getBButton(){
+        return font;
+    }
+
     public void setButtonPolygon(BDot[] dots){
         buttonPolygon = new ArrayList<>(List.of(dots));
 
@@ -80,36 +90,6 @@ public class BButton extends BComponent {
 
     }
 
-    public boolean dotInPoly(BGuiLocation location, int laserLength){
-
-        int length = buttonPolygon.size();
-
-        float x = location.getX();
-        float y = location.getY();
-
-        if((minX <= x && x <= maxX) && (minY <= y && y <= maxY)){
-            int cnt = 0;
-
-            for(int i = 0 ; i < length ; i ++){
-                BDot d1 = buttonPolygon.get(i % length);
-                BDot d2 = buttonPolygon.get((i + 1) % length);
-                if(d1.y == d2.y){
-                    continue;
-                }
-
-                float dx = d2.x - d1.x;
-                float dy = d2.y - d1.y;
-
-                if(((x - d1.x) - (y - d1.y) * dx / dy) * ((x - d1.x - laserLength) - (y - d1.y) * dx / dy) < 0){
-                    cnt ++;
-                }
-
-            }
-            return cnt % 2 == 1;
-        }
-        return false;
-    }
-
     public void setButtonPolygonAsRect(){
         buttonPolygon = new ArrayList<>(4);
 
@@ -140,8 +120,36 @@ public class BButton extends BComponent {
         buttonPolygon.add(new BDot(posX - width/2, posY + height));
     }
 
-    public void print(){
-        PluginInstance.getServerInstance().getLogger().info(font + " : (" + this.minX + "," + this.minY + ") -> (" + this.maxX + "," + this.maxY + ")");
+    public boolean dotInPoly(BGuiLocation location, int laserLength){
+
+        int length = buttonPolygon.size();
+
+        long x = location.getX();
+        long y = location.getY();
+        int cnt = 0;
+        if((minX <= x && x <= maxX) && (minY <= y && y <= maxY)){
+            for(int i = 0 ; i < length ; i ++){
+                BDot d1 = buttonPolygon.get(i % length);
+                BDot d2 = buttonPolygon.get((i + 1) % length);
+                if(d1.y == d2.y){
+                    continue;
+                }
+                //x축과 평행한 반직선이기 때문에, y의 최대 최소값을 통해 위치를 고려해야 함.
+                if(Math.min(d1.y, d2.y) < y && y <= Math.max(d1.y, d2.y)){
+                    long dx = d2.x - d1.x;
+                    long dy = d2.y - d1.y;
+                    long check = ((y - d2.y) * dx - ((x - d2.x              ) * dy)) *
+                                 ((y - d2.y) * dx - ((x - d2.x - laserLength) * dy));
+
+                    if(check < 0){
+                        cnt ++;
+                    }
+                }
+            }
+        }
+        return cnt % 2 == 1;
     }
+
+
 
 }

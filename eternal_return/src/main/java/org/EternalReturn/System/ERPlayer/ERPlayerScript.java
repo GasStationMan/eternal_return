@@ -1,5 +1,11 @@
 package org.EternalReturn.System.ERPlayer;
 
+import net.kyori.adventure.bossbar.BossBar;
+import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.Util.Gui.bossbarGui.Exception.ButtonPolyNullException;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BComponent;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BGuiLocation;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
 import org.EternalReturn.Util.MathVector.Vec2d;
 import org.EternalReturn.Util.ScriptUtill.Script;
@@ -29,7 +35,11 @@ public class ERPlayerScript implements Script {
                 erPlayer.getKioskGui().updateMouseCursor(erPlayer);
             }
             else if(erPlayer.isHyperloopGuiOpened()){
-                erPlayer.getHyperloopGui().updateMouseCursor(erPlayer);
+
+                BossbarGuiFrame bossbarGuiFrame = erPlayer.getHyperloopGui();
+                bossbarGuiFrame.updateMouseCursor(erPlayer);
+                bossbarGuiFrame.detectButtonUnderCursor();
+
             }
         }
     }

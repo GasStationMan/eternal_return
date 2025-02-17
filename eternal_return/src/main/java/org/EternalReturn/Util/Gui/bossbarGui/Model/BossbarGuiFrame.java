@@ -2,7 +2,6 @@ package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.Gui.bossbarGui.Controller.BMouseCursorObserver;
 import org.EternalReturn.Util.MathVector.Vec2d;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -59,8 +58,6 @@ public class BossbarGuiFrame {
         this.bComponents = new ArrayList<>(16);
         this.bButtons = new ArrayList<>(16);
         this.audience = PluginInstance.adventure().player(player);
-
-        BMouseCursorObserver.getInstance().registerBossbarGui(this);
     }
 
     //getter
@@ -125,26 +122,9 @@ public class BossbarGuiFrame {
         int xToModify;
         int yToModify;
 
-        //if(dx == 1 || dx == -1){
-        //    xToModify = loc.getX() + dx;
-        //}
-        //else {
-        //    xToModify = loc.getX() + dx / 2;
-        //}
-        //
-        //if(dy == 1 || dy == -1){
-        //    yToModify = loc.getY() - dy;
-        //}
-        //else {
-        //    yToModify = loc.getY() - dy / 2;
-        //}
-
         xToModify = loc.getX() + dx / 2;
         yToModify = loc.getY() - dy / 2;
         if((-350 <= xToModify && xToModify <= 350) && (0 <= yToModify && yToModify <= 400)){
-
-            erPlayer.sendMessage("( " + xToModify + " , " + yToModify + " )");
-
             cursor.setLocation(xToModify,yToModify);
             repaint();
             bufferShower.name(Component.text("").children(components));
@@ -202,10 +182,9 @@ public class BossbarGuiFrame {
 
         if(0 < Math.abs(distanceOfAngleX) || 0 < Math.abs(distanceOfAngleY)){
 
-
             moveMousePointer(
-                    setMinimumDistance(distanceOfAngleX),
-                    setMinimumDistance(distanceOfAngleY)
+                    (int)distanceOfAngleX,
+                    (int)distanceOfAngleY
             );
 
             if(Math.abs(pitch) == 360){
@@ -229,16 +208,23 @@ public class BossbarGuiFrame {
         return direction > 0 ? distanceOfAngle : -distanceOfAngle;
     }
 
-    private int setMinimumDistance(double distance){
-        if(0.0d < distance && distance <= 1){
-            return 1;
+    public void detectButtonUnderCursor() {
+        BComponent cursor = this.getMouseCursor();
+        if(cursor == null){
+            return;
         }
-        else if(-1 <= distance && distance < 0.0d){
-            return -1;
-        }
-        else{
-            return (int)distance;
+        BGuiLocation mloc = cursor.getLocation();
+
+        //player.sendMessage(mloc.getX() + " , " + mloc.getY());
+
+        for(BButton bButton : this.getBButtons()){
+            if(bButton.getButtonPolygon() == null){
+                continue;
+            }
+            if(bButton.dotInPoly(mloc,700)){
+                player.sendMessage(bButton.getBButton() + " : " + mloc.getX() + " , " + mloc.getY());
+                return;
+            }
         }
     }
-
 }

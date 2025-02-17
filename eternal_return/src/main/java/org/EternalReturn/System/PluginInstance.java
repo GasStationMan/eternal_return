@@ -8,7 +8,6 @@ import org.EternalReturn.System.ERPlayer.ERPlayerScript;
 import org.EternalReturn.System.ERPlayer.PlayerJoinListener;
 import org.EternalReturn.Util.Gui.Inventory.GuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
-import org.EternalReturn.Util.Gui.bossbarGui.Controller.BMouseCursorObserver;
 import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -21,7 +20,6 @@ public final class PluginInstance extends JavaPlugin{
     private static Plugin serverInstance;
     private static SystemManager systemManager;
     private static BukkitAudiences adventure;
-    private static BMouseCursorObserver bMouseCursorObserver;
 
     //BukkitAudience얻어오는 함수
     public static @NonNull BukkitAudiences adventure(){
@@ -50,7 +48,6 @@ public final class PluginInstance extends JavaPlugin{
         //시스템매니저 객체 생성
         systemManager = SystemManager.getInstance();
         adventure = BukkitAudiences.create(this);
-        bMouseCursorObserver = BMouseCursorObserver.initialize(this);
 
         //GuiOpen 리스너 등록. 이런 식으로 해야 함...
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(systemManager), this);
@@ -65,9 +62,6 @@ public final class PluginInstance extends JavaPlugin{
 
         //스크립트 업데이트
         Bukkit.getScheduler().runTaskTimer(this, new ScriptUpdateThread(new ERPlayerScript()),0,1);
-        
-        //보스바 옵저버 업데이트
-        Bukkit.getScheduler().runTaskTimer(this, bMouseCursorObserver ,0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");
@@ -90,10 +84,6 @@ public final class PluginInstance extends JavaPlugin{
 
     public static Plugin getServerInstance(){
         return serverInstance;
-    }
-
-    public static BMouseCursorObserver getbMouseCursorObserver(){
-        return bMouseCursorObserver;
     }
 
     public static SystemManager getSystemManager(){
