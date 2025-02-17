@@ -5,6 +5,7 @@ execute if entity @s[tag=markus_jump] at @s run function eternal_return:characte
 execute if entity @s[tag=markus_skill] at @s run function eternal_return:character/list/markus/active/skill
 execute as @e[tag=markus_hit] at @s if entity @s[tag=markus_hit] run function eternal_return:character/list/markus/active/hit
 
+
 ## 쿨타임
 
 # LV 1
