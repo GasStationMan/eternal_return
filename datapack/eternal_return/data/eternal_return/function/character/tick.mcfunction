@@ -12,9 +12,13 @@
     
     # 캐릭터별 스킬
         # 나딘
+            execute if entity @s[tag=nadine] at @s run function eternal_return:character/list/nadine/active/main
+            execute if entity @s[tag=nadine] at @s run function eternal_return:character/list/nadine/passive/main
         # 레녹스
         # 실비아
         # 레온
+            execute if entity @s[tag=leon] at @s run function eternal_return:character/list/leon/active/main
+            execute if entity @s[tag=leon] at @s run function eternal_return:character/list/leon/passive/main
         # 제니
         # 카티야
         # 레니
@@ -43,16 +47,20 @@
         # 하트
         # 알렉스
         # 셀린
+            execute if entity @s[tag=celine] at @s run function eternal_return:character/list/celine/passive/main
+            execute if entity @s[tag=celine] at @s run function eternal_return:character/list/celine/active/main
         # 쇼우
         # 마커스
-            execute if entity @s[tag=markus] at @s run function eternal_return:character/list/markus/active/main
-            execute if entity @s[tag=markus] at @s run function eternal_return:character/list/markus/passive/main
+            execute if entity @s[tag=markus,scores={active_level=1..}] at @s run function eternal_return:character/list/markus/active/main
+            execute if entity @s[tag=markus,scores={passive_level=1..}] at @s run function eternal_return:character/list/markus/passive/main
         # 에스텔
 
 # 쿨타임 대기중입니다 액션바로 추가
 
+function eternal_return:player/rightclick/food_rightclick_cool
 
-
+## CC기
+function eternal_return:character/list/stun/main
 
 
 # FREE

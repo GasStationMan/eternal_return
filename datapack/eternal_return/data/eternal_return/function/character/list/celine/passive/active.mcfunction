@@ -1,0 +1,16 @@
+execute if entity @s[tag=team1] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t1"]}
+execute if entity @s[tag=team2] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t2"]}
+execute if entity @s[tag=team3] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t3"]}
+execute if entity @s[tag=team4] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t4"]}
+execute if entity @s[tag=team5] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t5"]}
+execute if entity @s[tag=team6] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t6"]}
+execute if entity @s[tag=team7] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t7"]}
+execute if entity @s[tag=team8] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t8"]}
+execute if entity @s[tag=team9] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t9"]}
+execute if entity @s[tag=team10] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t10"]}
+execute if entity @s[tag=team11] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t11"]}
+execute if entity @s[tag=team12] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t12"]}
+execute if entity @s[tag=team13] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t13"]}
+execute if entity @s[tag=team14] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t14"]}
+execute if entity @s[tag=team15] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t15"]}
+execute if entity @s[tag=team16] at @e[tag=celine_facing_last] run summon marker ~ ~ ~ {Tags:["celine_Q","celine_Q_t16"]}

@@ -51,3 +51,4 @@ scoreboard players operation #pca NUM -= #tmp3 NUM
 
 # detect
 execute if score #pab NUM matches ..-1 if score #pbc NUM matches ..-1 if score #pca NUM matches ..-1 run tag @s add markus_hit
+execute if score #pab NUM matches ..-1 if score #pbc NUM matches ..-1 if score #pca NUM matches ..-1 run tag @s add markus_t1
