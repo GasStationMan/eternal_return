@@ -4,8 +4,8 @@ package org.EternalReturn.System;
 import java.io.UnsupportedEncodingException;
 
 import org.EternalReturn.System.ERPlayer.ERPlayerDebugCommand;
+import org.EternalReturn.System.ERPlayer.ERPlayerListener;
 import org.EternalReturn.System.ERPlayer.ERPlayerScript;
-import org.EternalReturn.System.ERPlayer.PlayerJoinListener;
 import org.EternalReturn.Util.Gui.Inventory.GuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
@@ -50,7 +50,7 @@ public final class PluginInstance extends JavaPlugin{
         adventure = BukkitAudiences.create(this);
 
         //GuiOpen 리스너 등록. 이런 식으로 해야 함...
-        getServer().getPluginManager().registerEvents(new PlayerJoinListener(systemManager), this);
+        getServer().getPluginManager().registerEvents(new ERPlayerListener(systemManager), this);
         getServer().getPluginManager().registerEvents(new GuiListener(systemManager), this);
         loadCommands();
 

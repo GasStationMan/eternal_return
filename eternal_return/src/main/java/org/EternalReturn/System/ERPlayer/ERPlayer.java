@@ -16,6 +16,7 @@ public class ERPlayer {
     private UpgradeGui upgradeGui;
     private UpgradeGuiController upgradeGuiController;
 
+    private BossbarGuiFrame currentOpened;
     private BossbarGuiFrame hyperloopGui;
     private BossbarGuiFrame kioskGui;
 
@@ -24,7 +25,8 @@ public class ERPlayer {
 
     private Vec2d rot2dVecX;
     private Vec2d rot2dVecY;
-    private boolean directionRotY;
+
+
 
     public void free(){
         upgradeGuiController.free();
@@ -41,7 +43,6 @@ public class ERPlayer {
 
     public ERPlayer(Player p){
         player = p;
-        directionRotY = true;
         rot2dVecX = new Vec2d(Math.cos(0),Math.sin(0));
         rot2dVecY = new Vec2d(Math.cos(0),Math.sin(0));
 
@@ -87,11 +88,8 @@ public class ERPlayer {
         return rot2dVecY;
     }
 
-    /**
-     * true == 양의 방향 (+) , false == 음의 방향 (-)
-     * */
-    public boolean getDirectionRotY(){
-        return directionRotY;
+    public BossbarGuiFrame getCurrentOpened(){
+        return currentOpened;
     }
 
     //setter
@@ -115,35 +113,36 @@ public class ERPlayer {
         rot2dVecY = vector;
     }
 
+    public void setCurrentOpened(BossbarGuiFrame currentOpened){
+        this.currentOpened = currentOpened;
+    }
+
     /**
      * true == 양의 방향 (+) , false == 음의 방향 (-)
      * */
-    public void setDirectionRotY(boolean direction){
-        directionRotY = direction;
-    }
-
-    public void changeDirectionRotY() {
-        directionRotY = !directionRotY;
-    }
 
     //controller
     public void openHyperloopGui(){
         isHyperloopGuiOpened = true;
+        currentOpened = hyperloopGui;
         hyperloopGui.open();
     }
 
     public void closeHyperloopGui(){
         isHyperloopGuiOpened = false;
+        currentOpened = null;
         hyperloopGui.close();
     }
 
     public void openKioskGui(){
         isKioskGuiOpened = true;
+        currentOpened = kioskGui;
         kioskGui.open();
     }
 
     public void closeKioskGui(){
         isKioskGuiOpened = false;
+        currentOpened = null;
         kioskGui.close();
     }
 

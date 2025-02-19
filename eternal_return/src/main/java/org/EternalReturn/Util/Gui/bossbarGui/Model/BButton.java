@@ -19,6 +19,10 @@ public class BButton extends BComponent {
     private int minX;
     private int maxY;
     private int minY;
+    private boolean isUnderCursor;
+
+    private String buttonName;
+    private String fontWhenHovering;
 
     @Override
     public void free(){
@@ -31,14 +35,18 @@ public class BButton extends BComponent {
 
     /**
      * BButton을 생성하는 함수 extends BComponent
-     * @param sizeX     : font가 가리키는 이미지의 공백을 제거한 x픽셀 수
-     * @param sizeY     : font가 가리키는 이미지의 y픽셀 수
-     * @param font      : 리소스팩의 font의 위치
-     * @param location  : BComponent의 위치 정보를 담는 객체
+     * @param sizeX            : font가 가리키는 이미지의 공백을 제거한 x픽셀 수
+     * @param sizeY            : font가 가리키는 이미지의 y픽셀 수
+     * @param font             : 리소스팩의 font의 위치
+     * @param fontWhenHovering : 리소스팩의 font의 위치 (커서가 올라갈 때 바뀔 이미지를 지정하는 font의 위치)
+     * @param location         : BComponent의 위치 정보를 담는 객체
      * */
-    public BButton(int sizeX, int sizeY, String font, BGuiLocation location){
+    public BButton(int sizeX, int sizeY, String font, String fontWhenHovering, BGuiLocation location, String buttonName){
         super(sizeX, sizeY, font, location);
-        buttonPolygon = new ArrayList<>(4);
+        this.buttonPolygon = new ArrayList<>(4);
+        this.fontWhenHovering = fontWhenHovering;
+        this.isUnderCursor = false;
+        this.buttonName = buttonName;
     }
 
     public BButton(float sizeX, float sizeY, String font, BGuiLocation location){
@@ -51,7 +59,7 @@ public class BButton extends BComponent {
     }
 
     public String getBButton(){
-        return font;
+        return buttonName;
     }
 
     public void setButtonPolygon(BDot[] dots){
@@ -120,6 +128,25 @@ public class BButton extends BComponent {
         buttonPolygon.add(new BDot(posX - width/2, posY + height));
     }
 
+    /**
+     * true인 경우 hover 이미지를 띄우고
+     * false인 경우 default 이미지를 띄움
+     * */
+    public void setHoverState(boolean b){
+        if(b){
+            updateComponent(fontWhenHovering);
+            isUnderCursor = true;
+        }
+        else{
+            updateComponent(font);
+            isUnderCursor = false;
+        }
+    }
+
+    public boolean getHoverState(){
+        return isUnderCursor;
+    }
+
     public boolean dotInPoly(BGuiLocation location, int laserLength){
 
         int length = buttonPolygon.size();
@@ -147,7 +174,8 @@ public class BButton extends BComponent {
                 }
             }
         }
-        return cnt % 2 == 1;
+        isUnderCursor = (cnt % 2 == 1);
+        return isUnderCursor;
     }
 
 

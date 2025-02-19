@@ -36,9 +36,6 @@ public class BComponent{
         this.font = font;
         this.location = location;
 
-        //int mouseY = text + location.getY() - 25; //왜 25가 차이나는 지는 모르겠음... 으아아아
-
-
         List<Component> children = new ArrayList<>(5);
         children.add(Component.translatable("space." + -location.getX()).font(Key.key("default")));
         children.add(Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
@@ -72,7 +69,19 @@ public class BComponent{
         updateComponent();
     }
 
-    private void updateComponent(){
+    protected void updateComponent(){
+
+        int mouseY = text + location.getY();
+
+        metaData.set(0, Component.translatable("space." + -location.getX()).font(Key.key("default")));
+        metaData.set(1, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
+        metaData.set(2, Component.text((char)mouseY).font(Key.key(font)));
+        metaData.set(3, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
+        metaData.set(4, Component.translatable("space." + location.getX()).font(Key.key("default")));
+        component = Component.text("").children(metaData);
+    }
+
+    protected void updateComponent(String font){
 
         int mouseY = text + location.getY();
 

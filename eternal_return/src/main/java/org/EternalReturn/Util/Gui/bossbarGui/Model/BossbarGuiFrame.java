@@ -25,6 +25,8 @@ public class BossbarGuiFrame {
     private BComponent cursor;
     private boolean isOpen;
 
+    private BButton currentButtonUnderCursor;
+
     public void free() {
 
         bufferShower.removeViewer(audience);
@@ -48,6 +50,7 @@ public class BossbarGuiFrame {
         player = null;
         erPlayer = null;
         cursor = null;
+        currentButtonUnderCursor = null;
     }
 
     public BossbarGuiFrame(ERPlayer erPlayer){
@@ -58,6 +61,7 @@ public class BossbarGuiFrame {
         this.bComponents = new ArrayList<>(16);
         this.bButtons = new ArrayList<>(16);
         this.audience = PluginInstance.adventure().player(player);
+        this.currentButtonUnderCursor = null;
     }
 
     //getter
@@ -74,6 +78,10 @@ public class BossbarGuiFrame {
 
     public List<BButton> getBButtons(){
         return bButtons;
+    }
+
+    public BButton getCurrentButtonUnderCursor(){
+        return currentButtonUnderCursor;
     }
 
     //setter
@@ -147,12 +155,8 @@ public class BossbarGuiFrame {
         bufferShower.removeViewer(audience);
     }
 
-    public boolean isOpen() {
-        return isOpen;
-    }
-
     /**
-     * 마우스커서 위치 업데이트 기능만 따로 뺀 함수 <br>
+     * 마우스커서 위치 업데이트 기능 & 또한 커서가 버튼 위에 있는지 확인하는 기능 <br>
      * getDegreeDistance(Vec2d secondVector, Vec2d currentVector)함수를 사용함. <br>
      * 디버그 함수 erPlayer.sendMessage()가 주석 처리 되어 있는 지 확인할 것.
      * @return void
@@ -191,6 +195,11 @@ public class BossbarGuiFrame {
                 location.setPitch(-pitch);
                 p.teleport(location);
             }
+            
+            //버튼이 있는 경우 마우스 커서 위치와 버튼의 경계를 감지
+            if(bButtons != null){
+                detectButtonUnderCursor();
+            }
 
             erPlayer.setRot2dVecX(secondVecX);
             erPlayer.setRot2dVecY(secondVecY);
@@ -215,15 +224,19 @@ public class BossbarGuiFrame {
         }
         BGuiLocation mloc = cursor.getLocation();
 
-        //player.sendMessage(mloc.getX() + " , " + mloc.getY());
+        BButton toReturn = null;
 
         for(BButton bButton : this.getBButtons()){
             if(bButton.getButtonPolygon() == null){
                 continue;
             }
+
             if(bButton.dotInPoly(mloc,700)){
-                player.sendMessage(bButton.getBButton() + " : " + mloc.getX() + " , " + mloc.getY());
-                return;
+                bButton.setHoverState(true);
+                currentButtonUnderCursor = bButton;
+            }
+            else{
+                bButton.setHoverState(false);
             }
         }
     }

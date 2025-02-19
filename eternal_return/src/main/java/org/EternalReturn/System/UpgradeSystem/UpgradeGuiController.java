@@ -264,7 +264,7 @@ public class UpgradeGuiController implements GuiController {
                 }
             }
         }
-        // 2025 02 06  23:10 수정
+
         playerInventory.setContents(itemListToModify);
 
         for(int i = 0 ; i < length; i ++){
