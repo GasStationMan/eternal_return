@@ -2,6 +2,9 @@ scoreboard players add @s celine_R 1
 execute as @e[tag=celine_R] run scoreboard players add @s celine_R 1
 execute as @e[tag=celine_R_display] run scoreboard players add @s celine_R 1
 
+execute as @e[tag=celine_R_t1,scores={celine_R=1}] at @s run say 1
+execute as @e[tag=celine_R_t2,scores={celine_R=1}] at @s run say 2
+
 # 기본폭탄이 궁폭탄 바라보기
 execute as @e[tag=celine_R_t1,scores={celine_R=1}] at @s run tp @e[tag=celine_Q_t1] ^ ^ ^ facing entity @s
 execute as @e[tag=celine_R_t2,scores={celine_R=1}] at @s run tp @e[tag=celine_Q_t2] ^ ^ ^ facing entity @s

@@ -52,11 +52,12 @@ execute as @e[tag=celine_Q,scores={celine_Q=100}] run kill @s
 
 ## 쿨타임
 
-execute if entity @s[tag=rightclick,tag=!passive_cool] at @s if entity @e[tag=celine_facing_last] run scoreboard players set @s passive_cool 10
+execute if entity @s[tag=Fskill,tag=!passive_cool] at @s if entity @e[tag=celine_facing_last] run scoreboard players set @s passive_cool 10
 
 execute if entity @s[tag=passive_cool,scores={passive_level=1,dmgdealt=0..}] run scoreboard players remove @s passive_cool 1
 execute if entity @s[tag=passive_cool,scores={passive_level=2,dmgdealt=0..}] run scoreboard players remove @s passive_cool 3
 execute if entity @s[tag=passive_cool,scores={passive_level=3,dmgdealt=0..}] run scoreboard players remove @s passive_cool 5
 execute if entity @s[tag=passive_cool,scores={passive_level=4,dmgdealt=0..}] run scoreboard players remove @s passive_cool 7
 execute if entity @s[tag=passive_cool,scores={passive_level=5,dmgdealt=0..}] run scoreboard players set @s passive_cool 0
-scoreboard players reset @a dmgdealt
+
+scoreboard players reset @s dmgdealt
