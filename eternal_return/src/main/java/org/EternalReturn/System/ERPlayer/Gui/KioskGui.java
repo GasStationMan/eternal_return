@@ -6,14 +6,51 @@ import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
 public class KioskGui extends BossbarGuiFrame {
     public KioskGui(ERPlayer p) {
         super(p);
-        
         //버튼추가
-        BButton kioskSlot = new BButton(137 * 100 / 182,100,"map/kioskslot",new BGuiLocation(0,100));
-        kioskSlot.setButtonPolygonAsRect();
-        add(kioskSlot);
-        
+
+
+        BButton meteorite = new BButton(140/2,182/2,
+                "map/kiosk/default/turned_on/meteorite",
+                "map/kiosk/hover/turned_on/meteorite", new BGuiLocation(90,100), "meteorite");
+        meteorite.setButtonPolygonAsRect(-4, 35);
+
+        BButton mythril = new BButton(140/2,182/2,
+                "map/kiosk/default/turned_on/mythril",
+                "map/kiosk/hover/turned_on/mythril", new BGuiLocation(0,100), "mythril");
+        mythril.setButtonPolygonAsRect(-4, 35);
+
+        BButton treeOfLife = new BButton(140/2,182/2,
+                "map/kiosk/default/turned_on/tree_of_life",
+                "map/kiosk/hover/turned_on/tree_of_life", new BGuiLocation(-90,100), "tree_of_life");
+        treeOfLife.setButtonPolygonAsRect(-4, 35);
+
+
+        BButton forceCore = new BButton(140/2,182/2,
+                "map/kiosk/default/turned_on/force_core",
+                "map/kiosk/hover/turned_on/force_core", new BGuiLocation(90,200), "force_core");
+        forceCore.setButtonPolygonAsRect(-4, 35);
+
+        BButton tacSkillModule = new BButton(140/2,182/2,
+                "map/kiosk/default/turned_on/tac_skill_module",
+                "map/kiosk/hover/turned_on/tac_skill_module", new BGuiLocation(0,200), "tac_skill_module");
+        tacSkillModule.setButtonPolygonAsRect(-4, 35);
+
+        BButton vfBloodSample = new BButton(140/2,182/2,
+                "map/kiosk/default/turned_on/vf_blood_sample",
+                "map/kiosk/hover/turned_on/vf_blood_sample", new BGuiLocation(-90,200), "vf_blood_sample");
+        vfBloodSample.setButtonPolygonAsRect(-4, 35);
+
+
+        add(meteorite);
+        add(mythril);
+        add(treeOfLife);
+        add(forceCore);
+        add(vfBloodSample);
+        add(tacSkillModule);
+
+
         //마우스커서 추가
-        BComponent cursor = new BImage(7,128,"map/icon",new BGuiLocation(0,128));
+        BComponent cursor = new BImage(14,128,"map/cursor/icon",new BGuiLocation(8,200));
         setMouseCursor(cursor);
         add(cursor);
 

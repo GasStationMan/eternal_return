@@ -7,53 +7,34 @@ public class HyperLoopGui extends BossbarGuiFrame {
     public HyperLoopGui(ERPlayer p) {
         super(p);
 
-        BImage hyper_loop = new BImage(800,800,"map/default/hyper_loop",new BGuiLocation(0,400));
+        BImage hyper_loop = new BImage(800,800,"map/hyperloop/background/hyper_loop",new BGuiLocation(0,400));
         add(hyper_loop);
 
         int scaler = 3;
         int dx = -30;
 
-        BImage lab = new BImage(128/scaler,128/scaler, "map/default/lab", new BGuiLocation(0,77));
+        BImage lab = new BImage(128/scaler,128/scaler, "map/hyperloop/default/lab", new BGuiLocation(0,77));
 
         //버튼추가
-        BButton alley = new BButton(150/scaler,124/scaler,
-                "map/default/alley"        , "map/hover/alley",           new BGuiLocation(-2 + dx,0),   "alley");
-        BButton gas_station = new BButton(116/scaler,137/scaler,
-                "map/default/gas_station"  , "map/hover/gas_station",     new BGuiLocation(29 + dx,12),  "gas_station");
-        BButton archery_range = new BButton(111/scaler,126/scaler,
-                "map/default/archery_range", "map/hover/archery_range",   new BGuiLocation(50 + dx,28),  "archery_range");
-        BButton temple = new BButton(169/scaler,162/scaler,
-                "map/default/temple"       , "map/hover/temple",          new BGuiLocation(-28 + dx,37), "temple");
-        BButton hotel = new BButton(165/scaler,158/scaler,
-                "map/default/hotel"        , "map/hover/hotel",           new BGuiLocation(70 + dx,70),  "hotel");
-        BButton school = new BButton(135/scaler,166/scaler,
-                "map/default/school"       , "map/hover/school",          new BGuiLocation(43 + dx,53),  "school");
-        BButton fire = new BButton(104/scaler,148/scaler,
-                "map/default/fire"         , "map/hover/fire",            new BGuiLocation(2 + dx,49),   "fire");
-        BButton police = new BButton(120/scaler,139/scaler,
-                "map/default/police"       , "map/hover/police",          new BGuiLocation(-5 + dx,32),  "police");
-        BButton stream = new BButton(129/scaler,143/scaler,
-                "map/default/stream"       , "map/hover/stream",          new BGuiLocation(-27 + dx,67), "stream");
-        BButton pond = new BButton(120/scaler,145/scaler,
-                "map/default/pond"         , "map/hover/pond",            new BGuiLocation(-10 + dx,77), "pond");
-        BButton forest = new BButton(153/scaler,156/scaler,
-                "map/default/forest"       , "map/hover/forest",          new BGuiLocation(32 + dx,99),  "forest");
-        BButton cemetery = new BButton(170/scaler,154/scaler,
-                "map/default/cemetery"     , "map/hover/cemetery",        new BGuiLocation(-14 + dx,107),"cemetery");
-        BButton beach = new BButton(120/scaler,127/scaler,
-                "map/default/beach"        , "map/hover/beach",           new BGuiLocation(63 + dx,98),  "beach");
-        BButton village = new BButton(157/scaler,144/scaler,
-                "map/default/village"      , "map/hover/village",         new BGuiLocation(52 + dx,126), "village");
-        BButton hospital = new BButton(136/scaler,123/scaler,
-                "map/default/hospital"     , "map/hover/hospital",        new BGuiLocation(-46 + dx,89), "hospital");
-        BButton chapel = new BButton(170/scaler,154/scaler,
-                "map/default/chapel"       , "map/hover/chapel",          new BGuiLocation(-1 + dx,126), "chapel");
-        BButton factory = new BButton(169/scaler,151/scaler,
-                "map/default/factory"      , "map/hover/factory",         new BGuiLocation(-42 + dx,135),"factory");
-        BButton storage = new BButton(120/scaler,108/scaler,
-                "map/default/storage"      , "map/hover/storage",         new BGuiLocation(28 + dx,142), "storage");
-        BButton port = new BButton(132/scaler,99/scaler,
-                "map/default/port"         , "map/hover/port",            new BGuiLocation(8 + dx,150),  "port");
+        HBButton alley = new HBButton(150/scaler,124/scaler, new BGuiLocation(-2 + dx,0),   "alley");
+        HBButton gas_station = new HBButton(116/scaler,137/scaler, new BGuiLocation(29 + dx,12),  "gas_station");
+        HBButton archery_range = new HBButton(111/scaler,126/scaler, new BGuiLocation(50 + dx,28),  "archery_range");
+        HBButton temple = new HBButton(169/scaler,162/scaler, new BGuiLocation(-28 + dx,37), "temple");
+        HBButton hotel = new HBButton(165/scaler,158/scaler, new BGuiLocation(70 + dx,70),  "hotel");
+        HBButton school = new HBButton(135/scaler,166/scaler, new BGuiLocation(43 + dx,53),  "school");
+        HBButton fire = new HBButton(104/scaler,148/scaler, new BGuiLocation(2 + dx,49),   "fire");
+        HBButton police = new HBButton(120/scaler,139/scaler, new BGuiLocation(-5 + dx,32),  "police");
+        HBButton stream = new HBButton(129/scaler,143/scaler, new BGuiLocation(-27 + dx,67), "stream");
+        HBButton pond = new HBButton(120/scaler,145/scaler, new BGuiLocation(-10 + dx,77), "pond");
+        HBButton forest = new HBButton(153/scaler,156/scaler, new BGuiLocation(32 + dx,99),  "forest");
+        HBButton cemetery = new HBButton(170/scaler,154/scaler, new BGuiLocation(-14 + dx,107),"cemetery");
+        HBButton beach = new HBButton(120/scaler,127/scaler, new BGuiLocation(63 + dx,98),  "beach");
+        HBButton village = new HBButton(157/scaler,144/scaler, new BGuiLocation(52 + dx,126), "village");
+        HBButton hospital = new HBButton(136/scaler,123/scaler, new BGuiLocation(-46 + dx,89), "hospital");
+        HBButton chapel = new HBButton(170/scaler,154/scaler, new BGuiLocation(-1 + dx,126), "chapel");
+        HBButton factory = new HBButton(169/scaler,151/scaler, new BGuiLocation(-42 + dx,135),"factory");
+        HBButton storage = new HBButton(120/scaler,108/scaler, new BGuiLocation(28 + dx,142), "storage");
+        HBButton port = new HBButton(132/scaler,99/scaler, new BGuiLocation(8 + dx,150),  "port");
 
         alley.setButtonPolygon(new BDot[]{
                 new BDot(-6,80), new BDot(-40,110), new BDot(-31,119), new BDot(-23,113),
@@ -155,9 +136,8 @@ public class HyperLoopGui extends BossbarGuiFrame {
         add(village);
         add(lab);
 
-
         //마우스커서 추가
-        BComponent cursor = new BImage(14,128,"map/default/icon",new BGuiLocation(8,200));
+        BComponent cursor = new BImage(14,128,"map/cursor/icon",new BGuiLocation(8,200));
         setMouseCursor(cursor);
         add(cursor);
 

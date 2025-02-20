@@ -1,8 +1,5 @@
 package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
-import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.Gui.bossbarGui.Exception.ButtonPolyNullException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +20,7 @@ public class BButton extends BComponent {
 
     private String buttonName;
     private String fontWhenHovering;
+    private int errDistance;
 
     @Override
     public void free(){
@@ -49,8 +47,15 @@ public class BButton extends BComponent {
         this.buttonName = buttonName;
     }
 
-    public BButton(float sizeX, float sizeY, String font, BGuiLocation location){
-        super((int)sizeX, (int)sizeY, font, location);
+    public BButton(int errDistance, int sizeX, int sizeY,
+                   String font, String fontWhenHovering, BGuiLocation location, String buttonName){
+        super(sizeX, sizeY, font, location);
+        this.buttonPolygon = new ArrayList<>(4);
+        this.fontWhenHovering = fontWhenHovering;
+        this.isUnderCursor = false;
+        this.buttonName = buttonName;
+
+        this.errDistance = errDistance;
     }
 
 
@@ -116,16 +121,22 @@ public class BButton extends BComponent {
 
     }
 
-    public void setButtonPolygonAsRect(int width, int height){
+    public void setButtonPolygonAsRect(int errDistanceX, int errDistanceY){
         buttonPolygon = new ArrayList<>(4);
 
         int posX = location.getX();
         int posY = location.getY();
 
-        buttonPolygon.add(new BDot(posX - width/2, posY));
-        buttonPolygon.add(new BDot(posX + width/2, posY));
-        buttonPolygon.add(new BDot(posX + width/2, posY + height));
-        buttonPolygon.add(new BDot(posX - width/2, posY + height));
+        buttonPolygon.add(new BDot(posX - sizeX/2 + errDistanceX, posY + errDistanceY));
+        buttonPolygon.add(new BDot(posX + sizeX/2 + errDistanceX, posY + errDistanceY));
+        buttonPolygon.add(new BDot(posX + sizeX/2 + errDistanceX, posY + sizeY + errDistanceY));
+        buttonPolygon.add(new BDot(posX - sizeX/2 + errDistanceX, posY + sizeY + errDistanceY));
+
+        this.minX = posX - sizeX/2;
+        this.maxX = posX + sizeX/2;
+        this.minY = posY + errDistanceY;
+        this.maxY = posY + sizeY + errDistanceY;
+
     }
 
     /**
@@ -150,6 +161,8 @@ public class BButton extends BComponent {
     public boolean dotInPoly(BGuiLocation location, int laserLength){
 
         int length = buttonPolygon.size();
+
+        //PluginInstance.getServerInstance().getLogger().info(location.getX() + " , " + location.getY());
 
         long x = location.getX();
         long y = location.getY();
@@ -177,7 +190,5 @@ public class BButton extends BComponent {
         isUnderCursor = (cnt % 2 == 1);
         return isUnderCursor;
     }
-
-
 
 }

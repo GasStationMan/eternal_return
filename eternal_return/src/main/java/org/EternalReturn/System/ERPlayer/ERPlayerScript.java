@@ -26,8 +26,7 @@ public class ERPlayerScript implements Script {
                 erPlayer.getKioskGui().updateMouseCursor(erPlayer);
             }
             else if(erPlayer.isHyperloopGuiOpened()){
-                BossbarGuiFrame bossbarGuiFrame = erPlayer.getHyperloopGui();
-                bossbarGuiFrame.updateMouseCursor(erPlayer);
+                erPlayer.getHyperloopGui().updateMouseCursor(erPlayer);
             }
         }
     }

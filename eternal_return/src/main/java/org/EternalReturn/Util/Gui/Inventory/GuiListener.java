@@ -49,7 +49,7 @@ public class GuiListener implements Listener {
         GuiPos pos = new GuiPos();
 
         //클릭한 위치가 본인 인벤토리 위 (1,4)위치인 경우.
-        pos.setPos(4,1);
+        pos.setPos(0,1);
         if(clickedGui.equals(p.getInventory()) && clickedIndex == pos.toIndex()){
             e.setCancelled(true);
             if(!controller.isOpen()){

@@ -51,11 +51,11 @@ public class BComponent{
         return component;
     }
 
-    public int getSizeX() {
+    public float getSizeX() {
         return sizeX;
     }
 
-    public int getSizeY() {
+    public float getSizeY() {
         return sizeY;
     }
 

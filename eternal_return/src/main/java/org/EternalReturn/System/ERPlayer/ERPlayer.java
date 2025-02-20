@@ -7,6 +7,7 @@ import org.EternalReturn.System.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
 import org.EternalReturn.Util.MathVector.Vec2d;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 
 public class ERPlayer {
@@ -25,8 +26,6 @@ public class ERPlayer {
 
     private Vec2d rot2dVecX;
     private Vec2d rot2dVecY;
-
-
 
     public void free(){
         upgradeGuiController.free();

@@ -158,8 +158,6 @@ public class BossbarGuiFrame {
     /**
      * 마우스커서 위치 업데이트 기능 & 또한 커서가 버튼 위에 있는지 확인하는 기능 <br>
      * getDegreeDistance(Vec2d secondVector, Vec2d currentVector)함수를 사용함. <br>
-     * 디버그 함수 erPlayer.sendMessage()가 주석 처리 되어 있는 지 확인할 것.
-     * @return void
      * */
     public void updateMouseCursor(ERPlayer erPlayer){
         Player p = erPlayer.getPlayer();
@@ -197,7 +195,7 @@ public class BossbarGuiFrame {
             }
             
             //버튼이 있는 경우 마우스 커서 위치와 버튼의 경계를 감지
-            if(bButtons != null){
+            if(!bButtons.isEmpty()){
                 detectButtonUnderCursor();
             }
 
@@ -205,6 +203,7 @@ public class BossbarGuiFrame {
             erPlayer.setRot2dVecY(secondVecY);
 
         }
+
     }
 
     /**
@@ -224,8 +223,6 @@ public class BossbarGuiFrame {
         }
         BGuiLocation mloc = cursor.getLocation();
 
-        BButton toReturn = null;
-
         for(BButton bButton : this.getBButtons()){
             if(bButton.getButtonPolygon() == null){
                 continue;
@@ -234,9 +231,11 @@ public class BossbarGuiFrame {
             if(bButton.dotInPoly(mloc,700)){
                 bButton.setHoverState(true);
                 currentButtonUnderCursor = bButton;
+                return;
             }
             else{
                 bButton.setHoverState(false);
+                currentButtonUnderCursor = null;
             }
         }
     }

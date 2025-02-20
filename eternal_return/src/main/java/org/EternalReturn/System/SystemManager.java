@@ -15,6 +15,10 @@ public class SystemManager {
     private HashMap<UUID, Player> uuidPlayerHashMap;
     private BukkitAudiences bukkitAudiences;
 
+    public static int RED_ZONE = 0;
+    public static int YELLOW_ZONE = 1;
+    public static int GREEN_ZONE = 2;
+
     //free (메모리 할당 해제)
     public void free() {
 
