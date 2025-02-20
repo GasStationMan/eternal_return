@@ -223,6 +223,8 @@ public class BossbarGuiFrame {
         }
         BGuiLocation mloc = cursor.getLocation();
 
+        boolean cursorIsOutOfButton = true;
+
         for(BButton bButton : this.getBButtons()){
             if(bButton.getButtonPolygon() == null){
                 continue;
@@ -231,12 +233,16 @@ public class BossbarGuiFrame {
             if(bButton.dotInPoly(mloc,700)){
                 bButton.setHoverState(true);
                 currentButtonUnderCursor = bButton;
-                return;
+                cursorIsOutOfButton = false;
             }
             else{
                 bButton.setHoverState(false);
-                currentButtonUnderCursor = null;
             }
         }
+
+        if(cursorIsOutOfButton){
+            currentButtonUnderCursor = null;
+        }
+
     }
 }
