@@ -21,9 +21,6 @@ public class ERPlayer {
     private BossbarGuiFrame hyperloopGui;
     private BossbarGuiFrame kioskGui;
 
-    private boolean isHyperloopGuiOpened;
-    private boolean isKioskGuiOpened;
-
     private Vec2d rot2dVecX;
     private Vec2d rot2dVecY;
 
@@ -51,7 +48,6 @@ public class ERPlayer {
         kioskGui = new KioskGui(this);
         hyperloopGui = new HyperLoopGui(this);
 
-        isHyperloopGuiOpened = false;
     }
 
     //getter
@@ -65,14 +61,6 @@ public class ERPlayer {
 
     public BossbarGuiFrame getKioskGui(){
         return kioskGui;
-    }
-
-    public boolean isHyperloopGuiOpened(){
-        return isHyperloopGuiOpened;
-    }
-
-    public boolean isKioskGuiOpened() {
-        return isKioskGuiOpened;
     }
 
     public UpgradeGuiController getUpgradeGuiController(){
@@ -122,27 +110,28 @@ public class ERPlayer {
 
     //controller
     public void openHyperloopGui(){
-        isHyperloopGuiOpened = true;
         currentOpened = hyperloopGui;
         hyperloopGui.open();
     }
 
     public void closeHyperloopGui(){
-        isHyperloopGuiOpened = false;
         currentOpened = null;
         hyperloopGui.close();
     }
 
     public void openKioskGui(){
-        isKioskGuiOpened = true;
         currentOpened = kioskGui;
         kioskGui.open();
     }
 
     public void closeKioskGui(){
-        isKioskGuiOpened = false;
         currentOpened = null;
         kioskGui.close();
+    }
+
+    public void closeCurrentOpenedGui(){
+        currentOpened.close();
+        currentOpened = null;
     }
 
     public void sendMessage(String str) {

@@ -9,6 +9,7 @@ import org.EternalReturn.Util.inventoryUtil.InventoryModifier;
 import org.EternalReturn.Util.itemUtill.Enchanter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.EnchantingTable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -323,6 +324,8 @@ public class UpgradeGuiController implements GuiController {
                 playerEquipment.setArmorContents(armorContent);
                 gui.setContents(guiContent);
 
+                player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 1.0f);
+
                 closeGui();
             }
         }
@@ -331,6 +334,7 @@ public class UpgradeGuiController implements GuiController {
         }
 
     }
+
 
     private boolean isSword(ItemStack item){
 
@@ -344,6 +348,5 @@ public class UpgradeGuiController implements GuiController {
                 || type.equals(Material.NETHERITE_SWORD);
 
     }
-
 
 }

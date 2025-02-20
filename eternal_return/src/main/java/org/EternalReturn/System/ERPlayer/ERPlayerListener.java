@@ -1,13 +1,16 @@
 package org.EternalReturn.System.ERPlayer;
 
+import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
+import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -18,7 +21,7 @@ public class ERPlayerListener implements Listener {
     private SystemManager systemManager;
     private HashMap<Player,ERPlayer> playerHashMap;
 
-    public ERPlayerListener(SystemManager manager){
+    public ERPlayerListener(SystemManager manager) {
         this.systemManager = manager;
         this.playerHashMap = systemManager.getErPlayerHashMap();
     }

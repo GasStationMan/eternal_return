@@ -84,6 +84,10 @@ public class BossbarGuiFrame {
         return currentButtonUnderCursor;
     }
 
+    public boolean isOpen(){
+        return isOpen;
+    }
+
     //setter
     public void generate(){
         repaint();
@@ -102,7 +106,7 @@ public class BossbarGuiFrame {
      * BossbarGui객체가 가지고 있는 bComponent 리스트를 kyori component리스트로 바꾸어 <br>
      * 다시 보스바의 이름 버퍼로 표시하는 함수
      * */
-    private void repaint(){
+    protected void repaint(){
         int length = bComponents.size();
 
         //널체크 + 비우기
