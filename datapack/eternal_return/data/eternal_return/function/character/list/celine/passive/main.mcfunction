@@ -42,3 +42,4 @@ function eternal_return:character/list/celine/passive/skill
 
 ## 무기 증정
 # /give @p iron_sword[custom_data={tags:"weapon"},food={nutrition:0,saturation:0,can_always_eat:true},consumable={consume_seconds:1000000}] 1
+

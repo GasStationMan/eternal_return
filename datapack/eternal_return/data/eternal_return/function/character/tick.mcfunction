@@ -20,6 +20,8 @@
             execute if entity @s[tag=leon] at @s run function eternal_return:character/list/leon/active/main
             execute if entity @s[tag=leon] at @s run function eternal_return:character/list/leon/passive/main
         # 제니
+            execute if entity @s[tag=jenny] at @s run function eternal_return:character/list/jenny/active/main
+            execute if entity @s[tag=jenny] at @s run function eternal_return:character/list/jenny/passive/main
         # 카티야
         # 레니
             execute if entity @s[tag=leni,tag=Qskill,tag=!active_cool] run title @s actionbar "뿅!"
@@ -49,6 +51,7 @@
         # 셀린
             execute if entity @s[tag=celine] at @s run function eternal_return:character/list/celine/passive/main
             execute if entity @s[tag=celine] at @s run function eternal_return:character/list/celine/active/main
+            execute unless entity @s[tag=celine] run tag @s remove celine_t1
         # 쇼우
         # 마커스
             execute if entity @s[tag=markus,scores={active_level=1..}] at @s run function eternal_return:character/list/markus/active/main
