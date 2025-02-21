@@ -1,0 +1,47 @@
+{
+	"model": {
+	  "type": "minecraft:select",
+	  "property": "minecraft:custom_model_data",
+	  "fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/flow_banner_pattern"
+	  },
+	  "cases": [
+		{"when": "food","model": {"type": "minecraft:range_dispatch","property": "minecraft:custom_model_data",
+		"entries": [
+		  {"threshold": 0,"model": {"type": "minecraft:model","model": "item/food/bread"}},
+		  {"threshold": 1,"model": {"type": "minecraft:model","model": "item/food/cod"}},
+		  {"threshold": 2,"model": {"type": "minecraft:model","model": "item/food/salmon"}},
+		  {"threshold": 3,"model": {"type": "minecraft:model","model": "item/food/salmon_steak"}},
+		  {"threshold": 4,"model": {"type": "minecraft:model","model": "item/food/fish_cutlet"}},
+		  {"threshold": 5,"model": {"type": "minecraft:model","model": "item/food/french_fries"}},
+		  {"threshold": 6,"model": {"type": "minecraft:model","model": "item/food/meat"}},
+		  {"threshold": 7,"model": {"type": "minecraft:model","model": "item/food/mint_choco_ice_cream"}},
+		  {"threshold": 8,"model": {"type": "minecraft:model","model": "item/food/tandoori_chicken"}},
+		  {"threshold": 9,"model": {"type": "minecraft:model","model": "item/food/potato"}},
+		  {"threshold": 10,"model": {"type": "minecraft:model","model": "item/food/yellow_sweet_potato"}},
+		  {"threshold": 11,"model": {"type": "minecraft:model","model": "item/food/sweet_potato"}},
+		  {"threshold": 12,"model": {"type": "minecraft:model","model": "item/food/hamberger"}},
+		  {"threshold": 13,"model": {"type": "minecraft:model","model": "item/food/sizzling_steak"}},
+		  {"threshold": 14,"model": {"type": "minecraft:model","model": "item/food/fish_and_chips"}},
+		  {"threshold": 15,"model": {"type": "minecraft:model","model": "item/food/pizza"}},
+		  {"threshold": 16,"model": {"type": "minecraft:model","model": "item/food/hawaiian_pizza"}}
+	  		]}},
+		{"when": "epic","model": {"type": "minecraft:range_dispatch","property": "minecraft:custom_model_data",
+			  "entries": [
+				{"threshold": 0,"model": {"type": "minecraft:model","model": "item/epic/blood_sample"}},
+				{"threshold": 1,"model": {"type": "minecraft:model","model": "item/epic/force_core"}},
+				{"threshold": 2,"model": {"type": "minecraft:model","model": "item/epic/meteorite"}},
+				{"threshold": 3,"model": {"type": "minecraft:model","model": "item/epic/mithril"}},
+				{"threshold": 4,"model": {"type": "minecraft:model","model": "item/epic/tree_of_life"}}
+			]}},
+		{"when": "mythic","model": {"type": "minecraft:range_dispatch","property": "minecraft:custom_model_data",
+			  "entries": [
+				{"threshold": 0,"model": {"type": "minecraft:model","model": "item/combat_epinephrine"}},
+				{"threshold": 1,"model": {"type": "minecraft:model","model": "item/holy_water"}},
+				{"threshold": 2,"model": {"type": "minecraft:model","model": "item/tear_of_selene"}},
+				{"threshold": 3,"model": {"type": "minecraft:model","model": "item/zen_vitality"}}
+			]}}
+	  ]
+	}
+}
