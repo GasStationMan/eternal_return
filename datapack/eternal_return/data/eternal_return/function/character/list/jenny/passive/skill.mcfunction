@@ -1,23 +1,16 @@
-effect clear @s
-execute if score @s passive_level matches 1 run effect give @s absorption 10 0
-execute if score @s passive_level matches 1 run effect give @s fire_resistance 10 0
-execute if score @s passive_level matches 1 run effect give @s slowness 10 2
+effect clear @s regeneration
+effect clear @s fire_resistance
+effect clear @s absorption
 
-execute if score @s passive_level matches 2 run effect give @s absorption 10 1
-execute if score @s passive_level matches 2 run effect give @s fire_resistance 10 0
-execute if score @s passive_level matches 2 run effect give @s slowness 10 2
+effect give @s fire_resistance 3 0 true
+effect give @s slowness 3 1 true
+effect give @s weakness 3 0 true
 
-execute if score @s passive_level matches 3 run effect give @s absorption 10 2
-execute if score @s passive_level matches 3 run effect give @s fire_resistance 10 0
-execute if score @s passive_level matches 3 run effect give @s slowness 10 2
-
-execute if score @s passive_level matches 4 run effect give @s absorption 10 3
-execute if score @s passive_level matches 4 run effect give @s fire_resistance 10 0
-execute if score @s passive_level matches 4 run effect give @s slowness 10 2
-
-execute if score @s passive_level matches 5 run effect give @s absorption 10 4
-execute if score @s passive_level matches 5 run effect give @s fire_resistance 10 0
-execute if score @s passive_level matches 5 run effect give @s slowness 10 2
+execute if score @s passive_level matches 1 run effect give @s absorption 3 0
+execute if score @s passive_level matches 2 run effect give @s absorption 3 1
+execute if score @s passive_level matches 3 run effect give @s absorption 3 2
+execute if score @s passive_level matches 4 run effect give @s absorption 3 3
+execute if score @s passive_level matches 5 run effect give @s absorption 3 4
 
 scoreboard players reset @s jenny_passive_skill
 
