@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.text.Component;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class BossbarGuiFrame {
     private ERPlayer erPlayer;
     private BComponent cursor;
     private boolean isOpen;
+    private String name;
 
     private BButton currentButtonUnderCursor;
 
@@ -53,7 +55,7 @@ public class BossbarGuiFrame {
         currentButtonUnderCursor = null;
     }
 
-    public BossbarGuiFrame(ERPlayer erPlayer){
+    public BossbarGuiFrame(ERPlayer erPlayer, @NotNull String name){
         this.player = erPlayer.getPlayer();
         this.erPlayer = erPlayer;
         this.isOpen = false;
@@ -62,6 +64,7 @@ public class BossbarGuiFrame {
         this.bButtons = new ArrayList<>(16);
         this.audience = PluginInstance.adventure().player(player);
         this.currentButtonUnderCursor = null;
+        this.name = name;
     }
 
     //getter
@@ -90,9 +93,9 @@ public class BossbarGuiFrame {
 
     //setter
     public void generate(){
-        repaint();
-        Component buffer = Component.text("").children(components);
+        Component buffer = Component.text("");
         this.bufferShower = BossBar.bossBar(buffer,0, BossBar.Color.BLUE, BossBar.Overlay.PROGRESS);
+        repaint();
     }
 
     public void add(BComponent bComponent){
@@ -119,7 +122,7 @@ public class BossbarGuiFrame {
         for(int i = 0 ; i < length ; i ++){
             components.add(bComponents.get(i).getComponent());
         }
-
+        bufferShower.name(Component.text("").children(components));
     }
 
     /**
@@ -139,7 +142,6 @@ public class BossbarGuiFrame {
         if((-350 <= xToModify && xToModify <= 350) && (0 <= yToModify && yToModify <= 400)){
             cursor.setLocation(xToModify,yToModify);
             repaint();
-            bufferShower.name(Component.text("").children(components));
         }
     }
 
@@ -248,5 +250,9 @@ public class BossbarGuiFrame {
             currentButtonUnderCursor = null;
         }
 
+    }
+
+    public String getName() {
+        return name;
     }
 }

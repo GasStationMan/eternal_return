@@ -1,7 +1,8 @@
-package org.EternalReturn.Util.Gui.Inventory;
+package org.EternalReturn.System.ERPlayer.Gui.Inventory;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
+import org.EternalReturn.Util.Gui.Inventory.GuiController;
 import org.EternalReturn.Util.Gui.Inventory.InventoryGui.GuiPos;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

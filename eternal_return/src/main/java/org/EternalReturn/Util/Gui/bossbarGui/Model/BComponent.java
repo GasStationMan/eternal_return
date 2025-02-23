@@ -2,6 +2,7 @@ package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextColor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class BComponent{
     protected Component component;
     protected List<Component> metaData;
     protected BGuiLocation location;
+    protected TextColor color;
 
     public void free(){
         font = null;
@@ -35,6 +37,7 @@ public class BComponent{
         this.text = '\u1000';
         this.font = font;
         this.location = location;
+        this.color = TextColor.color(0xffffff);
 
         List<Component> children = new ArrayList<>(5);
         children.add(Component.translatable("space." + -location.getX()).font(Key.key("default")));
@@ -75,10 +78,23 @@ public class BComponent{
 
         metaData.set(0, Component.translatable("space." + -location.getX()).font(Key.key("default")));
         metaData.set(1, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        metaData.set(2, Component.text((char)mouseY).font(Key.key(font)));
+        metaData.set(2, Component.text((char)mouseY).color(this.color).font(Key.key(font)));
         metaData.set(3, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
         metaData.set(4, Component.translatable("space." + location.getX()).font(Key.key("default")));
         component = Component.text("").children(metaData);
+    }
+
+    protected void updateComponent(TextColor color){
+        int mouseY = text + location.getY();
+        this.color = color;
+
+        metaData.set(0, Component.translatable("space." + -location.getX()).font(Key.key("default")));
+        metaData.set(1, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
+        metaData.set(2, Component.text((char)mouseY).color(color).font(Key.key(font)));
+        metaData.set(3, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
+        metaData.set(4, Component.translatable("space." + location.getX()).font(Key.key("default")));
+        component = Component.text("").children(metaData);
+
     }
 
     protected void updateComponent(String font){
@@ -87,7 +103,7 @@ public class BComponent{
 
         metaData.set(0, Component.translatable("space." + -location.getX()).font(Key.key("default")));
         metaData.set(1, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        metaData.set(2, Component.text((char)mouseY).font(Key.key(font)));
+        metaData.set(2, Component.text((char)mouseY).color(this.color).font(Key.key(font)));
         metaData.set(3, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
         metaData.set(4, Component.translatable("space." + location.getX()).font(Key.key("default")));
         component = Component.text("").children(metaData);

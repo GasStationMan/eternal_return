@@ -2,6 +2,7 @@ package org.EternalReturn.System.UpgradeSystem;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.Inventory.GuiController;
 import org.EternalReturn.Util.Gui.Inventory.InventoryGui.GuiPos;
 import org.EternalReturn.Util.Gui.Inventory.InventoryGui.InventoryGui;
@@ -10,7 +11,6 @@ import org.EternalReturn.Util.itemUtill.Enchanter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.block.EnchantingTable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.EntityEquipment;
@@ -18,6 +18,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 
 public class UpgradeGuiController implements GuiController {
@@ -27,12 +30,14 @@ public class UpgradeGuiController implements GuiController {
     private BukkitScheduler scheduler;
     private Plugin pluginInstance;
     private boolean isOpen;
+    private Enchanter enchanter;
 
     public UpgradeGuiController(InventoryGui gui){
         upgradeGui = gui;
         erPlayer = upgradeGui.getERPlayer();
         scheduler = Bukkit.getScheduler();
         pluginInstance = PluginInstance.getServerInstance();
+        enchanter = SystemManager.getEnchanter();
     }
 
     public void free(){
@@ -59,6 +64,23 @@ public class UpgradeGuiController implements GuiController {
         Player p = erPlayer.getPlayer();
         p.closeInventory();
     }
+
+    public void closeGui(String str) {
+        whenClose();
+        isOpen = false;
+        Player p = erPlayer.getPlayer();
+        p.closeInventory();
+        p.sendMessage(str);
+    }
+
+    public void closeGui(Runnable playSound) {
+        whenClose();
+        isOpen = false;
+        Player p = erPlayer.getPlayer();
+        p.closeInventory();
+        playSound.run();
+    }
+
 
     @Override
     public void whenOpen(){
@@ -201,140 +223,103 @@ public class UpgradeGuiController implements GuiController {
 
     @Override
     public void doEvent(GuiPos pos, InventoryClickEvent e) {
+        int posIndex = e.getSlot();
+        GuiPos indexPos = GuiPos.getClickedPos(posIndex);
+        Player player = (Player)e.getWhoClicked();
 
-        try{
-            int posIndex = e.getSlot();
-            GuiPos indexPos = GuiPos.getClickedPos(posIndex);
-            Inventory gui = upgradeGui.getGui();
+        Inventory gui = upgradeGui.getGui();
+        Inventory inventory = player.getInventory();
 
-            Player player = (Player)e.getWhoClicked();
+        int column = indexPos.getX();
+        int row = indexPos.getY();
 
-
-            int column = indexPos.getX();
-            int row = indexPos.getY();
-
-            //2번 열 제외하고 전부 클릭 취소 처리
-            if(!(indexPos.onPositon(2,1)
-                    || indexPos.onPositon(2,2)
-                    || indexPos.onPositon(2,3)
-                    || indexPos.onPositon(2,4)
-                    || indexPos.onPositon(6,2)
-                    || indexPos.onPositon(6,3))
-            ){
-                e.setCancelled(true);
-            }
-
-            //*****************갑옷이 널이 될 리는 없다! 널체크 후 Exception 던지는 코드
-            EntityEquipment playerEquipment = null;
-
-            ItemStack[] armorContent = null;
-            if((playerEquipment = player.getEquipment()) == null
-                    || (armorContent = playerEquipment.getArmorContents()) == null){
-                throw new NullPointerException("아머칸 리스트가 null입니다.");
-            }
-
-            int length = armorContent.length;
-            for(int i = 0 ; i < length ; i ++){
-                if(armorContent[i] == null){
-                    throw new NullPointerException("아머칸 리스트에 null이 포함되어있습니다.");
-                }
-            }
-            //****************************************
-
-            if(row == 5 && column == 4){
-                ItemStack[] guiContent = gui.getContents();
-                
-                
-                //투구
-                Enchanter helmetEnchanter = new Enchanter(guiContent[GuiPos.getPos(1, 1)], guiContent[GuiPos.getPos(2, 1)]);
-                if(helmetEnchanter.canEnchant()){
-                    ItemStack helmet = helmetEnchanter.enchant();
-                    guiContent[GuiPos.getPos(1, 1)] = helmet;
-                    guiContent[GuiPos.getPos(2, 1)] = null;
-                    armorContent[3] = helmet;
-                }
-
-                //갑옷
-                Enchanter chestplateEnchanter = new Enchanter(guiContent[GuiPos.getPos(1, 2)], guiContent[GuiPos.getPos(2, 2)]);
-                if(chestplateEnchanter.canEnchant()){
-                    ItemStack chestplate = chestplateEnchanter.enchant();
-                    guiContent[GuiPos.getPos(1, 2)] = chestplate;
-                    guiContent[GuiPos.getPos(2, 2)] = null;
-                    armorContent[2] = chestplate;
-                }
-
-                //레깅스
-                Enchanter leggingsEnchanter = new Enchanter(guiContent[GuiPos.getPos(1, 3)], guiContent[GuiPos.getPos(2, 3)]);
-                if(leggingsEnchanter.canEnchant()){
-                    ItemStack leggings = leggingsEnchanter.enchant();
-                    guiContent[GuiPos.getPos(1, 3)] = leggings;
-                    guiContent[GuiPos.getPos(2, 3)] = null;
-                    armorContent[1] = leggings;
-                }
-                
-                //부츠
-                Enchanter bootsEnchanter = new Enchanter(guiContent[GuiPos.getPos(1, 4)], guiContent[GuiPos.getPos(2, 4)]);
-                if(bootsEnchanter.canEnchant()){
-                    ItemStack boots = bootsEnchanter.enchant();
-                    guiContent[GuiPos.getPos(1, 4)] = boots;
-                    guiContent[GuiPos.getPos(2, 4)] = null;
-                    armorContent[0] = boots;
-                }
-                
-                
-                //검과 활 업그레이드
-                Inventory playerInventory = player.getInventory();
-                ItemStack[] inventoryContent = playerInventory.getContents();
-
-                ItemStack sword = guiContent[GuiPos.getPos(5, 2)];
-                ItemStack bow = guiContent[GuiPos.getPos(5, 3)];
-
-                int swordIndex = 0;
-                int bowIndex = 0;
-                int invlength = inventoryContent.length;
-                for(int i = 0 ; i < invlength ; i ++){
-                    ItemStack currentItem = inventoryContent[i];
-                    if(currentItem != null){
-                        if(currentItem.equals(sword)) {
-                            swordIndex = i;
-                        }
-                        else if(currentItem.equals(bow)) {
-                            bowIndex = i;
-                        }
-                    }
-
-                }
-
-                Enchanter swordEnchanter = new Enchanter(sword, guiContent[GuiPos.getPos(6, 2)]);
-                if(swordEnchanter.canEnchant()){
-                    inventoryContent[swordIndex] = swordEnchanter.enchant();
-                    guiContent[GuiPos.getPos(5, 2)] = sword;
-                    guiContent[GuiPos.getPos(6, 2)] = null;
-                }
-
-                Enchanter bowEnchanter = new Enchanter(bow, guiContent[GuiPos.getPos(6, 3)]);
-                if(swordEnchanter.canEnchant()){
-                    inventoryContent[bowIndex] = bowEnchanter.enchant();
-                    guiContent[GuiPos.getPos(5, 3)] = bow;
-                    guiContent[GuiPos.getPos(6, 3)] = null;
-                }
-
-
-                playerInventory.setContents(inventoryContent);
-                playerEquipment.setArmorContents(armorContent);
-                gui.setContents(guiContent);
-
-                player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 1.0f);
-
-                closeGui();
-            }
+        //상호작용 불가능 칸 제외하고 모두 이벤트 취소
+        if(!(isInteractionSlots(indexPos))){
+            e.setCancelled(true);
         }
-        catch (NullPointerException ex){
-            ex.printStackTrace();
+
+
+        if(row == 5 && column == 4){
+            EntityEquipment equipment = player.getEquipment();
+            if(equipment == null){
+                closeGui("플레이어가 갑옷을 착용하지 않았습니다.");
+                return;
+            }
+
+            ItemStack[] inventoryContent = inventory.getContents();
+            ItemStack[] guiContent = gui.getContents();
+            ItemStack[] armorContent = equipment.getArmorContents(); //[boots, leggings, chest_plate, helmet] 순서
+
+            int[] weaponIndex = getWeaponIndex(
+                    inventoryContent,
+                    guiContent[GuiPos.getPos(5,2)],
+                    guiContent[GuiPos.getPos(5,3)]);
+
+            boolean enchantSuccess = enchant(armorContent, 0, guiContent, GuiPos.getPos(2,4))
+                    | enchant(armorContent, 1, guiContent, GuiPos.getPos(2,3))
+                    | enchant(armorContent, 2, guiContent, GuiPos.getPos(2,2))
+                    | enchant(armorContent, 3, guiContent, GuiPos.getPos(2,1))
+                    | enchant(inventoryContent, weaponIndex[0], guiContent, GuiPos.getPos(6,2))
+                    | enchant(inventoryContent, weaponIndex[1], guiContent, GuiPos.getPos(6,3));
+
+            if(enchantSuccess){
+                inventory.setContents(inventoryContent);
+                gui.setContents(guiContent);
+                player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1.0f, 2.0f);
+            }
+
+            InventoryModifier.clear(inventoryContent);
+            InventoryModifier.clear(guiContent);
+            InventoryModifier.clear(armorContent);
+            closeGui();
         }
 
     }
 
+    /**
+     * content1[content1Slot] 의 아이템을 content2[content2Slot]의 아이템을 이용해 인챈트한다. <br>
+     * 성공 시 content2[content2Slot]의 아이템이 사라지고 content1[content1Slot]의 아이템이 인챈트된다.
+     * */
+    private boolean enchant(ItemStack[] content1, int content1Slot, ItemStack[] content2, int content2Slot){
+        enchanter.setItemNEnchantBook(content1[content1Slot], content2[content2Slot]);
+        content1[content1Slot] = enchanter.enchant();
+        if(enchanter.isSuccessed()){
+            content2[content2Slot] = null;
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isInteractionSlots(GuiPos indexPos){
+        return indexPos.onPositon(2,1)
+                || indexPos.onPositon(2,2)
+                || indexPos.onPositon(2,3)
+                || indexPos.onPositon(2,4)
+                || indexPos.onPositon(6,2)
+                || indexPos.onPositon(6,3);
+    }
+
+    private int[] getWeaponIndex(ItemStack[] inventoryContent, ItemStack sword, ItemStack bow){
+        int swordIndex = 0;
+        int bowIndex = 0;
+        int invlength = inventoryContent.length;
+        for(int i = 0 ; i < invlength ; i ++){
+            ItemStack currentItem = inventoryContent[i];
+            if(currentItem != null){
+                if(currentItem.equals(sword)) {
+                    swordIndex = i;
+                }
+                else if(currentItem.equals(bow)) {
+                    bowIndex = i;
+                }
+            }
+        }
+
+        int[] index = new int[2];
+        index[0] = swordIndex;
+        index[1] = bowIndex;
+        return index;
+    }
 
     private boolean isSword(ItemStack item){
 

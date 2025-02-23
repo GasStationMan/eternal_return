@@ -1,7 +1,10 @@
 package org.EternalReturn.System.ERPlayer;
 
 import com.google.gson.JsonParser;
+import org.EternalReturn.System.AreaSystem.AreaGraph;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.HyperLoopGui;
 import org.EternalReturn.System.SystemManager;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -61,6 +64,24 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             p.sendMessage(tagSet.toString());
             return true;
         }
+
+        else if(args.length == 2 && args[0].equalsIgnoreCase("setyellow")){
+            try{
+                AreaGraph areaGraph = SystemManager.getAreaGraph();
+                areaGraph.setYellowArea(Integer.parseInt(args[1]));
+                HyperLoopGui hyperLoopGui = (HyperLoopGui)erPlayer.getHyperloopGui();
+
+                hyperLoopGui.updateAreaState();
+
+
+            }
+            catch (NumberFormatException e){
+                e.printStackTrace();
+                p.sendMessage("숫자를 기입하십시오.");
+            }
+
+        }
+
         return false;
     }
 }

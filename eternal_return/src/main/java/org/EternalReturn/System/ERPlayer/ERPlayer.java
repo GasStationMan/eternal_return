@@ -1,14 +1,12 @@
 package org.EternalReturn.System.ERPlayer;
 
-import org.EternalReturn.System.ERPlayer.Gui.HyperLoopGui;
-import org.EternalReturn.System.ERPlayer.Gui.KioskGui;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.HyperLoopGui;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.KioskGui;
 import org.EternalReturn.System.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.System.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
 import org.EternalReturn.Util.MathVector.Vec2d;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
 
 public class ERPlayer {
 
@@ -45,8 +43,8 @@ public class ERPlayer {
         upgradeGui = new UpgradeGui(this);
         upgradeGuiController = new UpgradeGuiController(upgradeGui);
 
-        kioskGui = new KioskGui(this);
-        hyperloopGui = new HyperLoopGui(this);
+        kioskGui = new KioskGui(this, "kiosk");
+        hyperloopGui = new HyperLoopGui(this, "hyperloop");
 
     }
 
@@ -114,24 +112,16 @@ public class ERPlayer {
         hyperloopGui.open();
     }
 
-    public void closeHyperloopGui(){
-        currentOpened = null;
-        hyperloopGui.close();
-    }
-
     public void openKioskGui(){
         currentOpened = kioskGui;
         kioskGui.open();
     }
 
-    public void closeKioskGui(){
-        currentOpened = null;
-        kioskGui.close();
-    }
-
-    public void closeCurrentOpenedGui(){
+    public String closeCurrentOpenedGui(){
         currentOpened.close();
+        String guiName = currentOpened.getName();
         currentOpened = null;
+        return guiName;
     }
 
     public void sendMessage(String str) {

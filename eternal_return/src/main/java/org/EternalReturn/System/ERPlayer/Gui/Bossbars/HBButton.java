@@ -1,5 +1,6 @@
-package org.EternalReturn.System.ERPlayer.Gui;
+package org.EternalReturn.System.ERPlayer.Gui.Bossbars;
 
+import net.kyori.adventure.text.format.TextColor;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BGuiLocation;
@@ -8,39 +9,37 @@ import org.EternalReturn.Util.Gui.bossbarGui.Model.BGuiLocation;
  * Hyperloop BButton
  * */
 public class HBButton extends BButton {
+
     private int zoneState;
-
-    private String redZoneDefaultString;
-    private String redZoneHoverString;
-    private String yellowZoneDefaultString;
-    private String yellowZoneHoverString;
-    private String greenZoneDefaultString;
-    private String greenZoneHoverString;
-
 
     public HBButton(int sizeX, int sizeY, BGuiLocation location, String buttonName) {
         super(sizeX, sizeY,
-                "map/hyperloop/default/" + buttonName,
-                "map/hyperloop/hover/" + buttonName, location, buttonName);
+                "map/hyperloop/default/green/" + buttonName,
+                "map/hyperloop/hover/green/" + buttonName, location, buttonName);
 
-        this.greenZoneDefaultString = "map/hyperloop/default/" + buttonName;
-        this.greenZoneHoverString = "map/hyperloop/hover/" + buttonName;
+
         this.zoneState = SystemManager.GREEN_ZONE;
     }
 
+    //getter
+    public int getZoneState(){
+        return zoneState;
+    }
+
+    //setter
     public void setZoneState(int state){
         try{
             int currentState = this.zoneState;
             this.zoneState = state;
 
             if(zoneState == SystemManager.GREEN_ZONE){
-                updateComponent(greenZoneDefaultString);
+                updateComponent(TextColor.color(0xffffff));
             }
             else if(zoneState == SystemManager.YELLOW_ZONE){
-                updateComponent(yellowZoneDefaultString);
+                updateComponent(TextColor.color(0xfffb0d));
             }
             else if(zoneState == SystemManager.RED_ZONE){
-                updateComponent(redZoneDefaultString);
+                updateComponent(TextColor.color(0xff0000));
             }
             else{
                 this.zoneState = currentState;
@@ -51,6 +50,7 @@ public class HBButton extends BButton {
             e.printStackTrace();
         }
     }
+
 
 
 }

@@ -1,13 +1,13 @@
-package org.EternalReturn.System.ERPlayer.Gui;
+package org.EternalReturn.System.ERPlayer.Gui.Bossbars;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
+import org.jetbrains.annotations.NotNull;
 
 public class KioskGui extends BossbarGuiFrame {
-    public KioskGui(ERPlayer p) {
-        super(p);
+    public KioskGui(ERPlayer p, @NotNull String name) {
+        super(p,name);
         //버튼추가
-
 
         BButton meteorite = new BButton(140/2,182/2,
                 "map/kiosk/default/turned_on/meteorite",
@@ -31,13 +31,13 @@ public class KioskGui extends BossbarGuiFrame {
         forceCore.setButtonPolygonAsRect(-4, 35);
 
         BButton tacSkillModule = new BButton(140/2,182/2,
-                "map/kiosk/default/turned_on/tac_skill_module",
-                "map/kiosk/hover/turned_on/tac_skill_module", new BGuiLocation(0,200), "tac_skill_module");
+                "map/kiosk/default/turned_on/random",
+                "map/kiosk/hover/turned_on/random", new BGuiLocation(-90,200), "random");
         tacSkillModule.setButtonPolygonAsRect(-4, 35);
 
         BButton vfBloodSample = new BButton(140/2,182/2,
                 "map/kiosk/default/turned_on/vf_blood_sample",
-                "map/kiosk/hover/turned_on/vf_blood_sample", new BGuiLocation(-90,200), "vf_blood_sample");
+                "map/kiosk/hover/turned_on/vf_blood_sample", new BGuiLocation(0,200), "vf_blood_sample");
         vfBloodSample.setButtonPolygonAsRect(-4, 35);
 
 

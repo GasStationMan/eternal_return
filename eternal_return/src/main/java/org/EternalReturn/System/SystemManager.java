@@ -1,7 +1,9 @@
 package org.EternalReturn.System;
 
+import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import org.EternalReturn.Util.itemUtill.Enchanter;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -11,9 +13,12 @@ import java.util.UUID;
 public class SystemManager {
 
     private static SystemManager instance;
-    private HashMap<Player, ERPlayer> erPlayerHashMap;
-    private HashMap<UUID, Player> uuidPlayerHashMap;
-    private BukkitAudiences bukkitAudiences;
+    private static HashMap<Player, ERPlayer> erPlayerHashMap;
+    private static HashMap<UUID, Player> uuidPlayerHashMap;
+    private static BukkitAudiences bukkitAudiences;
+    private static Enchanter enchanter;
+
+    private static AreaGraph areaGraph;
 
     public static int RED_ZONE = 0;
     public static int YELLOW_ZONE = 1;
@@ -21,37 +26,32 @@ public class SystemManager {
 
     //free (메모리 할당 해제)
     public void free() {
-
         for(ERPlayer erPlayer : erPlayerHashMap.values()){
             erPlayer.free();
         }
-
         erPlayerHashMap.clear();
         uuidPlayerHashMap.clear();
         erPlayerHashMap = null;
         uuidPlayerHashMap = null;
+        enchanter.free();
+        enchanter = null;
+        areaGraph.free();
+        areaGraph = null;
     }
 
     private SystemManager() {
         erPlayerHashMap = new HashMap<>();
         uuidPlayerHashMap = new HashMap<>();
+        enchanter = new Enchanter();
+        areaGraph = new AreaGraph(20);
     }
     
 
-    /**
-     * Getters
-     * */
-    //이건 느려 터져서 안 쓸 듯.
-    public ERPlayer getERPlayer(UUID uuid){
-        return erPlayerHashMap.get(uuidPlayerHashMap.get(uuid));
-    }
-
-    //Player 객체를 이용해서 ERPlayer 객체 불러오기
-    public ERPlayer getERPlayer(Player player){
+    //getter
+    public ERPlayer getERPlayer(Player player){ //Player 객체를 이용해서 ERPlayer 객체 불러오기
         return erPlayerHashMap.get(player);
     }
 
-    //싱글톤이라서 이건 필수
     public static SystemManager getInstance() {
         if(instance == null){
             instance = new SystemManager();
@@ -59,18 +59,29 @@ public class SystemManager {
         return instance;
     }
 
+    public static Enchanter getEnchanter(){
+        return enchanter;
+    }
 
-    /**
-     * Setters
-     * */
-    //해시맵에서 플레이어 추가
-    public void addPlayer(Player p){
+    public static HashMap<Player, ERPlayer> getERPlayerHashMap(){
+        return erPlayerHashMap;
+    }
+
+    public static BukkitAudiences getBukkitAudiences(){
+        return bukkitAudiences;
+    }
+
+    public static AreaGraph getAreaGraph(){
+        return areaGraph;
+    }
+
+    //setter
+    public void addPlayer(Player p){//해시맵에서 플레이어 추가
         erPlayerHashMap.putIfAbsent(p,new ERPlayer(p));
         uuidPlayerHashMap.putIfAbsent(p.getUniqueId(),p);
     }
-    
-    //해시맵에서 플레이어 제거
-    public void removePlayer(Player p){
+
+    public void removePlayer(Player p){//해시맵에서 플레이어 제거
         ERPlayer erPlayer = erPlayerHashMap.get(p);
         erPlayer.free();
         erPlayerHashMap.remove(p);

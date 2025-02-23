@@ -58,7 +58,7 @@ public class BButton extends BComponent {
         this.errDistance = errDistance;
     }
 
-
+    //getter
     public List<BDot> getButtonPolygon(){
         return buttonPolygon;
     }
@@ -67,9 +67,12 @@ public class BButton extends BComponent {
         return buttonName;
     }
 
-    public void setButtonPolygon(BDot[] dots){
-        buttonPolygon = new ArrayList<>(List.of(dots));
+    public boolean getHoverState(){
+        return isUnderCursor;
+    }
 
+    //setter
+    private void getMinDotMaxDot(){
         int minX, minY, maxX, maxY;
 
         minX = buttonPolygon.getFirst().x;
@@ -100,10 +103,28 @@ public class BButton extends BComponent {
         this.minY = minY;
         this.maxX = maxX;
         this.maxY = maxY;
+    }
+
+    public BButton setButtonPolygon(BDot[] dots){
+        try{
+            if(dots == null){
+                throw new NullPointerException("버튼 배열이 null입니다.");
+            }
+
+            buttonPolygon = new ArrayList<>(List.of(dots));
+            getMinDotMaxDot();
+            return this;
+
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            return this;
+        }
+
 
     }
 
-    public void setButtonPolygonAsRect(){
+    public BButton setButtonPolygonAsRect(){
+
         buttonPolygon = new ArrayList<>(4);
 
         int posX = location.getX();
@@ -119,9 +140,10 @@ public class BButton extends BComponent {
         this.minY = posY;
         this.maxY = posY + sizeY;
 
+        return this;
     }
 
-    public void setButtonPolygonAsRect(int errDistanceX, int errDistanceY){
+    public BButton setButtonPolygonAsRect(int errDistanceX, int errDistanceY){
         buttonPolygon = new ArrayList<>(4);
 
         int posX = location.getX();
@@ -136,6 +158,17 @@ public class BButton extends BComponent {
         this.maxX = posX + sizeX/2;
         this.minY = posY + errDistanceY;
         this.maxY = posY + sizeY + errDistanceY;
+
+        return this;
+    }
+
+    public void moveButtonPolygon(int dx, int dy){
+        for(BDot dot : buttonPolygon){
+            dot.x = dot.x + dx;
+            dot.y = dot.y + dy;
+        }
+
+        getMinDotMaxDot();
 
     }
 
@@ -152,10 +185,6 @@ public class BButton extends BComponent {
             updateComponent(font);
             isUnderCursor = false;
         }
-    }
-
-    public boolean getHoverState(){
-        return isUnderCursor;
     }
 
     public boolean dotInPoly(BGuiLocation location, int laserLength){
@@ -190,5 +219,6 @@ public class BButton extends BComponent {
         isUnderCursor = (cnt % 2 == 1);
         return isUnderCursor;
     }
+
 
 }
