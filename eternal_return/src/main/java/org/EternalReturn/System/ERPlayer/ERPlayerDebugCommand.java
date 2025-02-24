@@ -82,6 +82,14 @@ public class ERPlayerDebugCommand implements CommandExecutor {
 
         }
 
+        else if(args.length == 4 && args[0].equalsIgnoreCase("vector")){
+            erPlayer.getMotionManager().updatePlayerMotion(
+                    Double.parseDouble(args[1]),
+                    Double.parseDouble(args[2]),
+                    Double.parseDouble(args[3])
+            );
+        }
+
         return false;
     }
 }

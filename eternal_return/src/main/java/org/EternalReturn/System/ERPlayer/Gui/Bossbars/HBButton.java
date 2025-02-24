@@ -14,8 +14,8 @@ public class HBButton extends BButton {
 
     public HBButton(int sizeX, int sizeY, BGuiLocation location, String buttonName) {
         super(sizeX, sizeY,
-                "map/hyperloop/default/green/" + buttonName,
-                "map/hyperloop/hover/green/" + buttonName, location, buttonName);
+                "map/hyperloop/default/" + buttonName,
+                "map/hyperloop/hover/" + buttonName, location, buttonName);
 
 
         this.zoneState = SystemManager.GREEN_ZONE;
@@ -36,10 +36,10 @@ public class HBButton extends BButton {
                 updateComponent(TextColor.color(0xffffff));
             }
             else if(zoneState == SystemManager.YELLOW_ZONE){
-                updateComponent(TextColor.color(0xfffb0d));
+                updateComponent(TextColor.color(0xFFE851));
             }
             else if(zoneState == SystemManager.RED_ZONE){
-                updateComponent(TextColor.color(0xff0000));
+                updateComponent(TextColor.color(0xFF7D66));
             }
             else{
                 this.zoneState = currentState;

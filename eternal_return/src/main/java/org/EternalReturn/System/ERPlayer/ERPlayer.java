@@ -5,8 +5,11 @@ import org.EternalReturn.System.ERPlayer.Gui.Bossbars.KioskGui;
 import org.EternalReturn.System.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.System.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
-import org.EternalReturn.Util.MathVector.Vec2d;
+import org.EternalReturn.Util.Physics.MathVector.Vec2d;
+import org.EternalReturn.Util.Physics.MathVector.Vec3d;
+import org.EternalReturn.Util.Physics.MotionManager;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
 public class ERPlayer {
 
@@ -18,6 +21,8 @@ public class ERPlayer {
     private BossbarGuiFrame currentOpened;
     private BossbarGuiFrame hyperloopGui;
     private BossbarGuiFrame kioskGui;
+
+    private MotionManager motionManager;
 
     private Vec2d rot2dVecX;
     private Vec2d rot2dVecY;
@@ -42,6 +47,8 @@ public class ERPlayer {
 
         upgradeGui = new UpgradeGui(this);
         upgradeGuiController = new UpgradeGuiController(upgradeGui);
+
+        motionManager = new MotionManager(p);
 
         kioskGui = new KioskGui(this, "kiosk");
         hyperloopGui = new HyperLoopGui(this, "hyperloop");
@@ -75,6 +82,10 @@ public class ERPlayer {
 
     public BossbarGuiFrame getCurrentOpened(){
         return currentOpened;
+    }
+
+    public MotionManager getMotionManager(){
+        return motionManager;
     }
 
     //setter

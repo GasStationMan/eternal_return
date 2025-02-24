@@ -2,7 +2,7 @@ package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.MathVector.Vec2d;
+import org.EternalReturn.Util.Physics.MathVector.Vec2d;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 

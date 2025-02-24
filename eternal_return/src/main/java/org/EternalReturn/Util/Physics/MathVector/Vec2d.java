@@ -1,6 +1,6 @@
-package org.EternalReturn.Util.MathVector;
+package org.EternalReturn.Util.Physics.MathVector;
 
-public class Vec2d {
+public class Vec2d{
 
     private double x;
     private double y;

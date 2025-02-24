@@ -14,6 +14,7 @@ public class AreaGraph extends Graph<AreaNode> {
 
     private List<AreaNode> areaNodes;
     private List<AreaNode> greenNodes;
+    private List<AreaNode> yellowNodes;
 
     public void free(){
         areaNodes.clear();
@@ -25,6 +26,7 @@ public class AreaGraph extends Graph<AreaNode> {
 
         areaNodes = new ArrayList<>(20);
         greenNodes = new ArrayList<>(20);
+        yellowNodes = new ArrayList<>(20);
 
         AreaNode alley = new AreaNode("alley");
         AreaNode gas_station = new AreaNode("gas_station");
@@ -205,15 +207,22 @@ public class AreaGraph extends Graph<AreaNode> {
     public void setYellowArea(int numToBeYellow){
 
         int numOfSelectedYellowNode = 0;
-
+        
+        //옐로 존 모두 레드존으로 변경
+        if(!yellowNodes.isEmpty()){
+            for(AreaNode yellowNode : yellowNodes){
+                yellowNode.setZoneState(SystemManager.RED_ZONE);
+            }
+            yellowNodes.clear();
+        }
 
         if(greenNodes.size() <= numToBeYellow){
             for(AreaNode n : greenNodes){
                 n.setZoneState(SystemManager.YELLOW_ZONE);
+                yellowNodes.add(n);
             }
             return;
         }
-
 
         while(numOfSelectedYellowNode < numToBeYellow){
 
@@ -239,6 +248,7 @@ public class AreaGraph extends Graph<AreaNode> {
             if(greenNodes.size() - 1 == numOfNodesWhichCanGet){
                 numOfSelectedYellowNode ++;
                 greenNodes.remove(selectedIndex);
+                yellowNodes.add(yellowArea);
             }
             else{
                 yellowArea.setZoneState(SystemManager.GREEN_ZONE);
