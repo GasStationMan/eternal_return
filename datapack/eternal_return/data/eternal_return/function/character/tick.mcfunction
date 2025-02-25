@@ -41,11 +41,15 @@
         # 이안
         # 버니스
         # 시셀라
+            execute if entity @s[tag=sissela] at @s run function eternal_return:character/list/sissela/active/main
+            execute if entity @s[tag=sissela] at @s run function eternal_return:character/list/sissela/passive/main
         # 루크
         # 재키
         # 바냐
         # 엘레나
         # 나타폰
+            execute if entity @s[tag=nathapon] at @s run function eternal_return:character/list/nathapon/active/main
+            execute if entity @s[tag=nathapon] at @s run function eternal_return:character/list/nathapon/passive/main
         # 하트
         # 알렉스
         # 셀린
@@ -60,7 +64,7 @@
 
 # 쿨타임 대기중입니다 액션바로 추가
 
-function eternal_return:player/rightclick/food_rightclick_cool
+function eternal_return:player/damagegive
 
 ## CC기
 function eternal_return:character/list/stun/main
