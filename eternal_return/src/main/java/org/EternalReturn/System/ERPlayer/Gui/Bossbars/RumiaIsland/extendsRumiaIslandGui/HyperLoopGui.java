@@ -21,8 +21,6 @@ public class HyperLoopGui extends RumiaIslandGui {
         super(p, name);
         names = new HashMap<>(20);
 
-<<<<<<< Updated upstream
-=======
         int dx = 0;
         int dy = 0;
         int nameScale = 5;
@@ -124,7 +122,6 @@ public class HyperLoopGui extends RumiaIslandGui {
         //add(village);
 
 
->>>>>>> Stashed changes
         generate();
     }
 }
