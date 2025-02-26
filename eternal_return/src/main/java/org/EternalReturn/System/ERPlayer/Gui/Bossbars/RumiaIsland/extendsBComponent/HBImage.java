@@ -2,7 +2,7 @@ package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsBCompo
 
 import net.kyori.adventure.text.format.TextColor;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BGuiLocation;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BLocation;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BImage;
 
 public class HBImage extends BImage {
@@ -17,7 +17,7 @@ public class HBImage extends BImage {
 
     private int zoneState;
 
-    public HBImage(int sizeX, int sizeY, BGuiLocation location, String name) {
+    public HBImage(int sizeX, int sizeY, BLocation location, String name) {
         super(sizeX, sizeY, "map/hyperloop/default/" + name, location);
     }
 

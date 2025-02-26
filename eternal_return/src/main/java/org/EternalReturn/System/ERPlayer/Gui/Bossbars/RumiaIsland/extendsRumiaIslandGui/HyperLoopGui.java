@@ -8,9 +8,6 @@ public class HyperLoopGui extends RumiaIslandGui {
     public HyperLoopGui(ERPlayer p, @NotNull String name) {
         super(p, name);
 
-
-
-
         generate();
     }
 }

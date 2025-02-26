@@ -33,7 +33,7 @@ public class BFontComponent extends BComponent{
      * @param font      : 리소스팩의 font의 위치
      * @param location  : BComponent의 위치 정보를 담는 객체
      * */
-    public BFontComponent(int sizeX, int sizeY, String font, BGuiLocation location){
+    public BFontComponent(int sizeX, int sizeY, String font, BLocation location){
         super(location);
         this.sizeX = sizeX;
         this.sizeY = sizeY;

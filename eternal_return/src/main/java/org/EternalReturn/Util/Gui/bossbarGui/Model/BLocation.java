@@ -1,11 +1,11 @@
 package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
-public class BGuiLocation {
+public class BLocation {
 
     private int x;
     private int y;
 
-    public BGuiLocation(int x, int y){
+    public BLocation(int x, int y){
         this.x = x;
         this.y = y;
     }

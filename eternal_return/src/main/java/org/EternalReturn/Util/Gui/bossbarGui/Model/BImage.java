@@ -9,7 +9,7 @@ public class BImage extends BFontComponent {
      * @param font      : 리소스팩의 font의 위치
      * @param location  : BComponent의 위치 정보를 담는 객체
      * */
-    public BImage(int sizeX, int sizeY, String font, BGuiLocation location){
+    public BImage(int sizeX, int sizeY, String font, BLocation location){
         super(sizeX, sizeY, font, location);
     }
 

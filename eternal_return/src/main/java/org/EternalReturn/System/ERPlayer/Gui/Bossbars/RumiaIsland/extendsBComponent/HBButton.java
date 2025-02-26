@@ -3,7 +3,7 @@ package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsBCompo
 import net.kyori.adventure.text.format.TextColor;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BGuiLocation;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BLocation;
 
 /**
  * Hyperloop BButton
@@ -12,7 +12,7 @@ public class HBButton extends BButton {
 
     private int zoneState;
 
-    public HBButton(int sizeX, int sizeY, BGuiLocation location, String buttonName) {
+    public HBButton(int sizeX, int sizeY, BLocation location, String buttonName) {
         super(sizeX, sizeY,
                 "map/hyperloop/default/" + buttonName,
                 "map/hyperloop/hover/" + buttonName, location, buttonName);

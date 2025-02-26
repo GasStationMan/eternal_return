@@ -40,7 +40,7 @@ public class BButton extends BFontComponent {
      * @param fontWhenHovering : 리소스팩의 font의 위치 (커서가 올라갈 때 바뀔 이미지를 지정하는 font의 위치)
      * @param location         : BComponent의 위치 정보를 담는 객체
      * */
-    public BButton(int sizeX, int sizeY, String font, String fontWhenHovering, BGuiLocation location, String buttonName){
+    public BButton(int sizeX, int sizeY, String font, String fontWhenHovering, BLocation location, String buttonName){
         super(sizeX, sizeY, font, location);
         this.buttonPolygon = new ArrayList<>(4);
         this.fontWhenHovering = fontWhenHovering;
@@ -49,7 +49,7 @@ public class BButton extends BFontComponent {
     }
 
     public BButton(int errDistance, int sizeX, int sizeY,
-                   String font, String fontWhenHovering, BGuiLocation location, String buttonName){
+                   String font, String fontWhenHovering, BLocation location, String buttonName){
         super(sizeX, sizeY, font, location);
         this.buttonPolygon = new ArrayList<>(4);
         this.fontWhenHovering = fontWhenHovering;
@@ -187,7 +187,7 @@ public class BButton extends BFontComponent {
         }
     }
 
-    public boolean dotInPoly(BGuiLocation location, int laserLength){
+    public boolean dotInPoly(BLocation location, int laserLength){
 
         int length = buttonPolygon.size();
 

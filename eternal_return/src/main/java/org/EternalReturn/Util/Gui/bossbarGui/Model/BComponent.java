@@ -2,7 +2,7 @@ package org.EternalReturn.Util.Gui.bossbarGui.Model;
 
 public class BComponent{
 
-    protected BGuiLocation location;
+    protected BLocation location;
     protected BComponentManager bComponentManager;
 
     public void free(){
@@ -14,11 +14,11 @@ public class BComponent{
      * BFontComponent의 틀이 되어 기본 메소드들을 제공하는 클래스
      * @param location  : BComponent의 위치 정보를 담는 객체
      * */
-    public BComponent(BGuiLocation location){
+    public BComponent(BLocation location){
         this.location = location;
     }
 
-    public BGuiLocation getLocation(){
+    public BLocation getLocation(){
         return location;
     }
 

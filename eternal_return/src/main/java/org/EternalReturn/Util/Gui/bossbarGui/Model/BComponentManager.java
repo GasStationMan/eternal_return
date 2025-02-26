@@ -8,4 +8,6 @@ public interface BComponentManager {
 
     public void repaint();
 
+    public void add(BComponent bComponent);
+
 }

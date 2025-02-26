@@ -67,7 +67,7 @@ public class BFrame implements BComponentManager{
     }
 
     //getter
-    public BGuiLocation getMousePointerLocation(){
+    public BLocation getMousePointerLocation(){
         if(cursor == null){
             return null;
         }
@@ -150,7 +150,7 @@ public class BFrame implements BComponentManager{
      * @param dy 마우스 y방향 변위
      * */
     public void moveMousePointer(int dx, int dy){
-        BGuiLocation loc = cursor.getLocation();
+        BLocation loc = cursor.getLocation();
         Location pLoc = player.getLocation();
 
         int xToModify;
@@ -246,7 +246,7 @@ public class BFrame implements BComponentManager{
         if(cursor == null){
             return;
         }
-        BGuiLocation mloc = cursor.getLocation();
+        BLocation mloc = cursor.getLocation();
 
         boolean cursorIsOutOfButton = true;
 

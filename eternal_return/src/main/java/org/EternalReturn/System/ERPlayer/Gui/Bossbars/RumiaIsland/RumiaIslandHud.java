@@ -10,11 +10,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class RumiaIslandGui extends BFrame {
+public class RumiaIslandHud extends BFrame {
 
     private AreaGraph areaGraph;
 
-    public RumiaIslandGui(ERPlayer p, @NotNull String name) {
+    public RumiaIslandHud(ERPlayer p, @NotNull String name) {
         super(p, name);
 
         areaGraph = SystemManager.getAreaGraph();

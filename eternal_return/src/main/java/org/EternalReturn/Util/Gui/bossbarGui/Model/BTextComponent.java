@@ -14,7 +14,7 @@ public class BTextComponent extends BComponent{
     protected int sizeY;
     protected Component component;
     protected List<Component> metaData;
-    protected BGuiLocation location;
+    protected BLocation location;
     protected TextColor color;
     protected StringBuilder text;
 
@@ -34,7 +34,7 @@ public class BTextComponent extends BComponent{
      * @param font      : 리소스팩의 font의 위치
      * @param location  : BComponent의 위치 정보를 담는 객체
      * */
-    public BTextComponent(int sizeX, int sizeY, String font, BGuiLocation location){
+    public BTextComponent(int sizeX, int sizeY, String font, BLocation location){
         super(location);
         this.sizeX = sizeX;
         this.sizeY = sizeY;
