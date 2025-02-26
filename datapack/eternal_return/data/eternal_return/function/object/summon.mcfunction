@@ -1,4 +1,7 @@
 ## 맵 구조물 생성
+    
+    # 박스 재소환
+        function eternal_return:object/box/set_box_marker
 
     # 키오스크 재소환
         function eternal_return:object/kiosk/remove

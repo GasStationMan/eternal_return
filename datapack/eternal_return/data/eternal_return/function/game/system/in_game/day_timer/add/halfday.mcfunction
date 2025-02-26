@@ -15,3 +15,8 @@
 
 # 틱 초기화
     scoreboard players set #timer.tick NUM 0
+
+# 마크 시간 변경
+    execute if score #timer.halfday NUM matches 1 run time set noon
+    execute if score #timer.halfday NUM matches 2 run time set midnight
+    execute if score #timer.halfday NUM matches 3 run time set noon

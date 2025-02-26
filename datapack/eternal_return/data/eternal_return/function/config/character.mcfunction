@@ -28,7 +28,7 @@
     [969,968,0,0,0]]
 
 ## 캐릭터 리스트
-    data modify storage config character_list set value [\
+    data modify storage config ite set value [\
         {no:2,name:"adriana"},{no:3,name:"alex"},{no:4,name:"arda"},{no:5,name:"bernice"},{no:6,name:"bianca"},\
         {no:7,name:"celine"},{no:8,name:"chloe"},{no:9,name:"daniel"},{no:10,name:"elena"},{no:11,name:"hart"},\
         {no:12,name:"hyunwoo"},{no:13,name:"isol"},{no:14,name:"jackie"},{no:15,name:"jenny"},{no:16,name:"katja"},\

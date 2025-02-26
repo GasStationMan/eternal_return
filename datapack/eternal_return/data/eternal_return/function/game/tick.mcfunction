@@ -29,6 +29,9 @@
         # 게임 중인 플레이어가 없을 때 게임스코어 제거
         execute unless entity @a[tag=in_game] run scoreboard players reset #game.start NUM
 
+## 타임라인
+    function eternal_return:game/timeline
+
 
 
 ## 게임 종료

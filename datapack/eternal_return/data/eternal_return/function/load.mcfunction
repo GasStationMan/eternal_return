@@ -27,6 +27,12 @@ forceload add -243 485 -243 479
     gamerule playersNetherPortalDefaultDelay 1000000000
 
 
+## 팀 추가
+    team add bush
+    team modify bush nametagVisibility always
+    team modify bush seeFriendlyInvisibles true
+
+
 ## 스코어 보드 추가
     # 로딩바
         scoreboard objectives add ptemp dummy
@@ -54,13 +60,14 @@ forceload add -243 485 -243 479
         scoreboard objectives add level dummy
         scoreboard objectives add skill_point dummy
         scoreboard objectives add skill_exp dummy
+        scoreboard objectives add skill_exp_image dummy
         # 스킬 쿨타임 이미지
             # 패시브
-                scoreboard objectives add active_image dummy
+                scoreboard objectives add active_level dummy
                 scoreboard objectives add active_cool dummy
                 scoreboard objectives add active_tick dummy
             # 액티브
-                scoreboard objectives add passive_image dummy
+                scoreboard objectives add passive_level dummy
                 scoreboard objectives add passive_cool dummy
                 scoreboard objectives add passive_tick dummy
     # 크레딧

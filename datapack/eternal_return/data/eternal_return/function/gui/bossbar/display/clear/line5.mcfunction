@@ -3,4 +3,3 @@
 # 출력 없음
 # 상위 함수 : 없음
 
-$bossbar set line5.$(UUID0) name ""

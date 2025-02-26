@@ -1,20 +1,8 @@
-## 스코어보드 생성
-# 플레이어 아이디
-
-scoreboard objectives add ER.resurrection dummy
-
-scoreboard objectives add ChatClick trigger
-scoreboard objectives add shift minecraft.custom:minecraft.sneak_time
-
-
-
-
-
-# sidebar 로그 스코어 생성
-scoreboard objectives add ER.log dummy
 ## 게임 최초 초기값 설정
 
 
+# 사이드바 init
+    function eternal_return:gui/sidebar/init
 
 
 

@@ -18,8 +18,7 @@
 
 
 # 플레이어 설정
-    # 스탯 초기화
-        scoreboard players set @a[tag=in_game] credit 0
+    #> 스코어보드는 별도의 함수로 동작
     # 아이템 지급
         execute as @a run function eternal_return:game/player/in_game/start_item
     # 게임모드 변경

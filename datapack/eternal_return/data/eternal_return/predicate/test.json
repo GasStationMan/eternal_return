@@ -1,0 +1,12 @@
+{
+  "condition": "minecraft:entity_properties",
+  "entity": "attacking_player",
+  "predicate": {
+    "slots": {
+      "weapon.mainhand": {
+        "items": "minecraft:iron_sword",
+        "count": 1
+      }
+    }
+  }
+}

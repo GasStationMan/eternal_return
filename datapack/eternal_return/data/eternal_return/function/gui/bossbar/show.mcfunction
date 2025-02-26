@@ -7,5 +7,3 @@
     $bossbar set line2.$(UUID0) players @s
     $bossbar set line3.$(UUID0) players @s
     $bossbar set line4.$(UUID0) players @s
-    $bossbar set line5.$(UUID0) players @s
-    $bossbar set line6.$(UUID0) players @s

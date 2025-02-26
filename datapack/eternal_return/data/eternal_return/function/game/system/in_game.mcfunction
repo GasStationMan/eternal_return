@@ -10,12 +10,20 @@
 
 
 ## 게임 시작전 대기 5초
+    # 오브젝트 재소환
+        execute if score #left.time.sec NUM matches 6 if score #left.time.tick NUM matches 1 run function eternal_return:object/summon
     # 타이머 스코어보드 연산
         execute if score #left.time.sec NUM matches -5.. run function eternal_return:game/system/in_game/left_timer
+    # 마크시간 설정
+        execute if score #left.time.sec NUM matches 5 run time set noon
+    # 상자 설치
+        execute if score #left.time.sec NUM matches 5 run function eternal_return:object/chest/set
     # 플레이어 위치 고정
         execute if score #left.time.sec NUM matches 5 run tag @a add freeze
         execute if score #left.time.sec NUM matches 0 run tag @a add unfreeze
-
+    # 모드 변경 알림 제거
+            execute if score #left.time.sec NUM matches 5 run gamerule sendCommandFeedback false
+            execute if score #left.time.sec NUM matches -1 run gamerule sendCommandFeedback true
 
 ## 게임 시작시
     # 메시지 출력
@@ -30,5 +38,5 @@
     # 크래딧 기본 지급
         execute if score #game.start NUM matches 1 run function eternal_return:game/player/in_game/credit
 
-## 타임라인
-    function eternal_return:game/system/timeline
+    # 박힌 화살 제거
+        execute as @e[type=arrow] if data entity @s {inGround:1b} run kill @s

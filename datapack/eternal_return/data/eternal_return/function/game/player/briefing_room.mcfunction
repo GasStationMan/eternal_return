@@ -4,7 +4,7 @@
     function pdb:get_me
     # 인터페이스 표기
         # 핫바 및 k/d 표기
-            execute if entity @s[tag=waiting,tag=!on_camera_overlay] run tag @a add on_camera_overlay
+            #execute if entity @s[tag=waiting,tag=!on_camera_overlay] run tag @a add on_camera_overlay
         # 상단 중앙 UI
             execute if entity @s[tag=waiting] run function eternal_return:gui/bossbar/display/interface
         # 대기 중인 인원 / 남은 시간 UI
@@ -15,8 +15,9 @@
 
     # 게임 필드로 이동
         execute if score #wait.remaining ct1 matches 1 run function eternal_return:game/player/warp
+    # 스코어보드 초기화
+        execute if score #wait.remaining ct1 matches 1 run function eternal_return:game/player/in_game/reset_score
 
     # 포션 효과
         effect clear @s invisibility
-        effect give @s saturation infinite 100 true
         effect give @s resistance infinite 100 true

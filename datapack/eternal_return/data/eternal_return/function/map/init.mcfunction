@@ -45,7 +45,7 @@ function eternal_return:map/set_object
         kill @e[tag=zplace]
         kill @e[tag=standing_point]
 
-    # 브리핑 룸 플레이어별 위치 표시 마커
+    # 브리핑 룸 캐릭터 선택존 플레이어별 위치 표시 마커
         summon interaction -246 63 484 {width:1f,height:2f,Tags:["standing_point","s_id1"]}
         summon interaction -246 63 482 {width:1f,height:2f,Tags:["standing_point","s_id2"]}
         summon interaction -246 63 480 {width:1f,height:2f,Tags:["standing_point","s_id3"]}

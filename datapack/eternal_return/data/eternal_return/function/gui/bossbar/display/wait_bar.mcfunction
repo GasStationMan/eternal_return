@@ -10,7 +10,3 @@
 
 # 보스바에 저장
     function eternal_return:gui/bossbar/display/ui/wait_bar with storage pdb:main args
-
-# free
-data remove storage temp format_num
-data remove storage ui_temp temp

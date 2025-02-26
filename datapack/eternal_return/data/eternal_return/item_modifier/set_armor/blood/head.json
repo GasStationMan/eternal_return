@@ -1,0 +1,13 @@
+[
+  {
+    "function": "minecraft:set_components",
+    "components": {
+      "minecraft:equippable": {
+        "slot": "head",
+        "equip_sound": "minecraft:ui.toast.in",
+        "camera_overlay": "gui/screen_image/hotbar",
+        "asset_id": "blood"
+      }
+    }
+  }
+] 

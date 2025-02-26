@@ -27,3 +27,9 @@
         execute as @e[type=text_display,tag=cool] run function eternal_return:object/cctv/cooltime/tick
 # 점프패드
     execute as @e[type=armor_stand,tag=jumppad] run function eternal_return:object/jumppad/tick
+
+# 소환진
+    # 운석
+        function eternal_return:object/meteor/info/tick
+    # 상자
+        function eternal_return:object/box/tick

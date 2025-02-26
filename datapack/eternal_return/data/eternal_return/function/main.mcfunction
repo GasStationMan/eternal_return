@@ -44,22 +44,28 @@
 ## 플레이어
     # 플레이어 설정
     execute as @a run function eternal_return:player/tick
-    # 로딩바
-    execute as @a if entity @s[tag=player] run function eternal_return:gui/loading/tick
-    # 커스텀 스크린
-    execute as @a if entity @s[tag=player] run function eternal_return:gui/camera_overlay/tick
-    # 커스텀 스크린
-    execute as @a if entity @s[tag=player] run function eternal_return:gui/screen/tick
+        # [debug] 플레이어가 맞은 경우 
+        execute as @a if data entity @s {HurtTime:6s} run function eternal_return:test
+    # GUI
+        # 로딩바
+        execute as @a if entity @s[tag=player] run function eternal_return:gui/loading/tick
+        # 커스텀 스크린
+        execute as @a if entity @s[tag=player] run function eternal_return:gui/camera_overlay/tick
+        # 커스텀 스크린
+        execute as @a if entity @s[tag=player] run function eternal_return:gui/screen/tick
+        # 사이드바
+        execute as @a if entity @s[tag=player] run function eternal_return:gui/sidebar/tick
     
     # 맵 창 / 키오스크 / 부활 선택창
     function eternal_return:object/tick
+
+## 캐릭터
+    execute as @a if entity @s[tag=player] run function eternal_return:character/tick
 
 ## 게임 
     function eternal_return:game/tick
 ## 맵
     execute as @a if entity @s[tag=player] run function eternal_return:map/tick
-
-
 ## 기물
 
 # 부시
@@ -96,19 +102,19 @@ as @e[type= minecraft:arrow] \
 at @s run \
 function eternal_return:entity/arrow_pen/main
 
-execute as @a run function df_lib:hud/show/main {tag: kiosk,\
+#execute as @a run function df_lib:hud/show/main {tag: kiosk,\
     x: 800,\
     y: 250,\
     button_listener_function: "eternal_return:maps/kiosk/button_listener",\
     button_position_function: "eternal_return:maps/kiosk/button_position"}
 
-execute as @a run function df_lib:hud/show/main {tag: hyperloop,\
+#execute as @a run function df_lib:hud/show/main {tag: hyperloop,\
     x: 256,\
     y: 256,\
     button_listener_function: "eternal_return:maps/hyperloop/button_listener",\
     button_position_function: "eternal_return:maps/hyperloop/button_position"}
 
-execute as @a run function df_lib:hud/show/main {tag: resurrection,\
+#execute as @a run function df_lib:hud/show/main {tag: resurrection,\
     x: 256,\
     y: 256,\
     button_listener_function: "eternal_return:maps/resurrection/button_listener",\
@@ -146,5 +152,5 @@ execute as @a run function df_lib:hud/show/main {tag: resurrection,\
 
 
 # 삼지창을 던질때 설정
-execute as @a[tag=tri] if score @s rc matches 0 run attribute @s minecraft:movement_speed base reset
-execute as @a[tag=tri] if score @s rc matches 1.. run scoreboard players set @s rc 0
+#execute as @a[tag=tri] if score @s rc matches 0 run attribute @s minecraft:movement_speed base reset
+#execute as @a[tag=tri] if score @s rc matches 1.. run scoreboard players set @s rc 0

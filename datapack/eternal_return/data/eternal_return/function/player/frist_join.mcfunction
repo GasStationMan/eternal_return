@@ -32,13 +32,15 @@ function pdb:get_me
         # 스킬
             # 스킬 레벨
                 scoreboard players set @s level 20
+                scoreboard players set @s skill_exp 0
+                scoreboard players set @s skill_exp_image 5
             # 패시브
-                scoreboard players set @s active_image 0
+                scoreboard players set @s active_level 0
                 scoreboard players set @s active_cool 0
             # 액티브
-                scoreboard players set @s passive_image 0
+                scoreboard players set @s passive_level 0
                 scoreboard players set @s passive_cool 0
-            
+
         # kill
             scoreboard players set @s kill 0
         # death

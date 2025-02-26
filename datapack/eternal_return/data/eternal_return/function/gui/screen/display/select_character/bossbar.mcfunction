@@ -20,7 +20,7 @@ $bossbar set line4.$(UUID0) name [ \
 {"interpret":true,"nbt":"show_charlist[2][2]","storage":"temp","shadow_color":0,"font":"gui/character/line3"},{"translate":"space.7","font":"minecraft:default"}, \
 {"interpret":true,"nbt":"show_charlist[2][3]","storage":"temp","shadow_color":0,"font":"gui/character/line3"},{"translate":"space.7","font":"minecraft:default"}, \
 {"interpret":true,"nbt":"show_charlist[2][4]","storage":"temp","shadow_color":0,"font":"gui/character/line3"}]
-$bossbar set line5.$(UUID0) name ""
-$bossbar set line6.$(UUID0) name ""
+
+
 
 data remove storage temp show_charlist

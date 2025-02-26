@@ -12,8 +12,6 @@
         $execute if score @s Page.ct matches 20 run bossbar set line2.$(UUID0) name ""
         $execute if score @s Page.ct matches 20 run bossbar set line3.$(UUID0) name ""
         $execute if score @s Page.ct matches 20 run bossbar set line4.$(UUID0) name ""
-        $execute if score @s Page.ct matches 20 run bossbar set line5.$(UUID0) name ""
-        $execute if score @s Page.ct matches 20 run bossbar set line6.$(UUID0) name ""
 
 # 플레이어 스토리지 free
     function pdb:get_me
@@ -38,6 +36,7 @@
         execute if score @s Page.ct matches 1 run function eternal_return:gui/sidebar/new with storage pdb:main args
     # 갑옷 슬롯 제거
         execute if score @s Page.ct matches 20 run clear @s paper
+        #execute if score @s Page.ct matches 20 run item replace entity Money5645 weapon.mainhand with stick[custom_data={tags:"weapon"},custom_name='" "'] 1
     # 게임모드 변경
         execute if score @s Page.ct matches 1 run gamemode adventure @s
     # 화면 종료
