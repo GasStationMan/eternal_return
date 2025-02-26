@@ -4,3 +4,4 @@ tag @s remove aj.animal_bear.animation.move.playing
 tag @s remove aj.animal_bear.animation.attack.playing
 tag @s remove aj.animal_bear.animation.death.playing
 tag @s remove aj.animal_bear.animation.ready.playing
+tag @s remove aj.animal_bear.animation.skill.playing

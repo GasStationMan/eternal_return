@@ -4,4 +4,3 @@ scoreboard objectives add aj.ready.frame dummy
 scoreboard objectives add aj.death.frame dummy
 scoreboard objectives add aj.attack.frame dummy
 scoreboard objectives add aj.skill.frame dummy
-execute as @e[type=item_display,tag=aj.animal_boar.root] unless score @s aj.is_rig_loaded matches 1 at @s run function animated_java:animal_boar/root/on_load

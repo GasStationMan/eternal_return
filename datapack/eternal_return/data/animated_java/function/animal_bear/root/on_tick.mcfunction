@@ -6,6 +6,6 @@ execute if entity @s[tag=aj.animal_bear.animation.move.playing] run function ani
 execute if entity @s[tag=aj.animal_bear.animation.attack.playing] run function animated_java:animal_bear/animations/attack/zzz/on_tick
 execute if entity @s[tag=aj.animal_bear.animation.death.playing] run function animated_java:animal_bear/animations/death/zzz/on_tick
 execute if entity @s[tag=aj.animal_bear.animation.ready.playing] run function animated_java:animal_bear/animations/ready/zzz/on_tick
-execute on passengers if entity @s[tag=aj.animal_bear.data] run function animated_java:animal_bear/root/zzz/1
-execute at @s on passengers run tp @s ~ ~ ~ ~ ~
+execute if entity @s[tag=aj.animal_bear.animation.skill.playing] run function animated_java:animal_bear/animations/skill/zzz/on_tick
+execute at @s on passengers run rotate @s ~ ~
 function #animated_java:animal_bear/as_root/post_tick
