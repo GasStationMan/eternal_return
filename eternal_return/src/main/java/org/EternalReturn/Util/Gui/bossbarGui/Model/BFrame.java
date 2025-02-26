@@ -63,6 +63,10 @@ public class BFrame implements BComponentManager{
         this.audience = PluginInstance.adventure().player(player);
         this.currentButtonUnderCursor = null;
         this.name = name;
+
+        Component buffer = Component.text("");
+        this.bufferShower = BossBar.bossBar(buffer,0, BossBar.Color.BLUE, BossBar.Overlay.PROGRESS);
+
     }
 
     //getter
@@ -96,8 +100,6 @@ public class BFrame implements BComponentManager{
 
     //setter
     protected void generate(){
-        Component buffer = Component.text("");
-        this.bufferShower = BossBar.bossBar(buffer,0, BossBar.Color.BLUE, BossBar.Overlay.PROGRESS);
         repaint();
     }
 

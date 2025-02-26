@@ -49,14 +49,16 @@ public class ERPlayerListener implements Listener {
             if(hbButton.getZoneState() == SystemManager.GREEN_ZONE || hbButton.getZoneState() == SystemManager.YELLOW_ZONE){
                 tags.add("warp");
                 tags.add(selectedButton.getBButton());
-                tags.remove(erPlayer.closeCurrentOpenedGui());
+                tags.remove(SystemManager.USE_HYPERLOOP);
+                erPlayer.closeCurrentOpenedGui();
                 p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1.0F, 1.0F);
             }
         }
 
         else if(bGuiName.equals("kiosk")){
             tags.add(selectedButton.getBButton());
-            tags.remove(erPlayer.closeCurrentOpenedGui());
+            tags.remove(SystemManager.USE_KIOSK);
+            erPlayer.closeCurrentOpenedGui();
             p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1.0F, 1.0F);
         }
 

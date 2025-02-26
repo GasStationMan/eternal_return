@@ -45,6 +45,9 @@ public class SystemManager {
     public static String AREASTRING_storage = "storage";
     public static String AREASTRING_port = "port";
 
+    public static String USE_KIOSK = "use_kiosk";
+    public static String USE_HYPERLOOP = "use_hyperloop";
+
     //free (메모리 할당 해제)
     public void free() {
         for(ERPlayer erPlayer : erPlayerHashMap.values()){

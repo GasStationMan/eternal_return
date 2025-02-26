@@ -66,6 +66,11 @@ public class ERPlayerScript implements Script {
     private void erPlayerScript(ERPlayer erPlayer, Player p){
         Set<String> tags = p.getScoreboardTags();
         BFrame currentBFrame = erPlayer.getCurrentOpened();
+
+        //p.sendMessage("test");
+
+        //pluginInstance.getLogger().info(currentBFrame.toString());
+
         MotionManager motionManager = erPlayer.getMotionManager();
 
         if(erPlayer.getMukboActivatedTime() <= System.currentTimeMillis()){
@@ -74,18 +79,19 @@ public class ERPlayerScript implements Script {
 
         //보스바 gui 띄우기
         if(currentBFrame == null){
-            if(tags.contains("use_hyperloop")){
+            if(tags.contains(SystemManager.USE_HYPERLOOP)){
                 erPlayer.openHyperloopGui();
             }
-            else if(tags.contains("use_kiosk")){
+            else if(tags.contains(SystemManager.USE_KIOSK)){
                 erPlayer.openKioskGui();
             }
         }
         
         //보스바 gui 닫기
         if(currentBFrame != null && currentBFrame.isOpen()){
-            if(p.isSneaking()){
-                tags.remove(erPlayer.closeCurrentOpenedGui());
+            if(p.isSneaking()
+                || !(tags.contains(SystemManager.USE_HYPERLOOP) || (tags.contains(SystemManager.USE_KIOSK)))){
+                tags.remove("use_" + erPlayer.closeCurrentOpenedGui());
             }
             else{
                 currentBFrame.updateMouseCursor(erPlayer);

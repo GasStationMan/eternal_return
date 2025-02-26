@@ -5,10 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad880bbd-0f4a-442f-8f8a-ff7d16fab161" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerScript.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/Gui/Bossbars/RumiaIsland/extendsRumiaIslandHud/RumiaMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/SystemManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/SystemManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Gui/bossbarGui/Model/BFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Gui/bossbarGui/Model/BFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ERPlayerScript.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ERPlayerScript.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/Gui/Bossbars/RumiaIsland/extendsRumiaIslandHud/RumiaMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/SystemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/SystemManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/Model/BFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/Model/BFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
