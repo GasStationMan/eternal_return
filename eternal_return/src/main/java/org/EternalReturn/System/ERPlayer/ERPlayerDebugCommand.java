@@ -1,16 +1,14 @@
 package org.EternalReturn.System.ERPlayer;
 
-import com.google.gson.JsonParser;
 import org.EternalReturn.System.AreaSystem.AreaGraph;
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.HyperLoopGui;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui.HyperLoopGui;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
+import org.EternalReturn.Util.itemUtill.CMDManager;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.EnchantingInventory;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
@@ -64,7 +62,6 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             p.sendMessage(tagSet.toString());
             return true;
         }
-
         else if(args.length == 2 && args[0].equalsIgnoreCase("setyellow")){
             try{
                 AreaGraph areaGraph = SystemManager.getAreaGraph();
@@ -81,7 +78,6 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             }
 
         }
-
         else if(args.length == 4 && args[0].equalsIgnoreCase("vector")){
             erPlayer.getMotionManager().updatePlayerMotion(
                     Double.parseDouble(args[1]),
@@ -89,7 +85,6 @@ public class ERPlayerDebugCommand implements CommandExecutor {
                     Double.parseDouble(args[3])
             );
         }
-
         return false;
     }
 }

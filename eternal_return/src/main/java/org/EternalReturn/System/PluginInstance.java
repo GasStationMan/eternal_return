@@ -76,11 +76,15 @@ public final class PluginInstance extends JavaPlugin{
 
     @Override
     public void onDisable() {
-        SystemManager.getInstance().free();
         if(adventure != null){
             adventure.close();
             adventure = null;
         }
+
+        systemManager.free();
+        systemManager = null;
+
+        serverInstance = null;
     }
 
     public static Plugin getServerInstance(){

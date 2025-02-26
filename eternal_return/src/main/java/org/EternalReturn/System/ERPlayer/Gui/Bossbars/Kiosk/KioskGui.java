@@ -1,10 +1,10 @@
-package org.EternalReturn.System.ERPlayer.Gui.Bossbars;
+package org.EternalReturn.System.ERPlayer.Gui.Bossbars.Kiosk;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
 import org.jetbrains.annotations.NotNull;
 
-public class KioskGui extends BossbarGuiFrame {
+public class KioskGui extends BFrame {
     public KioskGui(ERPlayer p, @NotNull String name) {
         super(p,name);
         //버튼추가

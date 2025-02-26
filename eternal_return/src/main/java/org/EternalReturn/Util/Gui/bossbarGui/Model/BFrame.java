@@ -11,10 +11,9 @@ import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.text.Component;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class BossbarGuiFrame {
+public class BFrame implements BComponentManager{
 
     private BossBar bufferShower;
     private Audience audience;
@@ -55,7 +54,7 @@ public class BossbarGuiFrame {
         currentButtonUnderCursor = null;
     }
 
-    public BossbarGuiFrame(ERPlayer erPlayer, @NotNull String name){
+    public BFrame(ERPlayer erPlayer, @NotNull String name){
         this.player = erPlayer.getPlayer();
         this.erPlayer = erPlayer;
         this.isOpen = false;
@@ -87,18 +86,24 @@ public class BossbarGuiFrame {
         return currentButtonUnderCursor;
     }
 
+    @Override
+    public List<BComponent> getBComponents() {
+        return bComponents;
+    }
+
     public boolean isOpen(){
         return isOpen;
     }
 
     //setter
-    public void generate(){
+    protected void generate(){
         Component buffer = Component.text("");
         this.bufferShower = BossBar.bossBar(buffer,0, BossBar.Color.BLUE, BossBar.Overlay.PROGRESS);
         repaint();
     }
 
     public void add(BComponent bComponent){
+        bComponent.setBComponentManager(this);
         bComponents.add(bComponent);
         if(bComponent instanceof BButton){
             bButtons.add((BButton)bComponent);
@@ -107,20 +112,34 @@ public class BossbarGuiFrame {
 
     /**
      * BossbarGui객체가 가지고 있는 bComponent 리스트를 kyori component리스트로 바꾸어 <br>
-     * 다시 보스바의 이름 버퍼로 표시하는 함수
+     * 다시 보스바의 이름 버퍼로 표시하는 함수<br>
+     * BFS를 베이스로 구현
+     * 
      * */
-    protected void repaint(){
-        int length = bComponents.size();
+    public void repaint(){
 
         //널체크 + 비우기
         if(components != null){
             components.clear();
         }
 
+        Queue<BComponentManager> bCmpStackFrame = new LinkedList<>();
+        bCmpStackFrame.add(this);
+
         components = new ArrayList<>(64);
 
-        for(int i = 0 ; i < length ; i ++){
-            components.add(bComponents.get(i).getComponent());
+        while(!bCmpStackFrame.isEmpty()){
+            BComponentManager curBCmpManager = bCmpStackFrame.remove();
+            List<BComponent> bCmps = curBCmpManager.getBComponents();
+
+            for(BComponent bComponent : bCmps){
+                if(bComponent instanceof BFontComponent){
+                    components.add(((BFontComponent)bComponent).getComponent());
+                }
+                else if(bComponent instanceof BComponentManager){
+                    bCmpStackFrame.add((BComponentManager) bComponent);
+                }
+            }
         }
         bufferShower.name(Component.text("").children(components));
     }

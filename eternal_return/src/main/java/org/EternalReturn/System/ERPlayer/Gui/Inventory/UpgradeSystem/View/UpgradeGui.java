@@ -1,4 +1,4 @@
-package org.EternalReturn.System.UpgradeSystem.View;
+package org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.View;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.Util.Gui.Inventory.InventoryGui.InventoryGui;
 import org.EternalReturn.Util.itemUtill.ItemGenerator;

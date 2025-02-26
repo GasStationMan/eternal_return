@@ -8,7 +8,7 @@ import java.util.List;
  * Made by TDanfung <br>
  * BossbarGui에서 버튼 기능을 하는 객체를 생성함.
  * */
-public class BButton extends BComponent {
+public class BButton extends BFontComponent {
 
 
     private List<BDot> buttonPolygon;
@@ -20,7 +20,6 @@ public class BButton extends BComponent {
 
     private String buttonName;
     private String fontWhenHovering;
-    private int errDistance;
 
     @Override
     public void free(){
@@ -29,10 +28,12 @@ public class BButton extends BComponent {
             buttonPolygon.clear();
         }
         buttonPolygon = null;
+        buttonName = null;
+        fontWhenHovering = null;
     }
 
     /**
-     * BButton을 생성하는 함수 extends BComponent
+     * BButton을 생성하는 함수 extends extendsBComponent
      * @param sizeX            : font가 가리키는 이미지의 공백을 제거한 x픽셀 수
      * @param sizeY            : font가 가리키는 이미지의 y픽셀 수
      * @param font             : 리소스팩의 font의 위치
@@ -55,7 +56,6 @@ public class BButton extends BComponent {
         this.isUnderCursor = false;
         this.buttonName = buttonName;
 
-        this.errDistance = errDistance;
     }
 
     //getter

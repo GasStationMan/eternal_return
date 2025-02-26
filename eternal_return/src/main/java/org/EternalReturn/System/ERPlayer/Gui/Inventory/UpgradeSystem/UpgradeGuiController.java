@@ -1,4 +1,4 @@
-package org.EternalReturn.System.UpgradeSystem;
+package org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.PluginInstance;
@@ -18,9 +18,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 
 public class UpgradeGuiController implements GuiController {
@@ -45,6 +42,7 @@ public class UpgradeGuiController implements GuiController {
         upgradeGui = null;
         scheduler = null;
         pluginInstance = null;
+        enchanter = null;
     }
 
     @Override

@@ -22,8 +22,7 @@ public class GuiListener implements Listener {
         playerHashMap = systemManager.getErPlayerHashMap();
     }
 
-    @EventHandler
-    public void guiCloseEvent(InventoryCloseEvent e){
+    @EventHandler public void guiCloseEvent(InventoryCloseEvent e){
         ERPlayer erPlayer = playerHashMap.get((Player)e.getPlayer());
         if(erPlayer == null){
             return;
@@ -34,8 +33,7 @@ public class GuiListener implements Listener {
         }
     }
 
-    @EventHandler
-    public void guiClickEvent(InventoryClickEvent e){
+    @EventHandler public void guiClickEvent(InventoryClickEvent e){
         Player p = (Player)e.getWhoClicked();
         ERPlayer erPlayer = playerHashMap.get(p);
 

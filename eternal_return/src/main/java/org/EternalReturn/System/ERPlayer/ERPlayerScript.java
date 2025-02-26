@@ -1,19 +1,20 @@
 package org.EternalReturn.System.ERPlayer;
 
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BFrame;
 import org.EternalReturn.Util.Physics.MotionManager;
 import org.EternalReturn.Util.ScriptUtill.Script;
 import org.EternalReturn.System.SystemManager;
-import org.bukkit.Bukkit;
+import org.EternalReturn.Util.itemUtill.CMDManager;
+import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.command.CommandSender;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Marker;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.ScoreboardManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +26,7 @@ public class ERPlayerScript implements Script {
     private List<Marker> markerList;
     private Plugin pluginInstance;
     private World currentWorld;
+    private CMDManager cmdManager;
 
     public void free(){
         erPlayerHashMap = null;
@@ -32,6 +34,7 @@ public class ERPlayerScript implements Script {
         markerList = null;
         pluginInstance = null;
         currentWorld = null;
+        cmdManager = SystemManager.getCmdManager();
     }
 
     public ERPlayerScript(){
@@ -46,12 +49,7 @@ public class ERPlayerScript implements Script {
 
         for(ERPlayer erPlayer : erPlayerHashMap.values()){
             Player p = erPlayer.getPlayer();
-            if(currentWorld == null){
-                getMarkerEntityList(p);
-            }
-            else{
-                erPlayerScript(erPlayer,p);
-            }
+            erPlayerScript(erPlayer,p);
         }
     }
 
@@ -67,8 +65,12 @@ public class ERPlayerScript implements Script {
 
     private void erPlayerScript(ERPlayer erPlayer, Player p){
         Set<String> tags = p.getScoreboardTags();
-        BossbarGuiFrame currentBFrame = erPlayer.getCurrentOpened();
+        BFrame currentBFrame = erPlayer.getCurrentOpened();
         MotionManager motionManager = erPlayer.getMotionManager();
+
+        if(erPlayer.getMukboActivatedTime() <= System.currentTimeMillis()){
+            mukboFunction(erPlayer, p, p.getAttribute(Attribute.MAX_HEALTH).getBaseValue(), p.getHealth());
+        }
 
         //보스바 gui 띄우기
         if(currentBFrame == null){
@@ -97,6 +99,28 @@ public class ERPlayerScript implements Script {
 
         if(!motionManager.getMotionIsDone()){
             motionManager.updateParabolicMotion();
+        }
+    }
+
+    private void mukboFunction(ERPlayer erPlayer, Player p, double playerMaxHealth, double playerCurrentHealth){
+        Inventory inventory = p.getInventory();
+        ItemStack[] inventoryContent = inventory.getContents();
+        if(playerMaxHealth * 0.8 >= playerCurrentHealth){
+            for(ItemStack item : inventoryContent){
+                CMDManager cmdManagerContainsCurrItem = cmdManager.setItem(item);
+                if(item != null
+                        && item.getType() == Material.FLOWER_BANNER_PATTERN
+                        && cmdManagerContainsCurrItem.hasStringCMD("food")
+                ){
+                    if(cmdManagerContainsCurrItem.hasFloatCMD(0.0f)){
+
+                    }
+                    else if(cmdManagerContainsCurrItem.hasFloatCMD(1.0f)){
+
+                    }
+                    erPlayer.setMukboActivatedTime(5000);
+                }
+            }
         }
     }
 

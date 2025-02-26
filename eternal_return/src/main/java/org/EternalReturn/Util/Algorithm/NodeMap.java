@@ -12,7 +12,6 @@ public class NodeMap <T>{
     T[][] state;
 
     public void free() {
-
         xNodes.clear();
         yNodes.clear();
         xNodes = null;

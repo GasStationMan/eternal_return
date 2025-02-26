@@ -3,6 +3,7 @@ package org.EternalReturn.System;
 import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import org.EternalReturn.Util.itemUtill.CMDManager;
 import org.EternalReturn.Util.itemUtill.Enchanter;
 import org.bukkit.entity.Player;
 
@@ -17,12 +18,14 @@ public class SystemManager {
     private static HashMap<UUID, Player> uuidPlayerHashMap;
     private static BukkitAudiences bukkitAudiences;
     private static Enchanter enchanter;
-
     private static AreaGraph areaGraph;
+    private static CMDManager cmdManager;
 
     public static int RED_ZONE = 0;
     public static int YELLOW_ZONE = 1;
     public static int GREEN_ZONE = 2;
+
+
 
     //free (메모리 할당 해제)
     public void free() {
@@ -33,10 +36,13 @@ public class SystemManager {
         uuidPlayerHashMap.clear();
         erPlayerHashMap = null;
         uuidPlayerHashMap = null;
+        bukkitAudiences = null;
         enchanter.free();
         enchanter = null;
         areaGraph.free();
         areaGraph = null;
+        cmdManager.free();
+        cmdManager = null;
     }
 
     private SystemManager() {
@@ -44,6 +50,7 @@ public class SystemManager {
         uuidPlayerHashMap = new HashMap<>();
         enchanter = new Enchanter();
         areaGraph = new AreaGraph(20);
+        cmdManager = new CMDManager();
     }
     
 
@@ -73,6 +80,10 @@ public class SystemManager {
 
     public static AreaGraph getAreaGraph(){
         return areaGraph;
+    }
+
+    public static CMDManager getCmdManager(){
+        return cmdManager;
     }
 
     //setter

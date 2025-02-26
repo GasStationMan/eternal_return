@@ -1,6 +1,5 @@
 package org.EternalReturn.Util.Physics;
 
-import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
@@ -11,6 +10,11 @@ public class MotionManager {
     private int tick;
     private int endTick;
     private Player player;
+
+    public void free(){
+        motion = null;
+        player = null;
+    }
 
     public MotionManager(Player p){
         this.motion = new Vec3d(0,0,0);

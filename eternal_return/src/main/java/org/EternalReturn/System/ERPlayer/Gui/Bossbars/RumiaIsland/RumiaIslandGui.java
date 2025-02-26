@@ -1,19 +1,20 @@
-package org.EternalReturn.System.ERPlayer.Gui.Bossbars;
+package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland;
 
 import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.AreaSystem.AreaNode;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsBComponent.HBButton;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class HyperLoopGui extends BossbarGuiFrame {
+public class RumiaIslandGui extends BFrame {
 
     private AreaGraph areaGraph;
 
-    public HyperLoopGui(ERPlayer p, @NotNull String name) {
+    public RumiaIslandGui(ERPlayer p, @NotNull String name) {
         super(p, name);
 
         areaGraph = SystemManager.getAreaGraph();
@@ -23,9 +24,7 @@ public class HyperLoopGui extends BossbarGuiFrame {
 
         int scaler = 3;
         int dx = -30 + 15;
-
         int buttonDx = 15;
-
         BImage lab = new BImage(128/scaler,128/scaler, "map/hyperloop/background/lab", new BGuiLocation(30 + dx,77));
 
         //버튼추가
@@ -166,17 +165,12 @@ public class HyperLoopGui extends BossbarGuiFrame {
         add(stream);
         add(temple);
         add(village);
-
         add(lab);
 
         //마우스커서 추가
         BComponent cursor = new BImage(14,128,"map/cursor/icon",new BGuiLocation(8,200));
         setMouseCursor(cursor);
         add(cursor);
-
-        generate();
-
-
 
     }
 

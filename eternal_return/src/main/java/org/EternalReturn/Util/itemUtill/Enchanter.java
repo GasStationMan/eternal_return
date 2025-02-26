@@ -13,24 +13,19 @@ import java.util.List;
 class EnchantBlock {
     private Enchantment enchantment;
     private int level;
-
     public void free(){
         enchantment = null;
     }
-
     public EnchantBlock(Enchantment enchantment, int level){
         this.enchantment = enchantment;
         this.level = level;
     }
-
     public Enchantment getEnchantment(){
         return enchantment;
     }
-
     public int getLevel(){
         return level;
     }
-
 }
 
 //인챈트 북 & 인챈트를 가져와 복사하는 클래스
@@ -49,7 +44,7 @@ public class Enchanter extends NodeMap<Boolean> {
     }
 
     public Enchanter(){
-        super(15,7);
+        super(30,7);
         successed = false;
 
         this.addNodeX(Material.IRON_HELMET);
@@ -65,9 +60,19 @@ public class Enchanter extends NodeMap<Boolean> {
         this.addNodeX(Material.DIAMOND_BOOTS);
         this.addNodeX(Material.NETHERITE_BOOTS);
 
+
+        this.addNodeX(Material.STONE_SWORD);
         this.addNodeX(Material.IRON_SWORD);
         this.addNodeX(Material.DIAMOND_SWORD);
         this.addNodeX(Material.NETHERITE_SWORD);
+
+        this.addNodeX(Material.STONE_AXE);
+        this.addNodeX(Material.IRON_AXE);
+        this.addNodeX(Material.DIAMOND_AXE);
+        this.addNodeX(Material.NETHERITE_AXE);
+
+        this.addNodeX(Material.FISHING_ROD);
+        this.addNodeX(Material.MACE);
 
         this.addNodeY(Enchantment.PROTECTION);
         this.addNodeY(Enchantment.PROJECTILE_PROTECTION);
@@ -78,14 +83,14 @@ public class Enchanter extends NodeMap<Boolean> {
         this.addNodeY(Enchantment.SWEEPING_EDGE);
 
         this.setStateTable(new Boolean[][] {
-                //////  IH     DH     NH     IC     DC     NC     IL     DL     NL     IB     DB     NB     IS      DS     NS
-                /*PR*/{true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false},
-                /*PP*/{true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false},
-                /*FP*/{true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false},
-                /*TH*/{true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false},
-                /*SN*/{false, false, false, false, false, false, false, false, false, true,  true,  true,  false, false, false},
-                /*SH*/{false, false, false, false, false, false, false, false, false, false, false, false, true,  true,  true },
-                /*SW*/{false, false, false, false, false, false, false, false, false, false, false, false, true,  true,  true },
+                //////  IH     DH     NH     IC     DC     NC     IL     DL     NL     IB     DB     NB     SS     IS     DS     NS     SA     IA     DA     NA     FR      MC
+                /*PR*/{true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
+                /*PP*/{true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
+                /*FP*/{true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
+                /*TH*/{true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
+                /*SN*/{false, false, false, false, false, false, false, false, false, true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
+                /*SH*/{false, false, false, false, false, false, false, false, false, false, false, false, true,  true,  true,  true , false, true,  true,  true,  true , true },
+                /*SW*/{false, false, false, false, false, false, false, false, false, false, false, false, true,  true,  true,  true , false, true,  true,  true,  true , true },
         });
 
     }

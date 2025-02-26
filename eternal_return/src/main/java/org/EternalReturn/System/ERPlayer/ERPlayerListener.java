@@ -1,8 +1,9 @@
 package org.EternalReturn.System.ERPlayer;
 
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsBComponent.HBButton;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BFrame;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -31,7 +32,7 @@ public class ERPlayerListener implements Listener {
      * */
     private void onPlayerRightClicked(Player p){
         ERPlayer erPlayer = playerHashMap.get(p);
-        BossbarGuiFrame guiFrame = erPlayer.getCurrentOpened();
+        BFrame guiFrame = erPlayer.getCurrentOpened();
 
         //열린 상황이 아니라면 & 마우스 커서 밑에 BButton 객체가 없다면
         BButton selectedButton = null;
@@ -41,15 +42,26 @@ public class ERPlayerListener implements Listener {
 
         String bGuiName = guiFrame.getName();
         Set<String> tags = p.getScoreboardTags();
+
+
         if(bGuiName.equals("hyperloop")){
-            tags.add("warp");
+            HBButton hbButton = (HBButton) selectedButton;
+            if(hbButton.getZoneState() == SystemManager.GREEN_ZONE || hbButton.getZoneState() == SystemManager.YELLOW_ZONE){
+                tags.add("warp");
+                tags.add(selectedButton.getBButton());
+                tags.remove(erPlayer.closeCurrentOpenedGui());
+                p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1.0F, 1.0F);
+            }
         }
 
-        tags.add(selectedButton.getBButton());
-        tags.remove(erPlayer.closeCurrentOpenedGui());
+        else if(bGuiName.equals("kiosk")){
+            tags.add(selectedButton.getBButton());
+            tags.remove(erPlayer.closeCurrentOpenedGui());
+            p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1.0F, 1.0F);
+        }
 
-        p.sendMessage(selectedButton.getBButton());
-        p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1.0F, 1.0F);
+        //debug
+        //p.sendMessage(selectedButton.getBButton());
     }
 
     @EventHandler public void onPlayerInteraction(PlayerInteractEvent e){

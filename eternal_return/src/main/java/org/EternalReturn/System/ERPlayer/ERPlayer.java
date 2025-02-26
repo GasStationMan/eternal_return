@@ -1,15 +1,15 @@
 package org.EternalReturn.System.ERPlayer;
 
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.HyperLoopGui;
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.KioskGui;
-import org.EternalReturn.System.UpgradeSystem.UpgradeGuiController;
-import org.EternalReturn.System.UpgradeSystem.View.UpgradeGui;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BossbarGuiFrame;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui.HyperLoopGui;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.Kiosk.KioskGui;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.Hud.RumiaMap;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui.ResurrectionGui;
+import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiController;
+import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BFrame;
 import org.EternalReturn.Util.Physics.MathVector.Vec2d;
-import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 import org.EternalReturn.Util.Physics.MotionManager;
 import org.bukkit.entity.Player;
-import org.bukkit.util.Vector;
 
 public class ERPlayer {
 
@@ -18,26 +18,37 @@ public class ERPlayer {
     private UpgradeGui upgradeGui;
     private UpgradeGuiController upgradeGuiController;
 
-    private BossbarGuiFrame currentOpened;
-    private BossbarGuiFrame hyperloopGui;
-    private BossbarGuiFrame kioskGui;
+    private BFrame currentOpened;
+    private BFrame hyperloopGui;
+    private BFrame resurrectionGui;
+    private BFrame kioskGui;
+    private BFrame rumiaMapHud;
 
     private MotionManager motionManager;
 
     private Vec2d rot2dVecX;
     private Vec2d rot2dVecY;
 
+    //먹보효과 -> 나중에 가능하면 class로 따로 빼야 함.
+    private long mukboActivatedTime;
+
     public void free(){
         upgradeGuiController.free();
+        resurrectionGui.free();
         hyperloopGui.free();
         kioskGui.free();
+        rumiaMapHud.free();
         upgradeGui.free();
+        motionManager.free();
         
         upgradeGuiController = null;
+        resurrectionGui = null;
         hyperloopGui = null;
         kioskGui = null;
         upgradeGui = null;
         player = null;
+        rumiaMapHud = null;
+        motionManager = null;
     }
 
     public ERPlayer(Player p){
@@ -52,7 +63,10 @@ public class ERPlayer {
 
         kioskGui = new KioskGui(this, "kiosk");
         hyperloopGui = new HyperLoopGui(this, "hyperloop");
+        rumiaMapHud = new RumiaMap(this, "rumiaMap");
+        resurrectionGui = new ResurrectionGui(this, "resurrection");
 
+        mukboActivatedTime = System.currentTimeMillis();
     }
 
     //getter
@@ -60,11 +74,11 @@ public class ERPlayer {
         return player;
     }
 
-    public BossbarGuiFrame getHyperloopGui(){
+    public BFrame getHyperloopGui(){
         return hyperloopGui;
     }
 
-    public BossbarGuiFrame getKioskGui(){
+    public BFrame getKioskGui(){
         return kioskGui;
     }
 
@@ -80,12 +94,16 @@ public class ERPlayer {
         return rot2dVecY;
     }
 
-    public BossbarGuiFrame getCurrentOpened(){
+    public BFrame getCurrentOpened(){
         return currentOpened;
     }
 
     public MotionManager getMotionManager(){
         return motionManager;
+    }
+
+    public long getMukboActivatedTime(){
+        return mukboActivatedTime;
     }
 
     //setter
@@ -109,13 +127,13 @@ public class ERPlayer {
         rot2dVecY = vector;
     }
 
-    public void setCurrentOpened(BossbarGuiFrame currentOpened){
+    public void setCurrentOpened(BFrame currentOpened){
         this.currentOpened = currentOpened;
     }
 
-    /**
-     * true == 양의 방향 (+) , false == 음의 방향 (-)
-     * */
+    public void setMukboActivatedTime(long coolTime){
+        this.mukboActivatedTime = System.currentTimeMillis() + coolTime;
+    }
 
     //controller
     public void openHyperloopGui(){
@@ -126,6 +144,16 @@ public class ERPlayer {
     public void openKioskGui(){
         currentOpened = kioskGui;
         kioskGui.open();
+    }
+
+    public void openRumiaMapHud(){
+        currentOpened = rumiaMapHud;
+        rumiaMapHud.open();
+    }
+
+    public void openResurrectionGui(){
+        currentOpened = resurrectionGui;
+        resurrectionGui.open();
     }
 
     public String closeCurrentOpenedGui(){
