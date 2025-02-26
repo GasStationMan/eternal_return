@@ -74,10 +74,10 @@ public class ERPlayerScript implements Script {
 
         //보스바 gui 띄우기
         if(currentBFrame == null){
-            if(tags.contains("hyperloop")){
+            if(tags.contains("use_hyperloop")){
                 erPlayer.openHyperloopGui();
             }
-            else if(tags.contains("kiosk")){
+            else if(tags.contains("use_kiosk")){
                 erPlayer.openKioskGui();
             }
         }
