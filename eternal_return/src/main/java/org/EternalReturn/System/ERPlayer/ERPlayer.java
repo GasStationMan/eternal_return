@@ -2,7 +2,11 @@ package org.EternalReturn.System.ERPlayer;
 
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui.HyperLoopGui;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.Kiosk.KioskGui;
+<<<<<<< Updated upstream
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandHud.RumiaMap;
+=======
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.RumiaIslandHud;
+>>>>>>> Stashed changes
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui.ResurrectionGui;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
@@ -63,7 +67,7 @@ public class ERPlayer {
 
         kioskGui = new KioskGui(this, "kiosk");
         hyperloopGui = new HyperLoopGui(this, "hyperloop");
-        rumiaMapHud = new RumiaMap(this, "rumiaMap");
+        rumiaMapHud = new RumiaIslandHud(this, "rumiaMap");
         resurrectionGui = new ResurrectionGui(this, "resurrection");
 
         mukboActivatedTime = System.currentTimeMillis();

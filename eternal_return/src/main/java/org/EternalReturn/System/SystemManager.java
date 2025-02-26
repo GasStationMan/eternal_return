@@ -25,7 +25,25 @@ public class SystemManager {
     public static int YELLOW_ZONE = 1;
     public static int GREEN_ZONE = 2;
 
-
+    public static String AREASTRING_alley = "alley";
+    public static String AREASTRING_gas_station = "gas_station";
+    public static String AREASTRING_archery_range = "archery_range";
+    public static String AREASTRING_temple = "temple";
+    public static String AREASTRING_hotel = "hotel";
+    public static String AREASTRING_school = "school";
+    public static String AREASTRING_fire = "fire";
+    public static String AREASTRING_police = "police";
+    public static String AREASTRING_stream = "stream";
+    public static String AREASTRING_pond = "pond";
+    public static String AREASTRING_forest = "forest";
+    public static String AREASTRING_cemetery = "cemetery";
+    public static String AREASTRING_beach = "beach";
+    public static String AREASTRING_village = "village";
+    public static String AREASTRING_hospital = "hospital";
+    public static String AREASTRING_chapel = "chapel";
+    public static String AREASTRING_factory = "factory";
+    public static String AREASTRING_storage = "storage";
+    public static String AREASTRING_port = "port";
 
     //free (메모리 할당 해제)
     public void free() {
@@ -43,6 +61,25 @@ public class SystemManager {
         areaGraph = null;
         cmdManager.free();
         cmdManager = null;
+
+        AREASTRING_alley = null;
+        AREASTRING_gas_station = null;
+        AREASTRING_archery_range = null;
+        AREASTRING_temple = null;
+        AREASTRING_hotel = null;
+        AREASTRING_school = null;
+        AREASTRING_fire = null;
+        AREASTRING_police = null;
+        AREASTRING_stream = null;
+        AREASTRING_pond = null;
+        AREASTRING_forest = null;
+        AREASTRING_cemetery = null;
+        AREASTRING_beach = null;
+        AREASTRING_village = null;
+        AREASTRING_hospital = null;
+        AREASTRING_chapel = null;
+        AREASTRING_factory = null;
+        AREASTRING_storage = null;
     }
 
     private SystemManager() {

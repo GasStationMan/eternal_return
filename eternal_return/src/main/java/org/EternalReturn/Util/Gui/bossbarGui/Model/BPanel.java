@@ -30,6 +30,15 @@ public class BPanel extends BComponent implements BComponentManager{
     @Override
     public void add(BComponent bComponent) {
         bComponent.setBComponentManager(this);
+<<<<<<< Updated upstream
+=======
+        BLocation bGuiLocation = bComponent.getLocation();
+        bComponent.setLocation(
+                bGuiLocation.getX() + location.getX(),
+                bGuiLocation.getY() + location.getY()
+        );
+
+>>>>>>> Stashed changes
         bComponents.add(bComponent);
         if(bComponent instanceof BButton){
             bButtons.add((BButton)bComponent);

@@ -8,22 +8,33 @@ import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RumiaIslandGui extends BFrame {
 
     private AreaGraph areaGraph;
+    protected Map<String , BPanel> names;
+
+    public void free(){
+        super.free();
+        areaGraph = null;
+        names.clear();
+        names = null;
+    }
 
     public RumiaIslandGui(ERPlayer p, @NotNull String name) {
         super(p, name);
 
         areaGraph = SystemManager.getAreaGraph();
+        names = new HashMap<>(20);
 
         BImage hyper_loop = new BImage(800,800,"map/hyperloop/background/hyper_loop",new BLocation(0,400));
         add(hyper_loop);
 
         int scaler = 3;
-        int dx = -30 + 15;
+        int dx = -15;
         int buttonDx = 15;
         BImage lab = new BImage(128/scaler,128/scaler, "map/hyperloop/background/lab", new BLocation(30 + dx,77));
 

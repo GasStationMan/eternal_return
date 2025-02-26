@@ -29,7 +29,6 @@ public class BFrame implements BComponentManager{
     private BButton currentButtonUnderCursor;
 
     public void free() {
-
         bufferShower.removeViewer(audience);
 
         if(!components.isEmpty()){
@@ -136,7 +135,10 @@ public class BFrame implements BComponentManager{
                 if(bComponent instanceof BFontComponent){
                     components.add(((BFontComponent)bComponent).getComponent());
                 }
+
+                //BComponentManager라면 스택에 넣는다.
                 else if(bComponent instanceof BComponentManager){
+
                     bCmpStackFrame.add((BComponentManager) bComponent);
                 }
             }
