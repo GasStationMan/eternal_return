@@ -41,6 +41,9 @@
 			"ascent": 10,
 			"height": 13,
 			"chars": ["k"]
-		}
+		},
+		{"type": "bitmap","file": "minecraft:font/character/skill_point.png","ascent": -264, "height": 39,"chars": ["o"]},
+		{"type": "bitmap","file": "minecraft:font/character/skill_point_off.png","ascent": -264, "height": 39,"chars": ["f"]},
+		{"type": "bitmap","file": "minecraft:font/character/skill_point_empty.png","ascent": -264, "height": 39,"chars": ["e"]}
 	]
 }

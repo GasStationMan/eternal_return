@@ -1,0 +1,82 @@
+{
+	"model": {
+	  "type": "minecraft:select",
+	  "property": "minecraft:custom_model_data",
+	  "fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/flower_banner_pattern"
+	  },
+	  "cases": [
+		{
+		  "when": "active","model": {"type": "minecraft:range_dispatch","property": "minecraft:custom_model_data",
+			"entries": [
+			  {"threshold": 2,"model": {"type": "minecraft:model","model": "character/active/adriana"}},
+			  {"threshold": 3,"model": {"type": "minecraft:model","model": "character/active/alex"}},
+			  {"threshold": 4,"model": {"type": "minecraft:model","model": "character/active/arda"}},
+			  {"threshold": 5,"model": {"type": "minecraft:model","model": "character/active/bernice"}},
+			  {"threshold": 6,"model": {"type": "minecraft:model","model": "character/active/bianca"}},
+			  {"threshold": 7,"model": {"type": "minecraft:model","model": "character/active/celine"}},
+			  {"threshold": 8,"model": {"type": "minecraft:model","model": "character/active/chloe"}},
+			  {"threshold": 9,"model": {"type": "minecraft:model","model": "character/active/daniel"}},
+			  {"threshold": 10,"model": {"type": "minecraft:model","model": "character/active/elena"}},
+			  {"threshold": 11,"model": {"type": "minecraft:model","model": "character/active/hart"}},
+			  {"threshold": 12,"model": {"type": "minecraft:model","model": "character/active/hyunwoo"}},
+			  {"threshold": 13,"model": {"type": "minecraft:model","model": "character/active/isol"}},
+			  {"threshold": 14,"model": {"type": "minecraft:model","model": "character/active/jackie"}},
+			  {"threshold": 15,"model": {"type": "minecraft:model","model": "character/active/jenny"}},
+			  {"threshold": 16,"model": {"type": "minecraft:model","model": "character/active/katja"}},
+			  {"threshold": 17,"model": {"type": "minecraft:model","model": "character/active/leni"}},
+			  {"threshold": 18,"model": {"type": "minecraft:model","model": "character/active/lenox"}},
+			  {"threshold": 19,"model": {"type": "minecraft:model","model": "character/active/leon"}},
+			  {"threshold": 20,"model": {"type": "minecraft:model","model": "character/active/luke"}},
+			  {"threshold": 21,"model": {"type": "minecraft:model","model": "character/active/lyanh"}},
+			  {"threshold": 22,"model": {"type": "minecraft:model","model": "character/active/magnus"}},
+			  {"threshold": 23,"model": {"type": "minecraft:model","model": "character/active/markus"}},
+			  {"threshold": 24,"model": {"type": "minecraft:model","model": "character/active/nadine"}},
+			  {"threshold": 25,"model": {"type": "minecraft:model","model": "character/active/nathapon"}},
+			  {"threshold": 26,"model": {"type": "minecraft:model","model": "character/active/piolo"}},
+			  {"threshold": 27,"model": {"type": "minecraft:model","model": "character/active/shou"}},
+			  {"threshold": 28,"model": {"type": "minecraft:model","model": "character/active/silvia"}},
+			  {"threshold": 29,"model": {"type": "minecraft:model","model": "character/active/sissela"}},
+			  {"threshold": 30,"model": {"type": "minecraft:model","model": "character/active/vanya"}},
+			  {"threshold": 31,"model": {"type": "minecraft:model","model": "character/active/yuki"}},
+			  {"threshold": 32,"model": {"type": "minecraft:model","model": "character/active/estelle"}}
+			]}},
+		{
+		  "when": "passive","model": {"type": "minecraft:range_dispatch","property": "minecraft:custom_model_data",
+			"entries": [
+			  {"threshold": 2,"model": {"type": "minecraft:model","model": "character/passive/adriana"}},
+			  {"threshold": 3,"model": {"type": "minecraft:model","model": "character/passive/alex"}},
+			  {"threshold": 4,"model": {"type": "minecraft:model","model": "character/passive/arda"}},
+			  {"threshold": 5,"model": {"type": "minecraft:model","model": "character/passive/bernice"}},
+			  {"threshold": 6,"model": {"type": "minecraft:model","model": "character/passive/bianca"}},
+			  {"threshold": 7,"model": {"type": "minecraft:model","model": "character/passive/celine"}},
+			  {"threshold": 8,"model": {"type": "minecraft:model","model": "character/passive/chloe"}},
+			  {"threshold": 9,"model": {"type": "minecraft:model","model": "character/passive/daniel"}},
+			  {"threshold": 10,"model": {"type": "minecraft:model","model": "character/passive/elena"}},
+			  {"threshold": 11,"model": {"type": "minecraft:model","model": "character/passive/hart"}},
+			  {"threshold": 12,"model": {"type": "minecraft:model","model": "character/passive/hyunwoo"}},
+			  {"threshold": 13,"model": {"type": "minecraft:model","model": "character/passive/isol"}},
+			  {"threshold": 14,"model": {"type": "minecraft:model","model": "character/passive/jackie"}},
+			  {"threshold": 15,"model": {"type": "minecraft:model","model": "character/passive/jenny"}},
+			  {"threshold": 16,"model": {"type": "minecraft:model","model": "character/passive/katja"}},
+			  {"threshold": 17,"model": {"type": "minecraft:model","model": "character/passive/leni"}},
+			  {"threshold": 18,"model": {"type": "minecraft:model","model": "character/passive/lenox"}},
+			  {"threshold": 19,"model": {"type": "minecraft:model","model": "character/passive/leon"}},
+			  {"threshold": 20,"model": {"type": "minecraft:model","model": "character/passive/luke"}},
+			  {"threshold": 21,"model": {"type": "minecraft:model","model": "character/passive/lyanh"}},
+			  {"threshold": 22,"model": {"type": "minecraft:model","model": "character/passive/magnus"}},
+			  {"threshold": 23,"model": {"type": "minecraft:model","model": "character/passive/markus"}},
+			  {"threshold": 24,"model": {"type": "minecraft:model","model": "character/passive/nadine"}},
+			  {"threshold": 25,"model": {"type": "minecraft:model","model": "character/passive/nathapon"}},
+			  {"threshold": 26,"model": {"type": "minecraft:model","model": "character/passive/piolo"}},
+			  {"threshold": 27,"model": {"type": "minecraft:model","model": "character/passive/shou"}},
+			  {"threshold": 28,"model": {"type": "minecraft:model","model": "character/passive/silvia"}},
+			  {"threshold": 29,"model": {"type": "minecraft:model","model": "character/passive/sissela"}},
+			  {"threshold": 30,"model": {"type": "minecraft:model","model": "character/passive/vanya"}},
+			  {"threshold": 31,"model": {"type": "minecraft:model","model": "character/passive/yuki"}},
+			  {"threshold": 32,"model": {"type": "minecraft:model","model": "character/passive/estelle"}}
+			]}}
+	  ]
+	}
+}
