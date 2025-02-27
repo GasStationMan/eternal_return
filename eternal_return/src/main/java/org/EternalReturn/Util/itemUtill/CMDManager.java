@@ -13,14 +13,21 @@ public class CMDManager {
 
     private ItemStack item;
     private CustomModelDataComponent cmdComponent;
+    private List<Float> cmdFloatList;
+    private List<String> cmdStringList;
 
     public void free(){
         item = null;
         cmdComponent = null;
+        cmdStringList.clear();
+        cmdStringList = null;
+        cmdFloatList.clear();
+        cmdFloatList = null;
     }
 
     public CMDManager(){
         this.item = null;
+        this.cmdComponent = null;
     }
 
     public CMDManager setItem(ItemStack item){
@@ -31,6 +38,10 @@ public class CMDManager {
                 throw new NullPointerException("아이템 또는 아이템의 meta가 null입니다.");
             }
             cmdComponent = itemMeta.getCustomModelDataComponent();
+
+            cmdFloatList = cmdComponent.getFloats();
+            cmdStringList = cmdComponent.getStrings();
+
             return this;
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -43,24 +54,16 @@ public class CMDManager {
      * Float 값을 기반으로 찾는 기능
      * */
     public boolean hasFloatCMD(float cmd){
-        try{
-            List<Float> cmdStrings = cmdComponent.getFloats();
-
-            if(cmdStrings == null){
-                throw new NullPointerException("커스텀 모델 데이터의 Float 데이터가 없습니다.");
-            }
-
-            for(Float cmdFloat : cmdStrings){
-                if(cmdFloat == cmd){
-                    return true;
-                }
-            }
-            return false;
+        if(cmdFloatList == null){
+            throw new NullPointerException("커스텀 모델 데이터에 float 데이터가 없습니다.");
         }
-        catch (NullPointerException e){
-            e.printStackTrace();
-            return false;
+
+        for(Float cmdFloat : cmdFloatList){
+            if(cmdFloat == cmd){
+                return true;
+            }
         }
+        return false;
     }
 
     /**
@@ -68,13 +71,11 @@ public class CMDManager {
      * */
     public boolean hasStringCMD(String cmd){
         try{
-            List<String> cmdStrings = cmdComponent.getStrings();
-
-            if(cmdStrings == null){
+            if(cmdStringList == null){
                 throw new NullPointerException("커스텀 모델 데이터의 문자열 데이터가 없습니다.");
             }
 
-            for(String cmdString : cmdStrings){
+            for(String cmdString : cmdStringList){
                 if(cmdString.equals(cmd)){
                     return true;
                 }
@@ -87,6 +88,25 @@ public class CMDManager {
         }
     }
 
+    public boolean hasCMDBlock(CMDBlock cmdBlock){
+        return hasStringCMD(cmdBlock.getCmdString()) && hasFloatCMD(cmdBlock.getCmdFloat());
+    }
+
+    /**
+     * 해당 CMDManager가 관리하는 CMD데이터 중 일치하는 데이터가 CMDBlock에 있으면 그대로 반환. </br>
+     * 없다면 null반환
+     * */
+    public CMDBlock getCMDBlock(){
+
+        if(cmdFloatList == null
+                || cmdStringList == null
+                || cmdStringList.isEmpty()
+                || cmdFloatList.isEmpty()){
+            return null;
+        }
+
+        return new CMDBlock(cmdStringList.getFirst(), cmdFloatList.getFirst());
+    }
 
 
 

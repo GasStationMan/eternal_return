@@ -3,8 +3,11 @@ package org.EternalReturn.System;
 import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.UpgradeBlock;
+import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
+import org.EternalReturn.Util.itemUtill.CMDBlock;
 import org.EternalReturn.Util.itemUtill.CMDManager;
-import org.EternalReturn.Util.itemUtill.Enchanter;
+import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -48,6 +51,14 @@ public class SystemManager {
     public static String USE_KIOSK = "use_kiosk";
     public static String USE_HYPERLOOP = "use_hyperloop";
 
+    public static CMDBlock EPIC_BLOOD_SAMPLE = new CMDBlock("epic",0.0f);
+    public static CMDBlock EPIC_FORCE_CORE   = new CMDBlock("epic",1.0f);
+    public static CMDBlock EPIC_METEORITE    = new CMDBlock("epic",2.0f);
+    public static CMDBlock EPIC_MITHRIL      = new CMDBlock("epic",3.0f);
+    public static CMDBlock EPIC_TREE_OF_LIFE = new CMDBlock("epic",4.0f);
+
+
+
     //free (메모리 할당 해제)
     public void free() {
         for(ERPlayer erPlayer : erPlayerHashMap.values()){
@@ -83,12 +94,22 @@ public class SystemManager {
         AREASTRING_chapel = null;
         AREASTRING_factory = null;
         AREASTRING_storage = null;
+
+        EPIC_BLOOD_SAMPLE = null;
+        EPIC_FORCE_CORE = null;
+        EPIC_METEORITE = null;
+        EPIC_MITHRIL = null;
+        EPIC_TREE_OF_LIFE = null;
+
+        USE_HYPERLOOP = null;
+        USE_KIOSK = null;
+
     }
 
     private SystemManager() {
         erPlayerHashMap = new HashMap<>();
         uuidPlayerHashMap = new HashMap<>();
-        enchanter = new Enchanter();
+        enchanter = new Upgrader();
         areaGraph = new AreaGraph(20);
         cmdManager = new CMDManager();
     }

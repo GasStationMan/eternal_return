@@ -1,0 +1,88 @@
+package org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model;
+
+import org.EternalReturn.Util.itemUtill.CMDBlock;
+import org.bukkit.NamespacedKey;
+import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.EquipmentSlotGroup;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class UpgradeBlock{
+
+    private CMDBlock cmdBlock;
+    private Map<Attribute,AttributeModifier> attributeModifierMap;
+    private List<Attribute> attributes;
+    private EnchantBlock enchantBlock;
+
+    public UpgradeBlock(){
+        enchantBlock = new EnchantBlock();
+        attributeModifierMap = new HashMap<>(5);
+        attributes = new ArrayList<>(5);
+        cmdBlock = new CMDBlock();
+    }
+
+    //getter
+    public CMDBlock getCmdBlock(){
+        return cmdBlock;
+    }
+
+    public List<Attribute> getAttributes(){
+        return attributes;
+    }
+
+    public EnchantBlock getEnchantBlock(){
+        return enchantBlock;
+    }
+
+    public AttributeModifier getAttributeModifier(Attribute attribute){
+        try{
+            if(!hasAttribute(attribute)){
+                throw new IllegalArgumentException("이 UpgradeBlock엔 매개변수의 Attribute에 대응하는 AttributeModifier 정보가 없습니다." +
+                "매개변수 Attribute 정보 : " + attribute.getTranslationKey());
+            }
+            return attributeModifierMap.get(attribute);
+        }
+        catch (IllegalStateException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    //setter
+    public UpgradeBlock addEnchantment(Enchantment enchantment, int level){
+        enchantBlock.setEnchantment(enchantment);
+        enchantBlock.setLevel(level);
+        return this;
+    }
+
+    public UpgradeBlock addAttributes(Attribute attribute, double amount, AttributeModifier.Operation operation, EquipmentSlotGroup equipmentSlotGroup){
+        NamespacedKey namespacedKey = attribute.getKeyOrThrow();
+        attributes.add(attribute);
+        attributeModifierMap.put(
+                attribute,
+                new AttributeModifier(namespacedKey, amount, AttributeModifier.Operation.ADD_NUMBER, equipmentSlotGroup)
+        );
+        return this;
+    }
+
+    public UpgradeBlock setCMDBlock(String string, float fvalue){
+        cmdBlock.setCmdString(string);
+        cmdBlock.setCmdFloat(fvalue);
+        return this;
+    }
+
+    private boolean hasAttribute(Attribute attribute){
+        for(Attribute attributeWhichItHave : attributes){
+            if(attributeWhichItHave == attribute){
+                return true;
+            }
+        }
+        return false;
+    }
+
+}

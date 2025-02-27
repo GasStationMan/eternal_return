@@ -67,15 +67,11 @@ public class ERPlayerScript implements Script {
         Set<String> tags = p.getScoreboardTags();
         BFrame currentBFrame = erPlayer.getCurrentOpened();
 
-        //p.sendMessage("test");
-
-        //pluginInstance.getLogger().info(currentBFrame.toString());
-
         MotionManager motionManager = erPlayer.getMotionManager();
 
-        if(erPlayer.getMukboActivatedTime() <= System.currentTimeMillis()){
-            mukboFunction(erPlayer, p, p.getAttribute(Attribute.MAX_HEALTH).getBaseValue(), p.getHealth());
-        }
+        //if(erPlayer.getMukboActivatedTime() <= System.currentTimeMillis()){
+        //    mukboFunction(erPlayer, p, p.getAttribute(Attribute.MAX_HEALTH).getBaseValue(), p.getHealth());
+        //}
 
         //보스바 gui 띄우기
         if(currentBFrame == null){
@@ -105,6 +101,9 @@ public class ERPlayerScript implements Script {
 
         if(!motionManager.getMotionIsDone()){
             motionManager.updateParabolicMotion();
+        }
+        else{
+            tags.remove("vector");
         }
     }
 

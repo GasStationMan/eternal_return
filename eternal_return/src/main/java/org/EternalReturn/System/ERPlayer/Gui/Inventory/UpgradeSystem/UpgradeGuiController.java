@@ -7,7 +7,7 @@ import org.EternalReturn.Util.Gui.Inventory.GuiController;
 import org.EternalReturn.Util.Gui.Inventory.InventoryGui.GuiPos;
 import org.EternalReturn.Util.Gui.Inventory.InventoryGui.InventoryGui;
 import org.EternalReturn.Util.inventoryUtil.InventoryModifier;
-import org.EternalReturn.Util.itemUtill.Enchanter;
+import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;

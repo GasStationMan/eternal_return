@@ -6,6 +6,7 @@ import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIs
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandHud.RumiaMapHud;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
+import org.EternalReturn.Util.Gui.Inventory.GuiController;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BFrame;
 import org.EternalReturn.Util.Physics.MathVector.Vec2d;
 import org.EternalReturn.Util.Physics.MotionManager;
@@ -16,7 +17,7 @@ public class ERPlayer {
     private Player player;
 
     private UpgradeGui upgradeGui;
-    private UpgradeGuiController upgradeGuiController;
+    private GuiController upgradeGuiController;
 
     private BFrame currentOpened;
     private BFrame hyperloopGui;
@@ -82,7 +83,7 @@ public class ERPlayer {
         return kioskGui;
     }
 
-    public UpgradeGuiController getUpgradeGuiController(){
+    public GuiController getUpgradeGuiController(){
         return upgradeGuiController;
     }
 

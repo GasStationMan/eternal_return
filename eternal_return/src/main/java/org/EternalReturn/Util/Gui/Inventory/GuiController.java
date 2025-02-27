@@ -6,6 +6,8 @@ import org.bukkit.inventory.Inventory;
 
 public interface GuiController {
 
+    public void free();
+
     public void openGui();
     public void closeGui();
     public void whenOpen();
