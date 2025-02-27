@@ -47,6 +47,8 @@
         # 재키
         # 바냐
         # 엘레나
+            execute if entity @s[tag=elena] at @s run function eternal_return:character/list/elena/active/main
+            execute if entity @s[tag=elena] at @s run function eternal_return:character/list/elena/passive/main
         # 나타폰
             execute if entity @s[tag=nathapon] at @s run function eternal_return:character/list/nathapon/active/main
             execute if entity @s[tag=nathapon] at @s run function eternal_return:character/list/nathapon/passive/main

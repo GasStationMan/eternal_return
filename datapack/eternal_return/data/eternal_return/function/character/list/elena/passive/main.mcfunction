@@ -1,0 +1,2 @@
+execute if entity @s[tag=Fskill,tag=!passive_cool,tag=!elena_passive_skill] at @s run function eternal_return:character/list/elena/passive/active
+execute if entity @s[tag=elena_passive_skill] at @s run function eternal_return:character/list/elena/passive/skill
