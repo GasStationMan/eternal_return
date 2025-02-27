@@ -5,7 +5,7 @@
     # 항구
         execute positioned -429 82 354 run function eternal_return:object/jumppad/summon {rotation:90,place:"zharbor"}
     # 고급 주택가
-        execute positioned -386 81 478 run function eternal_return:object/jumppad/summon {rotation:130,place:"zresidential_area"}
+        execute positioned -385.0 81 479.0 run function eternal_return:object/jumppad/summon {rotation:130,place:"zresidential_area"}
     # 연못1
         execute positioned -650 82 475 run function eternal_return:object/jumppad/summon {rotation:60,place:"zpondA_1"}
         execute positioned -660 79 478 run function eternal_return:object/jumppad/summon {rotation:-110,place:"zpondA_2"}

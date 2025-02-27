@@ -18,6 +18,8 @@
         execute if data storage temp input{type:"credit"} run function eternal_return:gui/bossbar/display/format/credit_digit with storage temp
     # 둘째 자릿수를 띄워쓰기로 변경
         execute if data storage temp input{type:"space"} run function eternal_return:gui/bossbar/display/format/space with storage temp
+    # 둘째 자릿수를 띄워쓰기로 변경
+        execute if data storage temp input{type:"space2"} run function eternal_return:gui/bossbar/display/format/space2 with storage temp
     # 레벨
         execute if data storage temp input{type:"level"} run function eternal_return:gui/bossbar/display/format/level with storage temp
     # 공격력
@@ -32,7 +34,6 @@
         execute if data storage temp input{type:"active_cool"} run function eternal_return:gui/bossbar/display/format/active_cool with storage temp
     # 패시브 쿨타임
         execute if data storage temp input{type:"passive_cool"} run function eternal_return:gui/bossbar/display/format/passive_cool with storage temp
-
 # free
 data remove storage temp input
 data remove storage temp input_num

@@ -12,4 +12,5 @@
     # 틱 0으로 초기화
         execute if score @s centerbar.tick matches 20 run scoreboard players set @s centerbar.tick 0
         # UI 끄기
-            execute if score @s centerbar.sec matches 0 run function eternal_return:gui/bossbar/display/clear/line4 with storage pdb:main args
+            execute if score @s centerbar.sec matches 0 run function eternal_return:gui/bossbar/display/clear/line2 with storage pdb:main args
+            execute if score @s centerbar.sec matches 0 run function eternal_return:gui/bossbar/display/clear/line3 with storage pdb:main args

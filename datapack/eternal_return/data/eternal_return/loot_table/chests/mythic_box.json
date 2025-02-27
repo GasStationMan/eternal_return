@@ -6,32 +6,20 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "diamond_helmet",
-          "weight": 1,
+          "name": "minecraft:flow_banner_pattern",
+          "weight": 20,
           "functions": [
             {
               "function": "minecraft:set_components",
               "components": {
-                "minecraft:equippable": {
-                  "slot": "head",
-                  "asset_id": "blood"
-                },
-                "minecraft:attribute_modifiers": [
-                  {
-                    "type": "minecraft:armor",
-                    "id": "minecraft:armor",
-                    "amount": 4,
-                    "operation": "add_value",
-                    "slot": "head"
-                  }
-                ]
+                "minecraft:max_stack_size": 3
               }
             },
             {
               "function": "minecraft:set_lore",
               "lore": [
                 {
-                  "text": "방어구",
+                  "text": "재료",
                   "color": "gray",
                   "italic": false
                 }
@@ -39,147 +27,24 @@
               "mode": "append"
             },
             {
-              "function": "minecraft:set_name",
-              "name": {
-                "text": "혈액팩 묻힌 철 투구",
-                "color": "#be1313",
-                "italic": false
+              "function": "minecraft:set_custom_model_data",
+              "floats": {
+                "values": [
+                  0
+                ],
+                "mode": "append"
               },
-              "conditions": []
-            }
-          ],
-          "conditions": []
-        },
-        {
-          "type": "minecraft:item",
-          "name": "diamond_leggings",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_components",
-              "components": {
-                "minecraft:equippable": {
-                  "slot": "legs",
-                  "asset_id": "blood"
-                },
-                "minecraft:attribute_modifiers": [
-                  {
-                    "type": "minecraft:armor",
-                    "id": "minecraft:armor",
-                    "amount": 4,
-                    "operation": "add_value",
-                    "slot": "head"
-                  }
-                ]
+              "strings": {
+                "values": [
+                  "epic"
+                ],
+                "mode": "append"
               }
-            },
-            {
-              "function": "minecraft:set_lore",
-              "lore": [
-                {
-                  "text": "방어구",
-                  "color": "gray",
-                  "italic": false
-                }
-              ],
-              "mode": "append"
             },
             {
               "function": "minecraft:set_name",
               "name": {
-                "text": "혈액팩 묻힌 철 레깅스",
-                "color": "#be1313",
-                "italic": false
-              },
-              "conditions": []
-            }
-          ],
-          "conditions": []
-        },
-        {
-          "type": "minecraft:item",
-          "name": "diamond_chestplate",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_components",
-              "components": {
-                "minecraft:equippable": {
-                  "slot": "chest",
-                  "asset_id": "blood"
-                },
-                "minecraft:attribute_modifiers": [
-                  {
-                    "type": "minecraft:armor",
-                    "id": "minecraft:armor",
-                    "amount": 4,
-                    "operation": "add_value",
-                    "slot": "head"
-                  }
-                ]
-              }
-            },
-            {
-              "function": "minecraft:set_lore",
-              "lore": [
-                {
-                  "text": "방어구",
-                  "color": "gray",
-                  "italic": false
-                }
-              ],
-              "mode": "append"
-            },
-            {
-              "function": "minecraft:set_name",
-              "name": {
-                "text": "혈액팩 묻힌 철 흉갑",
-                "color": "#be1313",
-                "italic": false
-              },
-              "conditions": []
-            }
-          ],
-          "conditions": []
-        },
-        {
-          "type": "minecraft:item",
-          "name": "diamond_boots",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_components",
-              "components": {
-                "minecraft:equippable": {
-                  "slot": "feet",
-                  "asset_id": "blood"
-                },
-                "minecraft:attribute_modifiers": [
-                  {
-                    "type": "minecraft:armor",
-                    "id": "minecraft:armor",
-                    "amount": 4,
-                    "operation": "add_value",
-                    "slot": "head"
-                  }
-                ]
-              }
-            },
-            {
-              "function": "minecraft:set_lore",
-              "lore": [
-                {
-                  "text": "방어구",
-                  "color": "gray",
-                  "italic": false
-                }
-              ],
-              "mode": "append"
-            },
-            {
-              "function": "minecraft:set_name",
-              "name": {
-                "text": "혈액팩 묻힌 철 부츠",
+                "text": "VF 혈액팩",
                 "color": "#be1313",
                 "italic": false
               },

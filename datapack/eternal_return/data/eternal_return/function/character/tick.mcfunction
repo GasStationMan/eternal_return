@@ -5,6 +5,11 @@
 
 
 ## 스킬
+    # 레벨업
+        # 액티브
+            execute if entity @s[tag=active_level_up] run function eternal_return:character/skill/active_level_up
+        # 패시브
+            execute if entity @s[tag=passive_level_up] run function eternal_return:character/skill/passive_level_up
     # 스킬 쿨타임
         function eternal_return:character/skill_cool
     # Q키 감지

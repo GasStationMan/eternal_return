@@ -40,11 +40,11 @@ function pdb:get_me
             # 액티브
                 scoreboard players set @s passive_level 0
                 scoreboard players set @s passive_cool 0
-
         # kill
             scoreboard players set @s kill 0
         # death
             scoreboard players set @s death 0
+
     # 보스바 생성 및 표기
         function eternal_return:gui/bossbar/new with storage pdb:main args
         function eternal_return:gui/bossbar/show with storage pdb:main args

@@ -28,18 +28,110 @@
     [969,968,0,0,0]]
 
 ## 캐릭터 리스트
-    data modify storage config ite set value [\
-        {no:2,name:"adriana"},{no:3,name:"alex"},{no:4,name:"arda"},{no:5,name:"bernice"},{no:6,name:"bianca"},\
-        {no:7,name:"celine"},{no:8,name:"chloe"},{no:9,name:"daniel"},{no:10,name:"elena"},{no:11,name:"hart"},\
-        {no:12,name:"hyunwoo"},{no:13,name:"isol"},{no:14,name:"jackie"},{no:15,name:"jenny"},{no:16,name:"katja"},\
-        {no:17,name:"leni"},{no:18,name:"lenox"},{no:19,name:"leon"},{no:20,name:"luke"},{no:21,name:"lyanh"},\
-        {no:22,name:"magnus"},{no:23,name:"markus"},{no:24,name:"nadine"},{no:25,name:"nathapon"},{no:26,name:"piolo"},\
-        {no:27,name:"shou"},{no:28,name:"silvia"},{no:29,name:"sissela"},{no:30,name:"vanya"},{no:31,name:"yuki"},\
-        {no:32,name:"estelle"}]
+    data modify storage config character_list set value [\
+        {no:2,name:"adriana",\
+            aname:"a",alore1:"line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"p",plore1:"line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:3,name:"alex",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:4,name:"arda",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:5,name:"bernice",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:6,name:"bianca",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:7,name:"celine",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:8,name:"chloe",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:9,name:"daniel",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:10,name:"elena",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:11,name:"hart",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:12,name:"hyunwoo",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:13,name:"isol",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:14,name:"jackie",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:15,name:"jenny",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:16,name:"katja",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:17,name:"leni",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:18,name:"lenox",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:19,name:"leon",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:20,name:"luke",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:21,name:"lyanh",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:22,name:"magnus",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:23,name:"markus",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:24,name:"nadine",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:25,name:"nathapon",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:26,name:"piolo",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:27,name:"shou",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:28,name:"silvia",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:29,name:"sissela",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:30,name:"vanya",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:31,name:"yuki",\
+            aname:"",alore1:",line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            pname:"",plore1:",line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
+        {no:32,name:"estelle",\
+            active:\
+            {name:"",lore1:"line1",lore2:"line2",lore3:"line3",cool:0},\
+            passive:\
+            {name:"",lore1:"line1",lore2:"line2",lore3:"line3",cool:0}}]
 
 ## 캐릭터 별 스탯
     # 쇼우
-        scoreboard players set #shou.active.cool NUM 10
-        scoreboard players set #shou.active.damage NUM 10
-        scoreboard players set #shou.passive.cool NUM 5
-        scoreboard players set #shou.passive.damage NUM 2
+        scoreboard players set #shou.\
+            active.cool NUM 10
+        scoreboard players set #shou.\
+            active.damage NUM 10
+        scoreboard players set #shou.\
+            passive.cool NUM 5
+        scoreboard players set #shou.\
+            passive.damage NUM 2

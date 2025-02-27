@@ -15,7 +15,7 @@ function eternal_return:object/box/mythic/remove
     summon marker -759 84 605 {Tags:["box_place"]}
 # 주유소
     summon marker -662 82 684 {Tags:["box_place"]}
-    summon marker -710 82 687 {Tags:["box_place"]}
+    summon marker  82 687 {Tags:["box_place"]}
     summon marker -722 82 682 {Tags:["box_place"]}
 # 경찰서
     summon marker -719 82 568 {Tags:["box_place"]}

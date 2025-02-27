@@ -75,6 +75,10 @@
         function eternal_return:gui/bossbar/display/format_number {type:"passive_cool"}
         data modify storage ui_temp temp.passive_cool set from storage temp format_num
 
+
+# 스킬 포인트
+    function eternal_return:gui/bossbar/display/format/skill_point
+
 # 문자열 표기 방식 변경
     # 프로필 사진 변경
         data modify storage temp int set from storage pdb:main in.character.no

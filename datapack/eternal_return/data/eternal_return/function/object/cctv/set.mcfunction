@@ -10,9 +10,9 @@
     # 숲
         execute positioned -536 82 508 run function eternal_return:object/cctv/summon {rotate:-90}
     # 절
-        execute positioned -759 82 514 run function eternal_return:object/cctv/summon {rotate:-90}
+        execute positioned -759.5 82 514 run function eternal_return:object/cctv/summon {rotate:-90}
     # 개울
-        execute positioned -709 82 454 run function eternal_return:object/cctv/summon {rotate:-90}
+        execute positioned -709.5 82 454 run function eternal_return:object/cctv/summon {rotate:-90}
     # 병원
         execute positioned -669 82 395 run function eternal_return:object/cctv/summon {rotate:-90}
     # 공장
@@ -32,7 +32,7 @@
     # 항구
         execute positioned -459 82 381 run function eternal_return:object/cctv/summon {rotate:-90}
     # 주유소
-        execute positioned -707 82 689 run function eternal_return:object/cctv/summon {rotate:180}
+        execute positioned -707 82 690 run function eternal_return:object/cctv/summon {rotate:180}
     # 호텔
         execute positioned -498 82 642 run function eternal_return:object/cctv/summon {rotate:180}
     # 창고

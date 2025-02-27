@@ -20,7 +20,10 @@
             {"text":"s","font":"gui/character/bg"},{"translate":"space.-48","font":"minecraft:default"},\
             {"score":{"name":"@s","objective":"active_level"},"font":"gui/character/active_level"},{"translate":"space.-20","font":"minecraft:default"},{"nbt":"temp.profile","storage":"ui_temp","interpret":true,"font":"gui/character/active"},{"translate":"space.-19","font":"minecraft:default"},{"nbt":"in.character.active_cool_image","storage":"pdb:main","font":"gui/character/active"},{"translate":"space.2","font":"minecraft:default"},\
             {"score":{"name":"@s","objective":"passive_level"},"font":"gui/character/passive_level"},{"translate":"space.-18","font":"minecraft:default"},{"nbt":"temp.profile","storage":"ui_temp","interpret":true,"font":"gui/character/passive"},{"translate":"space.-17","font":"minecraft:default"},{"nbt":"in.character.passive_cool_image","storage":"pdb:main","font":"gui/character/passive"},{"translate":"space.2","font":"minecraft:default"},\
-            {"translate":"space.-43","font":"minecraft:default"},\
+            {"translate":"space.-41","font":"minecraft:default"},\
+            {"nbt":"temp.askill_point","storage":"ui_temp","interpret":true},{"translate":"space.4","font":"minecraft:default"},\
+            {"nbt":"temp.pskill_point","storage":"ui_temp","interpret":true},\
+            {"translate":"space.-40","font":"minecraft:default"},\
             {"text":"c","font":"gui/character/bg"},{"translate":"space.15","font":"minecraft:default"},\
         \
             {"text":"2","font":"gui/character/bg"},{"translate":"space.-1","font":"minecraft:default"},{"text":"3","font":"gui/character/bg"},{"translate":"space.-1","font":"minecraft:default"},{"text":"4","font":"gui/character/bg"},\
@@ -66,5 +69,6 @@
             {"translate":"space.-115","font":"minecraft:default"},\
             {"text":"c","font":"gui/icon","shadow_color":0},\
             {"nbt":"temp.bantime","storage":"ui_temp","font":"gui/bossbar/bantime","color":"white","shadow_color":[1,0.4,0.4,1]},\
+            {"nbt":"temp.skill_point_text","storage":"ui_temp","interpret":true,"shadow_color":[0,0,0,0.8]},{"translate":"space.-52","font":"minecraft:default"},\
             {"translate":"space.313","font":"minecraft:default"}\
         ]

@@ -19,6 +19,8 @@
 
 # 플레이어 설정
     #> 스코어보드는 별도의 함수로 동작
+    # 신속효과 부여
+        effect give @a[tag=in_game] minecraft:speed 5 2 true
     # 아이템 지급
         execute as @a run function eternal_return:game/player/in_game/start_item
     # 게임모드 변경

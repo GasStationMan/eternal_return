@@ -5,7 +5,7 @@
 ## 플레이어 감지
     # 태그 추가
         execute at @s if entity @p[distance=..1] run tag @s add in_use
-        execute at @s if entity @p[distance=1..] run tag @s remove in_use
+        execute at @s if entity @p[distance=1..3] run tag @s remove in_use
         
     # 스코어보드 
         # 플레이어가 패드 위에 있을때

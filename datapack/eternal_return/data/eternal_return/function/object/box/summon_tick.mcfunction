@@ -6,7 +6,7 @@
 execute if score @s ct1 matches 1.. run scoreboard players remove @s ct1 1
 # 상자 마크 표기 생성
     execute if score @s ct1 matches 599 run kill @e[tag=box_info]
-    execute if score @s ct1 matches 599 run function eternal_return:object/box/info/summon
+    execute if score @s ct1 matches 590 run function eternal_return:object/box/info/summon
 
 # 사운드 / 파티클
     execute if score @s ct1 matches 1 run particle campfire_cosy_smoke ~ ~0.1 ~ 0.5 0.5 0.5 0.05 20

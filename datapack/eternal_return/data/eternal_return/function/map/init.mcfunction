@@ -1,7 +1,5 @@
 ## 맵 초깃값 설정
 
-function eternal_return:map/set_object
-
 ## type 값에 따른 장소 타입 지정
 # safe_zone = 0
 # scheduled_restricted = 1

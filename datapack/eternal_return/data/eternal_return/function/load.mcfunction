@@ -54,6 +54,7 @@ forceload add -243 485 -243 479
     ## 플레이어
         # hp, k/d
         scoreboard objectives add hp health {"text":"♥","color":"red"}
+            scoreboard objectives setdisplay below_name hp
         scoreboard objectives add kill minecraft.killed:minecraft.player
         scoreboard objectives add death deathCount
         # 레벨, 스킬포인트
@@ -75,6 +76,10 @@ forceload add -243 485 -243 479
     # 센터 스코어
         scoreboard objectives add centerbar.tick dummy
         scoreboard objectives add centerbar.sec dummy
+        
+    # 부활 스코어
+        scoreboard objectives add resurretion.tick dummy
+        scoreboard objectives add resurretion.sec dummy
 
     # 정수
         scoreboard objectives add NUM dummy

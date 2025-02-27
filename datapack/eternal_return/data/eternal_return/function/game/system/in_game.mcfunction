@@ -30,7 +30,7 @@
         execute if score #left.time.sec NUM matches 0 as @a run \
             function eternal_return:gui/bossbar/display/center_bar {text:'{"text":" 실험이 시작되었습니다. 레이더를 활성화합니다.","font":"gui/centerbar/bar/text"}',sec:5}
     # 게임시작 초기설정
-        execute if score #left.time.sec NUM matches 0 if score #left.time.tick NUM matches 1 run \
+        execute if score #left.time.sec NUM matches 0 if score #left.time.tick NUM matches 1 as @a[tag=in_game] run \
             function eternal_return:game/system/in_game/set_start_init
 
 

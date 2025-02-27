@@ -7,6 +7,11 @@
     scoreboard players operation #input.number NUM = #game.player ct1
     function eternal_return:gui/bossbar/display/format_number {type:"space"}
     data modify storage ui_temp temp.player set from storage temp format_num
+    
+# 남은 시간 표기
+    scoreboard players operation #input.number NUM = #wait.remaining ct1
+    function eternal_return:gui/bossbar/display/format_number {type:"space2"}
+    data modify storage ui_temp temp.remaining set from storage temp format_num
 
 # 보스바에 저장
     function eternal_return:gui/bossbar/display/ui/wait_bar with storage pdb:main args
