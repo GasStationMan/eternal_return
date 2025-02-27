@@ -28,7 +28,7 @@ public class Upgrader extends Enchanter {
 
     public static UpgradeBlock TREEOFLIFE_CHESTPLATE = new UpgradeBlock()
             .addAttributes(Attribute.MAX_HEALTH, 8, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.CHEST)
-            .addAttributes(Attribute.SCALE, 1.05, AttributeModifier.Operation.MULTIPLY_SCALAR_1,EquipmentSlotGroup.CHEST)
+            .addAttributes(Attribute.SCALE, 0.05, AttributeModifier.Operation.MULTIPLY_SCALAR_1,EquipmentSlotGroup.CHEST)
             .setMaterialAfterUpgrade(Material.DIAMOND_CHESTPLATE);
 
     public static UpgradeBlock TREEOFLIFE_LEGGINGS = new UpgradeBlock()
@@ -79,11 +79,11 @@ public class Upgrader extends Enchanter {
             .addAttributes(Attribute.ARMOR, 1, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.FEET)
             .addAttributes(Attribute.MOVEMENT_SPEED, 0.01, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.FEET)
             .setMaterialAfterUpgrade(Material.DIAMOND_BOOTS);
-    
+
     //포스코어
     public static UpgradeBlock FORCECORE_HELMET = new UpgradeBlock()
             .addAttributes(Attribute.MAX_HEALTH, 3, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HEAD)
-            .addAttributes(Attribute.SCALE, 0.95, AttributeModifier.Operation.MULTIPLY_SCALAR_1,EquipmentSlotGroup.HEAD)
+            .addAttributes(Attribute.SCALE, -0.05, AttributeModifier.Operation.MULTIPLY_SCALAR_1,EquipmentSlotGroup.HEAD)
             .addEnchantment(Enchantment.THORNS, 2)
             .setMaterialAfterUpgrade(Material.DIAMOND_HELMET);
 
@@ -231,6 +231,11 @@ public class Upgrader extends Enchanter {
         for (Attribute attribute : upgradeBlock.getAttributes()) {
             itemMeta.addAttributeModifier(attribute, upgradeBlock.getAttributeModifier(attribute));
         }
+
+        for(EnchantBlock e : upgradeBlock.getEnchantBlock()){
+            itemMeta.addEnchant(e.getEnchantment(), e.getLevel(),false);
+        }
+
         item.setItemMeta(itemMeta);
         super.successed = true;
         return item;

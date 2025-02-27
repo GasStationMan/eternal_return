@@ -19,13 +19,13 @@ public class UpgradeBlock{
     private CMDBlock cmdBlock;
     private Map<Attribute,AttributeModifier> attributeModifierMap;
     private List<Attribute> attributes;
-    private EnchantBlock enchantBlock;
+    private List<EnchantBlock> enchantBlocks;
     private String armorModelString;
     private Material material;
     private EquipmentSlot equipmentSlot;
 
     public UpgradeBlock(){
-        enchantBlock = new EnchantBlock();
+        enchantBlocks = new ArrayList<>(2);
         attributeModifierMap = new HashMap<>(5);
         attributes = new ArrayList<>(5);
         cmdBlock = new CMDBlock();
@@ -40,8 +40,8 @@ public class UpgradeBlock{
         return attributes;
     }
 
-    public EnchantBlock getEnchantBlock(){
-        return enchantBlock;
+    public List<EnchantBlock> getEnchantBlock(){
+        return enchantBlocks;
     }
 
     public AttributeModifier getAttributeModifier(Attribute attribute){
@@ -74,8 +74,7 @@ public class UpgradeBlock{
 
     //setter
     public UpgradeBlock addEnchantment(Enchantment enchantment, int level){
-        enchantBlock.setEnchantment(enchantment);
-        enchantBlock.setLevel(level);
+        enchantBlocks.add(new EnchantBlock(enchantment, level));
         return this;
     }
 
@@ -84,7 +83,7 @@ public class UpgradeBlock{
         attributes.add(attribute);
         attributeModifierMap.put(
                 attribute,
-                new AttributeModifier(namespacedKey, amount, AttributeModifier.Operation.ADD_NUMBER, equipmentSlotGroup)
+                new AttributeModifier(namespacedKey, amount, operation, equipmentSlotGroup)
         );
         return this;
     }

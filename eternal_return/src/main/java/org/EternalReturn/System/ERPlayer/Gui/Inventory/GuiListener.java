@@ -47,7 +47,7 @@ public class GuiListener implements Listener {
         GuiController controller = erPlayer.getUpgradeGuiController();
         GuiPos pos = new GuiPos();
 
-        //클릭한 위치가 본인 인벤토리 위 (1,4)위치인 경우.
+        //클릭한 위치가 본인 인벤토리 위 (0,1)위치인 경우.
         pos.setPos(0,1);
         if(clickedGui.equals(p.getInventory()) && clickedIndex == pos.toIndex()){
             e.setCancelled(true);
