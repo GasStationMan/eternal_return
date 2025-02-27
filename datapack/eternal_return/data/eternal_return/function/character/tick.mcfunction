@@ -35,6 +35,8 @@
         # 아이솔
         # 현우
         # 유키
+            execute if entity @s[tag=yuki] at @s run function eternal_return:character/list/yuki/active/main
+            execute if entity @s[tag=yuki] at @s run function eternal_return:character/list/yuki/passive/main
         # 피올로
         # 아르다
         # 비앙카
