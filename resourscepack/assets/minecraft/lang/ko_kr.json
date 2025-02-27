@@ -5,5 +5,8 @@
   "container.crafting": "",
   "soundCategory.record": "§6\uAC8C\uC784 \uC18C\uB9AC",
   "container.isLocked": "",
+  "container.chest": "",
+  "container.barrel": "",
+  "container.inventory": "",
   "advancements.toast.task": ""
 }

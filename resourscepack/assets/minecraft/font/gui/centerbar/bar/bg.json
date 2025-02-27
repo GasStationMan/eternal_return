@@ -3,7 +3,7 @@
 		{
 			"type": "bitmap",
 			"file": "minecraft:font/bg/center_text.png",
-			"ascent": 5,
+			"ascent": -62,
 			"height": 13,
 			"chars": ["0"]
 		}

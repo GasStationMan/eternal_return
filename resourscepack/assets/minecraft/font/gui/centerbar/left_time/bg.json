@@ -3,7 +3,7 @@
 		{
 			"type": "bitmap",
 			"file": "minecraft:font/bg/left_time.png",
-			"ascent": 28,
+			"ascent": -20,
 			"height": 55,
 			"chars": ["0"]
 		},
