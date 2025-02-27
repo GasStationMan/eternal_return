@@ -1,6 +1,8 @@
 package org.EternalReturn.Util.itemUtill;
 
+import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ArmorMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.components.CustomModelDataComponent;
 
@@ -19,9 +21,13 @@ public class CMDManager {
     public void free(){
         item = null;
         cmdComponent = null;
-        cmdStringList.clear();
+        if(cmdStringList != null && !cmdStringList.isEmpty()){
+            cmdStringList.clear();
+        }
         cmdStringList = null;
-        cmdFloatList.clear();
+        if(cmdFloatList != null && !cmdFloatList.isEmpty()){
+            cmdFloatList.clear();
+        }
         cmdFloatList = null;
     }
 
@@ -38,7 +44,6 @@ public class CMDManager {
                 throw new NullPointerException("아이템 또는 아이템의 meta가 null입니다.");
             }
             cmdComponent = itemMeta.getCustomModelDataComponent();
-
             cmdFloatList = cmdComponent.getFloats();
             cmdStringList = cmdComponent.getStrings();
 

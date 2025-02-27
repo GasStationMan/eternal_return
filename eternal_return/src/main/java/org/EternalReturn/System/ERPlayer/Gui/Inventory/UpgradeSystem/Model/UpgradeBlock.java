@@ -1,10 +1,12 @@
 package org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model;
 
 import org.EternalReturn.Util.itemUtill.CMDBlock;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.EquipmentSlotGroup;
 
 import java.util.ArrayList;
@@ -18,6 +20,9 @@ public class UpgradeBlock{
     private Map<Attribute,AttributeModifier> attributeModifierMap;
     private List<Attribute> attributes;
     private EnchantBlock enchantBlock;
+    private String armorModelString;
+    private Material material;
+    private EquipmentSlot equipmentSlot;
 
     public UpgradeBlock(){
         enchantBlock = new EnchantBlock();
@@ -53,6 +58,20 @@ public class UpgradeBlock{
         }
     }
 
+    public Material getMaterialToModify(){
+        return material;
+    }
+
+    public String getArmorModelString(){
+        return armorModelString;
+    }
+
+    public EquipmentSlot getEquipmentSlot(){
+        return equipmentSlot;
+    }
+
+
+
     //setter
     public UpgradeBlock addEnchantment(Enchantment enchantment, int level){
         enchantBlock.setEnchantment(enchantment);
@@ -76,6 +95,11 @@ public class UpgradeBlock{
         return this;
     }
 
+    public UpgradeBlock setArmorModelString(String armorComponentEquipableString){
+        armorModelString = armorComponentEquipableString;
+        return this;
+    }
+
     private boolean hasAttribute(Attribute attribute){
         for(Attribute attributeWhichItHave : attributes){
             if(attributeWhichItHave == attribute){
@@ -83,6 +107,16 @@ public class UpgradeBlock{
             }
         }
         return false;
+    }
+
+    public UpgradeBlock setMaterialAfterUpgrade(Material material){
+        this.material = material;
+        return this;
+    }
+
+    public UpgradeBlock setEquimentSlot(EquipmentSlot slot){
+        equipmentSlot = slot;
+        return this;
     }
 
 }
