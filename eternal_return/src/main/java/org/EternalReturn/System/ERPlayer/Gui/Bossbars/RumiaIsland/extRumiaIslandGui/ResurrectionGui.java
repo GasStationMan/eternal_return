@@ -1,4 +1,4 @@
-package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui;
+package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.RumiaIslandGui;
@@ -9,7 +9,6 @@ import org.EternalReturn.Util.Gui.bossbarGui.Model.BPanel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class ResurrectionGui extends RumiaIslandGui {
 

@@ -62,7 +62,7 @@ public class Enchanter extends NodeMap<Object> {
                 /*PP*/{true, true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
                 /*FP*/{true, true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
                 /*TH*/{true, true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
-                /*SN*/{false,false, true,  true,  true,  false, false, false, false, true,  false, false, false, false},
+                /*SN*/{false,false, true,  false, true,  false, false, false, false, true,  false, false, false, false},
                 /*SH*/{false,false, false, false, false, true,  true,  true,  true,  false, true,  true,  true,  true },
                 /*SW*/{false,false, false, false, false, true,  true,  true,  true,  false, true,  true,  true,  true },
         });

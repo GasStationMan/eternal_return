@@ -1,9 +1,10 @@
 package org.EternalReturn.System.ERPlayer;
 
 import org.EternalReturn.System.AreaSystem.AreaGraph;
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui.HyperLoopGui;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.HyperLoopGui;
+import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.itemUtill.CMDManager;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,6 +14,8 @@ import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scoreboard.Score;
+import org.bukkit.scoreboard.ScoreboardManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
@@ -85,6 +88,18 @@ public class ERPlayerDebugCommand implements CommandExecutor {
                     Double.parseDouble(args[3])
             );
         }
+
+        else if(args.length == 1 && args[0].equalsIgnoreCase("scoreboard")){
+            ScoreboardManager scbManager = Bukkit.getScoreboardManager();
+            Score data = scbManager.getMainScoreboard().getObjective("area").getScore("data");
+            data.setScore(32768);
+            p.sendMessage(data.getScore() + "");
+
+            
+
+
+        }
+
         return false;
     }
 }

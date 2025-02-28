@@ -8,7 +8,6 @@ import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.itemUtill.CMDManager;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Marker;
 import org.bukkit.entity.Player;
@@ -65,14 +64,23 @@ public class ERPlayerScript implements Script {
 
     private void erPlayerScript(ERPlayer erPlayer, Player p){
         Set<String> tags = p.getScoreboardTags();
-        BFrame currentBFrame = erPlayer.getCurrentOpened();
-
-        MotionManager motionManager = erPlayer.getMotionManager();
 
         //if(erPlayer.getMukboActivatedTime() <= System.currentTimeMillis()){
         //    mukboFunction(erPlayer, p, p.getAttribute(Attribute.MAX_HEALTH).getBaseValue(), p.getHealth());
         //}
 
+        bossbarGuiUpdate(p,erPlayer,tags);
+        motionManagerUpdate(erPlayer,tags);
+
+    }
+
+    private void upgradeArmorWearingUpdate(){
+
+    }
+
+    private void bossbarGuiUpdate(Player p, ERPlayer erPlayer, Set<String> tags){
+
+        BFrame currentBFrame = erPlayer.getCurrentOpened();
         //보스바 gui 띄우기
         if(currentBFrame == null){
             if(tags.contains(SystemManager.USE_HYPERLOOP)){
@@ -82,28 +90,16 @@ public class ERPlayerScript implements Script {
                 erPlayer.openKioskGui();
             }
         }
-        
+
         //보스바 gui 닫기
         if(currentBFrame != null && currentBFrame.isOpen()){
             if(p.isSneaking()
-                || !(tags.contains(SystemManager.USE_HYPERLOOP) || (tags.contains(SystemManager.USE_KIOSK)))){
+                    || !(tags.contains(SystemManager.USE_HYPERLOOP) || (tags.contains(SystemManager.USE_KIOSK)))){
                 tags.remove("use_" + erPlayer.closeCurrentOpenedGui());
             }
             else{
                 currentBFrame.updateMouseCursor(erPlayer);
             }
-        }
-
-        //parabola_x0_y0_z0_x1_y1_z1
-        if(tags.contains("vector")){
-            vectorTagFunction(tags,erPlayer);
-        }
-
-        if(!motionManager.getMotionIsDone()){
-            motionManager.updateParabolicMotion();
-        }
-        else{
-            tags.remove("vector");
         }
     }
 
@@ -115,8 +111,7 @@ public class ERPlayerScript implements Script {
                 CMDManager cmdManagerContainsCurrItem = cmdManager.setItem(item);
                 if(item != null
                         && item.getType() == Material.FLOWER_BANNER_PATTERN
-                        && cmdManagerContainsCurrItem.hasStringCMD("food")
-                ){
+                        && cmdManagerContainsCurrItem.hasStringCMD("food")){
                     if(cmdManagerContainsCurrItem.hasFloatCMD(0.0f)){
 
                     }
@@ -126,6 +121,20 @@ public class ERPlayerScript implements Script {
                     erPlayer.setMukboActivatedTime(5000);
                 }
             }
+        }
+    }
+
+    private void motionManagerUpdate(ERPlayer erPlayer, Set<String> tags){
+        MotionManager motionManager = erPlayer.getMotionManager();
+        if(tags.contains("vector")){
+            vectorTagFunction(tags,erPlayer);
+        }
+
+        if(!motionManager.getMotionIsDone()){
+            motionManager.updateParabolicMotion();
+        }
+        else{
+            tags.remove("vector");
         }
     }
 

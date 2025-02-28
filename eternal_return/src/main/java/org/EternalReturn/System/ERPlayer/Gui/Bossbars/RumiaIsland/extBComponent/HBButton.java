@@ -1,24 +1,24 @@
-package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsBComponent;
+package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent;
 
 import net.kyori.adventure.text.format.TextColor;
 import org.EternalReturn.System.SystemManager;
+import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.BLocation;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BImage;
 
-public class HBImage extends BImage {
-    /**
-     * BImage를 생성하는 함수 extends extendsBComponent
-     *
-     * @param sizeX    : font가 가리키는 이미지의 공백을 제거한 x픽셀 수
-     * @param sizeY    : font가 가리키는 이미지의 y픽셀 수
-     * @param name     : 지역의 이름
-     * @param location : BComponent의 위치 정보를 담는 객체
-     */
+/**
+ * Hyperloop BButton
+ * */
+public class HBButton extends BButton {
 
     private int zoneState;
 
-    public HBImage(int sizeX, int sizeY, BLocation location, String name) {
-        super(sizeX, sizeY, "map/hyperloop/default/" + name, location);
+    public HBButton(int sizeX, int sizeY, BLocation location, String buttonName) {
+        super(sizeX, sizeY,
+                "map/hyperloop/default/" + buttonName,
+                "map/hyperloop/hover/" + buttonName, location, buttonName);
+
+
+        this.zoneState = SystemManager.GREEN_ZONE;
     }
 
     //getter
@@ -50,4 +50,7 @@ public class HBImage extends BImage {
             e.printStackTrace();
         }
     }
+
+
+
 }

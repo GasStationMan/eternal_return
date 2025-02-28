@@ -1,9 +1,9 @@
 package org.EternalReturn.System.ERPlayer;
 
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui.HyperLoopGui;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.HyperLoopGui;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.Kiosk.KioskGui;
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandGui.ResurrectionGui;
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsRumiaIslandHud.RumiaMapHud;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.ResurrectionGui;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandHud.RumiaMapHud;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.Util.Gui.Inventory.GuiController;

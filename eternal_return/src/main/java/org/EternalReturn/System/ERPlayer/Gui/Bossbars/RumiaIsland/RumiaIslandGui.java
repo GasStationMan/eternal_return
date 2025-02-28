@@ -3,7 +3,7 @@ package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland;
 import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.AreaSystem.AreaNode;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extendsBComponent.HBButton;
+import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent.HBButton;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
 import org.jetbrains.annotations.NotNull;
