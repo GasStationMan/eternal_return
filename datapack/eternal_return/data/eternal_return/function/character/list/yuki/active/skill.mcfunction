@@ -19,18 +19,19 @@ function eternal_return:character/list/yuki/active/skill/tag_add_yukir3
 
 ## 유키 화무십일홍 데미지
 execute as @e[tag=yukir3] run scoreboard players add @s yukir 1
-execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=1}] run damage @s 4
-execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=2}] run damage @s 5
-execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=3}] run damage @s 6
-execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=4}] run damage @s 7
-execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=5}] run damage @s 8
+execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=1}] run damage @s 4 cactus by @n[tag=yuki]
+execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=2}] run damage @s 5 cactus by @n[tag=yuki]
+execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=3}] run damage @s 6 cactus by @n[tag=yuki]
+execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=4}] run damage @s 7 cactus by @n[tag=yuki]
+execute as @e[scores={yukir=1}] if entity @n[tag=yuki,scores={active_level=5}] run damage @s 8 cactus by @n[tag=yuki]
+
 execute as @e[scores={yukir=1}] run effect give @s slowness infinite 1 true
 execute as @e[scores={yukir=1..29}] at @s run particle dust{color:[1.000,0.510,0.984],scale:1} ~ ~1 ~ 0.3 0.3 0.3 0 5 force
-execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=1}] run damage @s 6
-execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=2}] run damage @s 7
-execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=3}] run damage @s 8
-execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=4}] run damage @s 9
-execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=5}] run damage @s 10
+execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=1}] run damage @s 6 magic by @n[tag=yuki]
+execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=2}] run damage @s 7 magic by @n[tag=yuki]
+execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=3}] run damage @s 8 magic by @n[tag=yuki]
+execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=4}] run damage @s 9 magic by @n[tag=yuki]
+execute as @e[scores={yukir=30}] if entity @n[tag=yuki,scores={active_level=5}] run damage @s 10 magic by @n[tag=yuki]
 execute as @e[scores={yukir=30}] run effect clear @s slowness
 execute as @e[scores={yukir=30}] run tag @s remove yukir3
 execute as @e[scores={yukir=30}] run scoreboard players reset @s yukir

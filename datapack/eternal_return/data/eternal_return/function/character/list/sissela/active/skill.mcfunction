@@ -58,11 +58,11 @@ execute if entity @s[tag=beach,scores={sissela_active_skill=1}] run tag @e[tag=b
 execute if entity @s[tag=hotel,scores={sissela_active_skill=1}] run tag @e[tag=hotel,tag=!sissela] add sissela_target
 
 
-execute if entity @s[scores={sissela_active_skill=60,active_level=1}] as @e[tag=sissela_target] run damage @s 1 out_of_world
-execute if entity @s[scores={sissela_active_skill=60,active_level=2}] as @e[tag=sissela_target] run damage @s 2 out_of_world
-execute if entity @s[scores={sissela_active_skill=60,active_level=3}] as @e[tag=sissela_target] run damage @s 3 out_of_world
-execute if entity @s[scores={sissela_active_skill=60,active_level=4}] as @e[tag=sissela_target] run damage @s 4 out_of_world
-execute if entity @s[scores={sissela_active_skill=60,active_level=5}] as @e[tag=sissela_target] run damage @s 5 out_of_world
+execute if entity @s[scores={sissela_active_skill=60,active_level=1}] as @e[tag=sissela_target] run damage @s 1 out_of_world by @n[tag=sissela]
+execute if entity @s[scores={sissela_active_skill=60,active_level=2}] as @e[tag=sissela_target] run damage @s 2 out_of_world by @n[tag=sissela]
+execute if entity @s[scores={sissela_active_skill=60,active_level=3}] as @e[tag=sissela_target] run damage @s 3 out_of_world by @n[tag=sissela]
+execute if entity @s[scores={sissela_active_skill=60,active_level=4}] as @e[tag=sissela_target] run damage @s 4 out_of_world by @n[tag=sissela]
+execute if entity @s[scores={sissela_active_skill=60,active_level=5}] as @e[tag=sissela_target] run damage @s 5 out_of_world by @n[tag=sissela]
 
 execute if entity @s[scores={sissela_active_skill=60}] as @e[tag=sissela_target] run tag @s remove sissela_target
 execute if entity @s[scores={sissela_active_skill=60..}] run tag @s remove sissela_active_skill
