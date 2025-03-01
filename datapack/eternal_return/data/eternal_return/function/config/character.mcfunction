@@ -78,7 +78,7 @@
             aname:"",alore1:"line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
             pname:"",plore1:"line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
         {no:18,name:"lenox",\
-            aname:"",alore1:"line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
+            aname:"",alore1:" line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
             pname:"",plore1:"line1",plore2:"line2",plore3:"line3",pcool:0,plevel:0},\
         {no:19,name:"leon",\
             aname:"",alore1:"line1",alore2:"line2",alore3:"line3",acool:0,alevel:0,\
