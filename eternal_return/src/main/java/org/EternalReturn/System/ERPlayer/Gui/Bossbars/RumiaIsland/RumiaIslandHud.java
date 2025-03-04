@@ -94,7 +94,6 @@ public class RumiaIslandHud extends BFrame {
     /**
      * 그래프의 연산 결과에 따른 AreaNode의 변경 결과를 HBButton에 반영하기 위한 함수.
      * */
-
     public void updateAreaState(){
         try{
             List<AreaNode> areaNodes = areaGraph.getAreaNodes();

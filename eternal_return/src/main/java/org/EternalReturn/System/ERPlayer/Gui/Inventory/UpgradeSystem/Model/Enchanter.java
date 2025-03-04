@@ -37,9 +37,7 @@ public class Enchanter extends NodeMap<Object> {
 
         this.addNodeX(Material.STONE_SWORD);
         this.addNodeX(Material.IRON_SWORD);
-        this.addNodeX(Material.DIAMOND_SWORD);
-        this.addNodeX(Material.NETHERITE_SWORD);
-
+        this.addNodeX(Material.BOW);
         this.addNodeX(Material.STONE_AXE);
         this.addNodeX(Material.IRON_AXE);
         this.addNodeX(Material.DIAMOND_AXE);
@@ -57,14 +55,14 @@ public class Enchanter extends NodeMap<Object> {
         this.addNodeY(Enchantment.SWEEPING_EDGE);
 
         this.setStateTable(new Boolean[][]{
-                //////  IH    IC     IL     IB      SS     IS     DS     NS    SA     IA     DA     NA      FR     MC
-                /*PR*/{true, true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
-                /*PP*/{true, true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
-                /*FP*/{true, true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
-                /*TH*/{true, true,  true,  true,  false, false, false, false, true,  false, false, false, false, false},
-                /*SN*/{false,false, true,  false, true,  false, false, false, false, true,  false, false, false, false},
-                /*SH*/{false,false, false, false, false, true,  true,  true,  true,  false, true,  true,  true,  true },
-                /*SW*/{false,false, false, false, false, true,  true,  true,  true,  false, true,  true,  true,  true },
+                //////  IH     IC     IL     IB      SS     IS     BW    SA     IA     DA     NA     FR     MC
+                /*PR*/{true,  true,  true,  true,  false, false, false, false, false, false, false, false, false},
+                /*PP*/{true,  true,  true,  true,  false, false, false, false, false, false, false, false, false},
+                /*FP*/{true,  true,  true,  true,  false, false, false, false, false, false, false, false, false},
+                /*TH*/{true,  true,  true,  true,  false, false, false, false, false, false, false, false, false},
+                /*SN*/{false, false, true,  false, false, false, false, false, false, false, false, false, false},
+                /*SH*/{false, false, false, false, true,  true,  false, true,  true,  true,  true,  true,  true },
+                /*SW*/{false, false, false, false, false, true,  false, false, false, true,  true,  true,  true },
         });
     }
 

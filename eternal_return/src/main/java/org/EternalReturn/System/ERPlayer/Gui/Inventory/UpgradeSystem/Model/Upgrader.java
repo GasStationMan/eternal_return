@@ -16,9 +16,13 @@ import org.bukkit.inventory.meta.ArmorMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.components.EquippableComponent;
 
+import java.lang.management.GarbageCollectorMXBean;
+import java.util.Set;
+
 public class Upgrader extends Enchanter {
 
     private ItemStack upgraderItem;
+    private Set<String> playerScoreboardTags;
     
     //생나
     public static UpgradeBlock TREEOFLIFE_HELMET = new UpgradeBlock()
@@ -43,6 +47,18 @@ public class Upgrader extends Enchanter {
             .addAttributes(Attribute.MAX_HEALTH, 2, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.FEET)
             .setMaterialAfterUpgrade(Material.DIAMOND_BOOTS);
 
+    public static UpgradeBlock TREEOFLIFE_STONESWORD = new UpgradeBlock()
+            .addAttributes(Attribute.ATTACK_DAMAGE, 5 + 2, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HAND)
+            .setMaterialAfterUpgrade(Material.IRON_SWORD);
+
+    public static UpgradeBlock TREEOFLIFE_IRONESWORD = new UpgradeBlock()
+            .addEnchantment(Enchantment.FIRE_ASPECT, 1)
+            .setMaterialAfterUpgrade(Material.DIAMOND_SWORD);
+
+    public static UpgradeBlock TREEOFLIFE_BOW = new UpgradeBlock()
+            .addEnchantment(Enchantment.PUNCH, 1)
+            .setMaterialAfterUpgrade(Material.BOW);
+
     //운석
     public static UpgradeBlock METEORITE_HELMET = new UpgradeBlock()
             .addAttributes(Attribute.ARMOR, 3, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HEAD)
@@ -66,6 +82,18 @@ public class Upgrader extends Enchanter {
             .addAttributes(Attribute.ATTACK_SPEED, 0.1, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.FEET)
             .addAttributes(Attribute.MOVEMENT_SPEED, 0.005, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.FEET)
             .setMaterialAfterUpgrade(Material.DIAMOND_BOOTS);
+
+    public static UpgradeBlock METEORITE_STONESWORD = new UpgradeBlock()
+            .addAttributes(Attribute.ATTACK_DAMAGE, 5 + 4, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HAND)
+            .setMaterialAfterUpgrade(Material.IRON_SWORD);
+
+    public static UpgradeBlock METEORITE_IRONESWORD = new UpgradeBlock()
+            .addAttributes(Attribute.ATTACK_DAMAGE, 6 + 3, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HAND)
+            .setMaterialAfterUpgrade(Material.DIAMOND_SWORD);
+
+    public static UpgradeBlock METEORITE_BOW = new UpgradeBlock()
+            .addEnchantment(Enchantment.FLAME, 1)
+            .setMaterialAfterUpgrade(Material.BOW);
     
     //미스릴
     public static UpgradeBlock MITHRIL_HELMET = new UpgradeBlock()
@@ -87,6 +115,20 @@ public class Upgrader extends Enchanter {
             .addAttributes(Attribute.ARMOR, 1 + 3, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.FEET)
             .addAttributes(Attribute.MOVEMENT_SPEED, 0.01, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.FEET)
             .setMaterialAfterUpgrade(Material.DIAMOND_BOOTS);
+
+    public static UpgradeBlock MITHRIL_STONESWORD = new UpgradeBlock()
+            .addAttributes(Attribute.ATTACK_DAMAGE, 5 + 1, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HAND)
+            .addAttributes(Attribute.ATTACK_SPEED, 1.6 + 0.2, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HAND)
+            .setMaterialAfterUpgrade(Material.IRON_SWORD);
+
+    public static UpgradeBlock MITHRIL_IRONESWORD = new UpgradeBlock()
+            .addAttributes(Attribute.ATTACK_DAMAGE, 6 + 2, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HAND)
+            .addAttributes(Attribute.ATTACK_SPEED, 1.6 + 0.2, AttributeModifier.Operation.ADD_NUMBER,EquipmentSlotGroup.HAND)
+            .setMaterialAfterUpgrade(Material.DIAMOND_SWORD);
+
+    public static UpgradeBlock MITHRIL_BOW = new UpgradeBlock()
+            .addEnchantment(Enchantment.FLAME, 1)
+            .setMaterialAfterUpgrade(Material.BOW);
 
     //포스코어
     public static UpgradeBlock FORCECORE_HELMET = new UpgradeBlock()
@@ -172,6 +214,9 @@ public class Upgrader extends Enchanter {
         BLOOD_SAMPLE_LEGGINGS = null;
         BLOOD_SAMPLE_BOOTS = null;
 
+        playerScoreboardTags = null;
+        upgraderItem = null;
+
     }
 
 
@@ -179,26 +224,28 @@ public class Upgrader extends Enchanter {
     public Upgrader(){
         super();
 
+        //////  IH     IC     IL     IB      SS      IS      BW     SA     IA      DA      NA      FR      MC
         expandY(SystemManager.EPIC_BLOOD_SAMPLE, new Object[]{
-            BLOOD_SAMPLE_HELMET, BLOOD_SAMPLE_CHESTPLATE, BLOOD_SAMPLE_LEGGINGS, BLOOD_SAMPLE_BOOTS,
-                false, false, false, false, false, false, false, false, false, false
+                BLOOD_SAMPLE_HELMET, BLOOD_SAMPLE_CHESTPLATE, BLOOD_SAMPLE_LEGGINGS, BLOOD_SAMPLE_BOOTS,
+                false, false, false, false, false, false, false, false
         });
         expandY(SystemManager.EPIC_FORCE_CORE, new Object[]{
-            FORCECORE_HELMET, FORCECORE_CHESTPLATE, FORCECORE_LEGGINGS, FORCECORE_BOOTS,
-                false, false, false, false, false, false, false, false, false, false
+                FORCECORE_HELMET, FORCECORE_CHESTPLATE, FORCECORE_LEGGINGS, FORCECORE_BOOTS,
+                false, false, false, false, false, false, false, false
         });
         expandY(SystemManager.EPIC_METEORITE, new Object[]{
-            METEORITE_HELMET, METEORITE_CHESTPLATE, METEORITE_LEGGINGS, METEORITE_BOOTS,
-                false, false, false, false, false, false, false, false, false, false
+                METEORITE_HELMET, METEORITE_CHESTPLATE, METEORITE_LEGGINGS, METEORITE_BOOTS,
+                METEORITE_STONESWORD, METEORITE_IRONESWORD, METEORITE_BOW, false, false, false, false, false
         });
         expandY(SystemManager.EPIC_MITHRIL, new Object[]{
-            MITHRIL_HELMET, MITHRIL_CHESTPLATE, MITHRIL_LEGGINGS, MITHRIL_BOOTS,
-                false, false, false, false, false, false, false, false, false, false
+                MITHRIL_HELMET, MITHRIL_CHESTPLATE, MITHRIL_LEGGINGS, MITHRIL_BOOTS,
+                MITHRIL_STONESWORD, MITHRIL_IRONESWORD, MITHRIL_BOW, false, false, false, false, false
         });
         expandY(SystemManager.EPIC_TREE_OF_LIFE, new Object[]{
-            TREEOFLIFE_HELMET, TREEOFLIFE_CHESTPLATE, TREEOFLIFE_LEGGINGS, TREEOFLIFE_BOOTS,
-                false, false, false, false, false, false, false, false, false, false
+                TREEOFLIFE_HELMET, TREEOFLIFE_CHESTPLATE, TREEOFLIFE_LEGGINGS, TREEOFLIFE_BOOTS,
+                TREEOFLIFE_STONESWORD, TREEOFLIFE_IRONESWORD, TREEOFLIFE_BOW, false, false, false, false, false
         });
+
     }
 
     public ItemStack enchant() {
@@ -241,9 +288,10 @@ public class Upgrader extends Enchanter {
         }
 
         //logic
-        for (Attribute attribute : upgradeBlock.getAttributes()) {
-            itemMeta.addAttributeModifier(attribute, upgradeBlock.getAttributeModifier(attribute));
-        }
+        //for (Attribute attribute : upgradeBlock.getAttributes()) {
+        //    itemMeta.addAttributeModifier(attribute, upgradeBlock.getAttributeModifier(attribute));
+        //
+        //}
 
         for(EnchantBlock e : upgradeBlock.getEnchantBlock()){
             itemMeta.addEnchant(e.getEnchantment(), e.getLevel(),false);
@@ -252,5 +300,9 @@ public class Upgrader extends Enchanter {
         item.setItemMeta(itemMeta);
         super.successed = true;
         return item;
+    }
+
+    public void setPlayerScoreboardTags(Set<String> tags){
+        this.playerScoreboardTags = tags;
     }
 }

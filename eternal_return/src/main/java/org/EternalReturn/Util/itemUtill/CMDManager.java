@@ -20,17 +20,9 @@ public class CMDManager {
 
     public void free(){
         item = null;
-        cmdComponent = null;
-
-        if(cmdStringList != null){
-            cmdStringList.clear();
-        }
         cmdStringList = null;
-
-        if(cmdFloatList != null){
-            cmdFloatList.clear();
-        }
         cmdFloatList = null;
+        cmdComponent = null;
     }
 
     public CMDManager(){

@@ -9,10 +9,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.EquipmentSlotGroup;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UpgradeBlock{
 
@@ -23,12 +20,14 @@ public class UpgradeBlock{
     private String armorModelString;
     private Material material;
     private EquipmentSlot equipmentSlot;
+    private List<String> tagsToGive;
 
     public UpgradeBlock(){
         enchantBlocks = new ArrayList<>(2);
         attributeModifierMap = new HashMap<>(5);
         attributes = new ArrayList<>(5);
         cmdBlock = new CMDBlock();
+        tagsToGive = new ArrayList<>(2);
     }
 
     //getter
@@ -117,5 +116,17 @@ public class UpgradeBlock{
         equipmentSlot = slot;
         return this;
     }
+
+    public UpgradeBlock addTag(String tag){
+        tagsToGive.add(tag);
+        return this;
+    }
+
+    public UpgradeBlock addTags(String[] tags){
+        tagsToGive.addAll(Arrays.asList(tags));
+        return this;
+    }
+
+
 
 }

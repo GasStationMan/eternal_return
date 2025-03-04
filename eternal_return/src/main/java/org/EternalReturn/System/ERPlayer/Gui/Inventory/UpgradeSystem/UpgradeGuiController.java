@@ -1,6 +1,7 @@
 package org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
+import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.Inventory.GuiController;
@@ -253,7 +254,12 @@ public class UpgradeGuiController implements GuiController {
                     guiContent[GuiPos.getPos(5,2)],
                     guiContent[GuiPos.getPos(5,3)]);
 
-            boolean enchantSuccess = enchant(armorContent, 0, guiContent, GuiPos.getPos(2,4))
+            //업그레이드 사항 중 플레이어 태그 수정도 있기 때문에 함수를 통해 전달.
+            Upgrader upgrader = (Upgrader) enchanter;
+            upgrader.setPlayerScoreboardTags(player.getScoreboardTags());
+
+            boolean enchantSuccess =
+                      enchant(armorContent, 0, guiContent, GuiPos.getPos(2,4))
                     | enchant(armorContent, 1, guiContent, GuiPos.getPos(2,3))
                     | enchant(armorContent, 2, guiContent, GuiPos.getPos(2,2))
                     | enchant(armorContent, 3, guiContent, GuiPos.getPos(2,1))
