@@ -4,9 +4,9 @@ import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.Inventory.GuiController;
-import org.EternalReturn.Util.Gui.Inventory.InventoryGui.GuiPos;
-import org.EternalReturn.Util.Gui.Inventory.InventoryGui.InventoryGui;
+import org.EternalReturn.Util.Gui.InventoryGui.View.GuiPos;
+import org.EternalReturn.Util.Gui.InventoryGui.View.IFrame;
+import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
 import org.EternalReturn.Util.inventoryUtil.InventoryModifier;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
 import org.bukkit.Bukkit;
@@ -17,25 +17,23 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
 
-public class UpgradeGuiController implements GuiController {
+public class UpgradeGuiController extends IController {
 
     private ERPlayer erPlayer;
-    private InventoryGui upgradeGui;
+    private IFrame upgradeGui;
     private BukkitScheduler scheduler;
-    private Plugin pluginInstance;
-    private boolean isOpen;
+    private PluginInstance pluginInstance;
     private Enchanter enchanter;
 
-    public UpgradeGuiController(InventoryGui gui){
+    public UpgradeGuiController(IFrame gui){
+        super(gui.getPlayer(), gui);
         upgradeGui = gui;
-        erPlayer = upgradeGui.getERPlayer();
         scheduler = Bukkit.getScheduler();
-        pluginInstance = PluginInstance.getServerInstance();
         enchanter = SystemManager.getEnchanter();
+        erPlayer = SystemManager.getInstance().getERPlayer(upgradeGui.getPlayer());
     }
 
     public void free(){
@@ -47,39 +45,22 @@ public class UpgradeGuiController implements GuiController {
     }
 
     @Override
-    public void openGui(){
-        isOpen = true;
-        whenOpen();
-        Player p = erPlayer.getPlayer();
-        scheduler.runTaskLater(pluginInstance, ()->{
-            p.openInventory(upgradeGui.getGui());
-        }, 0);
+    public synchronized void openGui(){
+        super.openGui();
+        erPlayer.getPlayer().openInventory(upgradeGui.getGui());
     }
 
     @Override
     public void closeGui() {
-        whenClose();
-        isOpen = false;
+        super.closeGui();
         Player p = erPlayer.getPlayer();
         p.closeInventory();
     }
 
     public void closeGui(String str) {
-        whenClose();
-        isOpen = false;
-        Player p = erPlayer.getPlayer();
-        p.closeInventory();
-        p.sendMessage(str);
+        this.closeGui();
+        erPlayer.sendMessage(str);
     }
-
-    public void closeGui(Runnable playSound) {
-        whenClose();
-        isOpen = false;
-        Player p = erPlayer.getPlayer();
-        p.closeInventory();
-        playSound.run();
-    }
-
 
     @Override
     public void whenOpen(){
@@ -208,16 +189,6 @@ public class UpgradeGuiController implements GuiController {
         InventoryModifier.clear(invContent);
         InventoryModifier.clear(guiContent);
         isOpen = false;
-    }
-
-    @Override
-    public boolean isOpen() {
-        return isOpen;
-    }
-
-    @Override
-    public Inventory getGui() {
-        return upgradeGui.getGui();
     }
 
     @Override

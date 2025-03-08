@@ -1,15 +1,15 @@
 package org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.View;
-import org.EternalReturn.System.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.Gui.Inventory.InventoryGui.InventoryGui;
+import org.EternalReturn.Util.Gui.InventoryGui.View.IFrame;
 import org.EternalReturn.Util.itemUtill.ItemGenerator;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
-public class UpgradeGui extends InventoryGui{
+public class UpgradeGui extends IFrame {
 
-    public UpgradeGui(@Nullable ERPlayer p){
-        super(p, 54);
+    public UpgradeGui(@NotNull Player p){
+        super(p, 6);
         setGui();
     }
 

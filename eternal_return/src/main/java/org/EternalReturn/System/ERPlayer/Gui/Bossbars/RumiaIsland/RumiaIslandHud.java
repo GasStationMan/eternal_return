@@ -4,15 +4,15 @@ import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.AreaSystem.AreaNode;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
+import org.EternalReturn.Util.Gui.bossbarGui.View.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent.HBImage;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BLocation;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BImage;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BFrame;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BPanel;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BLocation;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BImage;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BPanel;
 
 import java.util.ArrayList;
 import java.util.HashMap;

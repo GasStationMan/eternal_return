@@ -2,8 +2,8 @@ package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent
 
 import net.kyori.adventure.text.format.TextColor;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BLocation;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BImage;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BLocation;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BImage;
 
 public class HBImage extends BImage {
     /**

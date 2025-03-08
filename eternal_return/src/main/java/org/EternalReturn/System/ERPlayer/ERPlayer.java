@@ -6,8 +6,8 @@ import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIsland
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandHud.RumiaMapHud;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
-import org.EternalReturn.Util.Gui.Inventory.GuiController;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BFrame;
+import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
 import org.EternalReturn.Util.Physics.MathVector.Vec2d;
 import org.EternalReturn.Util.Physics.MotionManager;
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ public class ERPlayer {
     private Player player;
 
     private UpgradeGui upgradeGui;
-    private GuiController upgradeGuiController;
+    private IController upgradeGuiController;
 
     private BFrame currentOpened;
     private BFrame hyperloopGui;
@@ -57,7 +57,7 @@ public class ERPlayer {
         rot2dVecX = new Vec2d(Math.cos(0),Math.sin(0));
         rot2dVecY = new Vec2d(Math.cos(0),Math.sin(0));
 
-        upgradeGui = new UpgradeGui(this);
+        upgradeGui = new UpgradeGui(p);
         upgradeGuiController = new UpgradeGuiController(upgradeGui);
 
         motionManager = new MotionManager(p);
@@ -83,7 +83,7 @@ public class ERPlayer {
         return kioskGui;
     }
 
-    public GuiController getUpgradeGuiController(){
+    public IController getUpgradeGuiController(){
         return upgradeGuiController;
     }
 

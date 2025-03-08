@@ -160,8 +160,6 @@ public class SystemManager {
         uuidPlayerHashMap.remove(p.getUniqueId());
     }
 
-
-
     public HashMap<Player, ERPlayer> getErPlayerHashMap() {
         return erPlayerHashMap;
     }

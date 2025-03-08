@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.components.CustomModelDataComponent;
 import java.util.List;
 
 /**
- * Custom Model Data Manager
+ * Custom View Data Manager
  * */
 public class CMDManager {
 

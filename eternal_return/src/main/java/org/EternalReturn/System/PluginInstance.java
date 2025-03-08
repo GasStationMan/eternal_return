@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import org.EternalReturn.System.ERPlayer.ERPlayerDebugCommand;
 import org.EternalReturn.System.ERPlayer.ERPlayerListener;
 import org.EternalReturn.System.ERPlayer.ERPlayerScript;
-import org.EternalReturn.System.ERPlayer.Gui.Inventory.GuiListener;
+import org.EternalReturn.System.ERPlayer.Gui.Inventory.InventoryGuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
 import org.bukkit.Bukkit;
@@ -52,7 +52,7 @@ public final class PluginInstance extends JavaPlugin{
 
         //GuiOpen 리스너 등록. 이런 식으로 해야 함...
         getServer().getPluginManager().registerEvents(new ERPlayerListener(systemManager), this);
-        getServer().getPluginManager().registerEvents(new GuiListener(systemManager), this);
+        getServer().getPluginManager().registerEvents(new InventoryGuiListener(systemManager), this);
         loadCommands();
 
         //온라인인 플레이어들 다시 해시맵에 등록

@@ -2,8 +2,8 @@ package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent
 
 import net.kyori.adventure.text.format.TextColor;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BLocation;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BButton;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BLocation;
 
 /**
  * Hyperloop BButton

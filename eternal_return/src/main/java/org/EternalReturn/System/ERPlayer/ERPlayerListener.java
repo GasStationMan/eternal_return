@@ -2,8 +2,8 @@ package org.EternalReturn.System.ERPlayer;
 
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent.HBButton;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BButton;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BFrame;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BButton;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

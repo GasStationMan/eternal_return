@@ -1,7 +1,7 @@
 package org.EternalReturn.System.ERPlayer;
 
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BFrame;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
 import org.EternalReturn.Util.Physics.MotionManager;
 import org.EternalReturn.Util.ScriptUtill.Script;
 import org.EternalReturn.System.SystemManager;

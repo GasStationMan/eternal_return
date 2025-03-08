@@ -1,7 +1,7 @@
 package org.EternalReturn.System.ERPlayer.Gui.Bossbars.Kiosk;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.*;
+import org.EternalReturn.Util.Gui.bossbarGui.View.*;
 import org.jetbrains.annotations.NotNull;
 
 public class KioskGui extends BFrame {

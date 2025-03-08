@@ -3,9 +3,9 @@ package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslan
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.RumiaIslandGui;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BImage;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BLocation;
-import org.EternalReturn.Util.Gui.bossbarGui.Model.BPanel;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BImage;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BLocation;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BPanel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
