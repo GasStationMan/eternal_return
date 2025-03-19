@@ -23,22 +23,17 @@ import java.util.Set;
 public class ERPlayerScript implements Script {
     private HashMap<Player,ERPlayer> erPlayerHashMap;
     private List<Marker> markerList;
-    private Plugin pluginInstance;
     private World currentWorld;
-    private CMDManager cmdManager;
 
     public void free(){
         erPlayerHashMap = null;
         markerList.clear();
         markerList = null;
-        pluginInstance = null;
         currentWorld = null;
-        cmdManager = SystemManager.getCmdManager();
     }
 
     public ERPlayerScript(){
         erPlayerHashMap = SystemManager.getInstance().getErPlayerHashMap();
-        pluginInstance = PluginInstance.getServerInstance();
         markerList = new ArrayList<>();
         currentWorld = null;
     }
@@ -64,18 +59,9 @@ public class ERPlayerScript implements Script {
 
     private void erPlayerScript(ERPlayer erPlayer, Player p){
         Set<String> tags = p.getScoreboardTags();
-
-        //if(erPlayer.getMukboActivatedTime() <= System.currentTimeMillis()){
-        //    mukboFunction(erPlayer, p, p.getAttribute(Attribute.MAX_HEALTH).getBaseValue(), p.getHealth());
-        //}
-
+        erPlayer.getSkill().activate();
         bossbarGuiUpdate(p,erPlayer,tags);
         motionManagerUpdate(erPlayer,tags);
-
-    }
-
-    private void upgradeArmorWearingUpdate(){
-
     }
 
     private void bossbarGuiUpdate(Player p, ERPlayer erPlayer, Set<String> tags){
@@ -99,27 +85,6 @@ public class ERPlayerScript implements Script {
             }
             else{
                 currentBFrame.updateMouseCursor(erPlayer);
-            }
-        }
-    }
-
-    private void mukboFunction(ERPlayer erPlayer, Player p, double playerMaxHealth, double playerCurrentHealth){
-        Inventory inventory = p.getInventory();
-        ItemStack[] inventoryContent = inventory.getContents();
-        if(playerMaxHealth * 0.8 >= playerCurrentHealth){
-            for(ItemStack item : inventoryContent){
-                CMDManager cmdManagerContainsCurrItem = cmdManager.setItem(item);
-                if(item != null
-                        && item.getType() == Material.FLOWER_BANNER_PATTERN
-                        && cmdManagerContainsCurrItem.hasStringCMD("food")){
-                    if(cmdManagerContainsCurrItem.hasFloatCMD(0.0f)){
-
-                    }
-                    else if(cmdManagerContainsCurrItem.hasFloatCMD(1.0f)){
-
-                    }
-                    erPlayer.setMukboActivatedTime(5000);
-                }
             }
         }
     }

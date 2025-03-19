@@ -6,6 +6,8 @@ import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIsland
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandHud.RumiaMapHud;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
+import org.EternalReturn.System.ERPlayer.Skill.Mukbo;
+import org.EternalReturn.System.ERPlayer.Skill.Skill;
 import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
 import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
 import org.EternalReturn.Util.Physics.MathVector.Vec2d;
@@ -30,8 +32,7 @@ public class ERPlayer {
     private Vec2d rot2dVecX;
     private Vec2d rot2dVecY;
 
-    //먹보효과 -> 나중에 가능하면 class로 따로 빼야 함.
-    private long mukboActivatedTime;
+    private Skill mukbo;
 
     public void free(){
         upgradeGuiController.free();
@@ -41,7 +42,8 @@ public class ERPlayer {
         rumiaMapHud.free();
         upgradeGui.free();
         motionManager.free();
-        
+        mukbo.free();
+
         upgradeGuiController = null;
         resurrectionGui = null;
         hyperloopGui = null;
@@ -50,6 +52,7 @@ public class ERPlayer {
         player = null;
         rumiaMapHud = null;
         motionManager = null;
+
     }
 
     public ERPlayer(Player p){
@@ -58,7 +61,7 @@ public class ERPlayer {
         rot2dVecY = new Vec2d(Math.cos(0),Math.sin(0));
 
         upgradeGui = new UpgradeGui(p);
-        upgradeGuiController = new UpgradeGuiController(upgradeGui);
+        upgradeGuiController = new UpgradeGuiController(this, upgradeGui);
 
         motionManager = new MotionManager(p);
 
@@ -67,7 +70,7 @@ public class ERPlayer {
         rumiaMapHud = new RumiaMapHud(this, "rumiaMap");
         resurrectionGui = new ResurrectionGui(this, "resurrection");
 
-        mukboActivatedTime = System.currentTimeMillis();
+        mukbo = new Mukbo(this);
     }
 
     //getter
@@ -103,8 +106,8 @@ public class ERPlayer {
         return motionManager;
     }
 
-    public long getMukboActivatedTime(){
-        return mukboActivatedTime;
+    public Skill getSkill(){
+        return mukbo;
     }
 
     //setter
@@ -130,10 +133,6 @@ public class ERPlayer {
 
     public void setCurrentOpened(BFrame currentOpened){
         this.currentOpened = currentOpened;
-    }
-
-    public void setMukboActivatedTime(long coolTime){
-        this.mukboActivatedTime = System.currentTimeMillis() + coolTime;
     }
 
     //controller

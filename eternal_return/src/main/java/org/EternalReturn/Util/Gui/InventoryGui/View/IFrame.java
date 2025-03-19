@@ -26,7 +26,7 @@ public class IFrame {
 
     public IFrame(Player player, int row){
         this.row = row;
-        this.gui = Bukkit.createInventory(player,row);
+        this.gui = Bukkit.createInventory(player,row * 9);
         this.player = player;
         this.components = new ArrayList<>(16);
     }

@@ -17,7 +17,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 
 public final class PluginInstance extends JavaPlugin{
 
-    private static Plugin serverInstance;
+    private static PluginInstance serverInstance;
     private static SystemManager systemManager;
     private static BukkitAudiences adventure;
 
@@ -84,7 +84,7 @@ public final class PluginInstance extends JavaPlugin{
         }
     }
 
-    public static Plugin getServerInstance(){
+    public static PluginInstance getServerInstance(){
         return serverInstance;
     }
 

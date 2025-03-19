@@ -28,12 +28,13 @@ public class UpgradeGuiController extends IController {
     private PluginInstance pluginInstance;
     private Enchanter enchanter;
 
-    public UpgradeGuiController(IFrame gui){
+    public UpgradeGuiController(ERPlayer erPlayer, IFrame gui){
         super(gui.getPlayer(), gui);
-        upgradeGui = gui;
-        scheduler = Bukkit.getScheduler();
-        enchanter = SystemManager.getEnchanter();
-        erPlayer = SystemManager.getInstance().getERPlayer(upgradeGui.getPlayer());
+        this.upgradeGui = gui;
+        this.scheduler = Bukkit.getScheduler();
+        this.pluginInstance = PluginInstance.getServerInstance();
+        this.enchanter = SystemManager.getEnchanter();
+        this.erPlayer = erPlayer;
     }
 
     public void free(){
@@ -45,9 +46,11 @@ public class UpgradeGuiController extends IController {
     }
 
     @Override
-    public synchronized void openGui(){
+    public void openGui(){
         super.openGui();
-        erPlayer.getPlayer().openInventory(upgradeGui.getGui());
+        scheduler.runTaskLater(pluginInstance, ()->{
+            erPlayer.getPlayer().openInventory(upgradeGui.getGui());
+        },0);
     }
 
     @Override
