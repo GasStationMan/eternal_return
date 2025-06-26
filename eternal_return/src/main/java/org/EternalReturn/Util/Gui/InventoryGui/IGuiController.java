@@ -4,7 +4,7 @@ import org.EternalReturn.Util.Gui.InventoryGui.View.GuiPos;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
-public interface IGuiController {
+public interface IGuiController{
 
     public void free();
 

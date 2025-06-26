@@ -38,8 +38,8 @@ public abstract class Skill implements FreeAble {
 
     public void activate(){
         if(isCoolDone()){
-            skillEffect();
-            setCooltime();
+            this.skillEffect();
+            this.setCooltime();
         }
     }
 
