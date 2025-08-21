@@ -4,6 +4,7 @@ import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.HyperLoopGui;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -36,6 +37,21 @@ public class ERPlayerDebugCommand implements CommandExecutor {
         if(args.length == 1 && args[0].equalsIgnoreCase("showtags")){
             p.sendMessage(tagSet.toString());
             return true;
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("summon")){
+
+            sender.sendMessage("test");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"execute as @p at @s run function animated_java:animal_bear/summon {args:{}}");
+
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("hyperloop")){
+            BFrame hyperloopGui = erPlayer.getHyperloopGui();
+            if(hyperloopGui.isOpen()){
+                hyperloopGui.close();
+            }
+            else{
+                hyperloopGui.open();
+            }
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("enchant")){
 
@@ -88,7 +104,6 @@ public class ERPlayerDebugCommand implements CommandExecutor {
                     Double.parseDouble(args[3])
             );
         }
-
         else if(args.length == 1 && args[0].equalsIgnoreCase("scoreboard")){
             ScoreboardManager scbManager = Bukkit.getScoreboardManager();
             Score data = scbManager.getMainScoreboard().getObjective("area").getScore("data");

@@ -2,7 +2,9 @@ package org.EternalReturn.Util.Gui.bossbarGui.View;
 
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TranslatableComponent;
 import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.translation.Translatable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,10 @@ public class BFontComponent extends BComponent{
         this.color = TextColor.color(0xffffff);
 
         List<Component> children = new ArrayList<>(5);
+
+
+
+
         children.add(Component.translatable("space." + -location.getX()).font(Key.key("default")));
         children.add(Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
         children.add(Component.text((char)(text + location.getY())).font(Key.key(font)));

@@ -156,6 +156,11 @@ public class ERPlayer {
         resurrectionGui.open();
     }
 
+    /**
+     * 대상 객체 : ERPlayer <br>
+     * 반환 : 열려있는 해당 GUI의 이름 (String) <br>
+     * 역할 : 열려있는 해당 GUI를 닫고, 해당 GUI의 이름을 반환함.
+     * */
     public String closeCurrentOpenedGui(){
         currentOpened.close();
         String guiName = currentOpened.getName();

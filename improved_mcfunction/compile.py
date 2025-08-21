@@ -17,7 +17,7 @@ from lexer import isMcNotDirectionVector
 
 
 
-class code_line(_command_):
+class code_line():
     def __init__(self):
         #self.node의 값에 따른 타입
         # 1  : 들여쓰기 된 곳 (execute, function, begin)
