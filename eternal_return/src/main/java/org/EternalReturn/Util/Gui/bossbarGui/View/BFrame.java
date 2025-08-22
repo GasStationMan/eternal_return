@@ -145,7 +145,7 @@ public class BFrame implements BComponentManager{
                 }
             }
         }
-        bufferShower.name(Component.text("").children(components));
+        bufferShower.name(Component.empty().children(components));
     }
 
     /**
@@ -213,7 +213,7 @@ public class BFrame implements BComponentManager{
 
         if(0 < Math.abs(distanceOfAngleX) || 0 < Math.abs(distanceOfAngleY)){
 
-            moveMousePointer(
+            this.moveMousePointer(
                     (int)distanceOfAngleX,
                     (int)distanceOfAngleY
             );
@@ -277,5 +277,9 @@ public class BFrame implements BComponentManager{
 
     public String getName() {
         return name;
+    }
+
+    public BossBar getBufferShower(){
+        return this.bufferShower;
     }
 }

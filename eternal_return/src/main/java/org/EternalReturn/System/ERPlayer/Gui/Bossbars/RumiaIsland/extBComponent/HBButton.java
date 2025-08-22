@@ -15,7 +15,9 @@ public class HBButton extends BButton {
     public HBButton(int sizeX, int sizeY, BLocation location, String buttonName) {
         super(sizeX, sizeY,
                 "map/hyperloop/default/" + buttonName,
-                "map/hyperloop/hover/" + buttonName, location, buttonName);
+                "map/hyperloop/hover/" + buttonName,
+                location,
+                buttonName);
 
 
         this.zoneState = SystemManager.GREEN_ZONE;

@@ -1,5 +1,10 @@
 package org.EternalReturn.System.ERPlayer;
 
+import net.kyori.adventure.bossbar.BossBar;
+import net.kyori.adventure.key.Key;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.ComponentLike;
+import net.kyori.adventure.text.serializer.json.JSONComponentSerializer;
 import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.HyperLoopGui;
 import org.EternalReturn.System.PluginInstance;
@@ -38,10 +43,17 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             p.sendMessage(tagSet.toString());
             return true;
         }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("summon")){
+        else if(args.length == 1 && args[0].equalsIgnoreCase("bossbarTest")){
 
             sender.sendMessage("test");
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"execute as @p at @s run function animated_java:animal_bear/summon {args:{}}");
+            //Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"execute as @p at @s run function animated_java:animal_bear/summon {args:{}}");
+            ERPlayer erp = PluginInstance.getSystemManager().getERPlayer(p);
+            erp.getHyperloopGui().open();
+            BossBar bossBar = erp.getHyperloopGui().getBufferShower();
+
+
+            bossBar.name(Component.translatable("\u1000").font(Key.key("minecraft:map/hyperloop/default/alley")));
+
 
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("hyperloop")){

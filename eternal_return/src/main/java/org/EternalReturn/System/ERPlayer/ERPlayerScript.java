@@ -108,6 +108,7 @@ public class ERPlayerScript implements Script {
 
         for(String tag : tags){
             try{
+
                 if(tag.startsWith("parabola_")){
                     String[] args = tag.split("_");
 

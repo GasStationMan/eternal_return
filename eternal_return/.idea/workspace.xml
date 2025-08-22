@@ -14,24 +14,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerDebugCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerDebugCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/Gui/Bossbars/RumiaIsland/extBComponent/HBButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/Gui/Bossbars/RumiaIsland/extBComponent/HBButton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Gui/bossbarGui/View/BFontComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Gui/bossbarGui/View/BFontComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Gui/bossbarGui/View/BFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Gui/bossbarGui/View/BFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ERPlayer.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Mukbo.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ERPlayerDebugCommand.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PluginInstance.class.uniqueId1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerDebugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerDebugCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/Gui/Bossbars/RumiaIsland/extBComponent/HBButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/Gui/Bossbars/RumiaIsland/extBComponent/HBButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BFontComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BFontComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../improved_mcfunction/compile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../improved_mcfunction/compile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../improved_mcfunction/project/eternal_return/entity/hitbox.mcfunction" beforeDir="false" afterPath="$PROJECT_DIR$/../improved_mcfunction/project/eternal_return/entity/hitbox.mcfunction" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../improved_mcfunction/project/eternal_return/entity/hitbox.text" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +109,7 @@
     &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.eternal_return [build].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.eternal_return [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.소스 다운로드.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,

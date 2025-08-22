@@ -4,7 +4,10 @@ import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TranslatableComponent;
 import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
+import net.kyori.adventure.text.serializer.json.JSONComponentSerializer;
 import net.kyori.adventure.translation.Translatable;
+import org.intellij.lang.annotations.Subst;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +19,12 @@ public class BFontComponent extends BComponent{
     protected char text;
     protected String font;
     protected Component component;
-    protected List<Component> metaData;
     protected TextColor color;
 
     public void free(){
         super.free();
         font = null;
         component = null;
-        metaData.clear();
-        metaData = null;
         location = null;
         color = null;
     }
@@ -44,19 +44,39 @@ public class BFontComponent extends BComponent{
         this.location = location;
         this.color = TextColor.color(0xffffff);
 
+
+        int mouseY = text + location.getY();
+        component = makeComponentWith(mouseY, this.font);
+
+    }
+
+    private String space(int space){
+        return "space." + space;
+    }
+
+    /**
+     * Kyori text component를 최종적으로 만들어낸다.<br>
+     * 이는 bossbar에 표시하기 위한 요소 중 하나이다.<br>
+     * getComponent() 메소드로 얻어올 수 있다.
+     * */
+    private Component makeComponentWith(int mouseY, String font){
         List<Component> children = new ArrayList<>(5);
+        children.add(Component.translatable(space(-location.getX())));
+        children.add(Component.translatable(space(-sizeX / 2)));
+        children.add(Component.text((char)mouseY).font(Key.key(font)));
+        children.add(Component.translatable(space(-sizeX / 2)));
+        children.add(Component.translatable(space(location.getX())));
+        return Component.empty().children(children);
+    }
 
-
-
-
-        children.add(Component.translatable("space." + -location.getX()).font(Key.key("default")));
-        children.add(Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        children.add(Component.text((char)(text + location.getY())).font(Key.key(font)));
-        children.add(Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        children.add(Component.translatable("space." + location.getX()).font(Key.key("default")));
-
-        component = Component.text("").children(children);
-        metaData = children;
+    private Component makeComponentWith(int mouseY, String font, TextColor color){
+        List<Component> children = new ArrayList<>(5);
+        children.add(Component.translatable(space(-location.getX())));
+        children.add(Component.translatable(space(-sizeX / 2)));
+        children.add(Component.text((char)mouseY).font(Key.key(font)).color(color));
+        children.add(Component.translatable(space(-sizeX / 2)));
+        children.add(Component.translatable(space(location.getX())));
+        return Component.empty().children(children);
     }
 
     //getter
@@ -80,40 +100,19 @@ public class BFontComponent extends BComponent{
 
     //updater
     protected void updateComponent(){
-
         int mouseY = text + location.getY();
-
-        metaData.set(0, Component.translatable("space." + -location.getX()).font(Key.key("default")));
-        metaData.set(1, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        metaData.set(2, Component.text((char)mouseY).color(this.color).font(Key.key(font)));
-        metaData.set(3, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        metaData.set(4, Component.translatable("space." + location.getX()).font(Key.key("default")));
-        component = Component.text("").children(metaData);
+        component = makeComponentWith(mouseY, this.font);
     }
 
     protected void updateComponent(TextColor color){
         int mouseY = text + location.getY();
         this.color = color;
-
-        metaData.set(0, Component.translatable("space." + -location.getX()).font(Key.key("default")));
-        metaData.set(1, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        metaData.set(2, Component.text((char)mouseY).color(color).font(Key.key(font)));
-        metaData.set(3, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        metaData.set(4, Component.translatable("space." + location.getX()).font(Key.key("default")));
-        component = Component.text("").children(metaData);
-
+        component = makeComponentWith(mouseY, this.font, this.color);
     }
 
     protected void updateComponent(String font){
-
         int mouseY = text + location.getY();
-
-        metaData.set(0, Component.translatable("space." + -location.getX()).font(Key.key("default")));
-        metaData.set(1, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        metaData.set(2, Component.text((char)mouseY).color(this.color).font(Key.key(font)));
-        metaData.set(3, Component.translatable("space." + -sizeX / 2).font(Key.key("default")));
-        metaData.set(4, Component.translatable("space." + location.getX()).font(Key.key("default")));
-        component = Component.text("").children(metaData);
+        component = makeComponentWith(mouseY, font);
     }
 
 }
