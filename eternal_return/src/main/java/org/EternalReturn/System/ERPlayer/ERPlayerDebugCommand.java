@@ -9,9 +9,16 @@ import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.HyperLoopGui;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
+import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntity;
 import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
+import org.EternalReturn.Util.Physics.Geometry.StraightLine.InfStraightLine;
+import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -43,17 +50,39 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             p.sendMessage(tagSet.toString());
             return true;
         }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("bossbarTest")){
+        else if(args.length == 1 && args[0].equalsIgnoreCase("ray")){
 
-            sender.sendMessage("test");
-            //Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"execute as @p at @s run function animated_java:animal_bear/summon {args:{}}");
-            ERPlayer erp = PluginInstance.getSystemManager().getERPlayer(p);
-            erp.getHyperloopGui().open();
-            BossBar bossBar = erp.getHyperloopGui().getBufferShower();
+            sender.sendMessage("rayTest");
+
+            Location loc = p.getLocation();
+            World currentWorld = p.getWorld();
+            Vec3d pos = new Vec3d(loc.getX(),loc.getY(),loc.getZ());
+            Vec3d dir = new Vec3d(loc.getDirection().getX(), loc.getDirection().getY(), loc.getDirection().getZ());
+            InfStraightLine line = new InfStraightLine(dir.getUnit(), pos);
+
+            for(int i = 0 ; i < 10 ; i ++){
+                Vec3d point = line.getDot(i);
+                Block block = currentWorld.getBlockAt(
+                        (int)point.getX(),
+                        (int)point.getY(),
+                        (int)point.getZ()
+                );
+                p.sendMessage(
+                        "(" +
+                        point.getX() + "," +
+                        point.getY() + "," +
+                        point.getZ() + ") " +
+                                block.getBlockData().getMaterial());
+
+            }
 
 
-            bossBar.name(Component.translatable("\u1000").font(Key.key("minecraft:map/hyperloop/default/alley")));
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("test")){
 
+            sender.sendMessage("test03");
+            AJEntity ajEntity = new AJEntity("animal_alpha");
+            ajEntity.summon(PluginInstance.getServerInstance(), p.getWorld(), p.getLocation());
 
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("hyperloop")){

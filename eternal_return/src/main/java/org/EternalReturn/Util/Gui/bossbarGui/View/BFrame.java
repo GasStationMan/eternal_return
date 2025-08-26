@@ -188,7 +188,7 @@ public class BFrame implements BComponentManager{
      * 마우스커서 위치 업데이트 기능 & 또한 커서가 버튼 위에 있는지 확인하는 기능 <br>
      * getDegreeDistance(Vec2d secondVector, Vec2d currentVector)함수를 사용함. <br>
      * */
-    public void updateMouseCursor(ERPlayer erPlayer){
+    public void updateMouseCursor(ERPlayer erPlayer, int emplifier){
         Player p = erPlayer.getPlayer();
         Location location = p.getLocation();
         float yaw = location.getYaw() * 2;
@@ -214,8 +214,8 @@ public class BFrame implements BComponentManager{
         if(0 < Math.abs(distanceOfAngleX) || 0 < Math.abs(distanceOfAngleY)){
 
             this.moveMousePointer(
-                    (int)distanceOfAngleX,
-                    (int)distanceOfAngleY
+                    (int)distanceOfAngleX * emplifier,
+                    (int)distanceOfAngleY * emplifier
             );
 
             if(Math.abs(pitch) == 360){

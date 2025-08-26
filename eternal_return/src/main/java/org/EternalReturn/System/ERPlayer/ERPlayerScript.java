@@ -57,6 +57,9 @@ public class ERPlayerScript implements Script {
         }
     }
 
+    /**
+     * FROM : public void update()
+     * */
     private void erPlayerScript(ERPlayer erPlayer, Player p){
         Set<String> tags = p.getScoreboardTags();
         erPlayer.getSkill().activate();
@@ -64,6 +67,9 @@ public class ERPlayerScript implements Script {
         motionManagerUpdate(erPlayer,tags);
     }
 
+    /**
+     * FROM : private void erPlayerScript()
+     * */
     private void bossbarGuiUpdate(Player p, ERPlayer erPlayer, Set<String> tags){
 
         BFrame currentBFrame = erPlayer.getCurrentOpened();
@@ -84,11 +90,14 @@ public class ERPlayerScript implements Script {
                 tags.remove("use_" + erPlayer.closeCurrentOpenedGui());
             }
             else{
-                currentBFrame.updateMouseCursor(erPlayer);
+                currentBFrame.updateMouseCursor(erPlayer, 4);
             }
         }
     }
 
+    /**
+     * FROM : private void erPlayerScript()
+     * */
     private void motionManagerUpdate(ERPlayer erPlayer, Set<String> tags){
         MotionManager motionManager = erPlayer.getMotionManager();
         if(tags.contains("vector")){
@@ -103,6 +112,9 @@ public class ERPlayerScript implements Script {
         }
     }
 
+    /**
+     * FROM : private void motionManagerUpdate()
+     * */
     private void vectorTagFunction(Set<String> tags, ERPlayer erPlayer){
         MotionManager motionManager = erPlayer.getMotionManager();
 

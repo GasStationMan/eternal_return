@@ -54,7 +54,6 @@ public class Mukbo extends Skill{
                 inventory.setContents(invContent);
                 Arrays.fill(invContent,null);
                 return true;
-
             }
 
         }
