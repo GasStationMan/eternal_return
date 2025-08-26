@@ -67,13 +67,14 @@ public class AJEntity {
 
     /**
      * 매개변수로 전달된 엔티티를 기준으로<br>
-     * AJEntity를 소환한다. 해당 마커는 제거되지 않는다.<br>
+     * AJEntity를 소환한다. 해당 엔티티는 제거되지 않는다.<br>
      * @ATTENTION :  해당 객체가 GC에 의해 소멸될 경우, 해당 엔티티 묶음은 그대로 월드에 남아 있을 수 있음.
      * */
     public void summon(Entity summoner){
         summoner.getScoreboardTags().add("AJEntitySummoner");
         String command = "execute as @e[tag=AJEntitySummoner] at @s run function animated_java:" + this.name + "/summon {args:0}";
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+        //Bukkit.getServer().getPluginManager().callEvent(new AJEntitySummonedEvent(this));
     }
 
     /**

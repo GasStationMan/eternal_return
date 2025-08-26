@@ -15,18 +15,18 @@ public class Vec3d{
     //static
     public static Vec3d crossProd(Vec3d v0, Vec3d v1){
 
-        double fx = v0.getX();
-        double fy = v0.getY();
-        double fz = v0.getZ();
+        double x0 = v0.getX();
+        double y0 = v0.getY();
+        double z0 = v0.getZ();
 
-        double sx = v1.getX();
-        double sy = v1.getY();
-        double sz = v1.getZ();
+        double x1 = v1.getX();
+        double y1 = v1.getY();
+        double z1 = v1.getZ();
 
         return new Vec3d(
-                fz * sx - fx * sz,
-                fx * sy - fy * sx,
-                fy * sz - fz * sy);
+                y0 * z1 - z0 * y1,
+                x0 * z1 - z0 * x1,
+                x0 * y1 - y0 * x1);
     }
 
     public static double dotProd(Vec3d v0, Vec3d v1){
@@ -82,7 +82,7 @@ public class Vec3d{
     public Vec3d proj(Vec3d v){
         return Vec3d.scrlPrd(
                 v.copy(),
-                Vec3d.dotProd(v,this)/v.getScaleSquare()
+                Vec3d.dotProd(v,this)/v.getSquareScale()
         );
     }
 
@@ -104,25 +104,25 @@ public class Vec3d{
 
     public Vec3d crossProd(Vec3d v){
 
-        double fx = x;
-        double fy = y;
-        double fz = z;
+        double x0 = x;
+        double y0 = y;
+        double z0 = z;
 
-        double sx = v.getX();
-        double sy = v.getY();
-        double sz = v.getZ();
+        double x1 = v.getX();
+        double y1 = v.getY();
+        double z1 = v.getZ();
 
         return new Vec3d(
-                fz * sx - fx * sz,
-                fx * sy - fy * sx,
-                fy * sz - fz * sy);
+                y0 * z1 - z0 * y1,
+                x0 * z1 - z0 * x1,
+                x0 * y1 - y0 * x1);
     }
 
     /**
      * 해당 벡터(v)의 크기의 제곱을 반환한다.
      * @return |v|^2
      * */
-    public double getScaleSquare(){
+    public double getSquareScale(){
         return this.dotProd(this);
     }
 
@@ -131,7 +131,7 @@ public class Vec3d{
      * @return |v|
      * */
     public double getMag(){
-        return Math.sqrt(getScaleSquare());
+        return Math.sqrt(getSquareScale());
     }
 
     public double getX(){
@@ -186,8 +186,13 @@ public class Vec3d{
     /**
      * 해당 벡터의 단위 벡터를 구한다.
      * */
-    public Vec3d getUnit() {
+    public Vec3d normalize() {
         return Vec3d.scrlDiv(this.copy(),this.getMag());
+    }
+
+    @Override
+    public String toString(){
+        return "< " + this.x + " , " + this.y + " , " + this.z + " >";
     }
 }
 

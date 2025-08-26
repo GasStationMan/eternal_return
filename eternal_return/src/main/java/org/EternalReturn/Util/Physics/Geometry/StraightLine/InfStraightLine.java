@@ -8,9 +8,13 @@ public class InfStraightLine {
     private Vec3d direction;
 
     private Vec3d position;
-
+    
+    /**
+     * direction 벡터와 position 벡터로 하나의 유일한 직선을 결정. <br>
+     * direction 벡터는 normalize되어 전달됨.
+     * */
     public InfStraightLine(Vec3d direction, Vec3d position){
-        this.direction = direction;
+        this.direction = direction.normalize();
         this.position = position;
     }
 
@@ -24,6 +28,12 @@ public class InfStraightLine {
     }
 
     //getter
+
+    /**
+     * 시간 t 후의 점의 위치를 구하는 것과 같은 역할을 하는 함수이다.<br>
+     * t = 0인 경우에는 getPosition()과 같은 값을 반환한다.<br>
+     * t는 음수 또한 가능하다.
+     * */
     public Vec3d getDot(double t){
         return new Vec3d(
                 direction.getX() * t + position.getX(),
@@ -66,16 +76,19 @@ public class InfStraightLine {
 
         Mat3x3 m = new Mat3x3(Vec3d.sub(pos2,pos1), dir1, Vec3d.crossProd(dir1,dir2));
 
-        double D = Vec3d.crossProd(dir1, dir2).getScaleSquare();
+        double D = Vec3d.crossProd(dir1, dir2).getSquareScale();
 
-        // 분모가 0에 가까우면 벡터를 반환하지 않음.
+        // 분모가 0에 가까우면 postion의 벡터를 반환하지 않음.
         // 사실상 평행이기 때문.
-        if(-0.0000001 <= D && D <= 0.0000001){
+        if(-1E-7 <= D && D <= 1E-7){
             return null;
         }
 
-        double t = m.getDet() / Vec3d.crossProd(dir1, dir2).getScaleSquare();
+        double t = m.getDet() / Vec3d.crossProd(dir1, dir2).getSquareScale();
 
-        return line1.getDot(t); //t를 구한 뒤 점을 반환
+        if(t < 0){
+            return null;
+        }
+        return line2.getDot(t); //t를 구한 뒤 점을 반환
     }
 }

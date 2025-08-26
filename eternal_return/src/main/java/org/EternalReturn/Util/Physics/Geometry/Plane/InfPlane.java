@@ -1,28 +1,31 @@
 package org.EternalReturn.Util.Physics.Geometry.Plane;
 
+import org.EternalReturn.Util.Physics.Geometry.StraightLine.InfStraightLine;
 import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 
 /**
  * 무한평면을 표현하는 객체임.
  * */
-public class InfinitePlane {
+public class InfPlane {
 
     private Vec3d normal;
 
     private Vec3d position;
 
     // n * ( x - p ) = 0
-    public InfinitePlane(Vec3d normal, Vec3d position){
+    public InfPlane(Vec3d normal, Vec3d position){
         this.normal = normal;
         this.position = position;
     }
 
     /**
-     * 해당 점 (Vec3d)가 평면 위에 있는지 확인하는 함수
+     * 해당 점 (Vec3d)가 평면 위에 있는지 확인하는 함수 <br>
+     * +- 1e-7 오차까지 허용
      * @return 해당 평면 위에 매개변수로 전달된 점이 존재하는 지를 참 거짓으로 반환.
      * */
     public boolean dotIsOnPlane(Vec3d dot){
-        return 0 == normal.dotProd(Vec3d.sub(dot,position));
+        double det = normal.dotProd(Vec3d.sub(dot,position));
+        return -1E-7 < det && det < 1E-7;
     }
 
     //getters
@@ -46,6 +49,18 @@ public class InfinitePlane {
      * */
     public double getC(){
         return this.normal.dotProd(this.position);
+    }
+
+    public Vec3d isIntersectWith(InfStraightLine line){
+        double det = Vec3d.dotProd(this.normal, line.getDirection());
+
+        if(-1E-7 < det && det < 1E-7){
+            return null;
+        }
+
+        return line.getDot(
+                Vec3d.dotProd(this.normal, Vec3d.sub(this.position, line.getPosition())) / det
+        );
     }
 
     //setters

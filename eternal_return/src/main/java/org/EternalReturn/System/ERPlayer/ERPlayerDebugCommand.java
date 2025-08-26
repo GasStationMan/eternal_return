@@ -1,24 +1,20 @@
 package org.EternalReturn.System.ERPlayer;
 
-import net.kyori.adventure.bossbar.BossBar;
-import net.kyori.adventure.key.Key;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.ComponentLike;
-import net.kyori.adventure.text.serializer.json.JSONComponentSerializer;
 import org.EternalReturn.System.AreaSystem.AreaGraph;
+import org.EternalReturn.System.ERAnimal.Alpha;
+import org.EternalReturn.System.ERAnimal.ERAnimal;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.HyperLoopGui;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntity;
 import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
+import org.EternalReturn.Util.Physics.Geometry.Cylinder.Cylinder;
 import org.EternalReturn.Util.Physics.Geometry.StraightLine.InfStraightLine;
+import org.EternalReturn.Util.Physics.Geometry.Collider;
 import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -34,6 +30,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Set;
 
 public class ERPlayerDebugCommand implements CommandExecutor {
+
+    private Collider testCollider;
+
+    private ERAnimal testAnimal;
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -56,33 +56,67 @@ public class ERPlayerDebugCommand implements CommandExecutor {
 
             Location loc = p.getLocation();
             World currentWorld = p.getWorld();
-            Vec3d pos = new Vec3d(loc.getX(),loc.getY(),loc.getZ());
-            Vec3d dir = new Vec3d(loc.getDirection().getX(), loc.getDirection().getY(), loc.getDirection().getZ());
-            InfStraightLine line = new InfStraightLine(dir.getUnit(), pos);
+            Vec3d rayPos = new Vec3d(loc.getX(),loc.getY() + 1.5d,loc.getZ());
+            Vec3d rayDir = new Vec3d(loc.getDirection().getX(), loc.getDirection().getY(), loc.getDirection().getZ());
+            InfStraightLine line = new InfStraightLine(rayDir, rayPos);
 
-            for(int i = 0 ; i < 10 ; i ++){
-                Vec3d point = line.getDot(i);
-                Block block = currentWorld.getBlockAt(
-                        (int)point.getX(),
-                        (int)point.getY(),
-                        (int)point.getZ()
-                );
-                p.sendMessage(
-                        "(" +
-                        point.getX() + "," +
-                        point.getY() + "," +
-                        point.getZ() + ") " +
-                                block.getBlockData().getMaterial());
+            Cylinder cylinder = (Cylinder)this.testCollider;
+            //cylinder.getPointOfIntersectWith(line);
 
+            //p.sendMessage(dir + " * t + " + pos);
+
+
+            if(!cylinder.isIntersectWith(line)){
+                p.sendMessage("충돌x");
+            }
+            else{
+                p.sendMessage("Intersect! -> ");
+                p.sendMessage(cylinder.getPointOfIntersectWith(line).toString());
             }
 
 
-        }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("test")){
+//            for(int i = 0 ; i < 10 ; i ++){
+//                Vec3d point = line.getDot(i);
+//                Block block = currentWorld.getBlockAt(
+//                        (int)point.getX(),
+//                        (int)point.getY(),
+//                        (int)point.getZ()
+//                );
+//                p.sendMessage(
+//                        "(" +
+//                        point.getX() + "," +
+//                        point.getY() + "," +
+//                        point.getZ() + ") " +
+//                                block.getBlockData().getMaterial());
+//
+//            }
 
-            sender.sendMessage("test03");
-            AJEntity ajEntity = new AJEntity("animal_alpha");
-            ajEntity.summon(PluginInstance.getServerInstance(), p.getWorld(), p.getLocation());
+
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("summonCollider")){
+
+            Location loc = p.getLocation();
+
+            Vec3d pos;
+
+            Collider collider = new Cylinder(
+                    new Vec3d(0,1,0),
+                    pos = new Vec3d(loc.getX(),loc.getY(),loc.getZ()),
+                    1.0,
+                    5.0
+            );
+
+            p.sendMessage(collider.toString() + "at pos " + pos);
+
+            this.testCollider = collider;
+
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("alpha")){
+
+            testAnimal = new Alpha(p.getLocation());
+            testAnimal.summon(PluginInstance.getServerInstance(),p.getWorld(),p.getLocation());
+            p.sendMessage(testAnimal.toString());
+
 
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("hyperloop")){
