@@ -1,7 +1,5 @@
-package org.EternalReturn.Util.Physics.Geometry.Cylinder;
+package org.EternalReturn.Util.Physics.Geometry;
 
-import org.EternalReturn.Util.Physics.Geometry.StraightLine.InfStraightLine;
-import org.EternalReturn.Util.Physics.Geometry.Collider;
 import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 
 public class InfCylinder implements Collider {
@@ -14,6 +12,7 @@ public class InfCylinder implements Collider {
         this.center = line;
         this.radius = radius;
     }
+
 
     /**
      * 해당 원기둥과 매개변수로 전달된 직선의 교차점을 구한다.
@@ -62,6 +61,11 @@ public class InfCylinder implements Collider {
 
         return InfStraightLine.getIntersectPoint(moved,line);
 
+    }
+
+    @Override
+    public boolean isIntersectWith(InfStraightLine line) {
+        return getPointOfIntersectWith(line) != null;
     }
 
 }

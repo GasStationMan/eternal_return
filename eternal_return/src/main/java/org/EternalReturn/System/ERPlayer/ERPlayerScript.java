@@ -5,15 +5,10 @@ import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
 import org.EternalReturn.Util.Physics.MotionManager;
 import org.EternalReturn.Util.ScriptUtill.Script;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.itemUtill.CMDManager;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Marker;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +28,7 @@ public class ERPlayerScript implements Script {
     }
 
     public ERPlayerScript(){
-        erPlayerHashMap = SystemManager.getInstance().getErPlayerHashMap();
+        erPlayerHashMap = SystemManager.getInstance().getERPlayerHashMap();
         markerList = new ArrayList<>();
         currentWorld = null;
     }

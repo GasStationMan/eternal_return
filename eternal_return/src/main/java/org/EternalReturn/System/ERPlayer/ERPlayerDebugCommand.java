@@ -4,11 +4,11 @@ import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.ERAnimal.Alpha;
 import org.EternalReturn.System.ERAnimal.ERAnimal;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.HyperLoopGui;
-import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
+import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
 import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
-import org.EternalReturn.Util.Physics.Geometry.Cylinder.Cylinder;
-import org.EternalReturn.Util.Physics.Geometry.StraightLine.InfStraightLine;
+import org.EternalReturn.Util.Physics.Geometry.Cylinder;
+import org.EternalReturn.Util.Physics.Geometry.InfStraightLine;
 import org.EternalReturn.Util.Physics.Geometry.Collider;
 import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 import org.bukkit.Bukkit;
@@ -18,6 +18,7 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
@@ -71,7 +72,7 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             }
             else{
                 p.sendMessage("Intersect! -> ");
-                p.sendMessage(cylinder.getPointOfIntersectWith(line).toString());
+                //p.sendMessage(cylinder.getPointOfIntersectWith(line).toString());
             }
 
 
@@ -111,12 +112,18 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             this.testCollider = collider;
 
         }
+        else if (args.length == 1 && args[0].equalsIgnoreCase("testAJ")) {
+
+            Entity root = testAnimal.getRootEntity();
+            p.sendMessage(root + " : " + root.getScoreboardTags());
+            testAnimal.remove();
+
+        }
         else if(args.length == 1 && args[0].equalsIgnoreCase("alpha")){
 
             testAnimal = new Alpha(p.getLocation());
-            testAnimal.summon(PluginInstance.getServerInstance(),p.getWorld(),p.getLocation());
+            AJEntityManager.summon(testAnimal,p.getLocation());
             p.sendMessage(testAnimal.toString());
-
 
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("hyperloop")){

@@ -4,19 +4,17 @@ import org.EternalReturn.System.PluginInstance;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Marker;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.scheduler.BukkitScheduler;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.HashMap;
-import java.util.Objects;
-import java.util.Vector;
 
-public class AJEntity {
+
+
+/**
+ *
+ * */
+public abstract class AJEntity {
+
+    private World world;
 
     public enum ANIMATION_STATE{
         PLAY,
@@ -28,7 +26,7 @@ public class AJEntity {
 
     private String name;
 
-    private HashMap<String, String> animationMap;
+    private HashMap<String, AJAnimationInfoBlock> animationMap;
 
     /**
      * 현재 실행 중인 애니메이션의 상태 <br>
@@ -42,48 +40,28 @@ public class AJEntity {
      * */
     private String animationPlaying;
 
+    private long animationEndTime;
+
     public AJEntity(String name) {
         this.name = name;
         this.animationMap = new HashMap<>();
     }
 
-    /**
-     * 해당 World, Location에 엔티티(Marker)를 임시로 소환, 그 엔티티를 기준으로<br>
-     * AJEntity를 소환한다. 해당 마커는 1틱 뒤에 제거된다.<br>
-     * @ATTENTION :  해당 객체가 GC에 의해 소멸될 경우, 해당 엔티티 묶음은 그대로 월드에 남아 있을 수 있음.
-     * */
-    public void summon(Plugin plugin, World world, Location loc){
-        Entity summoner = world.spawnEntity(loc, EntityType.MARKER);
+    protected abstract void afterSummoning(Location location);
 
-        this.summon(summoner);
+    protected abstract void afterSpawnEvent(Entity rootEntity);
 
-        //Bukkit.getScheduler().runTaskLater(plugin, ()->{
-        //    summoner.remove();
-        //},1);
-        //vvvv해당 표현식은 위의 표현식과 같음vvvv
-        //1틱 뒤에 해당 엔티티를 제거함.
-        Bukkit.getScheduler().runTaskLater(plugin, summoner::remove,1);
-    }
+    protected abstract void script();
 
     /**
-     * 매개변수로 전달된 엔티티를 기준으로<br>
-     * AJEntity를 소환한다. 해당 엔티티는 제거되지 않는다.<br>
-     * @ATTENTION :  해당 객체가 GC에 의해 소멸될 경우, 해당 엔티티 묶음은 그대로 월드에 남아 있을 수 있음.
+     * 현재 AJEntity를 제거한다. <br>
+     * AJEntity.remove(AJEntity ajEntity, Entity rootEntity){...}를 내부적으로 호출한다.<br>
      * */
-    public void summon(Entity summoner){
-        summoner.getScoreboardTags().add("AJEntitySummoner");
-        String command = "execute as @e[tag=AJEntitySummoner] at @s run function animated_java:" + this.name + "/summon {args:0}";
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
-        //Bukkit.getServer().getPluginManager().callEvent(new AJEntitySummonedEvent(this));
-    }
-
-    /**
-     * 현재 AJEntity를 제거한다.
-     * */
-    public void destroy(){
+    public void remove(){
         Bukkit.dispatchCommand(
-                Objects.requireNonNull(rootEntity),
-                "function animated_java:" + this.name + "/remove/this");
+                Bukkit.getConsoleSender(),
+                getExecuteAsRunFuncPrefix() + "animated_java:" + this.name + "/remove/this");
+        AJEntityManager.remove(this,rootEntity);
     }
 
     /**
@@ -93,27 +71,49 @@ public class AJEntity {
      *     .put(animationState,"animated_java:"+this.name+"/animations/"+animationState);
      * <code/>
      * */
-    public void registerAnimation(String animationState){
-        animationMap.put(animationState,"animated_java:"+this.name+"/animations/"+animationState);
+    public void registerAnimation(String animationState,double durationSeconds){
+        animationMap.put(
+                animationState,
+                new AJAnimationInfoBlock(
+                         "animated_java:"+this.name+"/animations/"+animationState,
+                        (long)durationSeconds * 20
+                )
+        );
     }
 
     /**
-     * 애니에이션을 실행하는 메소드
+     * 애니에이션을 실행하는 메소드 <br>
+     * 현재 이 메소드를 통해 실행하려는 애니메이션과 실행 중인 애니메이션이 같은 경우, 아무 일도 일어나지 않음. <br>
+     * 다를 경우. 해당 애니메이션으로 바로 진행됨. <br>
      * @throws : AJAnimationNotFoundException
      * */
-    private void playAnim(String selectedAnimation)throws AJAnimationNotFoundException{
-        String animation = this.animationMap.get(selectedAnimation);
+    public void playAnim(String selectedAnimation)throws AJAnimationNotFoundException{
+
+        AJAnimationInfoBlock acb = this.animationMap.get(selectedAnimation);
+
+        long durationTicks = acb.getAnimationDurationTicks();
+
+        long currentTime = System.currentTimeMillis();
+
+        String animation = acb.getAnimation();
+
+        if(animationEndTime > currentTime){
+            return;
+        }
+
         if(animation == null){
             throw new AJAnimationNotFoundException(
                     "AJAnimation is not found : \"" + selectedAnimation + "\"\n"
-                    +"Soultion : Check the animated_java project name and your JAVA code");
+                    +"Solution : Check the animated_java project name and your JAVA code");
         }
 
         this.animationPlaying = animation;
+        this.animationEndTime = durationTicks * 50 + currentTime;
         this.animationState = ANIMATION_STATE.PLAY;
-        Bukkit.dispatchCommand(
-                Objects.requireNonNull(rootEntity),
-                "function " + animation + "/play");
+        String command = getExecuteAsRunFuncPrefix() + animation + "/play";
+        PluginInstance.dfLogUTF8(command);
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+
 
     }
 
@@ -124,7 +124,9 @@ public class AJEntity {
     public void pauseAnim(){
 
         this.animationState = ANIMATION_STATE.PAUSE;
-        Bukkit.dispatchCommand(rootEntity,"function " + animationPlaying + "/pause");
+        Bukkit.dispatchCommand(
+                Bukkit.getConsoleSender(),
+                getExecuteAsRunFuncPrefix() + animationPlaying + "/pause");
     }
 
     /**
@@ -133,9 +135,19 @@ public class AJEntity {
      * getAnimationState()메소드로 얻을 수 있는 값은 ANIMATION_STOP의 값이 된다.
      * */
     public void stopAnim(){
-        this.animationPlaying = null;
+        Bukkit.dispatchCommand(
+                Bukkit.getConsoleSender(),
+                getExecuteAsRunFuncPrefix() + animationPlaying + "/stop");
         this.animationState = ANIMATION_STATE.STOP;
-        Bukkit.dispatchCommand(rootEntity,"function " + animationPlaying + "/stop");
+        this.animationPlaying = null;
+    }
+
+    /**
+     * 다음 문자열을 반환한다.
+     * @return "execute as "+ rootEntity.getUniqueId() +" run function "
+     * */
+    private String getExecuteAsRunFuncPrefix(){
+        return "execute as "+ rootEntity.getUniqueId() +" run function ";
     }
 
     //getter
@@ -166,6 +178,23 @@ public class AJEntity {
      * */
     public Entity getRootEntity(){
         return this.rootEntity;
+    }
+
+    /**
+     * 현재 AJEntity가 처리되고 있는 World를 가져온다.
+     * */
+    public World getWorld(){
+        return this.world;
+    }
+
+    //setter
+
+    public void setRootEntity(Entity entity){
+        this.rootEntity = entity;
+    }
+
+    public void setWorld(World world){
+        this.world = world;
     }
 
 }

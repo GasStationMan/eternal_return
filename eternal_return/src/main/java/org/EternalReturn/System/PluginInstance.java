@@ -8,17 +8,19 @@ import org.EternalReturn.System.ERPlayer.ERPlayerListener;
 import org.EternalReturn.System.ERPlayer.ERPlayerScript;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.InventoryGuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityListener;
+import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
+import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityScript;
 import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 public final class PluginInstance extends JavaPlugin{
 
     private static PluginInstance serverInstance;
+    private static AJEntityManager ajEntityManager;
     private static SystemManager systemManager;
     private static BukkitAudiences adventure;
 
@@ -46,15 +48,19 @@ public final class PluginInstance extends JavaPlugin{
         //로드 시작 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비...");
 
+        //Animated JAVA Entity initialization
+        ajEntityManager = AJEntityManager.registerAJEntityManager(this);
+
         //시스템매니저 객체 생성
         systemManager = SystemManager.getInstance();
         adventure = BukkitAudiences.create(this);
 
 
         //GuiOpen 리스너 등록. 이런 식으로 해야 함...
-        getServer().getPluginManager().registerEvents(new ERPlayerListener(systemManager), this);
-        getServer().getPluginManager().registerEvents(new InventoryGuiListener(systemManager), this);
-        getServer().getPluginManager().registerEvents(new AJEntityListener(this), this);
+        PluginManager pm = getServer().getPluginManager();
+        pm.registerEvents(new ERPlayerListener(systemManager), this);
+        pm.registerEvents(new InventoryGuiListener(systemManager), this);
+        pm.registerEvents(ajEntityManager, this);
         loadCommands();
 
         //온라인인 플레이어들 다시 해시맵에 등록
@@ -65,6 +71,7 @@ public final class PluginInstance extends JavaPlugin{
 
         //스크립트 업데이트
         Bukkit.getScheduler().runTaskTimer(this, new ScriptUpdateThread(new ERPlayerScript()),0,1);
+        Bukkit.getScheduler().runTaskTimer(this, new ScriptUpdateThread(new AJEntityScript()),0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");
@@ -80,6 +87,8 @@ public final class PluginInstance extends JavaPlugin{
     public void onDisable() {
         systemManager.free();
         systemManager = null;
+        ajEntityManager.free();
+        ajEntityManager = null;
         if(adventure != null){
             adventure.close();
             adventure = null;

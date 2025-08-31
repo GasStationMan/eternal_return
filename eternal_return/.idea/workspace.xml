@@ -5,44 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e0e01f0-2f44-4923-ba15-8c4d09d27f4c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimal/Alpha.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntityListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/StraightLine/Ray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimal/ERAnimalAttackEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AnimatedJAVAEntity/AJAnimationInfoBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntityManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntityScript.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Cylinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERAnimal/Alpha.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERAnimal/Alpha.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERAnimal/ERAnimal.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERAnimal/ERAnimal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerDebugCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerDebugCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Geometry/Cylinder/Cylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Geometry/Cylinder/Cylinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Geometry/Cylinder/InfCylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Geometry/Cylinder/InfCylinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Geometry/Plane/FinatePlane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Geometry/Plane/InfinitePlane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Geometry/StraightLine/InfStraightLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Geometry/StraightLine/InfStraightLine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Hitbox/AABB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Hitbox/Hitbox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/ERPlayerScript.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/Gui/Inventory/InventoryGuiListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/ERPlayer/Gui/Inventory/InventoryGuiListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/PluginInstance.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/PluginInstance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/SystemManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/SystemManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntity$ANIMATION_STATE.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntity$ANIMATION_STATE.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntityListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntitySummonedEvent.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/MathVector/Vec3d.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/MathVector/Vec3d.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Matrix/Mat3x3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/Physics/Matrix/Mat3x3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ERPlayerDebugCommand.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PluginInstance.class.uniqueId1" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PluginInstance.class.uniqueId1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AJEntityListener.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AJEntitySummonedEvent.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PluginInstance.class.uniqueId1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimal/Alpha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimal/Alpha.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimal/ERAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimal/ERAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerDebugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerDebugCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/ERPlayerScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/Gui/Inventory/InventoryGuiListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERPlayer/Gui/Inventory/InventoryGuiListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/PluginInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/PluginInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/SystemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/SystemManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Cylinder/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Cylinder/Cylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Cylinder/InfCylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Cylinder/InfCylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Plane/FinatePlane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Plane/InfinitePlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Plane/InfPlane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/StraightLine/InfStraightLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/StraightLine/InfStraightLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Hitbox/AABB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Hitbox/Hitbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Collider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AnimatedJAVAEntity/AJEntityListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Collider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Cylinder/Cylinder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Cylinder/InfCylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/InfCylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/Plane/InfPlane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/InfPlane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/StraightLine/InfStraightLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/InfStraightLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Geometry/StraightLine/Ray.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/MathVector/Vec3d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/MathVector/Vec3d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Matrix/Mat3x3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Physics/Matrix/Mat3x3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

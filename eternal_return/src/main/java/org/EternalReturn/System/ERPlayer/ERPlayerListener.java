@@ -22,7 +22,7 @@ public class ERPlayerListener implements Listener {
 
     public ERPlayerListener(SystemManager manager) {
         this.systemManager = manager;
-        this.playerHashMap = systemManager.getErPlayerHashMap();
+        this.playerHashMap = systemManager.getERPlayerHashMap();
     }
 
     /**
@@ -66,7 +66,8 @@ public class ERPlayerListener implements Listener {
         //p.sendMessage(selectedButton.getBButton());
     }
 
-    @EventHandler public void onPlayerInteraction(PlayerInteractEvent e){
+    @EventHandler
+    public void onPlayerInteraction(PlayerInteractEvent e){
 
         //플레이어가
         Action action = e.getAction();
@@ -76,14 +77,16 @@ public class ERPlayerListener implements Listener {
         }
     }
 
-    @EventHandler public void onPlayerJoin(PlayerJoinEvent e){
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
         systemManager.addPlayer(p);
         System.out.println("플레이어가 업데이트되었습니다. : ");
         p.sendMessage("당신이 리스트에 추가되었습니다.");
     }
 
-    @EventHandler public void onPlayerLeave(PlayerQuitEvent e){
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent e){
         Player p = e.getPlayer();
         systemManager.removePlayer(p);
         System.out.println("플레이어가 업데이트되었습니다. : ");

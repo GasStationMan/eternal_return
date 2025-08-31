@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.Physics.Geometry.StraightLine;
+package org.EternalReturn.Util.Physics.Geometry;
 
 import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 import org.EternalReturn.Util.Physics.Matrix.Mat3x3;

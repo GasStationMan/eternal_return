@@ -1,5 +1,7 @@
 package org.EternalReturn.Util.Physics.MathVector;
 
+import org.bukkit.Location;
+
 public class Vec3d{
 
     private double x;
@@ -10,6 +12,12 @@ public class Vec3d{
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    public Vec3d(Location location){
+        this.x = location.getX();
+        this.y = location.getY();
+        this.z = location.getZ();
     }
 
     //static
@@ -102,6 +110,23 @@ public class Vec3d{
         );
     }
 
+    public static double getSquareDistance(Vec3d v0, Vec3d v1){
+
+        double v0x = v0.getX();
+        double v0y = v0.getY();
+        double v0z = v0.getZ();
+
+        double dx = v0x - v1.getX();
+        double dy = v0y - v1.getY();
+        double dz = v0z - v1.getZ();
+
+        return dx*dx + dy*dy + dz*dz;
+    }
+
+    public static double getDistance(Vec3d v0, Vec3d v1){
+        return Math.sqrt(Vec3d.getSquareDistance(v0, v1));
+    }
+
     public Vec3d crossProd(Vec3d v){
 
         double x0 = x;
@@ -147,19 +172,19 @@ public class Vec3d{
     }
 
     //setter
-    public void add(Vec3d v1){
-        x += v1.getX();
-        y += v1.getY();
-        z += v1.getZ();
+    public void addAssign(Vec3d v){
+        x += v.getX();
+        y += v.getY();
+        z += v.getZ();
     }
 
-    public void neg(){
+    public void negAssign(){
         x = -x;
         y = -y;
         z = -z;
     }
 
-    public void sclPrd(double scalar){
+    public void sclPrdAssign(double scalar){
         x = scalar * x;
         y = scalar * y;
         z = scalar * z;

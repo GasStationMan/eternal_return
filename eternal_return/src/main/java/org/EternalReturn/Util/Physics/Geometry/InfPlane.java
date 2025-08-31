@@ -1,6 +1,5 @@
-package org.EternalReturn.Util.Physics.Geometry.Plane;
+package org.EternalReturn.Util.Physics.Geometry;
 
-import org.EternalReturn.Util.Physics.Geometry.StraightLine.InfStraightLine;
 import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 
 /**
@@ -24,7 +23,11 @@ public class InfPlane {
      * @return 해당 평면 위에 매개변수로 전달된 점이 존재하는 지를 참 거짓으로 반환.
      * */
     public boolean dotIsOnPlane(Vec3d dot){
-        double det = normal.dotProd(Vec3d.sub(dot,position));
+        //double det = normal.dotProd(Vec3d.sub(dot,position));
+        double det =
+                normal.getX() * (dot.getX() - position.getX())
+                + normal.getY() * (dot.getY() - position.getY())
+                + normal.getZ() * (dot.getZ() - position.getZ());
         return -1E-7 < det && det < 1E-7;
     }
 
@@ -52,14 +55,29 @@ public class InfPlane {
     }
 
     public Vec3d isIntersectWith(InfStraightLine line){
-        double det = Vec3d.dotProd(this.normal, line.getDirection());
+        //double det = Vec3d.dotProd(this.normal, line.getDirection());
+
+        Vec3d lineDir = line.getDirection();
+        Vec3d linePos = line.getPosition();
+
+        double nX = normal.getX();
+        double nY = normal.getY();
+        double nZ = normal.getZ();
+
+        double det =
+                nX * lineDir.getX()
+                + nY * lineDir.getY()
+                + nZ * lineDir.getZ();
 
         if(-1E-7 < det && det < 1E-7){
             return null;
         }
 
         return line.getDot(
-                Vec3d.dotProd(this.normal, Vec3d.sub(this.position, line.getPosition())) / det
+                //Vec3d.dotProd(this.normal, Vec3d.sub(this.position, line.getPosition())) / det
+                (nX * (position.getX() - linePos.getX())
+                + nY * (position.getY() - linePos.getY())
+                + nZ * (position.getZ() - linePos.getZ())) / det
         );
     }
 

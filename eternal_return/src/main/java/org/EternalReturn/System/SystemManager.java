@@ -3,14 +3,15 @@ package org.EternalReturn.System;
 import org.EternalReturn.System.AreaSystem.AreaGraph;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
-import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.UpgradeBlock;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
 import org.EternalReturn.Util.itemUtill.CMDBlock;
 import org.EternalReturn.Util.itemUtill.CMDManager;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.UUID;
 
 //싱글톤 객체
@@ -18,6 +19,7 @@ public class SystemManager {
 
     private static SystemManager instance;
     private static HashMap<Player, ERPlayer> erPlayerHashMap;
+    private static List<ERPlayer> erPlayerList;
     private static HashMap<UUID, Player> uuidPlayerHashMap;
     private static BukkitAudiences bukkitAudiences;
     private static Enchanter enchanter;
@@ -64,8 +66,10 @@ public class SystemManager {
         for(ERPlayer erPlayer : erPlayerHashMap.values()){
             erPlayer.free();
         }
+        erPlayerList.clear();
         erPlayerHashMap.clear();
         uuidPlayerHashMap.clear();
+        erPlayerList = null;
         erPlayerHashMap = null;
         uuidPlayerHashMap = null;
         bukkitAudiences = null;
@@ -107,6 +111,7 @@ public class SystemManager {
     }
 
     private SystemManager() {
+        erPlayerList = new ArrayList<>();
         erPlayerHashMap = new HashMap<>();
         uuidPlayerHashMap = new HashMap<>();
         enchanter = new Upgrader();
@@ -147,20 +152,26 @@ public class SystemManager {
         return cmdManager;
     }
 
+    public static List<ERPlayer> getERPlayerList() {
+        return erPlayerList;
+    }
+
     //setter
-    public void addPlayer(Player p){//해시맵에서 플레이어 추가
+    public static void addPlayer(Player p){//해시맵에서 플레이어 추가
+
+        ERPlayer erPlayer = new ERPlayer(p);
+
+        erPlayerList.add(erPlayer);
         erPlayerHashMap.putIfAbsent(p,new ERPlayer(p));
         uuidPlayerHashMap.putIfAbsent(p.getUniqueId(),p);
     }
 
-    public void removePlayer(Player p){//해시맵에서 플레이어 제거
+    public static void removePlayer(Player p){//해시맵에서 플레이어 제거
         ERPlayer erPlayer = erPlayerHashMap.get(p);
-        erPlayer.free();
+        erPlayerList.remove(erPlayer);
         erPlayerHashMap.remove(p);
         uuidPlayerHashMap.remove(p.getUniqueId());
+        erPlayer.free();
     }
 
-    public HashMap<Player, ERPlayer> getErPlayerHashMap() {
-        return erPlayerHashMap;
-    }
 }

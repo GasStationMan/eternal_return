@@ -20,7 +20,7 @@ public class InventoryGuiListener implements Listener {
     private final HashMap<Player, ERPlayer> playerHashMap;
 
     public InventoryGuiListener(SystemManager systemManager){
-        playerHashMap = systemManager.getErPlayerHashMap();
+        playerHashMap = systemManager.getERPlayerHashMap();
     }
 
     @EventHandler public void guiCloseEvent(InventoryCloseEvent e){

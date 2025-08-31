@@ -11,6 +11,7 @@ import org.EternalReturn.System.ERPlayer.Skill.Skill;
 import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
 import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
 import org.EternalReturn.Util.Physics.MathVector.Vec2d;
+import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 import org.EternalReturn.Util.Physics.MotionManager;
 import org.bukkit.entity.Player;
 
@@ -172,6 +173,9 @@ public class ERPlayer {
         player.sendMessage(str);
     }
 
+    public Vec3d getPos(){
+        return new Vec3d(player.getLocation());
+    }
 
 
 }
