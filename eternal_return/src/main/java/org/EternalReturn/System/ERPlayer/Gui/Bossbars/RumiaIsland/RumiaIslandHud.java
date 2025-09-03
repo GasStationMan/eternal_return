@@ -1,6 +1,6 @@
 package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland;
 
-import org.EternalReturn.System.AreaSystem.AreaGraph;
+import org.EternalReturn.System.AreaSystem.ERAreaGraph;
 import org.EternalReturn.System.AreaSystem.AreaNode;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
@@ -20,13 +20,13 @@ import java.util.Map;
 
 public class RumiaIslandHud extends BFrame {
 
-    private AreaGraph areaGraph;
+    private ERAreaGraph ERAreaGraph;
     private List<HBImage> areaImages;
     protected Map<String , BPanel> names;
 
     public void free(){
         super.free();
-        areaGraph = null;
+        ERAreaGraph = null;
         areaImages.clear();
         areaImages = null;
     }
@@ -35,7 +35,7 @@ public class RumiaIslandHud extends BFrame {
         super(erPlayer, name);
 
         names = new HashMap<>(20);
-        areaGraph = SystemManager.getAreaGraph();
+        ERAreaGraph = SystemManager.getAreaGraph();
         areaImages = new ArrayList<>(20);
 
         int scaler = 3;
@@ -96,7 +96,7 @@ public class RumiaIslandHud extends BFrame {
      * */
     public void updateAreaState(){
         try{
-            List<AreaNode> areaNodes = areaGraph.getAreaNodes();
+            List<AreaNode> areaNodes = ERAreaGraph.getAreaNodes();
 
             int hbButtonListSize = areaImages.size();
           int areaGraphListSize = areaNodes.size();

@@ -1,6 +1,6 @@
 package org.EternalReturn.System;
 
-import org.EternalReturn.System.AreaSystem.AreaGraph;
+import org.EternalReturn.System.AreaSystem.ERAreaGraph;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
@@ -23,7 +23,7 @@ public class SystemManager {
     private static HashMap<UUID, Player> uuidPlayerHashMap;
     private static BukkitAudiences bukkitAudiences;
     private static Enchanter enchanter;
-    private static AreaGraph areaGraph;
+    private static ERAreaGraph ERAreaGraph;
     private static CMDManager cmdManager;
 
     public static int RED_ZONE = 0;
@@ -75,8 +75,8 @@ public class SystemManager {
         bukkitAudiences = null;
         enchanter.free();
         enchanter = null;
-        areaGraph.free();
-        areaGraph = null;
+        ERAreaGraph.free();
+        ERAreaGraph = null;
         cmdManager.free();
         cmdManager = null;
 
@@ -115,7 +115,7 @@ public class SystemManager {
         erPlayerHashMap = new HashMap<>();
         uuidPlayerHashMap = new HashMap<>();
         enchanter = new Upgrader();
-        areaGraph = new AreaGraph(20);
+        ERAreaGraph = new ERAreaGraph(20);
         cmdManager = new CMDManager();
     }
     
@@ -144,8 +144,8 @@ public class SystemManager {
         return bukkitAudiences;
     }
 
-    public static AreaGraph getAreaGraph(){
-        return areaGraph;
+    public static ERAreaGraph getAreaGraph(){
+        return ERAreaGraph;
     }
 
     public static CMDManager getCmdManager(){

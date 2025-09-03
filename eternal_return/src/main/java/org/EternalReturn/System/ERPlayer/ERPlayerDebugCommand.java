@@ -1,6 +1,6 @@
 package org.EternalReturn.System.ERPlayer;
 
-import org.EternalReturn.System.AreaSystem.AreaGraph;
+import org.EternalReturn.System.AreaSystem.ERAreaGraph;
 import org.EternalReturn.System.ERAnimal.Alpha;
 import org.EternalReturn.System.ERAnimal.ERAnimal;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extRumiaIslandGui.HyperLoopGui;
@@ -165,8 +165,8 @@ public class ERPlayerDebugCommand implements CommandExecutor {
         }
         else if(args.length == 2 && args[0].equalsIgnoreCase("setyellow")){
             try{
-                AreaGraph areaGraph = SystemManager.getAreaGraph();
-                areaGraph.setYellowArea(Integer.parseInt(args[1]));
+                ERAreaGraph ERAreaGraph = SystemManager.getAreaGraph();
+                ERAreaGraph.setYellowArea(Integer.parseInt(args[1]));
                 HyperLoopGui hyperLoopGui = (HyperLoopGui)erPlayer.getHyperloopGui();
 
                 hyperLoopGui.updateAreaState();

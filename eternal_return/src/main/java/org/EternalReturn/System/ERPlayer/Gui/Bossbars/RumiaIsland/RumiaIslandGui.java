@@ -1,6 +1,6 @@
 package org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland;
 
-import org.EternalReturn.System.AreaSystem.AreaGraph;
+import org.EternalReturn.System.AreaSystem.ERAreaGraph;
 import org.EternalReturn.System.AreaSystem.AreaNode;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent.HBButton;
@@ -14,12 +14,12 @@ import java.util.Map;
 
 public class RumiaIslandGui extends BFrame {
 
-    private AreaGraph areaGraph;
+    private ERAreaGraph erAreaGraph;
     protected Map<String , BPanel> names;
 
     public void free(){
         super.free();
-        areaGraph = null;
+        erAreaGraph = null;
         names.clear();
         names = null;
     }
@@ -27,7 +27,7 @@ public class RumiaIslandGui extends BFrame {
     public RumiaIslandGui(ERPlayer p, @NotNull String name) {
         super(p, name);
 
-        areaGraph = SystemManager.getAreaGraph();
+        erAreaGraph = SystemManager.getAreaGraph();
         names = new HashMap<>(20);
 
         BImage hyper_loop = new BImage(800,800,"map/hyperloop/background/hyper_loop",new BLocation(0,400));
@@ -191,7 +191,7 @@ public class RumiaIslandGui extends BFrame {
     public void updateAreaState(){
         try{
             List<BButton> buttonList = super.getBButtons();
-            List<AreaNode> areaNodes = areaGraph.getAreaNodes();
+            List<AreaNode> areaNodes = erAreaGraph.getAreaNodes();
 
             int hbButtonListSize = buttonList.size();
             int areaGraphListSize = areaNodes.size();

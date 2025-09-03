@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.Algorithm.Graph;
+package org.EternalReturn.Util.DataStructure.Graph;
 
 import java.util.*;
 
@@ -19,8 +19,20 @@ import java.util.*;
  *  // 출력 : a b c e d <br>
  * */
 public class Graph<T>{
+
+    /**
+     * 버텍스를 한번에 찾기 위한 해시맵
+     * */
     protected HashMap<T, Vertex<T>> vertices;
+    
+    /**
+     * 해시맵에서 리스트를 일일이 뽑아 오는 것 보다 따로 리스트를 관리하는 것이 나음
+     * */
     protected List<Vertex<T>> vertexList;
+
+    /**
+     * 간선들의 정보를 담은 리스트
+     * */
     protected List<Edge<T>> edges;
 
     public void free() {
@@ -34,6 +46,9 @@ public class Graph<T>{
         vertices.clear();
     }
 
+    /**
+     * 간선, 정점들을 관리하는 List의 초기 크기가 size로 설정된 Graph객체를 만든다.
+     * */
     public Graph(int size) {
         this.vertexList = new ArrayList<>(size);
         this.vertices = new HashMap<>(size);
@@ -52,7 +67,7 @@ public class Graph<T>{
             Vertex<T> v2 = vertices.get(v_2);
 
             if(v1 == null || v2 == null) {
-                throw new NullPointerException("두 노드 중 하나가 NULL입니다.");
+                throw new RuntimeException("Vertex0 = " + v1 + " | Vertex1 = " + v2);
             }
 
             Edge<T> edge = new Edge<>(v1, v2);
@@ -62,7 +77,7 @@ public class Graph<T>{
             edges.add(edge);
 
         }
-        catch(NullPointerException e) {
+        catch(RuntimeException e) {
             e.printStackTrace();
         }
     }

@@ -129,6 +129,8 @@ public abstract class AJEntity {
                 getExecuteAsRunFuncPrefix() + animationPlaying + "/pause");
     }
 
+
+
     /**
      * 실행 중인 해당 애니메이션을 완전히 끈다.<br>
      * getAnimationPlaying()메소드로 얻을 수 있는 값은 null이 되며,<br>
