@@ -22,59 +22,7 @@ public class ERPlayerListener implements Listener {
 
     public ERPlayerListener(SystemManager manager) {
         this.systemManager = manager;
-        this.playerHashMap = systemManager.getERPlayerHashMap();
-    }
-
-    /**
-     * 플레이어가 좌클릭을 했을 때 실행되는 함수임. <br>
-     * 이 함수를 실행하는 함수 :
-     *      @EventHandler void onPlayerInteraction(PlayerInteractEvent e){...} <br>
-     * */
-    private void onPlayerRightClicked(Player p){
-        ERPlayer erPlayer = playerHashMap.get(p);
-        BFrame guiFrame = erPlayer.getCurrentOpened();
-
-        //열린 상황이 아니라면 & 마우스 커서 밑에 BButton 객체가 없다면
-        BButton selectedButton = null;
-        if(guiFrame == null || (selectedButton = guiFrame.getCurrentButtonUnderCursor()) == null){
-            return;
-        }
-
-        String bGuiName = guiFrame.getName();
-        Set<String> tags = p.getScoreboardTags();
-
-
-        if(bGuiName.equals("hyperloop")){
-            HBButton hbButton = (HBButton) selectedButton;
-            if(hbButton.getZoneState() == SystemManager.GREEN_ZONE || hbButton.getZoneState() == SystemManager.YELLOW_ZONE){
-                tags.add("warp");
-                tags.add(selectedButton.getBButton());
-                tags.remove(SystemManager.USE_HYPERLOOP);
-                erPlayer.closeCurrentOpenedGui();
-                p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1.0F, 1.0F);
-            }
-        }
-
-        else if(bGuiName.equals("kiosk")){
-            tags.add(selectedButton.getBButton());
-            tags.remove(SystemManager.USE_KIOSK);
-            erPlayer.closeCurrentOpenedGui();
-            p.playSound(p.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1.0F, 1.0F);
-        }
-
-        //debug
-        //p.sendMessage(selectedButton.getBButton());
-    }
-
-    @EventHandler
-    public void onPlayerInteraction(PlayerInteractEvent e){
-
-        //플레이어가
-        Action action = e.getAction();
-        Player p = e.getPlayer();
-        if(action.equals(Action.LEFT_CLICK_AIR) || action.equals(Action.LEFT_CLICK_BLOCK)){ //좌클릭 시
-            onPlayerRightClicked(p);
-        }
+        this.playerHashMap = SystemManager.getERPlayerHashMap();
     }
 
     @EventHandler

@@ -42,52 +42,13 @@ public class ERPlayerScript implements Script {
         }
     }
 
-    private void getMarkerEntityList(Player p){
-        currentWorld = p.getWorld();
-        List<Entity> entityList = currentWorld.getEntities();
-        for(Entity entity : entityList){
-            if(entity instanceof Marker){
-                markerList.add((Marker)entity);
-            }
-        }
-    }
-
     /**
      * FROM : public void update()
      * */
     private void erPlayerScript(ERPlayer erPlayer, Player p){
         Set<String> tags = p.getScoreboardTags();
         erPlayer.getSkill().activate();
-        bossbarGuiUpdate(p,erPlayer,tags);
         motionManagerUpdate(erPlayer,tags);
-    }
-
-    /**
-     * FROM : private void erPlayerScript()
-     * */
-    private void bossbarGuiUpdate(Player p, ERPlayer erPlayer, Set<String> tags){
-
-        BFrame currentBFrame = erPlayer.getCurrentOpened();
-        //보스바 gui 띄우기
-        if(currentBFrame == null){
-            if(tags.contains(SystemManager.USE_HYPERLOOP)){
-                erPlayer.openHyperloopGui();
-            }
-            else if(tags.contains(SystemManager.USE_KIOSK)){
-                erPlayer.openKioskGui();
-            }
-        }
-
-        //보스바 gui 닫기
-        if(currentBFrame != null && currentBFrame.isOpen()){
-            if(p.isSneaking()
-                    || !(tags.contains(SystemManager.USE_HYPERLOOP) || (tags.contains(SystemManager.USE_KIOSK)))){
-                tags.remove("use_" + erPlayer.closeCurrentOpenedGui());
-            }
-            else{
-                currentBFrame.updateMouseCursor(erPlayer, 4);
-            }
-        }
     }
 
     /**

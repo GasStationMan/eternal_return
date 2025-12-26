@@ -20,8 +20,7 @@ public class BFrame implements BComponentManager{
     private List<Component> components;
     private List<BComponent> bComponents;
     private List<BButton> bButtons;
-    private Player player;
-    private ERPlayer erPlayer;
+    private BSwingPlayer player;
     private BComponent cursor;
     private boolean isOpen;
     private String name;
@@ -48,19 +47,17 @@ public class BFrame implements BComponentManager{
         bufferShower = null;
         audience = null;
         player = null;
-        erPlayer = null;
         cursor = null;
         currentButtonUnderCursor = null;
     }
 
-    public BFrame(ERPlayer erPlayer, @NotNull String name){
-        this.player = erPlayer.getPlayer();
-        this.erPlayer = erPlayer;
+    public BFrame(Player p, @NotNull String name){
+        this.player = BSwingManager.getBSwingPlayer(p);
         this.isOpen = false;
         this.components = new ArrayList<>(16);
         this.bComponents = new ArrayList<>(16);
         this.bButtons = new ArrayList<>(16);
-        this.audience = PluginInstance.adventure().player(player);
+        this.audience = PluginInstance.adventure().player(player.getPlayer());
         this.currentButtonUnderCursor = null;
         this.name = name;
 
@@ -155,7 +152,7 @@ public class BFrame implements BComponentManager{
      * */
     public void moveMousePointer(int dx, int dy){
         BLocation loc = cursor.getLocation();
-        Location pLoc = player.getLocation();
+        Location pLoc = player.getPlayer().getLocation();
 
         int xToModify;
         int yToModify;
@@ -178,8 +175,8 @@ public class BFrame implements BComponentManager{
     }
 
     public void close(){
-        erPlayer.setRot2dVecX(new Vec2d(Math.cos(0),Math.sin(0)));
-        erPlayer.setRot2dVecY(new Vec2d(Math.cos(0),Math.sin(0)));
+        player.setRot2dVecX(new Vec2d(Math.cos(0),Math.sin(0)));
+        player.setRot2dVecY(new Vec2d(Math.cos(0),Math.sin(0)));
         isOpen = false;
         bufferShower.removeViewer(audience);
     }
@@ -188,9 +185,8 @@ public class BFrame implements BComponentManager{
      * 마우스커서 위치 업데이트 기능 & 또한 커서가 버튼 위에 있는지 확인하는 기능 <br>
      * getDegreeDistance(Vec2d secondVector, Vec2d currentVector)함수를 사용함. <br>
      * */
-    public void updateMouseCursor(ERPlayer erPlayer, int emplifier){
-        Player p = erPlayer.getPlayer();
-        Location location = p.getLocation();
+    public void updateMouseCursor(int emplifier){
+        Location location = player.getPlayer().getLocation();
         float yaw = location.getYaw() * 2;
         float pitch = location.getPitch() * 4;
 
@@ -199,7 +195,7 @@ public class BFrame implements BComponentManager{
                 secondVecX = new Vec2d(
                         Math.cos(Math.toRadians(yaw)),
                         Math.sin(Math.toRadians(yaw))
-                ),erPlayer.getRot2dVecX());
+                ),player.getRot2dVecX());
 
 
         Vec2d secondVecY;
@@ -207,7 +203,7 @@ public class BFrame implements BComponentManager{
                 secondVecY = new Vec2d(
                         Math.cos(Math.toRadians(pitch)),
                         Math.sin(Math.toRadians(pitch))
-        ),erPlayer.getRot2dVecY());
+        ),player.getRot2dVecY());
 
 
 
@@ -220,7 +216,7 @@ public class BFrame implements BComponentManager{
 
             if(Math.abs(pitch) == 360){
                 location.setPitch(-pitch);
-                p.teleport(location);
+                player.getPlayer().teleport(location);
             }
             
             //버튼이 있는 경우 마우스 커서 위치와 버튼의 경계를 감지
@@ -228,8 +224,8 @@ public class BFrame implements BComponentManager{
                 detectButtonUnderCursor();
             }
 
-            erPlayer.setRot2dVecX(secondVecX);
-            erPlayer.setRot2dVecY(secondVecY);
+            player.setRot2dVecX(secondVecX);
+            player.setRot2dVecY(secondVecY);
 
         }
 

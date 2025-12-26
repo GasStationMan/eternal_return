@@ -10,6 +10,7 @@ import org.EternalReturn.System.ERPlayer.Gui.Inventory.InventoryGuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityScript;
+import org.EternalReturn.Util.Gui.bossbarGui.View.BSwingListener;
 import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -60,6 +61,7 @@ public final class PluginInstance extends JavaPlugin{
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new ERPlayerListener(systemManager), this);
         pm.registerEvents(new InventoryGuiListener(systemManager), this);
+        pm.registerEvents(new BSwingListener());
         pm.registerEvents(ajEntityManager, this);
         loadCommands();
 

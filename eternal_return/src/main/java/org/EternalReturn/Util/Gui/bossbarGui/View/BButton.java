@@ -12,6 +12,7 @@ public class BButton extends BFontComponent {
 
 
     private List<BDot> buttonPolygon;
+    private List<BActionListener> actionListeners;
     private int maxX;
     private int minX;
     private int maxY;
@@ -218,6 +219,10 @@ public class BButton extends BFontComponent {
         }
         isUnderCursor = (cnt % 2 == 1);
         return isUnderCursor;
+    }
+
+    public List<BActionListener> getActionListeners(){
+        return this.actionListeners;
     }
 
 
