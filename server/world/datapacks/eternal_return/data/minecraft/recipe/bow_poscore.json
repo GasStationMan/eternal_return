@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "bow",
+    "ingredients": [
+      {
+        "item": "minecraft:bow"
+      },
+      {
+        "item": "minecraft:amethyst_shard"
+      }
+    ],
+    "result": {
+      "id": "minecraft:bow",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"아르기로톡소스\u00a0mk2\"}]",
+        "minecraft:enchantments": {
+          "minecraft:power": 3
+        },
+        "minecraft:unbreakable": {}
+      }
+    }
+  }
+  

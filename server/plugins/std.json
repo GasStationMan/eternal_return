@@ -1,0 +1,14 @@
+{
+    "DirectedGraph" : {
+        "Vertices" : ["attack","skill","move","death"],
+        "DirectedEdges" : [
+            ["move"	 ,"skill"],
+            ["move"	 ,"attack"],
+            ["attack","move"],
+            ["skill" ,"move"],
+            ["move"	 ,"death"],
+            ["attack","death"],
+            ["skill" ,"death"]
+        ]
+    }
+}

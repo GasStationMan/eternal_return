@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:bow",
+    "diamond"
+  ],
+  "result": {
+    "id": "minecraft:bow",
+    "components": {
+      "minecraft:item_name": "\"아르기로톡소스\"",
+      "minecraft:unbreakable": {},
+      "minecraft:attribute_modifiers": {
+        "modifiers": [
+          {
+            "type": "minecraft:movement_speed",
+            "id": "movement_speed",
+            "amount": 0.015,
+            "operation": "add_value",
+            "slot": "mainhand"
+          }
+        ]
+      },
+      "minecraft:rarity": "rare"
+    },
+    "count": 1
+  }
+}

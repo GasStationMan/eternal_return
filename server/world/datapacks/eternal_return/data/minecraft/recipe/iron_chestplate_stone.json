@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "chest",
+    "ingredients": [
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:echo_shard"
+      }
+    ],
+    "result": {
+      "id": "minecraft:iron_chestplate",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"카바나\"}]",
+        "minecraft:enchantments": {
+          "minecraft:projectile_protection": 2
+        },
+        "minecraft:unbreakable": {}
+      }
+    }
+  }
+  

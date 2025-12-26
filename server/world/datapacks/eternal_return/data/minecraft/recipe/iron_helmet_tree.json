@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "head",
+    "ingredients": [
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:oak_sapling"
+      }
+    ],
+    "result": {
+      "id": "minecraft:iron_helmet",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"월계관\"}]",
+        "minecraft:enchantments": {
+          "minecraft:fire_protection": 2
+        },
+        "minecraft:unbreakable": {}
+      }
+    }
+  }
+  

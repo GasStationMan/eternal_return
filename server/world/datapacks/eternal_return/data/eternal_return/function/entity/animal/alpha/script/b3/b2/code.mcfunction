@@ -1,0 +1,2 @@
+execute if entity @s[type=minecraft:item_display, tag= aj.animal_alpha.animation.death.playing, tag= ER.animal.model,scores = {aj.death.frame = 30,ER.animal.this=1}] run return run function eternal_return:entity/animal/alpha/script/b3/b2/b2/code
+execute if entity @s[type=minecraft:item_display, tag= ER.animal.model, tag= !aj.animal_alpha.animation.death.playing, scores={ER.animal.this=1}] run function eternal_return:entity/animal/alpha/script/b3/b2/b3/code

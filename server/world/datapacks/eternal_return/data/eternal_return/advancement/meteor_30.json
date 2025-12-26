@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:creeper_banner_pattern",
+      "components": {
+        "minecraft:custom_model_data": 18
+      }
+    },
+    "title": "",
+    "description": "",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "parent": "eternal_return:empty",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

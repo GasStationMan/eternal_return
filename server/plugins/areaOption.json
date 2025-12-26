@@ -1,0 +1,25 @@
+{
+	"addNode" : [
+		{"name" : "alley", "animals" : 
+			[{"name" : "Boar", "coord" : [100.0, 100.0, 100.0], "num" : 5}]
+		},
+		{"name" : "gas_station" },
+		{"name" : "archery_range" },
+		{"name" : "temple" },
+		{"name" : "hotel" },
+		{"name" : "school" },
+		{"name" : "fire" },
+		{"name" : "police" },
+		{"name" : "stream" },
+		{"name" : "pond" },
+		{"name" : "forest" },
+		{"name" : "cemetery" },
+		{"name" : "beach" },
+		{"name" : "village" },
+		{"name" : "hospital" },
+		{"name" : "chapel" },
+		{"name" : "factory" },
+		{"name" : "storage" },
+		{"name" : "port" }
+	]
+}

@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "feet",
+    "ingredients": [
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:amethyst_shard"
+      }
+    ],
+    "result": {
+      "id": "minecraft:diamond_boots",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"헤르메스의\u00a0부츠\"}]",
+        "minecraft:enchantments": {
+          "minecraft:protection": 2
+        },
+        "minecraft:unbreakable": {},
+        "minecraft:attribute_modifiers": {
+          "modifiers": []
+        }
+      }
+    }
+  }
+  

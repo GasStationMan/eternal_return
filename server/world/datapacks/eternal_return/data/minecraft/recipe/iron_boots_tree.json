@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "feet",
+    "ingredients": [
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:oak_sapling"
+      }
+    ],
+    "result": {
+      "id": "minecraft:iron_boots",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"글레이셜\u00a0슈즈\"}]",
+        "minecraft:enchantments": {
+          "minecraft:fire_protection": 2
+        },
+        "minecraft:unbreakable": {}
+      }
+    }
+  }
+  

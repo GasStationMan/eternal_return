@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "chest",
+    "ingredients": [
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:dragon_breath"
+      }
+    ],
+    "result": {
+      "id": "minecraft:netherite_chestplate",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"퀸\u00a0오브\u00a0하트\"}]",
+        "minecraft:enchantments": {
+          "minecraft:protection": 4,
+          "minecraft:thorns": 3
+        },
+        "minecraft:unbreakable": {}
+      }
+    }
+  }
+  

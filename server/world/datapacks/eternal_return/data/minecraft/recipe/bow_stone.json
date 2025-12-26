@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "bow",
+    "ingredients": [
+      {
+        "item": "minecraft:bow"
+      },
+      {
+        "item": "minecraft:echo_shard"
+      }
+    ],
+    "result": {
+      "id": "minecraft:bow",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"아르테미스\"}]",
+        "minecraft:enchantments": {
+          "minecraft:punch": 1
+        },
+        "minecraft:unbreakable": {}
+      }
+    }
+  }
+  

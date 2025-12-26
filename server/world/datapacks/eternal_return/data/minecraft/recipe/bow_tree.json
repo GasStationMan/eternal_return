@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "bow",
+    "ingredients": [
+      {
+        "item": "minecraft:bow"
+      },
+      {
+        "item": "minecraft:oak_sapling"
+      }
+    ],
+    "result": {
+      "id": "minecraft:bow",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"적궁백시\"}]",
+        "minecraft:enchantments": {
+          "minecraft:flame": 1
+        },
+        "minecraft:unbreakable": {}
+      }
+    }
+  }
+  

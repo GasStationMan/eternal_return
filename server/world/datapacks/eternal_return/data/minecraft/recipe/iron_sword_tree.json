@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "sword",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_sword"
+    },
+    {
+      "item": "minecraft:oak_sapling"
+    }
+  ],
+  "result": {
+    "id": "minecraft:iron_sword",
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:fire_aspect": 1
+      },
+      "minecraft:unbreakable": {},
+              "minecraft:attribute_modifiers": {
+          "modifiers": [
+                        {
+              "type": "minecraft:generic.attack_damage",
+              "id": "generic.attack_damage",
+              "amount": 6,
+              "operation": "add_value",
+              "slot": "mainhand"
+            },
+            {
+              "type": "minecraft:generic.attack_speed",
+              "id": "generic.attack_speed",
+              "amount": -2.4,
+              "operation": "add_value",
+              "slot": "mainhand"
+            }
+          ]
+        },
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"레바테인\"}]"
+    }
+  }
+}

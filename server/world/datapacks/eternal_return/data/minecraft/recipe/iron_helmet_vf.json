@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "head",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_helmet"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    }
+  ],
+  "result": {
+    "id": "minecraft:netherite_helmet",
+    "components": {
+      "minecraft:rarity": "epic",
+      "minecraft:item_name": "[{\"text\":\"변검\"}]",
+      "minecraft:enchantments": {
+        "minecraft:protection": 4,
+        "minecraft:thorns": 3
+      },
+      "minecraft:unbreakable": {}
+    }
+  }
+}

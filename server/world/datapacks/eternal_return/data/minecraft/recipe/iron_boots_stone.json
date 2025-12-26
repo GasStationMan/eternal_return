@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "equipment",
+    "group": "feet",
+    "ingredients": [
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:echo_shard"
+      }
+    ],
+    "result": {
+      "id": "minecraft:iron_boots",
+      "components": {
+        "minecraft:rarity": "epic",
+        "minecraft:item_name": "[{\"text\":\"아이언\u00a0메이든\"}]",
+        "minecraft:enchantments": {
+          "minecraft:projectile_protection": 2
+        },
+        "minecraft:unbreakable": {}
+      }
+    }
+  }
+  
