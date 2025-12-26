@@ -23,7 +23,6 @@ public class InfPlane {
      * @return 해당 평면 위에 매개변수로 전달된 점이 존재하는 지를 참 거짓으로 반환.
      * */
     public boolean dotIsOnPlane(Vec3d dot){
-        //double det = normal.dotProd(Vec3d.sub(dot,position));
         double det =
                 normal.getX() * (dot.getX() - position.getX())
                 + normal.getY() * (dot.getY() - position.getY())

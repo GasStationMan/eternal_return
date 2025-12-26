@@ -1,2 +1,3 @@
-javac MyPhysicsEngine.java
-java MyPhysicsEngine
+del /s /q *.class
+javac PhysicsEngine.java
+java PhysicsEngine

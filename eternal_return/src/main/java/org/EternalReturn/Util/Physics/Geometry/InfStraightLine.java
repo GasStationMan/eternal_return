@@ -6,7 +6,6 @@ import org.EternalReturn.Util.Physics.Matrix.Mat3x3;
 public class InfStraightLine {
 
     private Vec3d direction;
-
     private Vec3d position;
     
     /**
