@@ -126,15 +126,6 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             p.sendMessage(testAnimal.toString());
 
         }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("hyperloop")){
-            BFrame hyperloopGui = erPlayer.getHyperloopGui();
-            if(hyperloopGui.isOpen()){
-                hyperloopGui.close();
-            }
-            else{
-                hyperloopGui.open();
-            }
-        }
         else if(args.length == 1 && args[0].equalsIgnoreCase("enchant")){
 
             EntityEquipment equipment = null;
@@ -162,22 +153,6 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             tagSet.remove(args[1]);
             p.sendMessage(tagSet.toString());
             return true;
-        }
-        else if(args.length == 2 && args[0].equalsIgnoreCase("setyellow")){
-            try{
-                ERAreaGraph ERAreaGraph = SystemManager.getAreaGraph();
-                ERAreaGraph.setYellowArea(Integer.parseInt(args[1]));
-                HyperLoopGui hyperLoopGui = (HyperLoopGui)erPlayer.getHyperloopGui();
-
-                hyperLoopGui.updateAreaState();
-
-
-            }
-            catch (NumberFormatException e){
-                e.printStackTrace();
-                p.sendMessage("숫자를 기입하십시오.");
-            }
-
         }
         else if(args.length == 4 && args[0].equalsIgnoreCase("vector")){
             erPlayer.getMotionManager().updatePlayerMotion(

@@ -61,7 +61,7 @@ public final class PluginInstance extends JavaPlugin{
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new ERPlayerListener(systemManager), this);
         pm.registerEvents(new InventoryGuiListener(systemManager), this);
-        pm.registerEvents(new BSwingListener());
+        pm.registerEvents(new BSwingListener(), this);
         pm.registerEvents(ajEntityManager, this);
         loadCommands();
 

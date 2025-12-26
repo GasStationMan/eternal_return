@@ -31,8 +31,8 @@ public class RumiaIslandHud extends BFrame {
         areaImages = null;
     }
 
-    public RumiaIslandHud(ERPlayer erPlayer, @NotNull String name) {
-        super(erPlayer, name);
+    public RumiaIslandHud(ERPlayer p, @NotNull String name) {
+        super(p.getPlayer(), name);
 
         names = new HashMap<>(20);
         ERAreaGraph = SystemManager.getAreaGraph();

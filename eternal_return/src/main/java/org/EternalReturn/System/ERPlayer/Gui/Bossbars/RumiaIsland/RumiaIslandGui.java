@@ -25,7 +25,7 @@ public class RumiaIslandGui extends BFrame {
     }
 
     public RumiaIslandGui(ERPlayer p, @NotNull String name) {
-        super(p, name);
+        super(p.getPlayer(), name);
 
         erAreaGraph = SystemManager.getAreaGraph();
         names = new HashMap<>(20);

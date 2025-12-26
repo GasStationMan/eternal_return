@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class KioskGui extends BFrame {
     public KioskGui(ERPlayer p, @NotNull String name) {
-        super(p,name);
+        super(p.getPlayer(),name);
         //버튼추가
 
         BButton meteorite = new BButton(140/2,182/2,
