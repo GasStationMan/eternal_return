@@ -1,20 +1,21 @@
 package org.EternalReturn.Util.itemUtill;
 
-import org.EternalReturn.System.PluginInstance;
-
 import java.util.Objects;
 
-public class CMDBlock {
+/**
+ * Custom Model Data 정보를 담는 블럭
+ */
+public class CustomModelData {
 
     private String cmdString;
     private float cmdFloat;
 
-    public CMDBlock(){
+    public CustomModelData(){
         this.cmdString = null;
         this.cmdFloat = 0.0f;
     }
 
-    public CMDBlock(String cmdString, float cmdFloat){
+    public CustomModelData(String cmdString, float cmdFloat){
         this.cmdString = cmdString;
         this.cmdFloat = cmdFloat;
     }
@@ -37,12 +38,12 @@ public class CMDBlock {
 
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof CMDBlock cmdBlock)){
+        if(!(obj instanceof CustomModelData CustomModelData)){
             return false;
         }
 
-        return Objects.equals(this.cmdString, cmdBlock.cmdString)
-                && Objects.equals(this.cmdFloat,cmdBlock.cmdFloat);
+        return Objects.equals(this.cmdString, CustomModelData.cmdString)
+                && Objects.equals(this.cmdFloat,CustomModelData.cmdFloat);
     }
 
     @Override

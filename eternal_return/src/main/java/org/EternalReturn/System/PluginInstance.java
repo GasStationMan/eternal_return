@@ -5,13 +5,10 @@ import java.io.UnsupportedEncodingException;
 
 import org.EternalReturn.System.ERPlayer.ERPlayerDebugCommand;
 import org.EternalReturn.System.ERPlayer.ERPlayerListener;
-import org.EternalReturn.System.ERPlayer.ERPlayerScript;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.InventoryGuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityScript;
 import org.EternalReturn.Util.Gui.bossbarGui.View.BSwingListener;
-import org.EternalReturn.Util.ScriptUtill.ScriptUpdateThread;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -71,9 +68,7 @@ public final class PluginInstance extends JavaPlugin{
             systemManager.addPlayer(onlinePlayer);
         }
 
-        //스크립트 업데이트
-        Bukkit.getScheduler().runTaskTimer(this, new ScriptUpdateThread(new ERPlayerScript()),0,1);
-        Bukkit.getScheduler().runTaskTimer(this, new ScriptUpdateThread(new AJEntityScript()),0,1);
+        Bukkit.getScheduler().runTaskTimer(this, new ERUpdate(),0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");

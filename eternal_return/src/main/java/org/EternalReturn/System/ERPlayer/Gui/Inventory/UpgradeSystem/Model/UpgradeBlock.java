@@ -1,6 +1,6 @@
 package org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model;
 
-import org.EternalReturn.Util.itemUtill.CMDBlock;
+import org.EternalReturn.Util.itemUtill.CustomModelData;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.AttributeModifier;
@@ -13,7 +13,7 @@ import java.util.*;
 
 public class UpgradeBlock{
 
-    private CMDBlock cmdBlock;
+    private CustomModelData CustomModelData;
     private Map<Attribute,AttributeModifier> attributeModifierMap;
     private List<Attribute> attributes;
     private List<EnchantBlock> enchantBlocks;
@@ -26,13 +26,13 @@ public class UpgradeBlock{
         enchantBlocks = new ArrayList<>(2);
         attributeModifierMap = new HashMap<>(5);
         attributes = new ArrayList<>(5);
-        cmdBlock = new CMDBlock();
+        CustomModelData = new CustomModelData();
         tagsToGive = new ArrayList<>(2);
     }
 
     //getter
-    public CMDBlock getCmdBlock(){
-        return cmdBlock;
+    public CustomModelData getCustomModelData(){
+        return CustomModelData;
     }
 
     public List<Attribute> getAttributes(){
@@ -87,9 +87,9 @@ public class UpgradeBlock{
         return this;
     }
 
-    public UpgradeBlock setCMDBlock(String string, float fvalue){
-        cmdBlock.setCmdString(string);
-        cmdBlock.setCmdFloat(fvalue);
+    public UpgradeBlock setCustomModelData(String string, float fvalue){
+        CustomModelData.setCmdString(string);
+        CustomModelData.setCmdFloat(fvalue);
         return this;
     }
 

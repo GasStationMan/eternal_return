@@ -1,10 +1,8 @@
-package org.EternalReturn.System.ERPlayer;
+package org.EternalReturn.System;
 
-import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.Util.Gui.bossbarGui.View.BFrame;
 import org.EternalReturn.Util.Physics.MotionManager;
-import org.EternalReturn.Util.ScriptUtill.Script;
-import org.EternalReturn.System.SystemManager;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Marker;
@@ -15,27 +13,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-public class ERPlayerScript implements Script {
+public class ERUpdate implements Runnable {
     private HashMap<Player,ERPlayer> erPlayerHashMap;
     private List<Marker> markerList;
     private World currentWorld;
 
-    public void free(){
-        erPlayerHashMap = null;
-        markerList.clear();
-        markerList = null;
-        currentWorld = null;
-    }
-
-    public ERPlayerScript(){
+    public ERUpdate(){
         erPlayerHashMap = SystemManager.getInstance().getERPlayerHashMap();
         markerList = new ArrayList<>();
         currentWorld = null;
     }
 
     @Override
-    public void update() {
-
+    public void run() {
         for(ERPlayer erPlayer : erPlayerHashMap.values()){
             Player p = erPlayer.getPlayer();
             erPlayerScript(erPlayer,p);

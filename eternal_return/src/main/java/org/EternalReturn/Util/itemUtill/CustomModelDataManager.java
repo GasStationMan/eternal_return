@@ -9,9 +9,9 @@ import org.bukkit.inventory.meta.components.CustomModelDataComponent;
 import java.util.List;
 
 /**
- * Custom View Data Manager
+ * Custom Model Data Manager
  * */
-public class CMDManager {
+public class CustomModelDataManager {
 
     private ItemStack item;
     private CustomModelDataComponent cmdComponent;
@@ -25,12 +25,12 @@ public class CMDManager {
         cmdComponent = null;
     }
 
-    public CMDManager(){
+    public CustomModelDataManager(){
         this.item = null;
         this.cmdComponent = null;
     }
 
-    public CMDManager setItem(ItemStack item){
+    public CustomModelDataManager setItem(ItemStack item){
         this.item = item;
         try{
             ItemMeta itemMeta = null;
@@ -87,15 +87,15 @@ public class CMDManager {
         }
     }
 
-    public boolean hasCMDBlock(CMDBlock cmdBlock){
-        return hasStringCMD(cmdBlock.getCmdString()) && hasFloatCMD(cmdBlock.getCmdFloat());
+    public boolean hasCustomModelData(CustomModelData CustomModelData){
+        return hasStringCMD(CustomModelData.getCmdString()) && hasFloatCMD(CustomModelData.getCmdFloat());
     }
 
     /**
-     * 해당 CMDManager가 관리하는 CMD데이터 중 일치하는 데이터가 CMDBlock에 있으면 그대로 반환. </br>
+     * 해당 CustomModelDataManager가 관리하는 CMD데이터 중 일치하는 데이터가 CustomModelData에 있으면 그대로 반환. </br>
      * 없다면 null반환
      * */
-    public CMDBlock getCMDBlock(){
+    public CustomModelData getCustomModelData(){
 
         if(cmdFloatList == null
                 || cmdStringList == null
@@ -104,7 +104,7 @@ public class CMDManager {
             return null;
         }
 
-        return new CMDBlock(cmdStringList.getFirst(), cmdFloatList.getFirst());
+        return new CustomModelData(cmdStringList.getFirst(), cmdFloatList.getFirst());
     }
 
 

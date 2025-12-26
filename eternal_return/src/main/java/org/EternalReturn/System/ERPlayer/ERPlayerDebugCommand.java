@@ -62,37 +62,14 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             InfStraightLine line = new InfStraightLine(rayDir, rayPos);
 
             Cylinder cylinder = (Cylinder)this.testCollider;
-            //cylinder.getPointOfIntersectWith(line);
-
-            //p.sendMessage(dir + " * t + " + pos);
-
 
             if(!cylinder.isIntersectWith(line)){
                 p.sendMessage("충돌x");
             }
             else{
                 p.sendMessage("Intersect! -> ");
-                //p.sendMessage(cylinder.getPointOfIntersectWith(line).toString());
+                p.sendMessage(cylinder.getPointOfIntersectWith(line).toString());
             }
-
-
-//            for(int i = 0 ; i < 10 ; i ++){
-//                Vec3d point = line.getDot(i);
-//                Block block = currentWorld.getBlockAt(
-//                        (int)point.getX(),
-//                        (int)point.getY(),
-//                        (int)point.getZ()
-//                );
-//                p.sendMessage(
-//                        "(" +
-//                        point.getX() + "," +
-//                        point.getY() + "," +
-//                        point.getZ() + ") " +
-//                                block.getBlockData().getMaterial());
-//
-//            }
-
-
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("summonCollider")){
 

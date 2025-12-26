@@ -10,8 +10,8 @@ public class InfStraightLine {
     private Vec3d position;
     
     /**
-     * direction 벡터와 position 벡터로 하나의 유일한 직선을 결정. <br>
-     * direction 벡터는 normalize되어 전달됨.
+     * direction 벡터와 position 벡터로 하나의 유일한 직선을 결정. <p>
+     * direction 벡터는 normalize되어 전달됨. <p>
      * */
     public InfStraightLine(Vec3d direction, Vec3d position){
         this.direction = direction.normalize();

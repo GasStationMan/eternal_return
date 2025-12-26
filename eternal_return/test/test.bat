@@ -1,0 +1,2 @@
+javac MyPhysicsEngine.java
+java MyPhysicsEngine

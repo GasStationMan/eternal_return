@@ -4,8 +4,8 @@ import org.EternalReturn.System.AreaSystem.ERAreaGraph;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
-import org.EternalReturn.Util.itemUtill.CMDBlock;
-import org.EternalReturn.Util.itemUtill.CMDManager;
+import org.EternalReturn.Util.itemUtill.CustomModelData;
+import org.EternalReturn.Util.itemUtill.CustomModelDataManager;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
 import org.bukkit.entity.Player;
 
@@ -24,7 +24,7 @@ public class SystemManager {
     private static BukkitAudiences bukkitAudiences;
     private static Enchanter enchanter;
     private static ERAreaGraph ERAreaGraph;
-    private static CMDManager cmdManager;
+    private static CustomModelDataManager CustomModelDataManager;
 
     public static int RED_ZONE = 0;
     public static int YELLOW_ZONE = 1;
@@ -53,11 +53,11 @@ public class SystemManager {
     public static String USE_KIOSK = "use_kiosk";
     public static String USE_HYPERLOOP = "use_hyperloop";
 
-    public static CMDBlock EPIC_BLOOD_SAMPLE = new CMDBlock("epic",0.0f);
-    public static CMDBlock EPIC_FORCE_CORE   = new CMDBlock("epic",1.0f);
-    public static CMDBlock EPIC_METEORITE    = new CMDBlock("epic",2.0f);
-    public static CMDBlock EPIC_MITHRIL      = new CMDBlock("epic",3.0f);
-    public static CMDBlock EPIC_TREE_OF_LIFE = new CMDBlock("epic",4.0f);
+    public static CustomModelData EPIC_BLOOD_SAMPLE = new CustomModelData("epic",0.0f);
+    public static CustomModelData EPIC_FORCE_CORE   = new CustomModelData("epic",1.0f);
+    public static CustomModelData EPIC_METEORITE    = new CustomModelData("epic",2.0f);
+    public static CustomModelData EPIC_MITHRIL      = new CustomModelData("epic",3.0f);
+    public static CustomModelData EPIC_TREE_OF_LIFE = new CustomModelData("epic",4.0f);
 
 
 
@@ -77,8 +77,8 @@ public class SystemManager {
         enchanter = null;
         ERAreaGraph.free();
         ERAreaGraph = null;
-        cmdManager.free();
-        cmdManager = null;
+        CustomModelDataManager.free();
+        CustomModelDataManager = null;
 
         AREASTRING_alley = null;
         AREASTRING_gas_station = null;
@@ -116,7 +116,7 @@ public class SystemManager {
         uuidPlayerHashMap = new HashMap<>();
         enchanter = new Upgrader();
         ERAreaGraph = new ERAreaGraph(20);
-        cmdManager = new CMDManager();
+        CustomModelDataManager = new CustomModelDataManager();
     }
     
 
@@ -148,8 +148,8 @@ public class SystemManager {
         return ERAreaGraph;
     }
 
-    public static CMDManager getCmdManager(){
-        return cmdManager;
+    public static CustomModelDataManager getCustomModelDataManager(){
+        return CustomModelDataManager;
     }
 
     public static List<ERPlayer> getERPlayerList() {

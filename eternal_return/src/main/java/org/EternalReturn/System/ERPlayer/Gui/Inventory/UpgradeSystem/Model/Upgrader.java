@@ -1,8 +1,8 @@
 package org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model;
 
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.itemUtill.CMDBlock;
-import org.EternalReturn.Util.itemUtill.CMDManager;
+import org.EternalReturn.Util.itemUtill.CustomModelData;
+import org.EternalReturn.Util.itemUtill.CustomModelDataManager;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.AttributeModifier;
@@ -16,7 +16,6 @@ import org.bukkit.inventory.meta.ArmorMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.components.EquippableComponent;
 
-import java.lang.management.GarbageCollectorMXBean;
 import java.util.Set;
 
 public class Upgrader extends Enchanter {
@@ -251,21 +250,21 @@ public class Upgrader extends Enchanter {
     public ItemStack enchant() {
         this.item = super.enchant();
 
-        CMDManager cmdManager = SystemManager.getCmdManager();
+        CustomModelDataManager CustomModelDataManager = SystemManager.getCustomModelDataManager();
 
         if(upgrader == null || !upgrader.hasItemMeta()){
             return item;
         }
 
-        CMDBlock cmdBlockToCompare = cmdManager
+        CustomModelData CustomModelDataToCompare = CustomModelDataManager
                 .setItem(upgrader)
-                .getCMDBlock();
+                .getCustomModelData();
 
-        if (cmdBlockToCompare == null) {
+        if (CustomModelDataToCompare == null) {
             return item;
         }
 
-        Object upgradeBlockObj = getState(item.getType(), cmdBlockToCompare);
+        Object upgradeBlockObj = getState(item.getType(), CustomModelDataToCompare);
         if (!(upgradeBlockObj instanceof UpgradeBlock upgradeBlock)) {
             return item;
         }

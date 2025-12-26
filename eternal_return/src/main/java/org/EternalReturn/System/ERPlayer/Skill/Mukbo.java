@@ -3,8 +3,8 @@ package org.EternalReturn.System.ERPlayer.Skill;
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Free.FreeAble;
-import org.EternalReturn.Util.itemUtill.CMDBlock;
-import org.EternalReturn.Util.itemUtill.CMDManager;
+import org.EternalReturn.Util.itemUtill.CustomModelData;
+import org.EternalReturn.Util.itemUtill.CustomModelDataManager;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -34,21 +34,21 @@ public class Mukbo extends Skill{
     private boolean hasFoodInInventory(Inventory inventory){
         invContent = inventory.getContents();
 
-        CMDManager cmdManager = SystemManager.getCmdManager();
+        CustomModelDataManager CustomModelDataManager = SystemManager.getCustomModelDataManager();
 
         for(ItemStack food : invContent){
             if(food == null){
                 continue;
             }
-            cmdManager.setItem(food);
-            CMDBlock cmdBlock = cmdManager.getCMDBlock();
-            if(cmdBlock == null){
+            CustomModelDataManager.setItem(food);
+            CustomModelData CustomModelData = CustomModelDataManager.getCustomModelData();
+            if(CustomModelData == null){
                 continue;
             }
 
-            //cmdManager가 cmdBlock을 찾아냈다면
-            String foodString = cmdBlock.getCmdString();
-            float foodNumber = cmdBlock.getCmdFloat();
+            //CustomModelDataManager가 CustomModelData을 찾아냈다면
+            String foodString = CustomModelData.getCmdString();
+            float foodNumber = CustomModelData.getCmdFloat();
             if(foodString.equals("food") && (0 <= foodNumber && foodNumber <= 16)){
                 food.setAmount(food.getAmount() - 1);
                 inventory.setContents(invContent);
