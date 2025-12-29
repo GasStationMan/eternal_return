@@ -1,6 +1,4 @@
 {
-    "values":[
-        "eternal_return:main",
-        "animated_java:global/on_tick"
-    ]
+	"replace": false,
+	"values": ["animated_java:global/on_tick"]
 }

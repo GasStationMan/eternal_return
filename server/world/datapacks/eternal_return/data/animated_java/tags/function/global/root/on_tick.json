@@ -1,4 +1,5 @@
 {
+	"replace": false,
 	"values": [
 		"animated_java:animal_alpha/root/on_tick",
 		"animated_java:animal_bear/root/on_tick",

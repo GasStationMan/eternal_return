@@ -1,7 +1,4 @@
 {
-    "values":[
-        "eternal_return:load",
-        "animated_java:global/internal/gu/load", 
-        "animated_java:global/on_load"
-    ]
+	"replace": false,
+	"values": ["animated_java:global/on_load"]
 }

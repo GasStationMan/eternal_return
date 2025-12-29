@@ -1,4 +1,5 @@
 {
+	"replace": false,
 	"values": [
 		"animated_java:animal_alpha/on_load",
 		"animated_java:animal_bear/on_load",
