@@ -56,8 +56,8 @@ public final class PluginInstance extends JavaPlugin{
 
         //GuiOpen 리스너 등록. 이런 식으로 해야 함...
         PluginManager pm = getServer().getPluginManager();
-        pm.registerEvents(new ERPlayerListener(systemManager), this);
-        pm.registerEvents(new InventoryGuiListener(systemManager), this);
+        pm.registerEvents(new ERPlayerListener(), this);
+        pm.registerEvents(new InventoryGuiListener(), this);
         pm.registerEvents(new BSwingListener(), this);
         pm.registerEvents(ajEntityManager, this);
         loadCommands();
@@ -68,7 +68,7 @@ public final class PluginInstance extends JavaPlugin{
             systemManager.addPlayer(onlinePlayer);
         }
 
-        Bukkit.getScheduler().runTaskTimer(this, new ERUpdate(),0,1);
+        Bukkit.getScheduler().runTaskTimer(this, new ERJAVAEngine(),0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");

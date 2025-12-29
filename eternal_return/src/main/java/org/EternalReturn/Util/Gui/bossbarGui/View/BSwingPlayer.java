@@ -13,13 +13,14 @@ public class BSwingPlayer {
     private Player player;
     private BComponentManager opened;
     private List<BComponent> interactionList = new ArrayList<>();
-    private Vec2d rot2dVecX;
-    private Vec2d rot2dVecY;
+
+    private Vec2d rot2dVecX; //끄덕끄덕 -> xAxis
+    private Vec2d rot2dVecY; //도리도리 -> yAxis
 
     public BSwingPlayer(Player p){
         this.player = p;
-        rot2dVecX = new Vec2d(Math.cos(0),Math.sin(0));
-        rot2dVecY = new Vec2d(Math.cos(0),Math.sin(0));
+        this.rot2dVecX = new Vec2d(Math.cos(0), Math.sin(0));
+        this.rot2dVecY = new Vec2d(Math.cos(0), Math.sin(0));
     }
 
     public Vec2d getRot2dVecX(){

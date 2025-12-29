@@ -1,9 +1,5 @@
 package org.EternalReturn.Util.Gui.bossbarGui.View;
 
-import org.EternalReturn.System.ERPlayer.ERPlayer;
-import org.EternalReturn.System.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent.HBButton;
-import org.EternalReturn.System.SystemManager;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,7 +7,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.List;
-import java.util.Set;
 
 
 public class BSwingListener implements Listener {

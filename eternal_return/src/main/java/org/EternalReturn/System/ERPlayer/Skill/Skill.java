@@ -36,7 +36,7 @@ public abstract class Skill implements FreeAble {
         this.nextTimeToUse = System.currentTimeMillis() + cooltime;
     }
 
-    public void activate(){
+    public void update(){
         if(isCoolDone()){
             this.skillEffect();
             this.setCooltime();

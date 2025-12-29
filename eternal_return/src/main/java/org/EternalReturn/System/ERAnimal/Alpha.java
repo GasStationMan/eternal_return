@@ -2,7 +2,7 @@ package org.EternalReturn.System.ERAnimal;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.EternalReturn.Util.Physics.Geometry.Cylinder;
-import org.EternalReturn.Util.Physics.MathVector.Vec3d;
+import org.EternalReturn.Util.Physics.Geometry.InfStraightLine;
 import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 
@@ -10,13 +10,13 @@ import java.util.List;
 
 public class Alpha extends ERAnimal{
 
+
     public Alpha(@NotNull Location position) {
         super("animal_alpha",
                 new Cylinder(
-                        new Vec3d(0,1,0),
-                        new Vec3d(position.getX(), position.getY(), position.getZ()),
-                        3,
-                        1.5
+                    new InfStraightLine(0,1,0, position.getX(), position.getY(), position.getZ()),
+                        1,
+                        3
                 ));
 
         registerAnimation("ready",2.0d);
@@ -26,12 +26,11 @@ public class Alpha extends ERAnimal{
         registerAnimation("death",2.0d);
 
     }
+    
 
     /**
      * 캐싱 상황까지 고려하여 플레이어 리스트를 뽑아냄
      * */
-
-
     @Override
     protected void script() {
 

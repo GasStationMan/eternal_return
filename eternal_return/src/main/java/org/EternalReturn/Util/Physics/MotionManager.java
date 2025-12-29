@@ -1,30 +1,33 @@
 package org.EternalReturn.Util.Physics;
 
-import org.EternalReturn.Util.Physics.MathVector.Vec3d;
+import java.util.Set;
+
+import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.System.ERPlayer.ERPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 public class MotionManager {
 
-    private Vec3d motion;
     private int tick;
     private int endTick;
     private Player player;
 
+    private double mx;
+    private double my;
+    private double mz;
+
+
     public void free(){
-        motion = null;
         player = null;
     }
 
     public MotionManager(Player p){
-        this.motion = new Vec3d(0,0,0);
+        this.mx = 0;
+        this.my = 0;
+        this.mz = 0;
         this.tick = 0;
         this.player = p;
-    }
-
-    //getter
-    public Vec3d getMotion(){
-        return motion;
     }
 
     public boolean getMotionIsDone(){
@@ -33,7 +36,9 @@ public class MotionManager {
 
     //setter
     public void setMotion(double x, double y, double z){
-        motion.set(x,y,z);
+        this.mx = x;
+        this.my = y;
+        this.mz = z;
     }
 
     private void updateTick(){
@@ -44,9 +49,9 @@ public class MotionManager {
 
     public void updatePlayerMotion(){
         Vector playerVelocity = player.getVelocity();
-        playerVelocity.setX(motion.getX());
-        playerVelocity.setY(motion.getY());
-        playerVelocity.setZ(motion.getZ());
+        playerVelocity.setX(mx);
+        playerVelocity.setY(my);
+        playerVelocity.setZ(mz);
         player.setVelocity(playerVelocity);
     }
 
@@ -57,8 +62,6 @@ public class MotionManager {
         playerVelocity.setZ(z);
         player.setVelocity(playerVelocity);
     }
-
-
 
     /**
      * 포물선 이동 시 초기속도 구하는 함수
@@ -72,41 +75,80 @@ public class MotionManager {
         double sqrt_2gh = Math.sqrt(2 * 9.8 * h);
         double sqrt_2gdh = Math.sqrt(2 * 9.8 * (h - dy));
 
-        //double vx;
-        //double vy;
-        //double vz;
-
         //tick 당 업데이트 할 거기 때문에 m/s -> m/tick
-        motion.set(
-                /*vx = */ dx * 9.8 / ((sqrt_2gh + sqrt_2gdh) * 20),
-                /*vy = */ sqrt_2gh / 20,
-                /*vz = */ dz * 9.8 / ((sqrt_2gh + sqrt_2gdh) * 20)
-        );
+        mx = /*vx = */ dx * 9.8 / ((sqrt_2gh + sqrt_2gdh) * 20);
+        my = /*vy = */ sqrt_2gh / 20;
+        mz = /*vz = */ dz * 9.8 / ((sqrt_2gh + sqrt_2gdh) * 20);
 
         endTick = (int)(20 * (sqrt_2gh + sqrt_2gdh)/9.8);
-
-        //PluginInstance.getServerInstance().getLogger().info(
-        //        "tick : " + tick
-        //        + " , endTick : " + endTick
-        //                + " , dx : " + dx
-        //                + " , dy : " + dy
-        //                + " , dz : " + dz
-        //                + " , vx : " + vx * 20
-        //                + " , vy : " + vy * 20
-        //                + " , vz : " + vz * 20
-        //);
     }
 
     public void updateParabolicMotion(){
         //PluginInstance.getServerInstance().getLogger().info(
-        //        " , vx : " + motion.getX() + " , vy : " + motion.getY() + " , vz : " + motion.getZ()
-        //);
-
+        // " , vx : " + motion.getX() + " , vy : " + motion.getY() + " , vz : " + motion.getZ());
         //g (m/s^2) * 0.05 * 0.05 = g'(m/tick^2)
-        motion.setY(motion.getY() - 9.8 * 0.05 * 0.05);
-
+        my = my - 9.8 * 0.05 * 0.05;
         updatePlayerMotion();
         updateTick();
+    }
+
+
+    /**
+     * FROM : private void motionManagerUpdate()
+     * */
+    public void parseVectorTag(Set<String> tags, ERPlayer erPlayer){
+        MotionManager motionManager = erPlayer.getMotionManager();
+
+        for(String tag : tags){
+            try{
+
+                if(tag.startsWith("parabola_")){
+                    String[] args = tag.split("_");
+
+                    motionManager.setParabolicInitMotion(
+                            Double.parseDouble(args[4]) - Double.parseDouble(args[1]),
+                            Double.parseDouble(args[5]) - Double.parseDouble(args[2]),
+                            Double.parseDouble(args[6]) - Double.parseDouble(args[3]),
+                            10.0
+                    );
+                    tags.remove(tag);
+                    break;
+                }
+                else if(tag.startsWith("motion_")){
+                    String[] args = tag.split("_");
+
+                    motionManager.setMotion(
+                            Double.parseDouble(args[1]),
+                            Double.parseDouble(args[2]),
+                            Double.parseDouble(args[3])
+                    );
+                    tags.remove(tag);
+                    break;
+                }
+            }
+            catch (NumberFormatException e){
+                PluginInstance.getServerInstance().getLogger().info("잘못된 태그가 들어갔습니다.");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * FROM : private void erPlayerScript()
+     * */
+    public void update(ERPlayer erPlayer, Set<String> tags){
+        MotionManager motionManager = erPlayer.getMotionManager();
+        if(tags.contains("vector")){
+            motionManager.parseVectorTag(tags,erPlayer);
+        }
+
+        if(!motionManager.getMotionIsDone()){
+            motionManager.updateParabolicMotion();
+        }
+        
+        else{
+            tags.remove("vector");
+        }
     }
 
 

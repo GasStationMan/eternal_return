@@ -1,6 +1,5 @@
 package org.EternalReturn.Util.Gui.bossbarGui.View;
 
-import org.EternalReturn.Util.Physics.MathVector.Vec2d;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;

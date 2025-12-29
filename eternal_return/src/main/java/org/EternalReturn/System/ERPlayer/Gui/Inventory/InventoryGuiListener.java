@@ -17,14 +17,8 @@ import java.util.HashMap;
 
 public class InventoryGuiListener implements Listener {
 
-    private final HashMap<Player, ERPlayer> playerHashMap;
-
-    public InventoryGuiListener(SystemManager systemManager){
-        playerHashMap = systemManager.getERPlayerHashMap();
-    }
-
     @EventHandler public void guiCloseEvent(InventoryCloseEvent e){
-        ERPlayer erPlayer = playerHashMap.get((Player)e.getPlayer());
+        ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get((Player)e.getPlayer());
         if(erPlayer == null){
             return;
         }
@@ -36,7 +30,7 @@ public class InventoryGuiListener implements Listener {
 
     @EventHandler public void guiClickEvent(InventoryClickEvent e){
         Player p = (Player)e.getWhoClicked();
-        ERPlayer erPlayer = playerHashMap.get(p);
+        ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(p);
 
         Inventory clickedGui = e.getClickedInventory();
 

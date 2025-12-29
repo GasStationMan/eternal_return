@@ -2,13 +2,7 @@ package org.EternalReturn.Util.Gui.bossbarGui.View;
 
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TranslatableComponent;
 import net.kyori.adventure.text.format.TextColor;
-import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
-import net.kyori.adventure.text.serializer.json.JSONComponentSerializer;
-import net.kyori.adventure.translation.Translatable;
-import org.intellij.lang.annotations.Subst;
-
 import java.util.ArrayList;
 import java.util.List;
 

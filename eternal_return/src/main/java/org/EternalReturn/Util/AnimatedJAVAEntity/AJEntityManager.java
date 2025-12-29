@@ -1,13 +1,12 @@
 package org.EternalReturn.Util.AnimatedJAVAEntity;
 
-import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.System.ERAnimal.ERAnimal;
 import org.EternalReturn.Util.Free.FreeAble;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntitySpawnEvent;
@@ -33,9 +32,7 @@ public class AJEntityManager implements Listener , FreeAble {
 
     @Override
     public void free() {
-
         flushAllEntities();
-
         manager = null;
         ajEntityMap.clear();
         ajEntityMap = null;
@@ -148,7 +145,7 @@ public class AJEntityManager implements Listener , FreeAble {
 
     //getter
 
-    public List<AJEntity> getAjEntities(){
+    public static List<AJEntity> getAjEntities(){
         return AJEntityManager.ajEntities;
     }
 

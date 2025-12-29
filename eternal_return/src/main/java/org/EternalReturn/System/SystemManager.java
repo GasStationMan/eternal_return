@@ -8,6 +8,7 @@ import org.EternalReturn.Util.itemUtill.CustomModelData;
 import org.EternalReturn.Util.itemUtill.CustomModelDataManager;
 import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -136,7 +137,7 @@ public class SystemManager {
         return enchanter;
     }
 
-    public static HashMap<Player, ERPlayer> getERPlayerHashMap(){
+    public static @NotNull HashMap<Player, ERPlayer> getERPlayerHashMap(){
         return erPlayerHashMap;
     }
 

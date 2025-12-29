@@ -11,8 +11,6 @@ import org.bukkit.entity.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -43,6 +41,15 @@ public abstract class ERAnimal extends AJEntity {
         actor.setAI(false);
         actor.setInvisible(true);
         actor.setSilent(true);
+    }
+
+    /**
+     * AJEntity 제거 뿐만 아니라 Actor까지 함께 제거한다.
+     */
+    @Override
+    public void remove() {
+        super.remove();
+        this.actor.remove();
     }
 
     @Override
