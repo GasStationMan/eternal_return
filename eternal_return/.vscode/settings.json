@@ -1,4 +1,9 @@
 {
     "C_Cpp.default.compilerPath": "c:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.import.gradle.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "kotlin.compiler.jvm.target": "21",
+    "kotlin.languageServer.path": "E:/kotlin-compiler-2.1.0",
+    "kotlin.languageServer.enabled": true
 }

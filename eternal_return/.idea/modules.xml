@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eternal_return.iml" filepath="$PROJECT_DIR$/.idea/modules/eternal_return.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/eternal_return.main.iml" filepath="$PROJECT_DIR$/.idea/modules/eternal_return.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eternal_return.test.iml" filepath="$PROJECT_DIR$/.idea/modules/eternal_return.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/git.eternal_return.main.iml" filepath="$PROJECT_DIR$/.idea/modules/git.eternal_return.main.iml" />
     </modules>
   </component>
 </project>

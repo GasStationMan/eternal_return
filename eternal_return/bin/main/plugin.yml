@@ -1,0 +1,7 @@
+name: eternal_return_system
+version: '1.0-SNAPSHOT'
+main: org.EternalReturn.System.PluginInstance
+api-version: '1.21'
+
+commands:
+    er:

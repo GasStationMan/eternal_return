@@ -24,7 +24,6 @@ public class Alpha extends ERAnimal{
         registerAnimation("move",3.5d);
         registerAnimation("skill",3.25d);
         registerAnimation("death",2.0d);
-
     }
     
 
@@ -32,7 +31,7 @@ public class Alpha extends ERAnimal{
      * 캐싱 상황까지 고려하여 플레이어 리스트를 뽑아냄
      * */
     @Override
-    protected void script() {
+    public void script() {
 
         List<ERPlayer> list = getPlayersInRange(5.0);
 

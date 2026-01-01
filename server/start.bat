@@ -1,4 +1,4 @@
 @echo off
 chcp 65001
-java -jar -Xms8G -Xmx8G spigot.jar
+java -Xms8G -Xmx8G -XX:+UnlockDiagnosticVMOptions -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+AlwaysPreTouch -XX:ReservedCodeCacheSize=512M -jar spigot.jar 
 pause

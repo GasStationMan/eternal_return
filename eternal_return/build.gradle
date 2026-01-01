@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '2.1.0'
 }
 
 group = 'eternal_return'
@@ -18,7 +19,12 @@ repositories {
 }
 
 dependencies {
+
     compileOnly("org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT")
+
+    //코틀린 스탠다드 라이브러리
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.1.0"
+
     implementation "net.kyori:adventure-api:4.24.0"
     implementation "net.kyori:adventure-platform-bukkit:4.4.1"
     implementation "com.googlecode.json-simple:json-simple:1.1.1"
@@ -26,12 +32,13 @@ dependencies {
 
 def targetJavaVersion = 21
 java {
-    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-    if (JavaVersion.current() < javaVersion) {
-        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }
+}
+
+kotlin {
+    jvmToolchain(targetJavaVersion)
 }
 
 tasks.withType(JavaCompile).configureEach {

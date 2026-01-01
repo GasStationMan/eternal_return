@@ -68,7 +68,7 @@ public final class PluginInstance extends JavaPlugin{
             systemManager.addPlayer(onlinePlayer);
         }
 
-        Bukkit.getScheduler().runTaskTimer(this, new ERJAVAEngine(),0,1);
+        Bukkit.getScheduler().runTaskTimer(this, new EREngine(),0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");

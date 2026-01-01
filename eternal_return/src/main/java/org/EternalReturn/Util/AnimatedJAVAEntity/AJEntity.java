@@ -51,7 +51,7 @@ public abstract class AJEntity {
 
     protected abstract void afterSpawnEvent(Entity rootEntity);
 
-    protected abstract void script();
+    public abstract void script();
 
     /**
      * 현재 AJEntity를 제거한다. <br>
@@ -91,11 +91,11 @@ public abstract class AJEntity {
 
         AJAnimationInfoBlock acb = this.animationMap.get(selectedAnimation);
 
-        long durationTicks = acb.getAnimationDurationTicks();
+        long durationTicks = acb.durationTicks();
 
         long currentTime = System.currentTimeMillis();
 
-        String animation = acb.getAnimation();
+        String animation = acb.animation();
 
         if(animationEndTime > currentTime){
             return;
