@@ -61,7 +61,6 @@ public abstract class AJEntity {
         Bukkit.dispatchCommand(
                 Bukkit.getConsoleSender(),
                 getExecuteAsRunFuncPrefix() + "animated_java:" + this.name + "/remove/this");
-        AJEntityManager.remove(this,rootEntity);
     }
 
     /**
@@ -87,14 +86,38 @@ public abstract class AJEntity {
      * 다를 경우. 해당 애니메이션으로 바로 진행됨. <br>
      * @throws : AJAnimationNotFoundException
      * */
+    public void playAnimForce(String selectedAnimation)throws AJAnimationNotFoundException{
+
+        AJAnimationInfoBlock acb = this.animationMap.get(selectedAnimation);
+        long durationTicks = acb.durationTicks();
+        long currentTime = System.currentTimeMillis();
+        String animation = acb.animation();
+
+        if(animation == null){
+            throw new AJAnimationNotFoundException(
+                    "AJAnimation is not found : \"" + selectedAnimation + "\"\n"
+                            +"Solution : Check the animated_java project name and your JAVA code");
+        }
+
+        if(animationEndTime > currentTime && animationPlaying.equals(animation)){
+            return;
+        }
+
+
+        __setAnim(animation, durationTicks, currentTime);
+    }
+
+    /**
+     * 애니에이션을 실행하는 메소드 <br>
+     * 현재 이 메소드를 통해 실행하려는 애니메이션과 실행 중인 애니메이션이 같은 경우, 아무 일도 일어나지 않음. <br>
+     * 다를 경우. 해당 애니메이션이 다 끝난 후에 다음 애니메이션 실행을 허용함. <br>
+     * @throws : AJAnimationNotFoundException
+     * */
     public void playAnim(String selectedAnimation)throws AJAnimationNotFoundException{
 
         AJAnimationInfoBlock acb = this.animationMap.get(selectedAnimation);
-
         long durationTicks = acb.durationTicks();
-
         long currentTime = System.currentTimeMillis();
-
         String animation = acb.animation();
 
         if(animationEndTime > currentTime){
@@ -104,17 +127,20 @@ public abstract class AJEntity {
         if(animation == null){
             throw new AJAnimationNotFoundException(
                     "AJAnimation is not found : \"" + selectedAnimation + "\"\n"
-                    +"Solution : Check the animated_java project name and your JAVA code");
+                            +"Solution : Check the animated_java project name and your JAVA code");
         }
+        __setAnim(animation, durationTicks, currentTime);
+    }
 
+    //요청받은 애니메이션을 설정 & 실행한다.
+    private void __setAnim(String animation, long durationTicks, long currentTime)throws AJAnimationNotFoundException{
+        //현재 실행하는 애니메이션의 이름과 경로
         this.animationPlaying = animation;
         this.animationEndTime = durationTicks * 50 + currentTime;
         this.animationState = ANIMATION_STATE.PLAY;
         String command = getExecuteAsRunFuncPrefix() + animation + "/play";
         PluginInstance.dfLogUTF8(command);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
-
-
     }
 
     /**
@@ -122,14 +148,26 @@ public abstract class AJEntity {
      * getAnimationState()메소드로 얻을 수 있는 값은 ANIMATION_PAUSE의 값이 된다.
      * */
     public void pauseAnim(){
-
         this.animationState = ANIMATION_STATE.PAUSE;
         Bukkit.dispatchCommand(
                 Bukkit.getConsoleSender(),
                 getExecuteAsRunFuncPrefix() + animationPlaying + "/pause");
     }
 
+    /**
+     * 현재 애니메이션의 종류와는 무관하게 애니메이션이 실행 중인지만 파악하는 쿼리함수.
+     * */
+    public boolean isCurrentAnimEnd(){
+        return animationEndTime > System.currentTimeMillis();
+    }
 
+    /**
+     * 해당하는 애니메이션이 실행 중인지 확인하는 쿼리함수
+     * */
+    public boolean isPlaying(String animation){
+        AJAnimationInfoBlock acb = this.animationMap.get(animation);
+        return acb.animation().equals(animationPlaying) && isCurrentAnimEnd();
+    }
 
     /**
      * 실행 중인 해당 애니메이션을 완전히 끈다.<br>

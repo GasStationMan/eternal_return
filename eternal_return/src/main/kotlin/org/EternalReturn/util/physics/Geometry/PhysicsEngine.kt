@@ -106,82 +106,83 @@ public open class PhysicsEngine : MatVecCalculator {
     }
 
     protected fun getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
+        setVecScope().use {
+            // === Ray ===
+            val O = vec3(line.px, line.py, line.pz)
+            val D = vec3(line.vx, line.vy, line.vz)
 
-        // === Ray ===
-        val O = vec3(line.px, line.py, line.pz)
-        val D = vec3(line.vx, line.vy, line.vz)
+            // === Cylinder axis ===
+            val C = vec3(cylinder.center.px, cylinder.center.py, cylinder.center.pz)
+            val A = vec3(
+                cylinder.center.vx,
+                cylinder.center.vy,
+                cylinder.center.vz
+            )
 
-        // === Cylinder axis ===
-        val C = vec3(cylinder.center.px, cylinder.center.py, cylinder.center.pz)
-        val A = vec3(
-            cylinder.center.vx,
-            cylinder.center.vy,
-            cylinder.center.vz
-        )
+            val radius = cylinder.radius
+            val height = cylinder.height
 
-        val radius = cylinder.radius
-        val height = cylinder.height
+            // === r = O - C ===
+            val r = O - C
 
-        // === r = O - C ===
-        val r = O - C
+            // ======================================================
+            // 1. Directional early reject
+            // ======================================================
+            if ((r dot D) >= 0.0) {
+                return false
+            }
 
-        // ======================================================
-        // 1. Directional early reject
-        // ======================================================
-        if ((r dot D) >= 0.0) {
-            return false
+            // ======================================================
+            // 2. Ray–Axis distance² test
+            // ======================================================
+            val u = D cross A
+            val denom = magSqr(u)
+            if (denom < 1e-12) {
+                // Ray || axis
+                return false
+            }
+
+            val dist2 = (r dot u).let { it * it } / denom
+            if (dist2 > radius * radius) {
+                return false
+            }
+
+            // ======================================================
+            // 3. Quadratic solve (projected space)
+            // ======================================================
+            val dPerp = D - A * (D dot A)
+            val rPerp = r - A * (r dot A)
+
+            val Aq = dPerp dot dPerp
+            val Bq = 2.0 * (dPerp dot rPerp)
+            val Cq = (rPerp dot rPerp) - radius * radius
+
+            val disc = Bq * Bq - 4.0 * Aq * Cq
+            if (disc < 0.0) {
+                return false
+            }
+
+            val t = (-Bq - sqrt(disc)) / (2.0 * Aq)
+            if (t < 0.0) {
+                return false
+            }
+
+            // ======================================================
+            // 4. Intersection point
+            // ======================================================
+            val P = O + D * t
+
+            // ======================================================
+            // 5. Finite height check
+            // ======================================================
+            val h = (P - C) dot A
+            if (h < 0.0 || h > height) {
+                return false
+            }
+
+            assign(out, P)
+            return true
         }
-
-        // ======================================================
-        // 2. Ray–Axis distance² test
-        // ======================================================
-        val u = D cross A
-        val denom = magSqr(u)
-        if (denom < 1e-12) {
-            // Ray || axis
-            return false
-        }
-
-        val dist2 = (r dot u).let { it * it } / denom
-        if (dist2 > radius * radius) {
-            return false
-        }
-
-        // ======================================================
-        // 3. Quadratic solve (projected space)
-        // ======================================================
-        val dPerp = D - A * (D dot A)
-        val rPerp = r - A * (r dot A)
-
-        val Aq = dPerp dot dPerp
-        val Bq = 2.0 * (dPerp dot rPerp)
-        val Cq = (rPerp dot rPerp) - radius * radius
-
-        val disc = Bq * Bq - 4.0 * Aq * Cq
-        if (disc < 0.0) {
-            return false
-        }
-
-        val t = (-Bq - sqrt(disc)) / (2.0 * Aq)
-        if (t < 0.0) {
-            return false
-        }
-
-        // ======================================================
-        // 4. Intersection point
-        // ======================================================
-        val P = O + D * t
-
-        // ======================================================
-        // 5. Finite height check
-        // ======================================================
-        val h = (P - C) dot A
-        if (h < 0.0 || h > height) {
-            return false
-        }
-
-        assign(out, P)
-        return true
     }
 
     protected fun fgetIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {

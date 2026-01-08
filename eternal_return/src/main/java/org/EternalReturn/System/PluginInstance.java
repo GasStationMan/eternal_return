@@ -13,7 +13,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.checkerframework.checker.nullness.qual.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 public final class PluginInstance extends JavaPlugin{
 
@@ -22,8 +22,10 @@ public final class PluginInstance extends JavaPlugin{
     private static SystemManager systemManager;
     private static BukkitAudiences adventure;
 
+    private static EREngine erEngine;
+
     //BukkitAudience얻어오는 함수
-    public static @NonNull BukkitAudiences adventure(){
+    public static @NotNull BukkitAudiences adventure(){
         if(adventure == null){
             throw new IllegalStateException("Tried to access Adventure when the plugin was disabled!");
         }
@@ -58,7 +60,7 @@ public final class PluginInstance extends JavaPlugin{
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new ERPlayerListener(), this);
         pm.registerEvents(new InventoryGuiListener(), this);
-        pm.registerEvents(new BSwingListener(), this);
+        //pm.registerEvents(new BSwingListener(), this);
         pm.registerEvents(ajEntityManager, this);
         loadCommands();
 
@@ -68,7 +70,8 @@ public final class PluginInstance extends JavaPlugin{
             systemManager.addPlayer(onlinePlayer);
         }
 
-        Bukkit.getScheduler().runTaskTimer(this, new EREngine(),0,1);
+
+        Bukkit.getScheduler().runTaskTimer(this, erEngine = new EREngine(),0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");
@@ -98,6 +101,10 @@ public final class PluginInstance extends JavaPlugin{
 
     public static SystemManager getSystemManager(){
         return systemManager;
+    }
+
+    public static EREngine getEREngine() {
+        return erEngine;
     }
 
 }

@@ -18,13 +18,22 @@ import java.util.List;
 
 public abstract class ERAnimal extends AJEntity {
 
-    private boolean isHit = false;
+    protected boolean isHit = false;
 
-    private Husk actor;
+    protected Husk actor;
 
     private @NotNull Collider collider;
 
     private TextDisplay bar;
+
+    private Interaction hitBoxEntity;
+
+    public enum AnimalState{
+        READY,
+        ATTACK,
+        MOVE,
+        DEAD
+    }
 
     public ERAnimal(String name, @NotNull Collider hitbox) {
         super(name);
@@ -37,6 +46,9 @@ public abstract class ERAnimal extends AJEntity {
         if(world == null){
             throw new NullPointerException("전달된 매개변수 Location에 World 정보가 없습니다.");
         }
+
+        //해당 AJEntity를 조종할 엔티티를 Actor라고 한다.
+        //해당 Actor 위에 AJEntity를 태운다.
         actor = (Husk) world.spawnEntity(location, EntityType.HUSK);
         actor.setAI(false);
         actor.setInvisible(true);
@@ -112,8 +124,15 @@ public abstract class ERAnimal extends AJEntity {
         return Vec3d.getSquareDistance(ep.getPos(), new Vec3d(actor.getLocation()));
     }
 
+    /**
+     * 한번 호출 시 isHit의 반환값은 false가 됨.
+     * 여러 번 호출하지 말 것.
+     * */
     public boolean isHit(){
         return this.isHit;
     }
 
+    public void setHit() {
+        this.isHit = true;
+    }
 }

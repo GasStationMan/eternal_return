@@ -121,6 +121,7 @@ public class AJEntityManager implements Listener , FreeAble {
      * */
     public static void flushAllEntities(){
         for(AJEntity ajEntity : ajEntities){
+            System.out.println(ajEntity.getRootEntity().getUniqueId());
             ajEntity.remove();
         }
         ajEntityMap.clear();
@@ -164,14 +165,16 @@ public class AJEntityManager implements Listener , FreeAble {
 
         if(isAJEntityRoot(entity)){
             AJEntity ajEntity = ajEntitySummonQueue.poll();
+            assert ajEntity != null : "ajEntity가 Null 입니다. AJEntityManager.summon(AJEntity, Location) AJEntity에 잘못된 값이 들어갔습니다.";
+
 
             ajEntityMap.put(entity, ajEntity);
             ajEntities.add(ajEntity);
 
-            assert ajEntity != null : "ajEntity가 Null 입니다. AJEntityManager.summon(AJEntity, Location) AJEntity에 잘못된 값이 들어갔습니다.";
-
             ajEntity.setRootEntity(entity);
             ajEntity.afterSpawnEvent(entity);
+
+            System.out.println("ajEntity가 생성되었습니다. : " + ajEntity.getRootEntity().getUniqueId());
         }
     }
 

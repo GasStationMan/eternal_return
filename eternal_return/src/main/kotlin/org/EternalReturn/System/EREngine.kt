@@ -9,8 +9,10 @@ import org.EternalReturn.Util.Physics.Geometry.InfStraightLine
 import org.EternalReturn.Util.Physics.Geometry.PhysicsEngine
 import org.bukkit.Location
 import org.bukkit.World
+import org.bukkit.entity.Entity
 import org.bukkit.entity.Marker
 import org.bukkit.entity.Player
+import java.util.ArrayList
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -19,35 +21,102 @@ class EREngine : PhysicsEngine, Runnable {
     constructor() : super()
     constructor(bufferSize : Int) : super(bufferSize)
 
-    private val erPlayerHashMap: HashMap<Player, ERPlayer>
-    private val markerList: MutableList<Marker>
-    private val currentWorld: World? = null
+    private val erPlayerHashMap: HashMap<Player, ERPlayer> = SystemManager.getERPlayerHashMap()
+    private val leftClickers: ArrayList<ERPlayer> = ArrayList<ERPlayer>()
+    private var leftClickersStackIdx : Int = 0
 
-    init {
-        erPlayerHashMap = SystemManager.getERPlayerHashMap()
-        markerList = ArrayList<Marker>()
-    }
 
     override fun run() {
-        for (erPlayer in erPlayerHashMap.values) {
-            val p = erPlayer.getPlayer()
-            val tags = p.getScoreboardTags()
-            erPlayer.getSkill().update()
-            erPlayer.getMotionManager().update(erPlayer, tags)
-            physicsDebug(erPlayer, p, tags)
-        }
         
+        for (erPlayer in erPlayerHashMap.values) {
+            val p = erPlayer.getPlayer();
+            val tags = p.getScoreboardTags();
+            erPlayer.getSkill().update();
+            erPlayer.getMotionManager().update(erPlayer, tags);
+            physicsDebug(erPlayer, p, tags);
+
+        }
+
+        //좌클릭한 유저 위치에서 레이캐스팅 실시
+        for (idx in 0..leftClickersStackIdx - 1) {
+            setVecScope().use{
+                val erPlayer : ERPlayer = leftClickers.get(idx);
+
+                //좌클릭 대상이 AJEntity인지 아닌지 체크
+                for (ajEntity in AJEntityManager.getAjEntities()) {
+                    if (ajEntity !is ERAnimal) {
+                        continue;
+                    }
+
+                    val animal = ajEntity;
+                    if(rayCheckWithERAnimal(erPlayer, animal)){
+                        animal.setHit();
+                        break;
+                    }
+                }
+
+
+                //좌클릭 대상이 플레이어인지 아닌지 체크
+                for(victimPlayer : ERPlayer in erPlayerHashMap.values){
+                    if(victimPlayer == erPlayer){ //포인터 비교로 일단 퉁칠거임
+                        continue;
+                    }
+
+                    rayCheckWithERPlayer(erPlayer, victimPlayer);
+                }
+            }
+        }
+
+        leftClickersStackIdx = 0
         //ajEntity 업데이트
         for (ajEntity in AJEntityManager.getAjEntities()) {
             if (ajEntity !is ERAnimal) {
-                continue
+                continue;
             }
-
-            val animal = ajEntity
-            animal.script()
+            val animal = ajEntity;
+            //회전 디버깅.
+            rotationDebug(animal.rootEntity);
+            animal.script();
         }
+
+
+
     }
 
+    private fun rayCheckWithERAnimal(erPlayer: ERPlayer, erAnimal : ERAnimal) : Boolean{
+
+        val pPos: Vector3 = vec3();
+        val pDir: Vector3 = vec3();
+        getDirNPos(pDir,pPos,erPlayer.player);
+
+        val pRay = InfStraightLine(x(pDir), y(pDir), z(pDir), x(pPos), y(pPos) + 1.75, z(pPos))
+        val collider = erAnimal.collider
+
+        if(collider !is Cylinder){
+            System.out.println("This collider is not Cylinder!");
+            return false;
+        }
+
+        val poi: Vector3 = vec3();
+        val bool = getIntersectPoint(poi, pRay, collider);
+        return bool;
+    }
+
+    private fun rayCheckWithERPlayer(erPlayer: ERPlayer, victimPlayer : ERPlayer){
+
+    }
+
+    private fun rotationDebug(entity : Entity){
+        val tagSet = entity.scoreboardTags
+        if(tagSet.contains("rot")){
+            tagSet.remove("rot");
+            println("rotating!");
+            val location : Location = entity.location;
+            location.yaw += 45.0f;
+            //entity.teleport(location); //무조건 이렇게 하거나
+            entity.setRotation(location.yaw + 1.0f, location.pitch); //이게 리소스면에서는 좋음
+        }
+    }
 
     private fun physicsDebug(erPlayer: ERPlayer, p: Player, tags: MutableSet<String>) {
         if (!tags.contains("ray")) {
@@ -77,7 +146,6 @@ class EREngine : PhysicsEngine, Runnable {
                 val intersect = getIntersectPoint(poi, playerRay, cylinder)
                 p.sendMessage((System.nanoTime() - s).toString() + " ns passed with intersect = " + intersect)
             }
-
         }
     }
 
@@ -109,6 +177,11 @@ class EREngine : PhysicsEngine, Runnable {
         val xz = cos(radY)
         assign(dirOut, -xz * sin(radX), -sin(radY), xz * cos(radX))
         assign(posOut, location.getX(), location.getY(), location.getZ())
+    }
+
+    public fun appendLeftClickedPlayer(player: ERPlayer) {
+        leftClickers.add(player)
+        leftClickersStackIdx++
     }
 
 

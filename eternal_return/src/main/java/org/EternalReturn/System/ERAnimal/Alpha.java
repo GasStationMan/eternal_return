@@ -1,9 +1,12 @@
 package org.EternalReturn.System.ERAnimal;
 
 import org.EternalReturn.System.ERPlayer.ERPlayer;
+import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.Util.Physics.Geometry.Cylinder;
 import org.EternalReturn.Util.Physics.Geometry.InfStraightLine;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
+import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -30,26 +33,83 @@ public class Alpha extends ERAnimal{
     /**
      * 캐싱 상황까지 고려하여 플레이어 리스트를 뽑아냄
      * */
+
+    private AnimalState state = AnimalState.READY;
+
+
     @Override
     public void script() {
 
-        List<ERPlayer> list = getPlayersInRange(5.0);
+        List<ERPlayer> list = getPlayersInRange(15.0);
 
-        if(list.isEmpty()){
-            return;
+
+
+        if(state == AnimalState.READY) {
+            //이게 위로 가야지 state machine 이 정확히 동작함.
+            if (isHit()) {
+                this.state = AnimalState.ATTACK;
+                this.isHit = false;
+                this.actor.setAI(true);
+                stopAnim();
+                return;
+            }
+
+            if (!list.isEmpty()) {
+                playAnim("ready");
+                return;
+            }
+            stopAnim();
+        }else{
+
+            //rotating == look at a target
+            Entity target = this.actor.getTarget();
+            if(target == null) return;
+            Entity root = this.getRootEntity();
+            Location actorLoc = actor.getLocation();
+            root.setRotation(actorLoc.getYaw(), root.getLocation().getPitch());
+
+            //범위 내에 있는가?
+            boolean isInDistance = isInDistance(3, actor, target);
+
+            if(isInDistance){
+                state = AnimalState.ATTACK;
+            }else if(!isPlaying("attack")){
+                state = AnimalState.MOVE;
+            }
+
+            if(state == AnimalState.MOVE){
+                actor.setAI(true);
+                if(this.actor.getVelocity().isZero()){
+                    stopAnim();
+                    return;
+                }
+                playAnim("move");
+            }
+
+            if(state == AnimalState.ATTACK){
+                actor.setAI(false);
+                playAnimForce("attack");
+            }
         }
-
-        if(isHit()) {
-            scriptAfterHit();
-            return;
-        }
-
-        playAnim("ready");
 
     }
 
-    private void scriptAfterHit(){
+    public boolean isInDistance(double r, Entity e0, Entity e1){
+        double tx = e0.getLocation().getX();
+        double ty = e0.getLocation().getY();
+        double tz = e0.getLocation().getZ();
 
+        double ax = e1.getLocation().getX();
+        double ay = e1.getLocation().getY();
+        double az = e1.getLocation().getZ();
+
+        double dx = ax - tx;
+        double dy = ay - ty;
+        double dz = az - tz;
+
+        return (dx*dx + dy*dy + dz*dz <= r * r);
     }
+
+
 
 }

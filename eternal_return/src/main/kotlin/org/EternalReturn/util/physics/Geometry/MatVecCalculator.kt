@@ -381,7 +381,7 @@ public open class MatVecCalculator {
      * [x, y, z, 1] 반환
      */
     private fun __allocVector4(x: Double, y: Double, z: Double): Int {
-        if (this.vecIdx + 4 > this.__VECBUFFSIZE) {
+        if (this.vecIdx >= this.__VECBUFFSIZE) {
             __resizeVECSIZE()
         }
         val id = vecIdx
@@ -394,7 +394,7 @@ public open class MatVecCalculator {
 
     private fun __resizeVECSIZE() {
         val new__VECBUFFSIZE = this.__VECBUFFSIZE shl 1
-        val newVecs = DoubleArray(this.__VECBUFFSIZE)
+        val newVecs = DoubleArray(new__VECBUFFSIZE)
         System.arraycopy(this.vecs, 0, newVecs, 0, this.__VECBUFFSIZE)
         this.vecs = newVecs
         this.__VECBUFFSIZE = new__VECBUFFSIZE
@@ -409,32 +409,20 @@ public open class MatVecCalculator {
         z0: Double, z1: Double, z2: Double, z3: Double,
         w0: Double, w1: Double, w2: Double, w3: Double
     ): Int {
-        if (this.matIdx + 4 > this.__MATBUFFSIZE) {
+        if (this.matIdx + 4 >= this.__MATBUFFSIZE) {
             __resizeMATSIZE()
         }
         val id = matIdx
-        mats[matIdx++] = x0
-        mats[matIdx++] = x1
-        mats[matIdx++] = x2
-        mats[matIdx++] = x3
-        mats[matIdx++] = y0
-        mats[matIdx++] = y1
-        mats[matIdx++] = y2
-        mats[matIdx++] = y3
-        mats[matIdx++] = z0
-        mats[matIdx++] = z1
-        mats[matIdx++] = z2
-        mats[matIdx++] = z3
-        mats[matIdx++] = w0
-        mats[matIdx++] = w1
-        mats[matIdx++] = w2
-        mats[matIdx++] = w3
+        mats[matIdx++] = x0; mats[matIdx++] = x1; mats[matIdx++] = x2; mats[matIdx++] = x3;
+        mats[matIdx++] = y0; mats[matIdx++] = y1; mats[matIdx++] = y2; mats[matIdx++] = y3;
+        mats[matIdx++] = z0; mats[matIdx++] = z1; mats[matIdx++] = z2; mats[matIdx++] = z3;
+        mats[matIdx++] = w0; mats[matIdx++] = w1; mats[matIdx++] = w2; mats[matIdx++] = w3;
         return id
     }
 
     private fun __resizeMATSIZE() {
         val new__MATBUFFSIZE = this.__MATBUFFSIZE shl 1
-        val newMats = DoubleArray(this.__MATBUFFSIZE)
+        val newMats = DoubleArray(new__MATBUFFSIZE)
         System.arraycopy(this.mats, 0, newMats, 0, this.__MATBUFFSIZE)
         this.vecs = newMats
         this.__MATBUFFSIZE = new__MATBUFFSIZE

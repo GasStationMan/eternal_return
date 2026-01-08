@@ -8,6 +8,7 @@ import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
 import org.EternalReturn.Util.Physics.MathVector.Vec3d;
 import org.EternalReturn.Util.Physics.MotionManager;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class ERPlayer {
 
@@ -71,6 +72,5 @@ public class ERPlayer {
     public Vec3d getPos(){
         return new Vec3d(player.getLocation());
     }
-
 
 }

@@ -39,11 +39,9 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             p.sendMessage(tagSet.toString());
             return true;
         }
-        else if (args.length == 1 && args[0].equalsIgnoreCase("testAJ")) {
+        else if (args.length == 1 && args[0].equalsIgnoreCase("flushAJ")) {
 
-            Entity root = testAnimal.getRootEntity();
-            p.sendMessage(root + " : " + root.getScoreboardTags());
-            testAnimal.remove();
+            AJEntityManager.flushAllEntities();
 
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("alpha")){
