@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.Physics.Geometry
+package org.EternalReturn.Util.physics.Geometry
 
 import java.lang.AutoCloseable
 import kotlin.math.sqrt
@@ -188,7 +188,7 @@ public open class MatVecCalculator {
      */
     protected open fun vec3(x: Double, y: Double, z: Double): Vector3 {
         val id = __allocVector4(x, y, z)
-        return MatVecCalculator.Vector3(id)
+        return Vector3(id)
     }
 
     /**
@@ -196,7 +196,7 @@ public open class MatVecCalculator {
      */
     protected open fun vec3(): Vector3 {
         val id = __allocVector4(0.0, 0.0, 0.0)
-        return MatVecCalculator.Vector3(id)
+        return Vector3(id)
     }
 
     protected open fun x(v: Vector3): Double {
@@ -335,7 +335,7 @@ public open class MatVecCalculator {
             z0, z1, z2, 0.0,
             0.0, 0.0, 0.0, 1.0
         )
-        return MatVecCalculator.Mat4x4(id)
+        return Mat4x4(id)
     }
 
     protected open fun I(): Mat4x4 {
@@ -345,7 +345,7 @@ public open class MatVecCalculator {
             0.0, 0.0, 1.0, 0.0,
             0.0, 0.0, 0.0, 1.0
         )
-        return MatVecCalculator.Mat4x4(id)
+        return Mat4x4(id)
     }
 
     /**
@@ -363,7 +363,7 @@ public open class MatVecCalculator {
             vecs[v0.__id + 2], vecs[v1.__id + 2], vecs[v2.__id + 2], 0.0,
             0.0, 0.0, 0.0, 1.0
         )
-        return MatVecCalculator.Mat4x4(id)
+        return Mat4x4(id)
     }
 
     protected open fun str(v: Vector3): String {
@@ -455,7 +455,7 @@ public open class MatVecCalculator {
     }
 
     fun setVecScope(): VecScope {
-        return MatVecCalculator.VecScope(this)
+        return VecScope(this)
     }
 
     public class MatScope(mc: MatVecCalculator) : AutoCloseable {
@@ -473,6 +473,6 @@ public open class MatVecCalculator {
     }
 
     fun setMatScope(): MatScope {
-        return MatVecCalculator.MatScope(this)
+        return MatScope(this)
     }
 }

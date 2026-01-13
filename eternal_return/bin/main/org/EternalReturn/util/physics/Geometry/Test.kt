@@ -1,12 +1,4 @@
-package org.EternalReturn.util.physics.Geometry
-
-import org.EternalReturn.Util.Physics.Geometry.MatVecCalculator
-import org.joml.Vector3f
-import sun.misc.Unsafe
-import java.lang.invoke.MethodHandles
-import java.lang.invoke.VarHandle
-import java.nio.ByteOrder
-import javax.print.DocFlavor
+package org.EternalReturn.Util.physics.Geometry
 
 typealias Vector3 = MatVecCalculator.Vector3
 

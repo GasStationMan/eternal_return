@@ -1,6 +1,4 @@
-package org.EternalReturn.util.datastructure
-
-import kotlin.times
+package org.EternalReturn.Util.datastructure
 
 class DoubleArrayList {
 

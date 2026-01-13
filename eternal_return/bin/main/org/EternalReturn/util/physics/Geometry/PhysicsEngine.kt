@@ -1,8 +1,8 @@
-package org.EternalReturn.Util.Physics.Geometry
+package org.EternalReturn.Util.physics.Geometry
 
 import kotlin.math.sqrt
 
-public open class PhysicsEngine : MatVecCalculator {
+open class PhysicsEngine : MatVecCalculator {
     constructor(buffSize: Int) : super(buffSize)
     constructor() : super()
     /**
@@ -294,62 +294,6 @@ public open class PhysicsEngine : MatVecCalculator {
         // 결과 기록
         assign(out, ix, iy, iz)
         return true
-    }
-
-    protected fun __getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
-        setVecScope().use { scope ->
-            val lpos: Vector3 = vec3(line.px, line.py, line.pz) //line.getPosition();
-            val cpos: Vector3 = vec3(cylinder.center.px, cylinder.center.py, cylinder.center.pz)
-
-            val ldir: Vector3 = vec3(line.vx, line.vy, line.vz)
-            val cdir: Vector3 = vec3(cylinder.center.vx, cylinder.center.vy, cylinder.center.vz)
-
-            val a: Vector3 = vec3()
-            val u: Vector3 = vec3()
-            sub(a, cpos, lpos)
-
-            // 플레이어의 위치와 원기둥의 위치의 차에 대한 벡터 a
-            // 플레이어의 방향벡터 lpos
-            // 두 벡터의 내적값이 90도가 넘는 경우는 원기둥 내에 들어가는 경우가 전부.
-            // 충돌체 내로 들어가는 경우는 없다고 가정하므로 바로 취소 절차에 들어간다.
-            if (dotprd(a, ldir) < 0) { // 90도가 넘으면 바로 취소
-                return false
-            }
-
-            cross(u, ldir, cdir) // center의 방향벡터와 매개변수 직선의 방향벡터의 외적
-
-
-            // u 의 크기, 0이 되면 false 반환
-            val D = dotprd(u, u)
-            //분모가 0에 가까운 경우, 두 직선은 사실상 평행하다고 판단한다. (부동소수점 오류 고려)
-            if (-1E-7 <= D && D <= 1E-7) {
-                return false
-            }
-
-            //사영벡터 구하기 -> r벡터 반환.
-            //Vec3d r = (a * u)u;
-            val r: Vector3 = vec3()
-            scalarProd(r, dotprd(a, u), u)
-
-            val radius = cylinder.radius
-            if (magSqr(r) > radius * radius) {
-                return false
-            }
-
-            //중심 직선을 r 벡터만큼 이동시켜 매개변수 직선(ldir, lpos)과 교점을 구한다. (out)
-            val movedDir: Vector3 = vec3()
-            val movedPos: Vector3 = r + cpos
-            assign(movedDir, cdir)
-            getIntersectPoint(out, movedDir, movedPos, ldir, lpos)
-
-            /* ===== 유한 원기둥 조건 추가 === == */
-            val diff: Vector3 = vec3()
-            sub(diff, out, cpos) // out - baseCenter
-            val t = dotprd(diff, cdir) // projection on axis
-            if (t < 0.0 || t > cylinder.height) return false
-            /* ====== === === === === === === === === === = */
-            return true
-        }
     }
 
     companion object {
