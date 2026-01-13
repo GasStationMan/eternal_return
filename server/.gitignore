@@ -1,0 +1,9 @@
+# 서버 루트 전체 무시
+/*
+
+# plugins 디렉토리만 다시 포함
+!/plugins
+!/plugins/**
+
+# .gitignore 자체는 유지
+!.gitignore
