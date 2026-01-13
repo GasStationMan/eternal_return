@@ -5,38 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e0e01f0-2f44-4923-ba15-8c4d09d27f4c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/../DatapackDebugger/src/main/java/org/datapakcDebugger/view/MainFrame.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DatapackDebugger/src/main/java/org/datapakcDebugger/view/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/build/classes/java/main/org/datapakcDebugger/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/build/classes/java/main/org/datapakcDebugger/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/src/main/java/org/datapakcDebugger/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/src/main/java/org/datapakcDebugger/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatapackDebugger/src/main/java/org/datapakcDebugger/model/datapackLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DatapackDebugger/src/main/java/org/datapakcDebugger/model/DatapackLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../server/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/plugins/datapack_debugger.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../server/plugins/datapack_debugger.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world/data/chunks.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world/data/chunks.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world/data/scoreboard.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world/data/scoreboard.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world/session.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world_nether/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world_nether/DIM-1/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world_nether/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world_nether/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world_nether/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world_nether/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world_nether/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world_nether/session.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world_the_end/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world_the_end/DIM1/data/raids_end.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world_the_end/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world_the_end/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world_the_end/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world_the_end/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/world_the_end/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../server/world_the_end/session.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
