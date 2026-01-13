@@ -1,8 +1,8 @@
 package org.EternalReturn.ERAnimal;
 
 import org.EternalReturn.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.Physics.Geometry.Cylinder;
-import org.EternalReturn.Util.Physics.Geometry.InfStraightLine;
+import org.EternalReturn.Util.physics.Geometry.Cylinder;
+import org.EternalReturn.Util.physics.Geometry.InfStraightLine;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
@@ -39,8 +39,6 @@ public class Alpha extends ERAnimal{
     public void script() {
 
         List<ERPlayer> list = getPlayersInRange(15.0);
-
-
 
         if(state == AnimalState.READY) {
             //이게 위로 가야지 state machine 이 정확히 동작함.

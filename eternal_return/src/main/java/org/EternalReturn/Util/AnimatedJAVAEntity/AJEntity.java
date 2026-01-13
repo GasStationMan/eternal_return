@@ -5,6 +5,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 
 
@@ -47,7 +49,7 @@ public abstract class AJEntity {
         this.animationMap = new HashMap<>();
     }
 
-    protected abstract void afterSummoning(Location location);
+    protected abstract void afterSummoning(@NotNull Location location);
 
     protected abstract void afterSpawnEvent(Entity rootEntity);
 

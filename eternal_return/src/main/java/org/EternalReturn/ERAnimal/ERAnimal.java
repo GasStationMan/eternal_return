@@ -3,8 +3,8 @@ package org.EternalReturn.ERAnimal;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntity;
-import org.EternalReturn.Util.Physics.Geometry.Collider;
-import org.EternalReturn.Util.Physics.MathVector.Vec3d;
+import org.EternalReturn.Util.physics.Geometry.Collider;
+import org.EternalReturn.Util.physics.MathVector.Vec3d;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.*;
@@ -50,6 +50,7 @@ public abstract class ERAnimal extends AJEntity {
         //해당 AJEntity를 조종할 엔티티를 Actor라고 한다.
         //해당 Actor 위에 AJEntity를 태운다.
         actor = (Husk) world.spawnEntity(location, EntityType.HUSK);
+        actor.setAdult();
         actor.setAI(false);
         actor.setInvisible(true);
         actor.setSilent(true);

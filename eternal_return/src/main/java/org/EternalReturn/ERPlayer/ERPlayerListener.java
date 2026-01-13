@@ -41,9 +41,9 @@ public class ERPlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerAttack(EntityDamageByEntityEvent e){
+    public void onPlayerAttack(EntityDamageByEntityEvent e) {
         Entity damager = e.getDamager();
-        if(damager instanceof Player){
+        if (damager instanceof Player) {
             ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(damager);
             PluginInstance.getEREngine().appendLeftClickedPlayer(erPlayer);
         }

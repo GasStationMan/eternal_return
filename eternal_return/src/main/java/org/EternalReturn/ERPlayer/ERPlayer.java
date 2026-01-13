@@ -6,8 +6,8 @@ import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.ERPlayer.Skill.Mukbo;
 import org.EternalReturn.ERPlayer.Skill.Skill;
 import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
-import org.EternalReturn.Util.Physics.MathVector.Vec3d;
-import org.EternalReturn.Util.Physics.MotionManager;
+import org.EternalReturn.Util.physics.MathVector.Vec3d;
+import org.EternalReturn.Util.physics.MotionManager;
 import org.bukkit.entity.Player;
 
 public class ERPlayer {
@@ -27,7 +27,6 @@ public class ERPlayer {
         upgradeGui.free();
         motionManager.free();
         mukbo.free();
-
         upgradeGuiController = null;
         upgradeGui = null;
         player = null;

@@ -20,6 +20,7 @@ public final class PluginInstance extends JavaPlugin{
     private static AJEntityManager ajEntityManager;
     private static SystemManager systemManager;
     private static BukkitAudiences adventure;
+    private static ERAnimalManger erAnimalManger;
 
     private static EREngine erEngine;
 
@@ -49,6 +50,7 @@ public final class PluginInstance extends JavaPlugin{
 
         //Animated JAVA Entity initialization
         ajEntityManager = AJEntityManager.registerAJEntityManager(this);
+        erAnimalManger = ERAnimalManger.registerERAnimalManager();
 
         //시스템매니저 객체 생성
         systemManager = SystemManager.getInstance();

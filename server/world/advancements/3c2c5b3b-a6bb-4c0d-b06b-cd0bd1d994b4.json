@@ -133,6 +133,7 @@
   },
   "minecraft:adventure/kill_all_mobs": {
     "criteria": {
+      "minecraft:ravager": "2026-01-13 23:38:15 +0900",
       "minecraft:husk": "2025-08-26 22:46:38 +0900"
     },
     "done": false

@@ -1,11 +1,11 @@
 package org.EternalReturn.ERPlayer;
 
-import org.EternalReturn.ERAnimal.Alpha;
-import org.EternalReturn.ERAnimal.ERAnimal;
+import org.EternalReturn.ERAnimal.*;
 import org.EternalReturn.ERCharacter.Hyunwoo;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -45,8 +45,35 @@ public class ERPlayerDebugCommand implements CommandExecutor {
 
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("alpha")){
-            testAnimal = new Alpha(p.getLocation());
-            AJEntityManager.summon(testAnimal,p.getLocation());
+
+            Location pLoc = p.getLocation();
+            Location loc = new Location(pLoc.getWorld(), pLoc.getX(), pLoc.getY(), pLoc.getZ(), pLoc.getYaw(), 0.0f);
+            testAnimal = new Alpha(loc);
+            AJEntityManager.summon(testAnimal,loc);
+            p.sendMessage(testAnimal.toString());
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("boar")){
+
+            Location pLoc = p.getLocation();
+            Location loc = new Location(pLoc.getWorld(), pLoc.getX(), pLoc.getY(), pLoc.getZ(), pLoc.getYaw(), 0.0f);
+            testAnimal = new Boar(loc);
+            AJEntityManager.summon(testAnimal,loc);
+            p.sendMessage(testAnimal.toString());
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("bear")){
+
+            Location pLoc = p.getLocation();
+            Location loc = new Location(pLoc.getWorld(), pLoc.getX(), pLoc.getY(), pLoc.getZ(), pLoc.getYaw(), 0.0f);
+            testAnimal = new Bear(loc);
+            AJEntityManager.summon(testAnimal,loc);
+            p.sendMessage(testAnimal.toString());
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("wolf")){
+
+            Location pLoc = p.getLocation();
+            Location loc = new Location(pLoc.getWorld(), pLoc.getX(), pLoc.getY(), pLoc.getZ(), pLoc.getYaw(), 0.0f);
+            testAnimal = new Wolf(loc);
+            AJEntityManager.summon(testAnimal,loc);
             p.sendMessage(testAnimal.toString());
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("enchant")){

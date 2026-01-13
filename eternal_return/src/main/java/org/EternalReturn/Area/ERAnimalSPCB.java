@@ -1,6 +1,6 @@
 package org.EternalReturn.Area;
 
-import org.EternalReturn.Util.Physics.MathVector.Vec3d;
+import org.EternalReturn.Util.physics.MathVector.Vec3d;
 
 /**
  * ERAnimalSpawnPointControlBlock, 줄여서 ERAnimalSPCB <br>
