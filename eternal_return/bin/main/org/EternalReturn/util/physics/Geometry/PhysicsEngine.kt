@@ -16,34 +16,22 @@ public open class PhysicsEngine : MatVecCalculator {
      * @param line2Pos
      * @return
      */
-    protected fun getIntersectPoint(
-        out: Vector3,
-        line1Vec: Vector3,
-        line1Pos: Vector3,
-        line2Vec: Vector3,
-        line2Pos: Vector3
-    ): Boolean {
-        setVecScope().use {
-            val subPos: Vector3 = vec3()
-            val vCross: Vector3 = vec3()
-            sub(subPos, line2Pos, line1Pos)
-            cross(vCross, line1Vec, line2Vec)
-
-            val crossMag = magSqr(vCross)
-            if (crossMag < 1E-7) {
-                return false
-            }
-
-            val tmp: Vector3 = vec3()
-            cross(tmp, line2Vec, vCross)
-
-            val t = dotprd(subPos, tmp) / crossMag
-
-            val temp: Vector3 = vec3()
-            scalarProd(temp, t, line1Vec)
-            add(temp, temp, line1Pos)
-            assign(out, temp)
+    protected fun getIntersectPoint(out: Vector3, line1Vec: Vector3, line1Pos: Vector3, line2Vec: Vector3, line2Pos: Vector3): Boolean {
+        val subPos: Vector3 = vec3()
+        val vCross: Vector3 = vec3()
+        sub(subPos, line2Pos, line1Pos)
+        cross(vCross, line1Vec, line2Vec)
+        val crossMag = magSqr(vCross)
+        if (crossMag < 1E-7) {
+            return false
         }
+        val tmp: Vector3 = vec3()
+        cross(tmp, line2Vec, vCross)
+        val t = dotprd(subPos, tmp) / crossMag
+        val temp: Vector3 = vec3()
+        scalarProd(temp, t, line1Vec)
+        add(temp, temp, line1Pos)
+        assign(out, temp)
         return true
     }
 
@@ -60,28 +48,24 @@ public open class PhysicsEngine : MatVecCalculator {
      * @return 교점(Vector3)
      */
     protected fun getIntersectPoint(out: Vector3, line1: InfStraightLine, line2: InfStraightLine): Boolean {
-        setVecScope().use { scope ->
-            val line1Pos: Vector3 = vec3(line1.px, line1.py, line1.pz)
-            val line1Vec: Vector3 = vec3(line1.vx, line1.vy, line1.vz)
-            val line2Pos: Vector3 = vec3(line2.px, line2.py, line2.pz)
-            val line2Vec: Vector3 = vec3(line2.vx, line2.vy, line2.vz)
-            return getIntersectPoint(out, line1Vec, line1Pos, line2Vec, line2Pos)
-        }
+        val line1Pos: Vector3 = vec3(line1.px, line1.py, line1.pz)
+        val line1Vec: Vector3 = vec3(line1.vx, line1.vy, line1.vz)
+        val line2Pos: Vector3 = vec3(line2.px, line2.py, line2.pz)
+        val line2Vec: Vector3 = vec3(line2.vx, line2.vy, line2.vz)
+        return getIntersectPoint(out, line1Vec, line1Pos, line2Vec, line2Pos)
     }
 
     protected fun getIntersectPoint(dot: Vector3, plane: InfPlane): Boolean {
-        setVecScope().use { scope ->
-            val p: Vector3 = vec3(plane.px, plane.py, plane.pz)
-            val n: Vector3 = vec3(plane.vx, plane.vy, plane.vz)
-            val subVec: Vector3 = vec3()
-            sub(subVec, p, dot)
-            val dotprd = dotprd(subVec, n)
-            return -1E-7 < dotprd && dotprd < 1E-7
-        }
+        val p: Vector3 = vec3(plane.px, plane.py, plane.pz)
+        val n: Vector3 = vec3(plane.vx, plane.vy, plane.vz)
+        val subVec: Vector3 = vec3()
+        sub(subVec, p, dot)
+        val dotprd = dotprd(subVec, n)
+        return -1E-7 < dotprd && dotprd < 1E-7
     }
 
     protected fun getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: InfCylinder): Boolean {
-        setVecScope().use { scope ->
+        setVecScope().use {
             val lpos: Vector3 = vec3(line.px, line.py, line.pz) //line.getPosition();
             val cpos: Vector3 =
                 vec3(cylinder.center.px, cylinder.center.py, cylinder.center.pz) //center.getPosition();
@@ -118,6 +102,86 @@ public open class PhysicsEngine : MatVecCalculator {
             val movedPos: Vector3 = r + cpos
             assign(movedDir, cdir)
             return getIntersectPoint(out, movedDir, movedPos, ldir, lpos)
+        }
+    }
+
+    protected fun getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
+        setVecScope().use {
+            // === Ray ===
+            val O = vec3(line.px, line.py, line.pz)
+            val D = vec3(line.vx, line.vy, line.vz)
+
+            // === Cylinder axis ===
+            val C = vec3(cylinder.center.px, cylinder.center.py, cylinder.center.pz)
+            val A = vec3(
+                cylinder.center.vx,
+                cylinder.center.vy,
+                cylinder.center.vz
+            )
+
+            val radius = cylinder.radius
+            val height = cylinder.height
+
+            // === r = O - C ===
+            val r = O - C
+
+            // ======================================================
+            // 1. Directional early reject
+            // ======================================================
+            if ((r dot D) >= 0.0) {
+                return false
+            }
+
+            // ======================================================
+            // 2. Ray–Axis distance² test
+            // ======================================================
+            val u = D cross A
+            val denom = magSqr(u)
+            if (denom < 1e-12) {
+                // Ray || axis
+                return false
+            }
+
+            val dist2 = (r dot u).let { it * it } / denom
+            if (dist2 > radius * radius) {
+                return false
+            }
+
+            // ======================================================
+            // 3. Quadratic solve (projected space)
+            // ======================================================
+            val dPerp = D - A * (D dot A)
+            val rPerp = r - A * (r dot A)
+
+            val Aq = dPerp dot dPerp
+            val Bq = 2.0 * (dPerp dot rPerp)
+            val Cq = (rPerp dot rPerp) - radius * radius
+
+            val disc = Bq * Bq - 4.0 * Aq * Cq
+            if (disc < 0.0) {
+                return false
+            }
+
+            val t = (-Bq - sqrt(disc)) / (2.0 * Aq)
+            if (t < 0.0) {
+                return false
+            }
+
+            // ======================================================
+            // 4. Intersection point
+            // ======================================================
+            val P = O + D * t
+
+            // ======================================================
+            // 5. Finite height check
+            // ======================================================
+            val h = (P - C) dot A
+            if (h < 0.0 || h > height) {
+                return false
+            }
+
+            assign(out, P)
+            return true
         }
     }
 
@@ -232,7 +296,7 @@ public open class PhysicsEngine : MatVecCalculator {
         return true
     }
 
-    protected fun getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
+    protected fun __getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
         setVecScope().use { scope ->
             val lpos: Vector3 = vec3(line.px, line.py, line.pz) //line.getPosition();
             val cpos: Vector3 = vec3(cylinder.center.px, cylinder.center.py, cylinder.center.pz)
@@ -274,9 +338,8 @@ public open class PhysicsEngine : MatVecCalculator {
 
             //중심 직선을 r 벡터만큼 이동시켜 매개변수 직선(ldir, lpos)과 교점을 구한다. (out)
             val movedDir: Vector3 = vec3()
-            val movedPos: Vector3 = vec3()
+            val movedPos: Vector3 = r + cpos
             assign(movedDir, cdir)
-            add(movedPos, r, cpos)
             getIntersectPoint(out, movedDir, movedPos, ldir, lpos)
 
             /* ===== 유한 원기둥 조건 추가 === == */
