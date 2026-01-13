@@ -1,75 +1,75 @@
-[19:12:23] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_mithril' from 'minecraft:recipe/bow_mithril.json': DataResult.Error['Not a json array: {"modifiers":[{"type":"minecraft:movement_speed","id":"movement_speed","amount":0.015,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:movement_speed","id":"movement_speed","amount":0.015,"operation":"add_value","slot":"mainhand"}]}}': net.minecraft.world.item.crafting.ShapelessRecipes@1648e6fa]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_poscore' from 'minecraft:recipe/bow_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_stone' from 'minecraft:recipe/bow_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_tree' from 'minecraft:recipe/bow_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_vf' from 'minecraft:recipe/bow_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_mithril' from 'minecraft:recipe/iron_boots_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":2,"operation":"add_value","slot":"feet"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"feet"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":2,"operation":"add_value","slot":"feet"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"feet"}]}}']
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:alpha' from 'eternal_return:advancement/alpha.json': DataResult.Error['Not a JSON object: 12 missed input: {"minecraft:custom_model_data":12}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@6826211f], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:13] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_mithril' from 'minecraft:recipe/bow_mithril.json': DataResult.Error['Not a json array: {"modifiers":[{"type":"minecraft:movement_speed","id":"movement_speed","amount":0.015,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:movement_speed","id":"movement_speed","amount":0.015,"operation":"add_value","slot":"mainhand"}]}}': net.minecraft.world.item.crafting.ShapelessRecipes@19e223b6]
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_poscore' from 'minecraft:recipe/bow_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_stone' from 'minecraft:recipe/bow_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_tree' from 'minecraft:recipe/bow_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:bow_vf' from 'minecraft:recipe/bow_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_mithril' from 'minecraft:recipe/iron_boots_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":2,"operation":"add_value","slot":"feet"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"feet"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":2,"operation":"add_value","slot":"feet"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"feet"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_poscore' from 'minecraft:recipe/iron_boots_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_stone' from 'minecraft:recipe/iron_boots_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_tree' from 'minecraft:recipe/iron_boots_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_vf' from 'minecraft:recipe/iron_boots_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_mithril' from 'minecraft:recipe/iron_chestplate_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":6,"operation":"add_value","slot":"chest"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"chest"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":6,"operation":"add_value","slot":"chest"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"chest"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_poscore' from 'minecraft:recipe/iron_chestplate_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_stone' from 'minecraft:recipe/iron_chestplate_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_tree' from 'minecraft:recipe/iron_chestplate_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_vf' from 'minecraft:recipe/iron_chestplate_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_mithril' from 'minecraft:recipe/iron_helmet_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":2,"operation":"add_value","slot":"head"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"head"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":2,"operation":"add_value","slot":"head"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"head"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_poscore' from 'minecraft:recipe/iron_helmet_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_stone' from 'minecraft:recipe/iron_helmet_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_tree' from 'minecraft:recipe/iron_helmet_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_vf' from 'minecraft:recipe/iron_helmet_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_mithril' from 'minecraft:recipe/iron_leggings_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":5,"operation":"add_value","slot":"legs"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"legs"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":5,"operation":"add_value","slot":"legs"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"legs"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_poscore' from 'minecraft:recipe/iron_leggings_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_stone' from 'minecraft:recipe/iron_leggings_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_tree' from 'minecraft:recipe/iron_leggings_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_vf' from 'minecraft:recipe/iron_leggings_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_mithril' from 'minecraft:recipe/iron_sword_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.015,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.015,"operation":"add_value","slot":"mainhand"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_poscore' from 'minecraft:recipe/iron_sword_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":7,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-1.5,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":7,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-1.5,"operation":"add_value","slot":"mainhand"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_stone' from 'minecraft:recipe/iron_sword_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2,"operation":"add_value","slot":"mainhand"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_tree' from 'minecraft:recipe/iron_sword_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2.4,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2.4,"operation":"add_value","slot":"mainhand"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_vf' from 'minecraft:recipe/iron_sword_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":9,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":0,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":9,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":0,"operation":"add_value","slot":"mainhand"}]}}']
+[19:21:14] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:poscore' from 'minecraft:recipe/poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]']
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:alpha' from 'eternal_return:advancement/alpha.json': DataResult.Error['Not a JSON object: 12 missed input: {"minecraft:custom_model_data":12}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@62345080], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_poscore' from 'minecraft:recipe/iron_boots_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[]}}']
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:alpha_30' from 'eternal_return:advancement/alpha_30.json': DataResult.Error['Not a JSON object: 13 missed input: {"minecraft:custom_model_data":13}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@547e04b7], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:alpha_30' from 'eternal_return:advancement/alpha_30.json': DataResult.Error['Not a JSON object: 13 missed input: {"minecraft:custom_model_data":13}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@2eba13ed], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_stone' from 'minecraft:recipe/iron_boots_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:alpha_death' from 'eternal_return:advancement/alpha_death.json': DataResult.Error['Not a JSON object: 14 missed input: {"minecraft:custom_model_data":14}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@6f455e23], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:alpha_death' from 'eternal_return:advancement/alpha_death.json': DataResult.Error['Not a JSON object: 14 missed input: {"minecraft:custom_model_data":14}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@145d8042], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:battle_zone' from 'eternal_return:advancement/battle_zone.json': DataResult.Error['Not a JSON object: 15 missed input: {"minecraft:custom_model_data":15}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@2ee12037], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:battle_zone' from 'eternal_return:advancement/battle_zone.json': DataResult.Error['Not a JSON object: 15 missed input: {"minecraft:custom_model_data":15}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@291d3c04], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_tree' from 'minecraft:recipe/iron_boots_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:battle_zone_30' from 'eternal_return:advancement/battle_zone_30.json': DataResult.Error['Not a JSON object: 16 missed input: {"minecraft:custom_model_data":16}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@7a300015], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:battle_zone_30' from 'eternal_return:advancement/battle_zone_30.json': DataResult.Error['Not a JSON object: 16 missed input: {"minecraft:custom_model_data":16}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@57bfbfd6], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_boots_vf' from 'minecraft:recipe/iron_boots_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:empty' from 'eternal_return:advancement/empty.json': DataResult.Error['Not a JSON object: 27 missed input: {"minecraft:custom_model_data":27}': Advancement[parent=Optional.empty, display=Optional[net.minecraft.advancements.AdvancementDisplay@5e4fe858], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[literal{ }[style={hoverEvent=e[value=literal{ }[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:empty' from 'eternal_return:advancement/empty.json': DataResult.Error['Not a JSON object: 27 missed input: {"minecraft:custom_model_data":27}': Advancement[parent=Optional.empty, display=Optional[net.minecraft.advancements.AdvancementDisplay@2964fbb7], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[literal{ }[style={hoverEvent=e[value=literal{ }[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_mithril' from 'minecraft:recipe/iron_chestplate_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":6,"operation":"add_value","slot":"chest"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"chest"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":6,"operation":"add_value","slot":"chest"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"chest"}]}}']
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:empty1' from 'eternal_return:advancement/empty1.json': DataResult.Error['Not a JSON object: 27 missed input: {"minecraft:custom_model_data":27}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@1bbe11f4], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[literal{ }[style={hoverEvent=e[value=literal{ }[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:empty1' from 'eternal_return:advancement/empty1.json': DataResult.Error['Not a JSON object: 27 missed input: {"minecraft:custom_model_data":27}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@51c33149], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[literal{ }[style={hoverEvent=e[value=literal{ }[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_poscore' from 'minecraft:recipe/iron_chestplate_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[]}}']
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:empty2' from 'eternal_return:advancement/empty2.json': DataResult.Error['Not a JSON object: 27 missed input: {"minecraft:custom_model_data":27}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@3cf96a2c], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[literal{ }[style={hoverEvent=e[value=literal{ }[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:empty2' from 'eternal_return:advancement/empty2.json': DataResult.Error['Not a JSON object: 27 missed input: {"minecraft:custom_model_data":27}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@11feca69], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[literal{ }[style={hoverEvent=e[value=literal{ }[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:empty3' from 'eternal_return:advancement/empty3.json': DataResult.Error['Not a JSON object: 27 missed input: {"minecraft:custom_model_data":27}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@4633e50e], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[literal{ }[style={hoverEvent=e[value=literal{ }[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:empty3' from 'eternal_return:advancement/empty3.json': DataResult.Error['Not a JSON object: 27 missed input: {"minecraft:custom_model_data":27}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@3b95868f], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[literal{ }[style={hoverEvent=e[value=literal{ }[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_stone' from 'minecraft:recipe/iron_chestplate_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_tree' from 'minecraft:recipe/iron_chestplate_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_chestplate_vf' from 'minecraft:recipe/iron_chestplate_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:24] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_mithril' from 'minecraft:recipe/iron_helmet_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":2,"operation":"add_value","slot":"head"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"head"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":2,"operation":"add_value","slot":"head"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"head"}]}}']
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:meteor' from 'eternal_return:advancement/meteor.json': DataResult.Error['Not a JSON object: 17 missed input: {"minecraft:custom_model_data":17}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@11c96b54], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:meteor' from 'eternal_return:advancement/meteor.json': DataResult.Error['Not a JSON object: 17 missed input: {"minecraft:custom_model_data":17}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@219eb505], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:meteor_30' from 'eternal_return:advancement/meteor_30.json': DataResult.Error['Not a JSON object: 18 missed input: {"minecraft:custom_model_data":18}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@53862a51], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:meteor_30' from 'eternal_return:advancement/meteor_30.json': DataResult.Error['Not a JSON object: 18 missed input: {"minecraft:custom_model_data":18}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@5b61088d], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_poscore' from 'minecraft:recipe/iron_helmet_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[]}}']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_stone' from 'minecraft:recipe/iron_helmet_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_tree' from 'minecraft:recipe/iron_helmet_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_helmet_vf' from 'minecraft:recipe/iron_helmet_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_mithril' from 'minecraft:recipe/iron_leggings_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":5,"operation":"add_value","slot":"legs"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"legs"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.armor","id":"generic.armor","amount":5,"operation":"add_value","slot":"legs"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.01,"operation":"add_value","slot":"legs"}]}}']
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:omega' from 'eternal_return:advancement/omega.json': DataResult.Error['Not a JSON object: 19 missed input: {"minecraft:custom_model_data":19}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@7d6ceea7], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:omega' from 'eternal_return:advancement/omega.json': DataResult.Error['Not a JSON object: 19 missed input: {"minecraft:custom_model_data":19}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@6684610a], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:omega_30' from 'eternal_return:advancement/omega_30.json': DataResult.Error['Not a JSON object: 20 missed input: {"minecraft:custom_model_data":20}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@48f23015], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:omega_30' from 'eternal_return:advancement/omega_30.json': DataResult.Error['Not a JSON object: 20 missed input: {"minecraft:custom_model_data":20}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@4a2659fb], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_poscore' from 'minecraft:recipe/iron_leggings_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[]}}']
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:omega_death' from 'eternal_return:advancement/omega_death.json': DataResult.Error['Not a JSON object: 21 missed input: {"minecraft:custom_model_data":21}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@5a1ae1fc], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:omega_death' from 'eternal_return:advancement/omega_death.json': DataResult.Error['Not a JSON object: 21 missed input: {"minecraft:custom_model_data":21}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@52869e6a], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_stone' from 'minecraft:recipe/iron_leggings_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_tree' from 'minecraft:recipe/iron_leggings_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_leggings_vf' from 'minecraft:recipe/iron_leggings_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_mithril' from 'minecraft:recipe/iron_sword_mithril.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.015,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.movement_speed","id":"generic.movement_speed","amount":0.015,"operation":"add_value","slot":"mainhand"}]}}']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_poscore' from 'minecraft:recipe/iron_sword_poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":7,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-1.5,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":7,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-1.5,"operation":"add_value","slot":"mainhand"}]}}']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_stone' from 'minecraft:recipe/iron_sword_stone.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2,"operation":"add_value","slot":"mainhand"}]}}']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_tree' from 'minecraft:recipe/iron_sword_tree.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2.4,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":6,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":-2.4,"operation":"add_value","slot":"mainhand"}]}}']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:iron_sword_vf' from 'minecraft:recipe/iron_sword_vf.json': DataResult.Error['List is too short: 0, expected range [1-9]; Not a json array: {"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":9,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":0,"operation":"add_value","slot":"mainhand"}]} missed input: {"minecraft:attribute_modifiers":{"modifiers":[{"type":"minecraft:generic.attack_damage","id":"generic.attack_damage","amount":9,"operation":"add_value","slot":"mainhand"},{"type":"minecraft:generic.attack_speed","id":"generic.attack_speed","amount":0,"operation":"add_value","slot":"mainhand"}]}}']
-[19:12:25] [Worker-Main-1/ERROR]: Couldn't parse data file 'minecraft:poscore' from 'minecraft:recipe/poscore.json': DataResult.Error['List is too short: 0, expected range [1-9]']
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:tree_of_life' from 'eternal_return:advancement/tree_of_life.json': DataResult.Error['Not a JSON object: 22 missed input: {"minecraft:custom_model_data":22}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@60efaad3], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:tree_of_life' from 'eternal_return:advancement/tree_of_life.json': DataResult.Error['Not a JSON object: 22 missed input: {"minecraft:custom_model_data":22}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@61a5f078], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:tree_of_life_30' from 'eternal_return:advancement/tree_of_life_30.json': DataResult.Error['Not a JSON object: 23 missed input: {"minecraft:custom_model_data":23}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@3dbe3a59], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:tree_of_life_30' from 'eternal_return:advancement/tree_of_life_30.json': DataResult.Error['Not a JSON object: 23 missed input: {"minecraft:custom_model_data":23}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@7245b1fb], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:wickeline' from 'eternal_return:advancement/wickeline.json': DataResult.Error['Not a JSON object: 24 missed input: {"minecraft:custom_model_data":24}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@91db7a9], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:wickeline' from 'eternal_return:advancement/wickeline.json': DataResult.Error['Not a JSON object: 24 missed input: {"minecraft:custom_model_data":24}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@3037323c], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:wickeline_30' from 'eternal_return:advancement/wickeline_30.json': DataResult.Error['Not a JSON object: 25 missed input: {"minecraft:custom_model_data":25}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@21e310db], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:wickeline_30' from 'eternal_return:advancement/wickeline_30.json': DataResult.Error['Not a JSON object: 25 missed input: {"minecraft:custom_model_data":25}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@34ef4248], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:wickeline_death' from 'eternal_return:advancement/wickeline_death.json': DataResult.Error['Not a JSON object: 26 missed input: {"minecraft:custom_model_data":26}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@3cc79f06], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@43d7bd4e, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
+[19:21:14] [Worker-Main-5/ERROR]: Couldn't parse data file 'eternal_return:wickeline_death' from 'eternal_return:advancement/wickeline_death.json': DataResult.Error['Not a JSON object: 26 missed input: {"minecraft:custom_model_data":26}': Advancement[parent=Optional[eternal_return:empty], display=Optional[net.minecraft.advancements.AdvancementDisplay@7a87529d], rewards=AdvancementRewards[experience=0, loot=[], recipes=[], function=Optional.empty], criteria={requirement=Criterion[trigger=net.minecraft.advancements.criterion.CriterionTriggerImpossible@218d3384, triggerInstance=a[]]}, requirements=[[requirement]], sendsTelemetryEvent=false, name=Optional[translation{key='chat.square_brackets', args=[empty[style={hoverEvent=e[value=empty[style={color=green}, siblings=[literal{
 }, empty]]]}]]}[style={color=green}]]]]
-[19:12:25] [ServerMain/INFO]: Loaded 1470 recipes
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:sys/character/adriana/skill
+[19:21:14] [ServerMain/INFO]: Loaded 1470 recipes
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:sys/character/adriana/skill
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 1: Malformed 'minecraft:enchantments' component: 'Not a number; Failed to get element minecraft:levels missed input: {levels:{"minecraft:fire_aspect":1}}' at position 275: ...hantments=<--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -88,7 +88,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 1:
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:gui/camera_overlay/replace_empty
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:gui/camera_overlay/replace_empty
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 6: Unknown item component 'minecraft:hide_tooltip' at position 175: ...de_tooltip<--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -107,7 +107,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 6:
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:sys/character/happychaos/start_give
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:sys/character/happychaos/start_give
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 1: Malformed 'minecraft:custom_model_data' component: 'Not a map: 214' at position 76: ...odel_data=<--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -126,7 +126,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 1:
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:sys/game/end
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:sys/game/end
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 19: Incorrect argument for command at position 9: gamerule <--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -145,7 +145,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 19
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:player/bush/hide
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:player/bush/hide
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 5: Can't find element 'minecraft:generic.armor' of type 'minecraft:attribute' at position 132: ...eric.armor<--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -164,7 +164,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 5:
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:sys/game/start
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:sys/game/start
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 11: Incorrect argument for command at position 9: gamerule <--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -183,7 +183,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 11
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:load
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:load
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 28: Incorrect argument for command at position 9: gamerule <--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -202,7 +202,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 28
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:sys/character/happychaos/concentration
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:sys/character/happychaos/concentration
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 2: Malformed 'minecraft:custom_model_data' component: 'Not a map: 214' at position 129: ...odel_data=<--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -221,7 +221,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 2:
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:gui/camera_overlay/set_armor_item/feet
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:gui/camera_overlay/set_armor_item/feet
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 1: Unknown item component 'minecraft:hide_tooltip' at position 171: ...l="empty",<--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -240,7 +240,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 1:
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:gui/camera_overlay/tick
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:gui/camera_overlay/tick
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 6: Unknown item component 'minecraft:hide_tooltip' at position 73: ...de_tooltip<--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -259,7 +259,7 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 6:
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:25] [ServerMain/ERROR]: Failed to load function eternal_return:sys/character/skill/attack_speed
+[19:21:14] [ServerMain/ERROR]: Failed to load function eternal_return:sys/character/skill/attack_speed
 java.util.concurrent.CompletionException: java.lang.IllegalArgumentException: Whilst parsing command on line 1: Can't find element 'minecraft:generic.attack_speed' of type 'minecraft:attribute' at position 112: ...tack_speed<--[HERE]
 	at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:325)
 	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:361)
@@ -278,165 +278,298 @@ Caused by: java.lang.IllegalArgumentException: Whilst parsing command on line 1:
 	at net.minecraft.server.CustomFunctionManager.a(SourceFile:85)
 	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1814)
 	... 8 more
-[19:12:26] [Server thread/INFO]: Starting minecraft server version 1.21.11
-[19:12:26] [Server thread/INFO]: Loading properties
-[19:12:26] [Server thread/INFO]: This server is running CraftBukkit version 4582-Spigot-66411b9-ecdf5f6 (MC: 1.21.11) (Implementing API version 1.21.11-R0.1-SNAPSHOT)
-[19:12:26] [Server thread/INFO]: *** This version of Spigot contains changes to some enums. If you notice that plugins no longer work after updating, please report this to the developers of those plugins first. ***
-[19:12:26] [Server thread/INFO]: *** If you cannot update those plugins, you can try setting `settings.compatibility.enum-compatibility-mode` to `true` in `bukkit.yml`. ***
-[19:12:26] [Server thread/INFO]: Debug logging is disabled
-[19:12:26] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[19:12:26] [Server thread/INFO]: Using 4 threads for Netty based IO
-[19:12:26] [Server thread/INFO]: Default game type: ADVENTURE
-[19:12:26] [Server thread/INFO]: Generating keypair
-[19:12:26] [Server thread/INFO]: Starting Minecraft server on *:25565
-[19:12:26] [Server thread/INFO]: [eternal_return_system] Loading eternal_return_system v1.0-SNAPSHOT
-[19:12:26] [Server thread/INFO]: [DatapackDebugger] Loading DatapackDebugger v1.0-SNAPSHOT
-[19:12:26] [Server thread/INFO]: Preparing level "world"
-[19:12:26] [Server thread/INFO]: -------- World Settings For [world] --------
-[19:12:26] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Cane Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Melon Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Potato Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Vine Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[19:12:26] [Server thread/INFO]: Mob Spawn Range: 6
-[19:12:26] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[19:12:26] [Server thread/INFO]: Max TNT Explosions: 100
-[19:12:26] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[19:12:26] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
-[19:12:26] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[19:12:26] [Server thread/INFO]: Item Despawn Rate: 6000
-[19:12:26] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[19:12:26] [Server thread/INFO]: Simulation Distance: 14
-[19:12:26] [Server thread/INFO]: View Distance: 14
-[19:12:26] [Server thread/INFO]: Item Merge Radius: 2.5
-[19:12:26] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[19:12:26] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[19:12:26] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[19:12:26] [Server thread/INFO]: Experience Merge Radius: 3.0
-[19:12:26] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
-[19:12:27] [Server thread/INFO]: -------- World Settings For [world_nether] --------
-[19:12:27] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Cane Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Melon Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Potato Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Vine Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Mob Spawn Range: 6
-[19:12:27] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[19:12:27] [Server thread/INFO]: Max TNT Explosions: 100
-[19:12:27] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[19:12:27] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
-[19:12:27] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[19:12:27] [Server thread/INFO]: Item Despawn Rate: 6000
-[19:12:27] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[19:12:27] [Server thread/INFO]: Simulation Distance: 14
-[19:12:27] [Server thread/INFO]: View Distance: 14
-[19:12:27] [Server thread/INFO]: Item Merge Radius: 2.5
-[19:12:27] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[19:12:27] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[19:12:27] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[19:12:27] [Server thread/INFO]: Experience Merge Radius: 3.0
-[19:12:27] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
-[19:12:27] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
-[19:12:27] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Cane Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Melon Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Potato Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Vine Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[19:12:27] [Server thread/INFO]: Mob Spawn Range: 6
-[19:12:27] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[19:12:27] [Server thread/INFO]: Max TNT Explosions: 100
-[19:12:27] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[19:12:27] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
-[19:12:27] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[19:12:27] [Server thread/INFO]: Item Despawn Rate: 6000
-[19:12:27] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[19:12:27] [Server thread/INFO]: Simulation Distance: 14
-[19:12:27] [Server thread/INFO]: View Distance: 14
-[19:12:27] [Server thread/INFO]: Item Merge Radius: 2.5
-[19:12:27] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[19:12:27] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[19:12:27] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[19:12:27] [Server thread/INFO]: Experience Merge Radius: 3.0
-[19:12:27] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
-[19:12:27] [Server thread/INFO]: Loading 189 persistent chunks...
-[19:12:27] [Server thread/INFO]: Preparing spawn area: 5%
-[19:12:27] [Server thread/INFO]: Time elapsed: 251 ms
-[19:12:27] [Server thread/INFO]: [eternal_return_system] Enabling eternal_return_system v1.0-SNAPSHOT
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 이터널 리턴 플러그인 구동 준비...
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 gas_station에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 archery_range에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 temple에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 hotel에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 school에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 fire에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 police에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 stream에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 pond에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 forest에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 cemetery에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 beach에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 village에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 hospital에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 chapel에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 factory에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 storage에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 해당 지역 port에 야생동물에 대한 정보가 없습니다.
-[19:12:27] [Server thread/INFO]: [eternal_return_system] 이터널 리턴 플러그인 구동 준비 완료!
-[19:12:27] [Server thread/INFO]: [DatapackDebugger] Enabling DatapackDebugger v1.0-SNAPSHOT
-[19:12:27] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[19:12:27] [Server thread/INFO]: Done (0.751s)! For help, type "help"
-[19:12:35] [Server thread/INFO]: Stopping the server
-[19:12:35] [Server thread/INFO]: Stopping server
-[19:12:35] [Server thread/INFO]: [DatapackDebugger] Disabling DatapackDebugger v1.0-SNAPSHOT
-[19:12:35] [Server thread/INFO]: [eternal_return_system] Disabling eternal_return_system v1.0-SNAPSHOT
-[19:12:35] [Server thread/INFO]: Saving players
-[19:12:35] [Server thread/INFO]: Saving worlds
-[19:12:35] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[19:12:36] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[19:12:36] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[19:12:36] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[19:12:36] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[19:12:36] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[19:12:36] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[19:21:15] [Server thread/INFO]: Starting minecraft server version 1.21.11
+[19:21:15] [Server thread/INFO]: Loading properties
+[19:21:15] [Server thread/INFO]: This server is running CraftBukkit version 4582-Spigot-66411b9-ecdf5f6 (MC: 1.21.11) (Implementing API version 1.21.11-R0.1-SNAPSHOT)
+[19:21:15] [Server thread/INFO]: *** This version of Spigot contains changes to some enums. If you notice that plugins no longer work after updating, please report this to the developers of those plugins first. ***
+[19:21:15] [Server thread/INFO]: *** If you cannot update those plugins, you can try setting `settings.compatibility.enum-compatibility-mode` to `true` in `bukkit.yml`. ***
+[19:21:15] [Server thread/INFO]: Debug logging is disabled
+[19:21:15] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[19:21:15] [Server thread/INFO]: Using 4 threads for Netty based IO
+[19:21:15] [Server thread/INFO]: Default game type: ADVENTURE
+[19:21:15] [Server thread/INFO]: Generating keypair
+[19:21:15] [Server thread/INFO]: Starting Minecraft server on *:25565
+[19:21:15] [Server thread/INFO]: [eternal_return_system] Loading eternal_return_system v1.0-SNAPSHOT
+[19:21:15] [Server thread/INFO]: [DatapackDebugger] Loading DatapackDebugger v1.0-SNAPSHOT
+[19:21:15] [Server thread/INFO]: Preparing level "world"
+[19:21:15] [Server thread/INFO]: -------- World Settings For [world] --------
+[19:21:15] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[19:21:15] [Server thread/INFO]: Item Merge Radius: 2.5
+[19:21:15] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[19:21:15] [Server thread/INFO]: Item Despawn Rate: 6000
+[19:21:15] [Server thread/INFO]: View Distance: 14
+[19:21:15] [Server thread/INFO]: Simulation Distance: 14
+[19:21:15] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[19:21:15] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
+[19:21:15] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[19:21:15] [Server thread/INFO]: Experience Merge Radius: 3.0
+[19:21:15] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Cane Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Melon Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Potato Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Vine Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Mob Spawn Range: 6
+[19:21:15] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[19:21:15] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
+[19:21:15] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[19:21:15] [Server thread/INFO]: Max TNT Explosions: 100
+[19:21:15] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[19:21:15] [Server thread/INFO]: -------- World Settings For [world_nether] --------
+[19:21:15] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[19:21:15] [Server thread/INFO]: Item Merge Radius: 2.5
+[19:21:15] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[19:21:15] [Server thread/INFO]: Item Despawn Rate: 6000
+[19:21:15] [Server thread/INFO]: View Distance: 14
+[19:21:15] [Server thread/INFO]: Simulation Distance: 14
+[19:21:15] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[19:21:15] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
+[19:21:15] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[19:21:15] [Server thread/INFO]: Experience Merge Radius: 3.0
+[19:21:15] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Cane Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Melon Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Potato Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Vine Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Mob Spawn Range: 6
+[19:21:15] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[19:21:15] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
+[19:21:15] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[19:21:15] [Server thread/INFO]: Max TNT Explosions: 100
+[19:21:15] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[19:21:15] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
+[19:21:15] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[19:21:15] [Server thread/INFO]: Item Merge Radius: 2.5
+[19:21:15] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[19:21:15] [Server thread/INFO]: Item Despawn Rate: 6000
+[19:21:15] [Server thread/INFO]: View Distance: 14
+[19:21:15] [Server thread/INFO]: Simulation Distance: 14
+[19:21:15] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[19:21:15] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1 Hopper Can Load Chunks: false
+[19:21:15] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[19:21:15] [Server thread/INFO]: Experience Merge Radius: 3.0
+[19:21:15] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Cane Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Melon Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Potato Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Vine Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[19:21:15] [Server thread/INFO]: Mob Spawn Range: 6
+[19:21:15] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[19:21:15] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Di 128 / Other 64
+[19:21:15] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[19:21:15] [Server thread/INFO]: Max TNT Explosions: 100
+[19:21:15] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[19:21:16] [Server thread/INFO]: Loading 189 persistent chunks...
+[19:21:16] [Server thread/INFO]: Preparing spawn area: 5%
+[19:21:16] [Server thread/INFO]: Time elapsed: 242 ms
+[19:21:16] [Server thread/INFO]: [eternal_return_system] Enabling eternal_return_system v1.0-SNAPSHOT
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 이터널 리턴 플러그인 구동 준비...
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 gas_station에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 archery_range에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 temple에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 hotel에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 school에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 fire에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 police에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 stream에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 pond에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 forest에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 cemetery에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 beach에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 village에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 hospital에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 chapel에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 factory에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 storage에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 해당 지역 port에 야생동물에 대한 정보가 없습니다.
+[19:21:16] [Server thread/INFO]: [eternal_return_system] 이터널 리턴 플러그인 구동 준비 완료!
+[19:21:16] [Server thread/INFO]: [DatapackDebugger] Enabling DatapackDebugger v1.0-SNAPSHOT
+[19:21:16] [Server thread/INFO]: #credit.tick.value
+[19:21:16] [Server thread/INFO]: #timer.tick
+[19:21:16] [Server thread/INFO]: #ER.animal.boar.attack
+[19:21:16] [Server thread/INFO]: #1000
+[19:21:16] [Server thread/INFO]: #ER.place.storage
+[19:21:16] [Server thread/INFO]: #ER.animal.wolf.cooltime
+[19:21:16] [Server thread/INFO]: #ER.place.null
+[19:21:16] [Server thread/INFO]: _GasMan_
+[19:21:16] [Server thread/INFO]: #ER.animal.boar.cooltime
+[19:21:16] [Server thread/INFO]: #day4.halfday1.sec
+[19:21:16] [Server thread/INFO]: #day4.halfday1.min
+[19:21:16] [Server thread/INFO]: #timer.halfday
+[19:21:16] [Server thread/INFO]: #day4.day.sec
+[19:21:16] [Server thread/INFO]: #day4.day.min
+[19:21:16] [Server thread/INFO]: 2=
+[19:21:16] [Server thread/INFO]: #day5.halfday1.sec
+[19:21:16] [Server thread/INFO]: #usetimer
+[19:21:16] [Server thread/INFO]: #timer.trigger
+[19:21:16] [Server thread/INFO]: #ER.animal.wolf.attack
+[19:21:16] [Server thread/INFO]: #day5.halfday1.min
+[19:21:16] [Server thread/INFO]: #ER.place.graveyard
+[19:21:16] [Server thread/INFO]: #day5.day.sec
+[19:21:16] [Server thread/INFO]: #left_time_sec
+[19:21:16] [Server thread/INFO]: #day6.halfday1.sec
+[19:21:16] [Server thread/INFO]: #game.team
+[19:21:16] [Server thread/INFO]: #ER.animal.wolf.health
+[19:21:16] [Server thread/INFO]: #day6.night.sec
+[19:21:16] [Server thread/INFO]: #left.time.tick
+[19:21:16] [Server thread/INFO]: #gametime.tick
+[19:21:16] [Server thread/INFO]: #day7.halfday1.min
+[19:21:16] [Server thread/INFO]: #late_time_tick
+[19:21:16] [Server thread/INFO]: #day3.halfday1.sec
+[19:21:16] [Server thread/INFO]: #day3.night.sec
+[19:21:16] [Server thread/INFO]: #day6.halfday2.sec
+[19:21:16] [Server thread/INFO]: #day7.halfday1.sec
+[19:21:16] [Server thread/INFO]: #wait.remaining.tick
+[19:21:16] [Server thread/INFO]: #ER.place.port
+[19:21:16] [Server thread/INFO]: #day1.night.min
+[19:21:16] [Server thread/INFO]: #day3.day.sec
+[19:21:16] [Server thread/INFO]: #ER.place.stream
+[19:21:16] [Server thread/INFO]: #day5.night.min
+[19:21:16] [Server thread/INFO]: #day1.day.sec
+[19:21:16] [Server thread/INFO]: #ER.place.gas_station
+[19:21:16] [Server thread/INFO]: #day8.halfday1.sec
+[19:21:16] [Server thread/INFO]: #ER.place.golmok
+[19:21:16] [Server thread/INFO]: #left.time.sec
+[19:21:16] [Server thread/INFO]: #day1.halfday1.min
+[19:21:16] [Server thread/INFO]: #ER.animal.alpha.attack
+[19:21:16] [Server thread/INFO]: #day1.halfday1.sec
+[19:21:16] [Server thread/INFO]: #ER.place.forest
+[19:21:16] [Server thread/INFO]: 256
+[19:21:16] [Server thread/INFO]: #ER.place.hotel
+[19:21:16] [Server thread/INFO]: #1
+[19:21:16] [Server thread/INFO]: #day6.halfday1.min
+[19:21:16] [Server thread/INFO]: #ER.place.hospital
+[19:21:16] [Server thread/INFO]: #day4.halfday2.min
+[19:21:16] [Server thread/INFO]: TDanfung
+[19:21:16] [Server thread/INFO]: #ER.place.beach
+[19:21:16] [Server thread/INFO]: #day2.halfday1.sec
+[19:21:16] [Server thread/INFO]: #day1.night.sec
+[19:21:16] [Server thread/INFO]: #wait.bg.tick
+[19:21:16] [Server thread/INFO]: #day6.night.min
+[19:21:16] [Server thread/INFO]: #ER.animal.bear.attack
+[19:21:16] [Server thread/INFO]: #ER.place.cathedral
+[19:21:16] [Server thread/INFO]: #input.number
+[19:21:16] [Server thread/INFO]: #timer.sec
+[19:21:16] [Server thread/INFO]: #day5.halfday2.sec
+[19:21:16] [Server thread/INFO]: #day2.day.sec
+[19:21:16] [Server thread/INFO]: #day7.halfday3.min
+[19:21:16] [Server thread/INFO]: #gametime.min
+[19:21:16] [Server thread/INFO]: #day3.halfday2.min
+[19:21:16] [Server thread/INFO]: #gametime.sec
+[19:21:16] [Server thread/INFO]: Money5645
+[19:21:16] [Server thread/INFO]: #timer.day
+[19:21:16] [Server thread/INFO]: #day2.night.sec
+[19:21:16] [Server thread/INFO]: #day7.day.sec
+[19:21:16] [Server thread/INFO]: #day7.day.min
+[19:21:16] [Server thread/INFO]: #day7.night.sec
+[19:21:16] [Server thread/INFO]: #temp.now.map.number
+[19:21:16] [Server thread/INFO]: #ER.animal.bear.cooltime
+[19:21:16] [Server thread/INFO]: #day7.night.min
+[19:21:16] [Server thread/INFO]: #day2.night.min
+[19:21:16] [Server thread/INFO]: #temp.now.scroll.num
+[19:21:16] [Server thread/INFO]: #day3.halfday2.sec
+[19:21:16] [Server thread/INFO]: #ER.place.factory
+[19:21:16] [Server thread/INFO]: #credit.tick
+[19:21:16] [Server thread/INFO]: 3=
+[19:21:16] [Server thread/INFO]: #ER.animal.alpha.cooltime
+[19:21:16] [Server thread/INFO]: #day6.day.sec
+[19:21:16] [Server thread/INFO]: #day2.halfday2.min
+[19:21:16] [Server thread/INFO]: #temp.old.map.number
+[19:21:16] [Server thread/INFO]: #day4.halfday2.sec
+[19:21:16] [Server thread/INFO]: #day1.day.min
+[19:21:16] [Server thread/INFO]: #wait.bg
+[19:21:16] [Server thread/INFO]: #ER.place.village
+[19:21:16] [Server thread/INFO]: #timer.min
+[19:21:16] [Server thread/INFO]: #day5.halfday2.min
+[19:21:16] [Server thread/INFO]: #ER.animal.alpha.health
+[19:21:16] [Server thread/INFO]: #day2.day.min
+[19:21:16] [Server thread/INFO]: #day1.halfday2.sec
+[19:21:16] [Server thread/INFO]: #ER.place.school
+[19:21:16] [Server thread/INFO]: #day7.halfday3.sec
+[19:21:16] [Server thread/INFO]: #ER.place.yanggung
+[19:21:16] [Server thread/INFO]: #day3.day.min
+[19:21:16] [Server thread/INFO]: #day2.halfday1.min
+[19:21:16] [Server thread/INFO]: #late_time_sec
+[19:21:16] [Server thread/INFO]: #day6.halfday2.min
+[19:21:16] [Server thread/INFO]: #ER.place.jul
+[19:21:16] [Server thread/INFO]: #day4.night.sec
+[19:21:16] [Server thread/INFO]: #day8.halfday1.min
+[19:21:16] [Server thread/INFO]: #day4.night.min
+[19:21:16] [Server thread/INFO]: #game.player
+[19:21:16] [Server thread/INFO]: #day7.halfday2.sec
+[19:21:16] [Server thread/INFO]: 1=
+[19:21:16] [Server thread/INFO]: #ER.animal.boar.health
+[19:21:16] [Server thread/INFO]: #ER.animal.bear.health
+[19:21:16] [Server thread/INFO]: #day7.halfday2.min
+[19:21:16] [Server thread/INFO]: #day6.day.min
+[19:21:16] [Server thread/INFO]: aj.last_id
+[19:21:16] [Server thread/INFO]: #ER.place.pond
+[19:21:16] [Server thread/INFO]: #ER.place.police
+[19:21:16] [Server thread/INFO]: 0=
+[19:21:16] [Server thread/INFO]: #day2.halfday2.sec
+[19:21:16] [Server thread/INFO]: #success
+[19:21:16] [Server thread/INFO]: #now.bg
+[19:21:16] [Server thread/INFO]: #day5.night.sec
+[19:21:16] [Server thread/INFO]: #day1.halfday2.min
+[19:21:16] [Server thread/INFO]: #day5.day.min
+[19:21:16] [Server thread/INFO]: #wait.remaining
+[19:21:16] [Server thread/INFO]: #day3.night.min
+[19:21:16] [Server thread/INFO]: #ER.place.fire
+[19:21:16] [Server thread/INFO]: #day3.halfday1.min
+[19:21:16] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[19:21:16] [Server thread/INFO]: Done (0.718s)! For help, type "help"
+[19:22:16] [Server thread/INFO]: Server empty for 60 seconds, pausing
+[20:02:33] [Server thread/INFO]: Stopping the server
+[20:02:33] [Server thread/INFO]: Stopping server
+[20:02:33] [Server thread/INFO]: [DatapackDebugger] Disabling DatapackDebugger v1.0-SNAPSHOT
+[20:02:33] [Server thread/INFO]: [eternal_return_system] Disabling eternal_return_system v1.0-SNAPSHOT
+[20:02:33] [Server thread/INFO]: Saving players
+[20:02:33] [Server thread/INFO]: Saving worlds
+[20:02:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[20:02:34] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[20:02:34] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[20:02:34] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[20:02:34] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[20:02:34] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[20:02:34] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
