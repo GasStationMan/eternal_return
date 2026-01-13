@@ -1,1 +1,0 @@
-item replace entity @s armor.feet with paper[equippable={slot:"feet",equip_sound:"ui.toast.in",camera_overlay:"gui/screen_image/hotbar",swappable:true},item_model="empty",hide_tooltip={},custom_name='" "'] 1

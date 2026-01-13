@@ -1,6 +1,0 @@
-$bossbar set line1.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
-$bossbar set line2.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
-$bossbar set line3.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
-$bossbar set line4.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
-$bossbar set line5.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""
-$bossbar set line6.$(UUID0).$(UUID1).$(UUID2).$(UUID3) name ""

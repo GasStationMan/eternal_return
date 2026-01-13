@@ -1,1 +1,0 @@
-$kill @s[tag=warp_point,tag=.$(place)]

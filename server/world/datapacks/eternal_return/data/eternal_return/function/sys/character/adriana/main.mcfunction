@@ -1,1 +1,0 @@
-execute if entity @a[tag=adriana] as @a[tag=adriana] run function eternal_return:sys/character/adriana/skill

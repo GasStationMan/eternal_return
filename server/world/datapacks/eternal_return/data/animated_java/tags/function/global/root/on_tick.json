@@ -1,9 +1,0 @@
-{
-	"replace": false,
-	"values": [
-		"animated_java:animal_alpha/root/on_tick",
-		"animated_java:animal_bear/root/on_tick",
-		"animated_java:animal_boar/root/on_tick",
-		"animated_java:animal_wolf/root/on_tick"
-	]
-}

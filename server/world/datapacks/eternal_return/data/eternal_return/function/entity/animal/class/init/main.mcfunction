@@ -1,4 +1,0 @@
-data modify storage minecraft:animal info.alpha set value { animal : "alpha", OPTdistance : 20, damage : 5, attackTick : 7, second_attackTick : 30, attackDistance : 5, skill_end_tick : 65, skill_effect_tick : 20 }
-data modify storage minecraft:animal info.bear set value { animal : "bear",  OPTdistance : 20,  damage : 5,  attackTick : 8,  second_attackTick : 8, attackDistance : 5,  skill_effect_tick : 17,  skill_end_tick : 25  }
-data modify storage minecraft:animal info.boar set value { animal : "boar",  OPTdistance : 20,  damage : 5,  attackTick : 5,  second_attackTick : 5, attackDistance : 5,  skill_effect_tick : 27,  skill_end_tick : 45  }
-data modify storage minecraft:animal info.wolf set value { animal : "wolf", OPTdistance : 20, damage : 5, attackTick : 12, second_attackTick : 12, attackDistance : 6, skill_effect_tick : 30, skill_end_tick : 35 }

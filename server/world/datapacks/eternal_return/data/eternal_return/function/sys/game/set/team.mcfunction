@@ -1,2 +1,0 @@
-$execute if score #game.team ct1 matches ..9 run data modify storage minecraft:text team_char set value [" ","$(team)"]
-$execute if score #game.team ct1 matches 10.. run data modify storage minecraft:text team_char set value ["$(team)"]
