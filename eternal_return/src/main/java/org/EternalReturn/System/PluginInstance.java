@@ -3,12 +3,11 @@ package org.EternalReturn.System;
 
 import java.io.UnsupportedEncodingException;
 
-import org.EternalReturn.System.ERPlayer.ERPlayerDebugCommand;
-import org.EternalReturn.System.ERPlayer.ERPlayerListener;
-import org.EternalReturn.System.ERPlayer.Gui.Inventory.InventoryGuiListener;
+import org.EternalReturn.ERPlayer.ERPlayerDebugCommand;
+import org.EternalReturn.ERPlayer.ERPlayerListener;
+import org.EternalReturn.ERPlayer.Gui.Inventory.InventoryGuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
-import org.EternalReturn.Util.Gui.bossbarGui.View.BSwingListener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;

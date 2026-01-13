@@ -1,6 +1,5 @@
 package org.EternalReturn.Util.AnimatedJAVAEntity;
 
-import org.EternalReturn.System.ERAnimal.ERAnimal;
 import org.EternalReturn.Util.Free.FreeAble;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

@@ -3,7 +3,7 @@ package org.EternalReturn.Util.Physics;
 import java.util.Set;
 
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.System.ERPlayer.ERPlayer;
+import org.EternalReturn.ERPlayer.ERPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 

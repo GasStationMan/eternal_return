@@ -1,12 +1,12 @@
 package org.EternalReturn.System;
 
-import org.EternalReturn.System.AreaSystem.ERAreaGraph;
-import org.EternalReturn.System.ERPlayer.ERPlayer;
+import org.EternalReturn.Area.ERAreaGraph;
+import org.EternalReturn.ERPlayer.ERPlayer;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
-import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
+import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
 import org.EternalReturn.Util.itemUtill.CustomModelData;
 import org.EternalReturn.Util.itemUtill.CustomModelDataManager;
-import org.EternalReturn.System.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
+import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -122,7 +122,7 @@ public class SystemManager {
     
 
     //getter
-    public ERPlayer getERPlayer(Player player){ //Player 객체를 이용해서 ERPlayer 객체 불러오기
+    public static ERPlayer getERPlayer(Player player){ //Player 객체를 이용해서 ERPlayer 객체 불러오기
         return erPlayerHashMap.get(player);
     }
 

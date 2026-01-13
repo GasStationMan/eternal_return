@@ -1,18 +1,17 @@
 package org.EternalReturn.System
 
-import org.EternalReturn.System.ERAnimal.Alpha
-import org.EternalReturn.System.ERAnimal.ERAnimal
-import org.EternalReturn.System.ERPlayer.ERPlayer
+import org.EternalReturn.ERAnimal.Alpha
+import org.EternalReturn.ERAnimal.ERAnimal
+import org.EternalReturn.ERPlayer.ERPlayer
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager
 import org.EternalReturn.Util.Physics.Geometry.Cylinder
 import org.EternalReturn.Util.Physics.Geometry.InfStraightLine
 import org.EternalReturn.Util.Physics.Geometry.PhysicsEngine
 import org.bukkit.Location
-import org.bukkit.World
 import org.bukkit.entity.Entity
-import org.bukkit.entity.Marker
 import org.bukkit.entity.Player
 import java.util.ArrayList
+import java.util.Objects
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -28,13 +27,18 @@ class EREngine : PhysicsEngine, Runnable {
 
     override fun run() {
         
-        for (erPlayer in erPlayerHashMap.values) {
-            val p = erPlayer.getPlayer();
-            val tags = p.getScoreboardTags();
-            erPlayer.getSkill().update();
-            erPlayer.getMotionManager().update(erPlayer, tags);
-            physicsDebug(erPlayer, p, tags);
+        for (erPlayer in SystemManager.getERPlayerList()) {
+            val p = erPlayer.player;
+            val tags = p.scoreboardTags;
+            erPlayer.skill.update();
+            erPlayer.motionManager.update(erPlayer, tags);
 
+            if(erPlayer.character == null){
+                continue;
+            }
+
+            erPlayer.character.script();
+            //physicsDebug(erPlayer, p, tags);
         }
 
         //좌클릭한 유저 위치에서 레이캐스팅 실시
