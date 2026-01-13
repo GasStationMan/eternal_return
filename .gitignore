@@ -1,0 +1,8 @@
+*.class
+*.bin
+*.lock
+*.probe
+/eternal_return/build/tmp/compileJava/compileTransaction/stash-dir
+/eternal_return/build
+/eternal_return/.gradle
+/server/world

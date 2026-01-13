@@ -10,32 +10,47 @@ import java.util.HashMap;
 import java.util.List;
 
 
-record JsonRoot(
-        List<JsonArea> location
-) {}
 
-record JsonArea(
-        String name,
-        List<JsonAnimal> table
-) {}
-
-record JsonAnimal(
-        String name,
-        double[] pos,
-        double[] rot
-) {}
 
 record ERAnimalInfo(String name, double x, double y, double z, double yaw, double pitch) {
 }
 
-
 record AreaERAnimalInfo(String name, List<ERAnimalInfo> animals) {
+
+    @Override
+    public String toString(){
+        String output = "";
+        for(ERAnimalInfo animal : this.animals()){
+            output += (animal.name() + " : " + animal.x() + ", " + animal.y() + ", " + animal.z() + ", " + animal.yaw() + ", " + animal.pitch());
+            output += "\n";
+        }
+        return output;
+    }
+
 }
 
 /**
  * animal.json 정보를 토대로 ERAnimal을 관리하는 클래스.
+ * Gson으로 편리하게 파싱한다.
+ * 대신 정확한 데이터 구조를 요구한다.
  * */
 public class ERAnimalManger {
+
+    record JsonRoot(
+            List<JsonArea> location
+    ) {}
+
+    record JsonArea(
+            String name,
+            List<JsonAnimal> table
+    ) {}
+
+    record JsonAnimal(
+            String name,
+            double[] pos,
+            double[] rot
+    ) {}
+
 
     private static AJEntityManager ajEntityManager;
 
@@ -45,9 +60,7 @@ public class ERAnimalManger {
 
     private ERAnimalManger(){
         try {
-            String json = Files.readString(Path.of(
-                    "E:\\EWorkspace\\git\\eternal_return\\server\\plugins\\animal.json"
-            ));
+            String json = Files.readString(Path.of("E:\\EWorkspace\\git\\eternal_return\\server\\plugins\\animal.json"));
 
             Gson gson = new Gson();
             JsonRoot root = gson.fromJson(json, JsonRoot.class);
@@ -96,14 +109,9 @@ public class ERAnimalManger {
     }
 
     public static void main(String[] args){
-        ERAnimalManger manager = ERAnimalManger.registerERAnimalManager();
-        System.out.println("test");
         for(AreaERAnimalInfo areaERAnimalInfo : areaInfoMap.values()){
-            String indent = "   ";
             System.out.println(areaERAnimalInfo.name());
-            for(ERAnimalInfo animal : areaERAnimalInfo.animals()){
-                System.out.println(indent + animal.name() + " : " + animal.x() + ", " + animal.y() + ", " + animal.z() + ", " + animal.yaw() + ", " + animal.pitch());
-            }
+            System.out.println(areaERAnimalInfo);
         }
     }
 
