@@ -70,45 +70,9 @@ public class SystemManager {
         erPlayerList.clear();
         erPlayerHashMap.clear();
         uuidPlayerHashMap.clear();
-        erPlayerList = null;
-        erPlayerHashMap = null;
-        uuidPlayerHashMap = null;
-        bukkitAudiences = null;
         enchanter.free();
-        enchanter = null;
         ERAreaGraph.free();
-        ERAreaGraph = null;
         CustomModelDataManager.free();
-        CustomModelDataManager = null;
-
-        AREASTRING_alley = null;
-        AREASTRING_gas_station = null;
-        AREASTRING_archery_range = null;
-        AREASTRING_temple = null;
-        AREASTRING_hotel = null;
-        AREASTRING_school = null;
-        AREASTRING_fire = null;
-        AREASTRING_police = null;
-        AREASTRING_stream = null;
-        AREASTRING_pond = null;
-        AREASTRING_forest = null;
-        AREASTRING_cemetery = null;
-        AREASTRING_beach = null;
-        AREASTRING_village = null;
-        AREASTRING_hospital = null;
-        AREASTRING_chapel = null;
-        AREASTRING_factory = null;
-        AREASTRING_storage = null;
-
-        EPIC_BLOOD_SAMPLE = null;
-        EPIC_FORCE_CORE = null;
-        EPIC_METEORITE = null;
-        EPIC_MITHRIL = null;
-        EPIC_TREE_OF_LIFE = null;
-
-        USE_HYPERLOOP = null;
-        USE_KIOSK = null;
-
     }
 
     private SystemManager() {

@@ -3,6 +3,7 @@ package org.EternalReturn.ERAnimal;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntity;
+import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
 import org.EternalReturn.Util.physics.Geometry.Collider;
 import org.EternalReturn.Util.physics.MathVector.Vec3d;
 import org.bukkit.Location;
@@ -18,7 +19,9 @@ import java.util.List;
 
 public abstract class ERAnimal extends AJEntity {
 
-    protected boolean isHit = false;
+    protected boolean isHit;
+
+    protected boolean isShown;
 
     protected Husk actor;
 
@@ -27,6 +30,32 @@ public abstract class ERAnimal extends AJEntity {
     private TextDisplay bar;
 
     private Interaction hitBoxEntity;
+    
+    /**
+     * 해당 엔티티가 얼마나 많은 플레이어에게 보여지고 있는지 저장
+     * */
+    private int refCount;
+
+    public void resetRefCount(){
+        this.refCount = 0;
+    }
+
+    public void addRefCount() {
+        this.refCount++;
+    }
+
+    public void decreaseRefCount(){
+        this.refCount--;
+    }
+
+    public int getRefCount() {
+        return this.refCount;
+    }
+
+    public void summon() {
+        AJEntityManager.summon(this, location);
+    }
+
 
     public enum AnimalState{
         READY,
@@ -35,13 +64,16 @@ public abstract class ERAnimal extends AJEntity {
         DEAD
     }
 
-    public ERAnimal(String name, @NotNull Collider hitbox) {
-        super(name);
+    public ERAnimal(String name, Location location, @NotNull Collider hitbox) {
+        super(name, location);
         this.collider = hitbox;
+        this.refCount = 0;
+        this.isShown = false;
+        this.isHit = false;
     }
 
     @Override
-    protected void afterSummoning(Location location) {
+    protected void afterSummoning() {
         World world = location.getWorld();
         if(world == null){
             throw new NullPointerException("전달된 매개변수 Location에 World 정보가 없습니다.");
@@ -61,8 +93,10 @@ public abstract class ERAnimal extends AJEntity {
      */
     @Override
     public void remove() {
-        super.remove();
-        this.actor.remove();
+        if(rootEntity != null){
+            super.remove();
+            this.actor.remove();
+        }
     }
 
     @Override
@@ -118,6 +152,7 @@ public abstract class ERAnimal extends AJEntity {
         return new Vec3d(actor.getLocation());
     }
 
+
     /**
      * 플레이어와의 거리의 제곱을 구하는 클래스.
      * */
@@ -135,5 +170,13 @@ public abstract class ERAnimal extends AJEntity {
 
     public void setHit() {
         this.isHit = true;
+    }
+
+    public boolean isShown(){
+        return this.isShown;
+    }
+
+    public void setShown(boolean bool){
+        this.isShown = bool;
     }
 }

@@ -8,6 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
@@ -27,19 +28,14 @@ public class AJEntityManager implements Listener , FreeAble {
 
     private static Plugin plugin = null;
 
-    private static Queue<AJEntity> ajEntitySummonQueue = new LinkedList<>();
+    private static List<AJEntity> ajEntitySummonQueue = new LinkedList<>();
 
     @Override
     public void free() {
         flushAllEntities();
-        manager = null;
         ajEntityMap.clear();
-        ajEntityMap = null;
         ajEntities.clear();
-        ajEntities = null;
-        plugin = null;
         ajEntitySummonQueue.clear();
-        ajEntitySummonQueue = null;
     }
 
     private AJEntityManager(){
@@ -85,13 +81,20 @@ public class AJEntityManager implements Listener , FreeAble {
      * */
     public static void summon(@NotNull AJEntity ajEntity, @NotNull Location location){
 
-        World world = location.getWorld();
-
-        if(world == null){
+        if(location.getWorld() == null){
             throw new NullPointerException("해당 함수의 매개변수로 전달된 Location 객체는 반드시 World 객체 정보를 가지고 있어야 합니다.");
         }
 
         if(manager.thisSingletoneIsAlreadAllocated()){
+
+            /// 이거 명령어 순서 바꾸면 좆된다!!!!!!!!!!!!!!!!!!!
+
+            //해당 명세서를 큐에 넣는다. 위의 명령어가 실행이 완료될 때마다, 순차적으로 dequeue(poll)되어
+            //ajEntityMap에 등록된다.
+            ajEntitySummonQueue.addFirst(ajEntity);
+            //해당 AJEntity가 소환된 world 및 좌표 저장
+            ajEntity.location = location;
+            ajEntity.afterSummoning();
 
             String command =  "execute"
                     +" positioned " + location.getX() + " " + location.getY() + " " + location.getZ()
@@ -99,14 +102,7 @@ public class AJEntityManager implements Listener , FreeAble {
                     +" run function animated_java:" + ajEntity.getName() + "/summon {args:0}";
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
 
-            //해당 명세서를 큐에 넣는다. 위의 명령어가 실행이 완료될 때마다, 순차적으로 dequeue(poll)되어
-            //ajEntityMap에 등록된다.
-            ajEntitySummonQueue.offer(ajEntity);
-            //해당 AJEntity가 소환된 world 저장
-            ajEntity.setWorld(world);
-
-            ajEntity.afterSummoning(location);
-
+            //소환 이후 로직
         }
     }
 
@@ -132,19 +128,22 @@ public class AJEntityManager implements Listener , FreeAble {
      * "aj."로 시작, ".root"로 끝나는 태그가 있는지 확인하고, 해당 엔티티인 경우 true 반환 그 외에는 false 반환
      * */
     private boolean isAJEntityRoot(@NotNull Entity entity){
-        if(entity.getType().equals(EntityType.ITEM_DISPLAY)){
-            for(String tag : entity.getScoreboardTags()){
-                if(tag.startsWith("aj.") && tag.endsWith(".root")){
-                    //혹은 tag.equals("aj.global.root")
-                    return true; //아도겐!!
-                }
+        if(!entity.getType().equals(EntityType.ITEM_DISPLAY)){
+            return false;
+        }
+        for(String tag : entity.getScoreboardTags()){
+            if(tag.equals("aj.global.root")){
+                return true; //아도겐!!
             }
         }
         return false;
     }
 
-    //getter
+    public static void registerAJEntity(AJEntity ajEntity){
+        AJEntityManager.ajEntities.add(ajEntity);
+    }
 
+    //getter
     public static List<AJEntity> getAjEntities(){
         return AJEntityManager.ajEntities;
     }
@@ -158,19 +157,24 @@ public class AJEntityManager implements Listener , FreeAble {
         //ajEntitySummonQueue가 비어있는지 확인한다.
         //비어있지 않는 경우, 해당 엔티티가 root entity 인지 확인한다.
         // root entity 라면, ajEntityMap에 등록한다.
+
         if(ajEntitySummonQueue.isEmpty()){
             return;
         }
 
         if(isAJEntityRoot(entity)){
-            AJEntity ajEntity = ajEntitySummonQueue.poll();
-            assert ajEntity != null : "ajEntity가 Null 입니다. AJEntityManager.summon(AJEntity, Location) AJEntity에 잘못된 값이 들어갔습니다.";
+            System.out.println(entity);
 
+            AJEntity ajEntity = ajEntitySummonQueue.removeLast();
+
+            System.out.println(ajEntity +" 에서 소환 명세를 받았습니다. 길이 : " + (ajEntitySummonQueue.size() + 1));
+
+            assert ajEntity != null : "ajEntity가 Null 입니다. AJEntityManager.summon(AJEntity, Location) AJEntity에 잘못된 값이 들어갔습니다.";
 
             ajEntityMap.put(entity, ajEntity);
             ajEntities.add(ajEntity);
 
-            ajEntity.setRootEntity(entity);
+            ajEntity.rootEntity = entity;
             ajEntity.afterSpawnEvent(entity);
 
             System.out.println("ajEntity가 생성되었습니다. : " + ajEntity.getRootEntity().getUniqueId());

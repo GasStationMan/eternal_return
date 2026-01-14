@@ -7,6 +7,7 @@ import org.EternalReturn.ERPlayer.ERPlayerDebugCommand;
 import org.EternalReturn.ERPlayer.ERPlayerListener;
 import org.EternalReturn.ERPlayer.Gui.Inventory.InventoryGuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+import org.EternalReturn.System.ERAnimalSystem.ERAnimalManager;
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -20,7 +21,7 @@ public final class PluginInstance extends JavaPlugin{
     private static AJEntityManager ajEntityManager;
     private static SystemManager systemManager;
     private static BukkitAudiences adventure;
-    private static ERAnimalManger erAnimalManger;
+    private static ERAnimalManager erAnimalManager;
 
     private static EREngine erEngine;
 
@@ -50,7 +51,7 @@ public final class PluginInstance extends JavaPlugin{
 
         //Animated JAVA Entity initialization
         ajEntityManager = AJEntityManager.registerAJEntityManager(this);
-        erAnimalManger = ERAnimalManger.registerERAnimalManager();
+        erAnimalManager = ERAnimalManager.registerERAnimalManager(ajEntityManager);
 
         //시스템매니저 객체 생성
         systemManager = SystemManager.getInstance();
@@ -87,12 +88,9 @@ public final class PluginInstance extends JavaPlugin{
     @Override
     public void onDisable() {
         systemManager.free();
-        systemManager = null;
         ajEntityManager.free();
-        ajEntityManager = null;
         if(adventure != null){
             adventure.close();
-            adventure = null;
         }
     }
 

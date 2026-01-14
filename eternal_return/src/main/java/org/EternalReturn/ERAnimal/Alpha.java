@@ -12,10 +12,10 @@ import java.util.List;
 public class Alpha extends ERAnimal{
 
 
-    public Alpha(@NotNull Location position) {
-        super("animal_alpha",
+    public Alpha(@NotNull Location location) {
+        super("animal_alpha", location,
                 new Cylinder(
-                    new InfStraightLine(0,1,0, position.getX(), position.getY(), position.getZ()),
+                    new InfStraightLine(0,1,0, location.getX(), location.getY(), location.getZ()),
                         1,
                         3
                 ));

@@ -16,7 +16,7 @@ import java.util.HashMap;
  * */
 public abstract class AJEntity {
 
-    private World world;
+    protected Location location;
 
     public enum ANIMATION_STATE{
         PLAY,
@@ -24,40 +24,42 @@ public abstract class AJEntity {
         STOP
     };
 
-    private Entity rootEntity;
+    protected Entity rootEntity;
 
-    private String name;
+    protected String name;
 
-    private HashMap<String, AJAnimationInfoBlock> animationMap;
+    protected HashMap<String, AJAnimationInfoBlock> animationMap;
 
     /**
      * 현재 실행 중인 애니메이션의 상태 <br>
      * ANIMATION_STATE.PLAY, ANIMATION_STATE.PAUSE, ANIMATION_STATE.STOP
      * */
-    private ANIMATION_STATE animationState;
+    protected ANIMATION_STATE animationState;
 
     /**
      * 현재 실행 중인 애니메이션의 이름<br>
      * registerAnimation(String,String) 메소드를 통해 등록해야 함.
      * */
-    private String animationPlaying;
+    protected String animationPlaying;
 
-    private long animationEndTime;
+    protected long animationEndTime;
 
-    public AJEntity(String name) {
+    public AJEntity(String name, Location location) {
         this.name = name;
+        this.location = location;
         this.animationMap = new HashMap<>();
     }
 
-    protected abstract void afterSummoning(@NotNull Location location);
+    protected abstract void afterSummoning();
 
     protected abstract void afterSpawnEvent(Entity rootEntity);
 
     public abstract void script();
 
     /**
-     * 현재 AJEntity를 제거한다. <br>
+     * 해당 월드에서 AJEntity를 제거한다. <br>
      * AJEntity.remove(AJEntity ajEntity, Entity rootEntity){...}를 내부적으로 호출한다.<br>
+     *
      * */
     public void remove(){
         Bukkit.dispatchCommand(
@@ -225,8 +227,8 @@ public abstract class AJEntity {
     /**
      * 현재 AJEntity가 처리되고 있는 World를 가져온다.
      * */
-    public World getWorld(){
-        return this.world;
+    public Location getLocation(){
+        return this.location;
     }
 
     //setter
@@ -235,8 +237,5 @@ public abstract class AJEntity {
         this.rootEntity = entity;
     }
 
-    public void setWorld(World world){
-        this.world = world;
-    }
 
 }

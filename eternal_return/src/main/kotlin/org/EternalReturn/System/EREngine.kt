@@ -1,23 +1,16 @@
 package org.EternalReturn.System
 
+import org.EternalReturn.System.ERAnimalSystem.ERAnimalManager;
 import org.EternalReturn.ERAnimal.ERAnimal
 import org.EternalReturn.ERPlayer.ERPlayer
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntity
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager
 
 class EREngine : DPEngine() {
 
 
     override fun forRightClickers(erPlayer : ERPlayer) {
 
-        //좌클릭 대상이 AJEntity인지 아닌지 체크
-        for (ajEntity in AJEntityManager.getAjEntities()) {
-            if (ajEntity !is ERAnimal) {
-                continue;
-            }
-
-            //광선 - 충돌체 체크
-            val animal = ajEntity;
+        // animal.json 기반 추가된 야생동물들 관리.
+        for(animal in ERAnimalManager.getERAnimalList()){
             if(rayCheckWithERAnimal(erPlayer, animal)){
                 animal.setHit();
                 erPlayer.sendMessage("hit!");
@@ -36,8 +29,6 @@ class EREngine : DPEngine() {
 
             }
         }
-
-
     }
 
     override fun erPlayerTick(erPlayer: ERPlayer) {
@@ -53,11 +44,7 @@ class EREngine : DPEngine() {
         erPlayer.character.script();
     }
 
-    override fun ajEntityTick(ajEntity: AJEntity) {
-        if (ajEntity !is ERAnimal) {
-            return;
-        }
-        val animal = ajEntity;
+    override fun erAnimalTick(animal: ERAnimal) {
         animal.script();
     }
 }

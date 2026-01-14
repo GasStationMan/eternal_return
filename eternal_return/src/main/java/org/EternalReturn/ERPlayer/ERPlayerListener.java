@@ -31,12 +31,9 @@ public class ERPlayerListener implements Listener {
     @EventHandler
     public void onPlayerInteraction(PlayerInteractEvent e){
         Action action = e.getAction();
-
         if(action.equals(Action.LEFT_CLICK_AIR) || action.equals(Action.LEFT_CLICK_BLOCK)){
-
             ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(e.getPlayer());
-            PluginInstance.getEREngine().appendLeftClickedPlayer(erPlayer);
-
+            PluginInstance.getEREngine().submitLeftClickerByEvent(erPlayer);
         }
     }
 
@@ -45,7 +42,7 @@ public class ERPlayerListener implements Listener {
         Entity damager = e.getDamager();
         if (damager instanceof Player) {
             ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(damager);
-            PluginInstance.getEREngine().appendLeftClickedPlayer(erPlayer);
+            PluginInstance.getEREngine().submitLeftClickerByEvent(erPlayer);
         }
     }
 

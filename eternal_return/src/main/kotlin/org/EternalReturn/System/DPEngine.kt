@@ -2,6 +2,7 @@ package org.EternalReturn.System
 
 import org.EternalReturn.ERAnimal.ERAnimal
 import org.EternalReturn.ERPlayer.ERPlayer
+import org.EternalReturn.System.ERAnimalSystem.ERAnimalManager
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntity
 import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager
 import org.EternalReturn.Util.physics.Geometry.Cylinder
@@ -22,14 +23,14 @@ abstract class DPEngine : PhysicsEngine, Runnable {
     constructor() : super()
     constructor(bufferSize : Int) : super(bufferSize)
 
-    private val erPlayerHashMap: HashMap<Player, ERPlayer> = SystemManager.getERPlayerHashMap()
-    private val leftClickers: ArrayList<ERPlayer> = ArrayList<ERPlayer>()
+    private val erPlayerHashMap: HashMap<Player, ERPlayer> = SystemManager.getERPlayerHashMap();
+    private val leftClickers = arrayOfNulls<ERPlayer>(64);
     private var leftClickersStackIdx : Int = 0
 
 
     abstract fun erPlayerTick(erPlayer: ERPlayer);
 
-    abstract fun ajEntityTick(ajEntity: AJEntity);
+    abstract fun erAnimalTick(animal: ERAnimal);
 
     abstract fun forRightClickers(erPlayer : ERPlayer);
 
@@ -41,17 +42,22 @@ abstract class DPEngine : PhysicsEngine, Runnable {
         }
 
         //좌클릭한 유저 위치에서 레이캐스팅 실시
-        for (idx in 0..leftClickersStackIdx - 1) {
+        for (i in 0 until leftClickersStackIdx) {
             setVecScope().use{
-                forRightClickers(leftClickers[idx]);
+                forRightClickers(leftClickers[i]!!);
             }
         }
 
         leftClickersStackIdx = 0
         //ajEntity 업데이트
-        for (ajEntity in AJEntityManager.getAjEntities()) {
-            ajEntityTick(ajEntity);
+        ERAnimalManager.animalRenderDistanceManage(15);
+        for (animal in ERAnimalManager.getERAnimalList()) {
+            if(animal.isShown()){
+                erAnimalTick(animal);
+            }
         }
+
+
 
     }
 
@@ -112,10 +118,11 @@ abstract class DPEngine : PhysicsEngine, Runnable {
         assign(posOut, location.x, location.y, location.z)
     }
 
-    public fun appendLeftClickedPlayer(player: ERPlayer) {
-        leftClickers.add(player)
-        leftClickersStackIdx++
+    /**
+     * @EventHandler 어노테이션 된 함수를 통해서만 호출할 것.
+     * */
+    public fun submitLeftClickerByEvent(player: ERPlayer) {
+        leftClickers[leftClickersStackIdx++] = player;
     }
-
 
 }
