@@ -3,7 +3,7 @@ package org.EternalReturn.ERPlayer;
 import org.EternalReturn.ERAnimal.*;
 import org.EternalReturn.ERCharacter.Hyunwoo;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
+import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

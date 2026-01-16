@@ -1,5 +1,6 @@
 package org.EternalReturn.ERPlayer;
 
+import org.EternalReturn.ERCharacter.CharacterAttackEvent;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.bukkit.entity.Entity;
@@ -43,7 +44,7 @@ public class ERPlayerListener implements Listener {
         if (damager instanceof Player) {
             ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(damager);
             PluginInstance.getEREngine().submitLeftClickerByEvent(erPlayer);
+            erPlayer.getCharacter().submitEvent(new CharacterAttackEvent(e.getDamager(), e.getEntity()));
         }
     }
-
 }

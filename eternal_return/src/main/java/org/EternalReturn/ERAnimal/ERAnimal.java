@@ -2,8 +2,8 @@ package org.EternalReturn.ERAnimal;
 
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntity;
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
+import org.EternalReturn.Util.AJEntity.AJEntity;
+import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.EternalReturn.Util.physics.Geometry.Collider;
 import org.EternalReturn.Util.physics.MathVector.Vec3d;
 import org.bukkit.Location;

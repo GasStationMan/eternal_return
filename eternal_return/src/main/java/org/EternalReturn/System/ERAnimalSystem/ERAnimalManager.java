@@ -4,7 +4,7 @@ import org.EternalReturn.ERAnimal.*;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager;
+import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.bukkit.Location;
 import org.bukkit.World;
 

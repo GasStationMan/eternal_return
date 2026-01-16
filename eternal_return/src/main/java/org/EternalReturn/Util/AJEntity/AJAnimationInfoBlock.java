@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.AnimatedJAVAEntity;
+package org.EternalReturn.Util.AJEntity;
 
 public record AJAnimationInfoBlock (
     String animation,

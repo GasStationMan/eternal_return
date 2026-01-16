@@ -1,11 +1,9 @@
-package org.EternalReturn.Util.AnimatedJAVAEntity;
+package org.EternalReturn.Util.AJEntity;
 
 import org.EternalReturn.System.PluginInstance;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 

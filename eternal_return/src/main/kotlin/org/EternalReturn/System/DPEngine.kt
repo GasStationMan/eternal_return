@@ -3,14 +3,11 @@ package org.EternalReturn.System
 import org.EternalReturn.ERAnimal.ERAnimal
 import org.EternalReturn.ERPlayer.ERPlayer
 import org.EternalReturn.System.ERAnimalSystem.ERAnimalManager
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntity
-import org.EternalReturn.Util.AnimatedJAVAEntity.AJEntityManager
 import org.EternalReturn.Util.physics.Geometry.Cylinder
 import org.EternalReturn.Util.physics.Geometry.InfStraightLine
 import org.EternalReturn.Util.physics.Geometry.PhysicsEngine
 import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
-import java.util.ArrayList
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -50,7 +47,7 @@ abstract class DPEngine : PhysicsEngine, Runnable {
 
         leftClickersStackIdx = 0
         //ajEntity 업데이트
-        ERAnimalManager.animalRenderDistanceManage(15);
+        ERAnimalManager.animalRenderDistanceManage(64);
         for (animal in ERAnimalManager.getERAnimalList()) {
             if(animal.isShown()){
                 erAnimalTick(animal);
@@ -62,6 +59,10 @@ abstract class DPEngine : PhysicsEngine, Runnable {
     }
 
     protected fun rayCheckWithERAnimal(erPlayer: ERPlayer, erAnimal : ERAnimal) : Boolean{
+
+        if(!erAnimal.isShown){
+            return false;
+        }
 
         val pPos: Vector3 = vec3();
         val pDir: Vector3 = vec3();

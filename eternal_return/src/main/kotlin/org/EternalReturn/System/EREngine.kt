@@ -45,6 +45,9 @@ class EREngine : DPEngine() {
     }
 
     override fun erAnimalTick(animal: ERAnimal) {
+        if(animal.actor.passengers.isEmpty()){
+            animal.actor.addPassenger(animal.rootEntity);
+        }
         animal.script();
     }
 }
