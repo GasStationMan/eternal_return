@@ -1,7 +1,8 @@
 package org.EternalReturn.ERPlayer;
 
 import org.EternalReturn.ERAnimal.*;
-import org.EternalReturn.ERCharacter.Hyunwoo;
+import org.EternalReturn.ERCharacter.Character.Character_Adriana;
+import org.EternalReturn.ERCharacter.Character.Character_Hyunwoo;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.bukkit.Bukkit;
@@ -116,17 +117,11 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             Score data = scbManager.getMainScoreboard().getObjective("area").getScore("data");
             data.setScore(32768);
             p.sendMessage(data.getScore() + "");
-
-            
-
-
         }
 
         else if(args.length == 1 && args[0].equalsIgnoreCase("ch")){
-
-            erPlayer.setCharacter(new Hyunwoo());
-
-
+            erPlayer.setCharacter(new Character_Hyunwoo(erPlayer));
+            erPlayer.sendMessage(erPlayer.getCharacter().getName());
         }
 
         return false;

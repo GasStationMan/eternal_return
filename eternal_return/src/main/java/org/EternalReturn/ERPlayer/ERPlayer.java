@@ -9,6 +9,7 @@ import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
 import org.EternalReturn.Util.physics.MathVector.Vec3d;
 import org.EternalReturn.Util.physics.MotionManager;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class ERPlayer {
 
@@ -58,7 +59,8 @@ public class ERPlayer {
         return mukbo;
     }
 
-    public ERCharacter getCharacter(){
+
+    @NotNull public ERCharacter getCharacter(){
         return this.character;
     }
 
@@ -75,7 +77,7 @@ public class ERPlayer {
         return new Vec3d(player.getLocation());
     }
 
-    public void setCharacter(ERCharacter character){
+    public void setCharacter(@NotNull ERCharacter character){
         this.character = character;
     }
 

@@ -34,7 +34,7 @@ abstract class DPEngine : PhysicsEngine, Runnable {
     override fun run() {
         
         //각 erPlayer에 대해 틱 업데이트
-        for (erPlayer in SystemManager.getERPlayerList()) {
+        for (erPlayer in erPlayerHashMap.values) {
             erPlayerTick(erPlayer);
         }
 

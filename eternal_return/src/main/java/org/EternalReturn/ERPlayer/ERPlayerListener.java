@@ -1,6 +1,8 @@
 package org.EternalReturn.ERPlayer;
 
-import org.EternalReturn.ERCharacter.CharacterAttackEvent;
+import org.EternalReturn.ERCharacter.ERCharacter;
+import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
+import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.bukkit.entity.Entity;
@@ -10,6 +12,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.*;
+
+import java.security.cert.CertificateParsingException;
 
 public class ERPlayerListener implements Listener {
 
@@ -44,7 +48,15 @@ public class ERPlayerListener implements Listener {
         if (damager instanceof Player) {
             ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(damager);
             PluginInstance.getEREngine().submitLeftClickerByEvent(erPlayer);
-            erPlayer.getCharacter().submitEvent(new CharacterAttackEvent(e.getDamager(), e.getEntity()));
+            erPlayer.getCharacter().submitEvent(new CharacterAttackEvent(erPlayer, e.getEntity()));
         }
     }
+
+    @EventHandler
+    public void onPlayerSwap(PlayerSwapHandItemsEvent e){
+        ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(e.getPlayer());
+        ERCharacter character = erPlayer.getCharacter();
+        character.submitEvent(new CharacterSwapHandEvent(erPlayer));
+    }
+
 }
