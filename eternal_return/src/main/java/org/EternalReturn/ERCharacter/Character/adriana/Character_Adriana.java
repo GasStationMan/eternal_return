@@ -18,6 +18,7 @@ public class Character_Adriana extends ERCharacter {
         super(player);
         this.cooldownSeconds = 5;
         this.registerMonobehaviour(this, new BurningGround());
+        this.registerMonobehaviour(this, new LitFireOnAttack());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package org.EternalReturn.ERCharacter;
 
 import jdk.jfr.EventType;
+import org.EternalReturn.ERCharacter.Debuff.Stun;
 import org.EternalReturn.ERCharacter.Event.CharacterEvent;
 import org.EternalReturn.ERCharacter.util.DuplicatedMonobehaviourRegisterException;
 import org.EternalReturn.ERCharacter.util.ERMonobehaviour;
@@ -26,6 +27,7 @@ public abstract class ERCharacter extends MonobehaviourActor {
         this.erPlayer = erPlayer;
         this.submittedEvent = new LinkedList<>();
         this.monobehaviourMap = new HashMap<>();
+        this.registerMonobehaviour(this, new Stun());
     }
 
     public void submitEvent(CharacterEvent event){

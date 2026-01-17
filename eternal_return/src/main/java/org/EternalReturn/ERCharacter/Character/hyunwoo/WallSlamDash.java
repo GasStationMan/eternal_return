@@ -1,39 +1,45 @@
 package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
+import org.EternalReturn.ERCharacter.Event.CharacterStunEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
 import org.EternalReturn.ERCharacter.util.ERMonobehaviour;
+import org.EternalReturn.ERPlayer.ERPlayer;
+import org.EternalReturn.System.SystemManager;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.HashMap;
 
 public class WallSlamDash extends ERMonobehaviour<CharacterSwapHandEvent> {
 
 
     long skillActiveTick = 0;
     Vector direction = null;
-    Set<UUID> hitEntities; // 한 번의 돌진에 중복 타격 방지
-
+    HashMap<LivingEntity, Integer> hitEntities; // 한 번의 돌진에 중복 타격 방지
     @Override
     public void start(CharacterSwapHandEvent event) {
         Player player = getPlayer();
-        this.hitEntities = new HashSet<>();
+        this.hitEntities = new HashMap<>();
         this.direction = player.getLocation().getDirection(); // 돌진 속도
         this.direction.setY(0).normalize().multiply(1);
         this.skillActiveTick = System.currentTimeMillis();
-
+        this.isWallSlam = false;
     }
+
+    private boolean isWallSlam;
+
 
     @Override
     public void update() {
-        if(isNotEnd(skillActiveTick, 10)){
+
+        if(!isWallSlam && isNotEnd(skillActiveTick, 10)){
             Player player = getPlayer();
             // 플레이어 돌진
             Vector curVelocity = player.getVelocity();
@@ -43,16 +49,47 @@ public class WallSlamDash extends ERMonobehaviour<CharacterSwapHandEvent> {
             // 주변 적 감지
             for (Entity entity : player.getNearbyEntities(1.5, 1.5, 1.5)) {
                 if (entity instanceof LivingEntity victim && !entity.equals(getERPlayer())) {
-                    if (hitEntities.contains(victim.getUniqueId())) {
-                        continue;
-                    }
-
-                    hitEntities.add(victim.getUniqueId());
-                    handleWallSlam(player, victim, direction);
-                    return;
+                    hitEntities.putIfAbsent(victim, 0);
                 }
             }
+
+            // 피해 & 벡터 처리
+            for(LivingEntity victim : hitEntities.keySet()){
+                int hitVal = hitEntities.get(victim);
+                if(hitVal == 0){
+                    hitEntities.put(victim, 1);
+                    damage(player,victim,2.0); // 추가 피해 (하트 2.5칸)
+                }
+                Vector vec = new Vector(direction.getX(), direction.getY(), direction.getZ());
+                victim.setVelocity(vec.multiply(1.2));
+            }
+
+            Location eyeLocation = player.getEyeLocation();
+            eyeLocation.setY(0);
+            RayTraceResult result = player.getWorld().rayTraceBlocks(
+                    player.getEyeLocation(),
+                    eyeLocation.getDirection(),
+                    2.0 // 거리
+            );
+
+            if(result == null || result.getHitBlock().isEmpty()){
+               return;
+            }
+
+            isWallSlam = true;
+            for(LivingEntity victim : hitEntities.keySet()){
+                int hitVal = hitEntities.get(victim);
+
+                //EREntity에게 Event 전달
+                ERPlayer victimERPlayer = SystemManager.getERPlayer((Player)victim);
+                victimERPlayer.getCharacter().submitEvent(new CharacterStunEvent(40));
+
+                damage(player,victim,10.0); // 추가 피해 (하트 2.5칸)
+                player.sendMessage("§b[현우] §f벽꿍 성공!");
+                player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 1f, 1f);
+            }
         }
+
     }
 
     private void handleWallSlam(Player attacker, LivingEntity victim, Vector direction) {
