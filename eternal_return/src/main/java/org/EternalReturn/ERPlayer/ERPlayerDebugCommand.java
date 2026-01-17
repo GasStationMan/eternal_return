@@ -1,8 +1,8 @@
 package org.EternalReturn.ERPlayer;
 
 import org.EternalReturn.ERAnimal.*;
-import org.EternalReturn.ERCharacter.Character.Character_Adriana;
-import org.EternalReturn.ERCharacter.Character.Character_Hyunwoo;
+import org.EternalReturn.ERCharacter.Character.adriana.Character_Adriana;
+import org.EternalReturn.ERCharacter.Character.hyunwoo.Character_Hyunwoo;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.bukkit.Bukkit;

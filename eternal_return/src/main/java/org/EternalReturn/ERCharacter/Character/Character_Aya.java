@@ -13,22 +13,8 @@ public class Character_Aya extends ERCharacter {
     }
 
     @Override
-    public void update() {
-
-    }
-
-    @Override
     public String getName() {
-        return "aya";
+        return "Aya";
     }
 
-    @Override
-    public void onAttack(ERPlayer attacker, Entity victim){
-
-    }
-
-    @Override
-    public void onActiveSkill(ERPlayer player) {
-
-    }
 }

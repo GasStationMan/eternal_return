@@ -1,17 +1,18 @@
 package org.EternalReturn.ERCharacter;
 
-import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
+import jdk.jfr.EventType;
 import org.EternalReturn.ERCharacter.Event.CharacterEvent;
-import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
+import org.EternalReturn.ERCharacter.util.DuplicatedMonobehaviourRegisterException;
+import org.EternalReturn.ERCharacter.util.ERMonobehaviour;
 import org.EternalReturn.ERCharacter.util.Monobehaviour;
+import org.EternalReturn.ERCharacter.util.MonobehaviourActor;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.bukkit.entity.Entity;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
-public abstract class ERCharacter {
+public abstract class ERCharacter extends MonobehaviourActor {
 
     protected ERPlayer erPlayer;
 
@@ -19,9 +20,12 @@ public abstract class ERCharacter {
 
     protected LinkedList<CharacterEvent> submittedEvent;
 
+    protected HashMap<Class<? extends CharacterEvent>,ERMonobehaviour<? extends CharacterEvent>> monobehaviourMap;
+
     public ERCharacter(ERPlayer erPlayer){
         this.erPlayer = erPlayer;
         this.submittedEvent = new LinkedList<>();
+        this.monobehaviourMap = new HashMap<>();
     }
 
     public void submitEvent(CharacterEvent event){
@@ -38,29 +42,41 @@ public abstract class ERCharacter {
 
     public abstract String getName();
 
-    public abstract void update();
-
-    public abstract void onAttack(ERPlayer attacker, Entity victim);
-
-    public abstract void onActiveSkill(ERPlayer player);
-
     public void tick(){
-        CharacterEvent e;
-        while ((e = consumeEvent()) != null) {
-
+        CharacterEvent event;
+        while ((event = consumeEvent()) != null) {
             System.out.println("Event consumed");
-
-            if (e instanceof CharacterAttackEvent attackEvent) {
-                onAttack(attackEvent.attacker, attackEvent.victim);
+            Monobehaviour<? extends CharacterEvent> mb = monobehaviourMap.get(event.getClass());
+            if(mb == null){
+                continue;
             }
-            else if (e instanceof CharacterSwapHandEvent swapHandEvent) {
-                onActiveSkill(swapHandEvent.player);
-            }
+            mb.dispatchEvent(event);
         }
+
+        //일단 무식하게 for - loop 돌리기
+        //나중에 이 monobehaviour이 많아지면, linkedList로 관리할 것임.
+        for(Monobehaviour<? extends CharacterEvent> monobehaviour : monobehaviourMap.values()){
+            monobehaviour.update();
+        }
+
     }
 
     protected boolean isNotEnd(long startTime, long durationTicks){
         return System.currentTimeMillis() - startTime < durationTicks * 50;
     }
 
+    public ERPlayer getERPlayer(){
+        return this.erPlayer;
+    }
+
+    /**
+     * 해당 이벤트 클래스에 맞는 Monobehaviour을 저장한다.
+     * */
+    protected void registerMonobehaviour(ERCharacter actor, ERMonobehaviour<? extends CharacterEvent> monobehaviour) {
+        if(this.monobehaviourMap.get(monobehaviour.getEventType()) != null){
+            throw new DuplicatedMonobehaviourRegisterException("Key " + monobehaviour.getEventType() + " is duplicated.");
+        }
+        this.monobehaviourMap.put(monobehaviour.getEventType(), monobehaviour);
+        monobehaviour.setParentNode(actor);
+    }
 }

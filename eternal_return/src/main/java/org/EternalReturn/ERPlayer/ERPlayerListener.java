@@ -14,6 +14,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.*;
 
 import java.security.cert.CertificateParsingException;
+import java.util.*;
 
 public class ERPlayerListener implements Listener {
 
@@ -42,14 +43,24 @@ public class ERPlayerListener implements Listener {
         }
     }
 
+    private static final Set<UUID> apiAttackers = new HashSet<>();
+
+    public static void addAPIAttacker(Player attacker){
+        apiAttackers.add(attacker.getUniqueId());
+    }
+
     @EventHandler
     public void onPlayerAttack(EntityDamageByEntityEvent e) {
-        Entity damager = e.getDamager();
-        if (damager instanceof Player) {
-            ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(damager);
-            PluginInstance.getEREngine().submitLeftClickerByEvent(erPlayer);
-            erPlayer.getCharacter().submitEvent(new CharacterAttackEvent(erPlayer, e.getEntity()));
+        if (!(e.getDamager() instanceof Player p)) return;
+
+        if (apiAttackers.remove(p.getUniqueId())) {
+            System.out.println("[API DAMAGE] dropped from " + p.getName());
+            return;
         }
+
+        ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(p);
+        PluginInstance.getEREngine().submitLeftClickerByEvent(erPlayer);
+        erPlayer.getCharacter().submitEvent(new CharacterAttackEvent(erPlayer, e.getEntity()));
     }
 
     @EventHandler
@@ -57,6 +68,7 @@ public class ERPlayerListener implements Listener {
         ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(e.getPlayer());
         ERCharacter character = erPlayer.getCharacter();
         character.submitEvent(new CharacterSwapHandEvent(erPlayer));
+        e.setCancelled(true);
     }
 
 }
