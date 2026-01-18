@@ -1,6 +1,4 @@
-package org.EternalReturn.System.ERAnimalSystem;
-
-import org.EternalReturn.ERAnimal.ERAnimal;
+package org.EternalReturn.ERAnimal;
 
 public class ERAnimalInfo {
 

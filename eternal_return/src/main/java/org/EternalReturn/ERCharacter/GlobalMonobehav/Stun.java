@@ -1,10 +1,13 @@
-package org.EternalReturn.ERCharacter.Debuff;
+package org.EternalReturn.ERCharacter.GlobalMonobehav;
 
 import org.EternalReturn.ERCharacter.Event.CharacterStunEvent;
-import org.EternalReturn.ERCharacter.util.ERMonobehaviour;
+import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
+import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 
-public class Stun extends ERMonobehaviour<CharacterStunEvent> {
+import java.util.List;
+
+public class Stun extends ERCharacterMonobehaviour<CharacterStunEvent> {
 
     private long startStunMillies;
     private long duration;
@@ -18,7 +21,7 @@ public class Stun extends ERMonobehaviour<CharacterStunEvent> {
     }
 
     @Override
-    public void update() {
+    public void update(List<MonobehaviourEvent> event) {
         if(isNotEnd(startStunMillies,duration)){
             getPlayer().teleport(stunLocation);
         }

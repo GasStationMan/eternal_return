@@ -1,4 +1,4 @@
-package org.EternalReturn.System.ERAnimalSystem;
+package org.EternalReturn.ERAnimal;
 
 import java.util.List;
 

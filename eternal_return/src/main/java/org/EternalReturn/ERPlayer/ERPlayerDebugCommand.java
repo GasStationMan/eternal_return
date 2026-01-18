@@ -1,8 +1,10 @@
 package org.EternalReturn.ERPlayer;
 
 import org.EternalReturn.ERAnimal.*;
-import org.EternalReturn.ERCharacter.Character.adriana.Character_Adriana;
 import org.EternalReturn.ERCharacter.Character.hyunwoo.Character_Hyunwoo;
+import org.EternalReturn.ERCharacter.ERCharacter;
+import org.EternalReturn.System.EREngine;
+import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.bukkit.Bukkit;
@@ -11,10 +13,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Villager;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
@@ -26,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Set;
 
 public class ERPlayerDebugCommand implements CommandExecutor {
-    private ERAnimal testAnimal;
+    private ERAJEntity testAnimal;
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -48,38 +47,7 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             AJEntityManager.flushAllEntities();
 
         }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("alpha")){
 
-            Location pLoc = p.getLocation();
-            Location loc = new Location(pLoc.getWorld(), pLoc.getX(), pLoc.getY(), pLoc.getZ(), pLoc.getYaw(), 0.0f);
-            testAnimal = new Alpha(loc);
-            AJEntityManager.summon(testAnimal,loc);
-            p.sendMessage(testAnimal.toString());
-        }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("boar")){
-
-            Location pLoc = p.getLocation();
-            Location loc = new Location(pLoc.getWorld(), pLoc.getX(), pLoc.getY(), pLoc.getZ(), pLoc.getYaw(), 0.0f);
-            testAnimal = new Boar(loc);
-            AJEntityManager.summon(testAnimal,loc);
-            p.sendMessage(testAnimal.toString());
-        }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("bear")){
-
-            Location pLoc = p.getLocation();
-            Location loc = new Location(pLoc.getWorld(), pLoc.getX(), pLoc.getY(), pLoc.getZ(), pLoc.getYaw(), 0.0f);
-            testAnimal = new Bear(loc);
-            AJEntityManager.summon(testAnimal,loc);
-            p.sendMessage(testAnimal.toString());
-        }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("wolf")){
-
-            Location pLoc = p.getLocation();
-            Location loc = new Location(pLoc.getWorld(), pLoc.getX(), pLoc.getY(), pLoc.getZ(), pLoc.getYaw(), 0.0f);
-            testAnimal = new Wolf(loc);
-            AJEntityManager.summon(testAnimal,loc);
-            p.sendMessage(testAnimal.toString());
-        }
         else if(args.length == 1 && args[0].equalsIgnoreCase("enchant")){
 
             EntityEquipment equipment = null;

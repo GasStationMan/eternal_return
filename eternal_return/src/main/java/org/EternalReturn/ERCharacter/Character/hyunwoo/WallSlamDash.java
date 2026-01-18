@@ -2,10 +2,10 @@ package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
 import org.EternalReturn.ERCharacter.Event.CharacterStunEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
-import org.EternalReturn.ERCharacter.util.ERMonobehaviour;
+import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
-import org.bukkit.Bukkit;
+import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -16,8 +16,9 @@ import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 
 import java.util.HashMap;
+import java.util.List;
 
-public class WallSlamDash extends ERMonobehaviour<CharacterSwapHandEvent> {
+public class WallSlamDash extends ERCharacterMonobehaviour<CharacterSwapHandEvent> {
 
 
     long skillActiveTick = 0;
@@ -37,7 +38,7 @@ public class WallSlamDash extends ERMonobehaviour<CharacterSwapHandEvent> {
 
 
     @Override
-    public void update() {
+    public void update(List<MonobehaviourEvent> event) {
 
         if(!isWallSlam && isNotEnd(skillActiveTick, 10)){
             Player player = getPlayer();

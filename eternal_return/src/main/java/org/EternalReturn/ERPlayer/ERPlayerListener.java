@@ -2,10 +2,13 @@ package org.EternalReturn.ERPlayer;
 
 import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
+import org.EternalReturn.ERCharacter.Event.CharacterLeftClickEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Husk;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -39,7 +42,8 @@ public class ERPlayerListener implements Listener {
         Action action = e.getAction();
         if(action.equals(Action.LEFT_CLICK_AIR) || action.equals(Action.LEFT_CLICK_BLOCK)){
             ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(e.getPlayer());
-            PluginInstance.getEREngine().submitLeftClickerByEvent(erPlayer);
+            ERCharacter character = erPlayer.getCharacter();
+            character.submitEvent(new CharacterLeftClickEvent());
         }
     }
 
@@ -53,14 +57,19 @@ public class ERPlayerListener implements Listener {
     public void onPlayerAttack(EntityDamageByEntityEvent e) {
         if (!(e.getDamager() instanceof Player p)) return;
 
+        ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(p);
+        ERCharacter character = erPlayer.getCharacter();
+
+        if(e.getEntity() instanceof Husk){
+            character.submitEvent(new CharacterLeftClickEvent());
+        }
+
         if (apiAttackers.remove(p.getUniqueId())) {
             System.out.println("[API DAMAGE] dropped from " + p.getName());
             return;
         }
 
-        ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(p);
-        PluginInstance.getEREngine().submitLeftClickerByEvent(erPlayer);
-        erPlayer.getCharacter().submitEvent(new CharacterAttackEvent(erPlayer, e.getEntity()));
+        character.submitEvent(new CharacterAttackEvent(erPlayer, e.getEntity()));
     }
 
     @EventHandler

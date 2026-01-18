@@ -1,5 +1,7 @@
 package org.EternalReturn.ERCharacter.Event;
 
-public interface CharacterEvent {
+import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
+
+public interface CharacterEvent extends MonobehaviourEvent {
 
 }

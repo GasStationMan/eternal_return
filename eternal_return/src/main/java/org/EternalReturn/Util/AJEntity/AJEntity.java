@@ -1,6 +1,7 @@
 package org.EternalReturn.Util.AJEntity;
 
 import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.Util.Monobehaviour.MonobehaviourActor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 /**
  *
  * */
-public abstract class AJEntity {
+public abstract class AJEntity{
 
     protected Location location;
 
@@ -51,8 +52,6 @@ public abstract class AJEntity {
     protected abstract void afterSummoning();
 
     protected abstract void afterSpawnEvent(Entity rootEntity);
-
-    public abstract void script();
 
     /**
      * 해당 월드에서 AJEntity를 제거한다. <br>

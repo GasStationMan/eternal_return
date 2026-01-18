@@ -1,17 +1,19 @@
 package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
-import org.EternalReturn.ERCharacter.util.ERMonobehaviour;
+import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
+import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public class StackingPunch extends ERMonobehaviour<CharacterAttackEvent> {
+public class StackingPunch extends ERCharacterMonobehaviour<CharacterAttackEvent> {
 
     private final Map<UUID, Integer> hitCountMap = new HashMap<>();
 
@@ -53,7 +55,7 @@ public class StackingPunch extends ERMonobehaviour<CharacterAttackEvent> {
     }
 
     @Override
-    public void update() {
+    public void update(List<MonobehaviourEvent> event) {
 
     }
 }

@@ -2,8 +2,9 @@ package org.EternalReturn.ERCharacter.Character.adriana;
 
 import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
-import org.EternalReturn.ERCharacter.util.ERMonobehaviour;
+import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERPlayer.ERPlayer;
+import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
@@ -12,6 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import java.util.LinkedList;
+import java.util.List;
 
 
 class BurningGroundVirtualEntity {
@@ -45,7 +47,7 @@ class BurningGroundVirtualEntity {
 
 }
 
-public class BurningGround extends ERMonobehaviour<CharacterSwapHandEvent> {
+public class BurningGround extends ERCharacterMonobehaviour<CharacterSwapHandEvent> {
 
     long skillActiveTick = 0;
 
@@ -73,7 +75,7 @@ public class BurningGround extends ERMonobehaviour<CharacterSwapHandEvent> {
     private LinkedList<BurningGroundVirtualEntity> burningGroundVirtualEntityList = new LinkedList<>();
 
     @Override
-    public void update() {
+    public void update(List<MonobehaviourEvent> event) {
 
         ERPlayer erPlayer = ((ERCharacter)getActor()).getERPlayer();
 

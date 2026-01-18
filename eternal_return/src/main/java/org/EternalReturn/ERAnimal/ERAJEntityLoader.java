@@ -1,4 +1,4 @@
-package org.EternalReturn.System.ERAnimalSystem;
+package org.EternalReturn.ERAnimal;
 
 import com.google.gson.Gson;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * Gson으로 animal.json 내의 야생동물 정보를 파싱, load()로 반환한다.
  * 생성 시 JSON파일의 경로가 필요하다.
  * */
-public class ERAnimalLoader {
+public class ERAJEntityLoader {
 
     record JsonRoot(
             List<JsonArea> location
@@ -31,7 +31,7 @@ public class ERAnimalLoader {
 
     private JsonRoot root;
 
-    public ERAnimalLoader(String jsonPath){
+    public ERAJEntityLoader(String jsonPath){
         try {
             String json = Files.readString(Path.of(jsonPath));
             Gson gson = new Gson();
@@ -46,11 +46,11 @@ public class ERAnimalLoader {
     public HashMap<String, AreaERAnimalInfo> load(){
         HashMap<String, AreaERAnimalInfo> areaInfoMap = new HashMap<>();
 
-        for (ERAnimalLoader.JsonArea area : root.location()) {
+        for (ERAJEntityLoader.JsonArea area : root.location()) {
 
             List<ERAnimalInfo> animals = new ArrayList<>();
 
-            for (ERAnimalLoader.JsonAnimal a : area.table()) {
+            for (ERAJEntityLoader.JsonAnimal a : area.table()) {
                 animals.add(new ERAnimalInfo(
                         a.name(),
                         a.pos()[0],
@@ -73,7 +73,7 @@ public class ERAnimalLoader {
 
 
     public static void main(String[] args){
-        ERAnimalLoader loader = new ERAnimalLoader("animal.json");
+        ERAJEntityLoader loader = new ERAJEntityLoader("animal.json");
         HashMap<String,AreaERAnimalInfo> map = loader.load();
 
         for(AreaERAnimalInfo info : map.values()){

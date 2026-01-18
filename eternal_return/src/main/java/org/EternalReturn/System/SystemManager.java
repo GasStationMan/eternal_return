@@ -123,9 +123,7 @@ public class SystemManager {
 
     //setter
     public static void addPlayer(Player p){//해시맵에서 플레이어 추가
-
         ERPlayer erPlayer = new ERPlayer(p);
-
         erPlayerList.add(erPlayer);
         erPlayerHashMap.putIfAbsent(p,new ERPlayer(p));
         uuidPlayerHashMap.putIfAbsent(p.getUniqueId(),p);

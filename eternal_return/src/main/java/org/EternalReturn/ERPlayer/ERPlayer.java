@@ -5,6 +5,7 @@ import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiControll
 import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.ERPlayer.Skill.Mukbo;
 import org.EternalReturn.ERPlayer.Skill.Skill;
+import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
 import org.EternalReturn.Util.physics.MathVector.Vec3d;
 import org.EternalReturn.Util.physics.MotionManager;
@@ -78,6 +79,7 @@ public class ERPlayer {
     }
 
     public void setCharacter(@NotNull ERCharacter character){
+        PluginInstance.getEREngine().registerMonobehaviourActor(character);
         this.character = character;
     }
 

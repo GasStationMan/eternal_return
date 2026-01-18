@@ -1,14 +1,16 @@
-package org.EternalReturn.ERCharacter.util;
+package org.EternalReturn.ERCharacter;
 
-import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERCharacter.Event.CharacterEvent;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.ERPlayer.ERPlayerListener;
-import org.bukkit.entity.Entity;
+import org.EternalReturn.Util.Monobehaviour.Monobehaviour;
+import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-public abstract class ERMonobehaviour<T extends CharacterEvent> extends Monobehaviour<T>{
+import java.util.List;
+
+public abstract class ERCharacterMonobehaviour<T extends CharacterEvent> extends Monobehaviour<T> {
 
     private ERCharacter erCharacter;
     private ERPlayer erPlayer;
@@ -47,9 +49,14 @@ public abstract class ERMonobehaviour<T extends CharacterEvent> extends Monobeha
     }
 
 
+    protected boolean isNotEnd(long startTime, long durationTicks){
+        return System.currentTimeMillis() - startTime < durationTicks * 50;
+    }
+
+
     @Override
     public abstract void start(T event);
 
     @Override
-    public abstract void update();
+    public abstract void update(List<MonobehaviourEvent> event);
 }

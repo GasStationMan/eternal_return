@@ -1,9 +1,12 @@
 package org.EternalReturn.ERCharacter.Character.adriana;
 
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
-import org.EternalReturn.ERCharacter.util.ERMonobehaviour;
+import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
+import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
 
-public class LitFireOnAttack extends ERMonobehaviour<CharacterAttackEvent> {
+import java.util.List;
+
+public class LitFireOnAttack extends ERCharacterMonobehaviour<CharacterAttackEvent> {
 
     @Override
     public void start(CharacterAttackEvent event) {
@@ -11,7 +14,7 @@ public class LitFireOnAttack extends ERMonobehaviour<CharacterAttackEvent> {
     }
 
     @Override
-    public void update() {
+    public void update(List<MonobehaviourEvent> event) {
 
     }
 }

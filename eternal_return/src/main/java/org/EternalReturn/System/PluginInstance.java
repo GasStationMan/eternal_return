@@ -7,7 +7,7 @@ import org.EternalReturn.ERPlayer.ERPlayerDebugCommand;
 import org.EternalReturn.ERPlayer.ERPlayerListener;
 import org.EternalReturn.ERPlayer.Gui.Inventory.InventoryGuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
-import org.EternalReturn.System.ERAnimalSystem.ERAnimalManager;
+import org.EternalReturn.ERAnimal.ERAnimalManager;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -23,7 +23,10 @@ public final class PluginInstance extends JavaPlugin{
     private static BukkitAudiences adventure;
     private static ERAnimalManager erAnimalManager;
 
-    private static EREngine erEngine;
+    /**
+     * 나중에 병렬처리를 위해 List<>로 관리할 수도 있음.
+     * */
+    private static EREngine erEngine = new EREngine();
 
     //BukkitAudience얻어오는 함수
     public static @NotNull BukkitAudiences adventure(){
@@ -51,7 +54,7 @@ public final class PluginInstance extends JavaPlugin{
 
         //Animated JAVA Entity initialization
         ajEntityManager = AJEntityManager.registerAJEntityManager(this);
-        erAnimalManager = ERAnimalManager.registerERAnimalManager(ajEntityManager);
+        erAnimalManager = ERAnimalManager.registerERAnimalManager(ajEntityManager, erEngine = new EREngine());
 
         //시스템매니저 객체 생성
         systemManager = SystemManager.getInstance();
@@ -73,7 +76,7 @@ public final class PluginInstance extends JavaPlugin{
         }
 
 
-        Bukkit.getScheduler().runTaskTimer(this, erEngine = new EREngine(),0,1);
+        Bukkit.getScheduler().runTaskTimer(this, erEngine,0,1);
 
         //로드 종료 시 로그
         dfLogUTF8("이터널 리턴 플러그인 구동 준비 완료!");
