@@ -4,7 +4,7 @@ import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
 import org.EternalReturn.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;

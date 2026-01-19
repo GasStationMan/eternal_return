@@ -4,7 +4,7 @@ import org.EternalReturn.ERAnimal.ERAJEntity;
 import org.EternalReturn.ERAnimal.ERAnimalMonobehaviour;
 import org.EternalReturn.ERAnimal.Event.ERAnimalAttackedByPlayerEvent;
 import org.EternalReturn.ERAnimal.Event.ERAnimalReadyEvent;
-import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
 
 import java.util.List;
 

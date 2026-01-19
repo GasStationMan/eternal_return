@@ -1,8 +1,6 @@
-package org.EternalReturn.Util.Monobehaviour;
+package org.EternalReturn.Util.Behaviour;
 
 import org.EternalReturn.System.DPEngine;
-import org.EternalReturn.Util.physics.Geometry.Collider;
-import org.EternalReturn.Util.physics.Geometry.MatVecCalculator;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -66,25 +64,30 @@ public abstract class MonobehaviourActor {
 
         MonobehaviourEvent event;
         while(!((event = consumeEvent()) == null)) {
-            Monobehaviour<? extends MonobehaviourEvent> mb = monobehaviourMap.get(event.getClass());
-            System.out.println(event.getClass());
-            if (mb == null) {
+            Monobehaviour<? extends MonobehaviourEvent> monobehav = monobehaviourMap.get(event.getClass());
+            //System.out.println(event.getClass());
+            if (monobehav == null) {
                 continue;
             }
-            mb.dispatchEvent(event);
+            runningBehaviours.add(monobehav);
+            //System.out.println("dispatch success");
+            monobehav.dispatchEvent(event);
             tmpList.add(event);
         }
 
-        //일단 무식하게 for - loop 돌리기
-        //나중에 이 monobehaviour이 많아지면, linkedList로 관리할 것임.
+        //monobehaviour 스케줄링
         Iterator<Monobehaviour<? extends MonobehaviourEvent>> monobehavNode = runningBehaviours.iterator();
         while(monobehavNode.hasNext()){
 
-        }
-        for (Monobehaviour<? extends MonobehaviourEvent> monobehaviour : monobehaviourMap.values()) {
-            if(monobehaviour.isRunning()){
-                monobehaviour.updateMonobehav(submittedEvent);
+            Monobehaviour<?> monobehaviour = monobehavNode.next();
+            monobehaviour.updateMonobehav(submittedEvent);
+            //System.out.println("run");
+
+            if(!monobehaviour.isRunning()){
+                monobehavNode.remove();
+                //System.out.println("removed : " + monobehaviour.getClass());
             }
+
         }
 
         tmpList.clear();
@@ -92,13 +95,14 @@ public abstract class MonobehaviourActor {
 
     /**
      * 해당 이벤트 클래스에 맞는 (MonobehaviourEvent, Monobehaviour) 쌍을 저장한다.
+     * 또한 해당 Monobehaviour의
      * */
     protected void registerMonobehaviour(MonobehaviourActor actor, Monobehaviour<? extends MonobehaviourEvent> monobehaviour) {
         if(this.monobehaviourMap.get(monobehaviour.getEventType()) != null){
             throw new DuplicatedMonobehaviourRegisterException("Key " + monobehaviour.getEventType() + " is duplicated.");
         }
         this.monobehaviourMap.put(monobehaviour.getEventType(), monobehaviour);
-        monobehaviour.setParentNode(actor);
+        monobehaviour.setMonobehaviourActor(actor);
         System.out.println("register event " + monobehaviour.getClass());
     }
 

@@ -1,12 +1,8 @@
 package org.EternalReturn.Util.physics.Geometry
 
-import org.bukkit.entity.Entity
-import org.bukkit.entity.Player
-import kotlin.math.cos
-import kotlin.math.sin
 import kotlin.math.sqrt
 
-open class PhysicsEngine : MatVecCalculator {
+public open class GeometryEngine : MatVecCalculator {
     constructor(buffSize: Int) : super(buffSize)
     constructor() : super()
     /**

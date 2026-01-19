@@ -1,8 +1,9 @@
 package org.EternalReturn.ERAnimal;
 
 import org.EternalReturn.ERAnimal.Event.ERAnimalEvent;
-import org.EternalReturn.Util.Monobehaviour.Monobehaviour;
-import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.Behaviour.Monobehaviour;
+import org.EternalReturn.Util.Behaviour.MonobehaviourActor;
+import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
 import org.bukkit.entity.Entity;
 
 import java.util.List;

@@ -1,18 +1,21 @@
-package org.EternalReturn.Util.Monobehaviour;
+package org.EternalReturn.Util.Behaviour;
 
 
-import org.EternalReturn.System.DPEngine;
+import org.EternalReturn.Util.physics.Geometry.GeometryCalculatable;
 import org.EternalReturn.Util.physics.Geometry.MatVecCalculator;
-import org.EternalReturn.Util.physics.Geometry.PhysicsEngine;
-import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public abstract class Monobehaviour<T extends MonobehaviourEvent> {
 
-    protected final Class<T> eventType;
+
+/**
+ * 대부분의 수정 사항은 MonobehaviourActor.registerMonobehaviour()에서 이루어짐.
+ * */
+public abstract class Monobehaviour<T extends MonobehaviourEvent> extends GeometryCalculatable {
+
+    protected Class<T> eventType;
     protected MonobehaviourActor actor = null;
     private MonobehavState state = MonobehavState.STOP;
 
@@ -29,8 +32,16 @@ public abstract class Monobehaviour<T extends MonobehaviourEvent> {
         STOP
     }
 
-    @SuppressWarnings("unchecked")
+    /**
+     * MonobehaiourActor.registerMonobehaviour()의 인자로 넣기 위해서만 instantiate할 것.
+     * */
     protected Monobehaviour() {
+        super(null);
+        __getGenericClass();
+    }
+
+    @SuppressWarnings("unchecked")
+    private void __getGenericClass(){
         //Generic의 superClass를 얻어옴 (CharacterEvent)
         Type superType = getClass().getGenericSuperclass();
 
@@ -42,6 +53,7 @@ public abstract class Monobehaviour<T extends MonobehaviourEvent> {
         this.eventType = (Class<T>) pt.getActualTypeArguments()[0];
         //System.out.println(eventType);
     }
+
 
     public final Class<T> getEventType() {
         return eventType;
@@ -78,15 +90,11 @@ public abstract class Monobehaviour<T extends MonobehaviourEvent> {
         this.state = MonobehavState.RUNNING;
     }
 
-    public @NotNull PhysicsEngine getPhysicsEngine(){
-        return this.actor.engine;
-    }
-
     public MonobehaviourActor getActor(){
         return this.actor;
     }
 
-    public void setParentNode(MonobehaviourActor actor) {
+    public void setMonobehaviourActor(MonobehaviourActor actor) {
         this.actor = actor;
     }
 }

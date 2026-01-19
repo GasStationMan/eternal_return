@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.Monobehaviour;
+package org.EternalReturn.Util.Behaviour;
 
 public class DuplicatedMonobehaviourRegisterException extends RuntimeException {
     public DuplicatedMonobehaviourRegisterException(String message) {

@@ -2,9 +2,8 @@ package org.EternalReturn.EREntity;
 
 import org.EternalReturn.ERCharacter.GlobalMonobehav.RayCasting;
 import org.EternalReturn.ERCharacter.GlobalMonobehav.Stun;
-import org.EternalReturn.Util.Monobehaviour.MonobehaviourActor;
+import org.EternalReturn.Util.Behaviour.MonobehaviourActor;
 import org.EternalReturn.Util.physics.Geometry.Collider;
-import org.EternalReturn.Util.physics.Geometry.Cylinder;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -19,7 +18,7 @@ public class EREntity extends MonobehaviourActor {
         this.registerMonobehaviour(this, new RayCasting());
     }
 
-    public @NotNull Collider getCollider() {
+    public Collider getCollider() {
         return this.collider;
     }
 

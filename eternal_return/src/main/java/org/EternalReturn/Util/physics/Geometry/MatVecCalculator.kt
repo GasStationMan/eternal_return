@@ -48,7 +48,7 @@ public open class MatVecCalculator {
     /**
      * 내적 연산
      */
-    protected open fun dotprd(src0: Vector3, src1: Vector3): Double {
+    open fun dotprd(src0: Vector3, src1: Vector3): Double {
         return (vecs[src0.__id] * vecs[src1.__id] + vecs[src0.__id + 1] * vecs[src1.__id + 1] + vecs[src0.__id + 2] * vecs[src1.__id + 2])
     }
 
@@ -59,7 +59,7 @@ public open class MatVecCalculator {
     /**
      * 외적 연산, 순서에 주의 (dst = src0 x src1)
      */
-    protected open fun cross(dst: Vector3, src0: Vector3, src1: Vector3) {
+    open fun cross(dst: Vector3, src0: Vector3, src1: Vector3) {
         val x0: Double
         val y0: Double
         val z0: Double
@@ -92,7 +92,7 @@ public open class MatVecCalculator {
     /**
      * 벡터 덧셈 연산
      */
-    protected open fun add(dst: Vector3, src0: Vector3, src1: Vector3): MatVecCalculator {
+    open fun add(dst: Vector3, src0: Vector3, src1: Vector3): MatVecCalculator {
         vecs[dst.__id] = vecs[src0.__id] + vecs[src1.__id]
         vecs[dst.__id + 1] = vecs[src0.__id + 1] + vecs[src1.__id + 1]
         vecs[dst.__id + 2] = vecs[src0.__id + 2] + vecs[src1.__id + 2]
@@ -109,7 +109,7 @@ public open class MatVecCalculator {
     /**
      * 벡터 대입 연산
      */
-    protected open fun assign(dst: Vector3, src0: Vector3): MatVecCalculator {
+    open fun assign(dst: Vector3, src0: Vector3): MatVecCalculator {
         vecs[dst.__id] = vecs[src0.__id]
         vecs[dst.__id + 1] = vecs[src0.__id + 1]
         vecs[dst.__id + 2] = vecs[src0.__id + 2]
@@ -129,7 +129,7 @@ public open class MatVecCalculator {
     /**
      * 벡터 뺄셈 연산
      */
-    protected open fun sub(dst: Vector3, src0: Vector3, src1: Vector3): MatVecCalculator {
+    open fun sub(dst: Vector3, src0: Vector3, src1: Vector3): MatVecCalculator {
         vecs[dst.__id] = vecs[src0.__id] - vecs[src1.__id]
         vecs[dst.__id + 1] = vecs[src0.__id + 1] - vecs[src1.__id + 1]
         vecs[dst.__id + 2] = vecs[src0.__id + 2] - vecs[src1.__id + 2]
@@ -146,7 +146,7 @@ public open class MatVecCalculator {
     /**
      * 벡터 스칼라 연산
      */
-    protected open fun scalarProd(dst: Vector3, scl: Double, src1: Vector3): MatVecCalculator {
+    open fun scalarProd(dst: Vector3, scl: Double, src1: Vector3): MatVecCalculator {
         vecs[dst.__id] = scl * vecs[src1.__id]
         vecs[dst.__id + 1] = scl * vecs[src1.__id + 1]
         vecs[dst.__id + 2] = scl * vecs[src1.__id + 2]
@@ -428,17 +428,7 @@ public open class MatVecCalculator {
         this.__MATBUFFSIZE = new__MATBUFFSIZE
     }
 
-    /**
-     * Vector3 객체를 표현하기 위한 View.
-     * 해당 객체는 절대 외부로 반환하지 말 것.
-     * 해당 객체를 이용하고자 한다면 다음처럼 사용할 것.
-     * try(VecScope scope - setVecScope()) {..Vector3객체 이용..}
-     */
-    @JvmInline
-    value class Vector3(val __id: Int)
 
-    @JvmInline
-    value class Mat4x4(val __id: Int)
 
     public class VecScope internal constructor(mc: MatVecCalculator) : AutoCloseable {
         private val mc: MatVecCalculator?
@@ -477,3 +467,16 @@ public open class MatVecCalculator {
     }
 
 }
+
+
+/**
+ * Vector3 객체를 표현하기 위한 View.
+ * 해당 객체는 절대 외부로 반환하지 말 것.
+ * 해당 객체를 이용하고자 한다면 다음처럼 사용할 것.
+ * try(VecScope scope - setVecScope()) {..Vector3객체 이용..}
+ */
+@JvmInline
+value class Vector3(val __id: Int)
+
+@JvmInline
+value class Mat4x4(val __id: Int)

@@ -1,11 +1,8 @@
 package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
-import org.EternalReturn.ERCharacter.Event.CharacterStunEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
-import org.EternalReturn.ERPlayer.ERPlayer;
-import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
