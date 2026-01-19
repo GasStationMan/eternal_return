@@ -55,6 +55,7 @@ public class ERPlayerListener implements Listener {
 
     @EventHandler
     public void onPlayerAttack(EntityDamageByEntityEvent e) {
+
         if (!(e.getDamager() instanceof Player p)) return;
 
         ERPlayer erPlayer = SystemManager.getERPlayerHashMap().get(p);

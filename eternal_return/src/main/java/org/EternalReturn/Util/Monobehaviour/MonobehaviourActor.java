@@ -1,13 +1,12 @@
 package org.EternalReturn.Util.Monobehaviour;
 
-import org.EternalReturn.ERCharacter.ERCharacter;
-import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
-import org.EternalReturn.ERCharacter.Event.CharacterEvent;
 import org.EternalReturn.System.DPEngine;
 import org.EternalReturn.Util.physics.Geometry.Collider;
+import org.EternalReturn.Util.physics.Geometry.MatVecCalculator;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 /**
  * Monobehaviour을 실행하기 위한 객체. <p>
@@ -30,6 +29,14 @@ public abstract class MonobehaviourActor {
     protected LinkedList<MonobehaviourEvent> submittedEvent;
 
     /**
+     * update(MonobehaviourEvent)를 호출할 Monobehaviour들을 스케줄링하기 위해 유지하는 링크드 리스트
+     * */
+    protected LinkedList<Monobehaviour<? extends MonobehaviourEvent>> runningBehaviours;
+
+    protected DPEngine engine;
+
+
+    /**
      * 외부에서 해당 객체에게 이벤트를 제출하기 위한 창구
      * */
     public void submitEvent(MonobehaviourEvent event){
@@ -38,34 +45,49 @@ public abstract class MonobehaviourActor {
 
     }
 
-    protected Collider collider;
-
-    protected DPEngine engine;
-
     protected MonobehaviourActor(){
         this.submittedEvent = new LinkedList<>();
         this.monobehaviourMap = new HashMap<>();
+        this.runningBehaviours = new LinkedList<>();
+    }
+
+    private MonobehaviourEvent consumeEvent(){
+
+        if(submittedEvent.isEmpty()){
+            return null;
+        }
+
+        return submittedEvent.removeFirst();
     }
 
     public void tick() {
-        for(MonobehaviourEvent event : submittedEvent) {
+
+        LinkedList<MonobehaviourEvent> tmpList = new LinkedList<>();
+
+        MonobehaviourEvent event;
+        while(!((event = consumeEvent()) == null)) {
             Monobehaviour<? extends MonobehaviourEvent> mb = monobehaviourMap.get(event.getClass());
-            //System.out.println(event.getClass());
+            System.out.println(event.getClass());
             if (mb == null) {
                 continue;
             }
             mb.dispatchEvent(event);
+            tmpList.add(event);
         }
 
         //일단 무식하게 for - loop 돌리기
         //나중에 이 monobehaviour이 많아지면, linkedList로 관리할 것임.
+        Iterator<Monobehaviour<? extends MonobehaviourEvent>> monobehavNode = runningBehaviours.iterator();
+        while(monobehavNode.hasNext()){
+
+        }
         for (Monobehaviour<? extends MonobehaviourEvent> monobehaviour : monobehaviourMap.values()) {
             if(monobehaviour.isRunning()){
-                monobehaviour.update(submittedEvent);
+                monobehaviour.updateMonobehav(submittedEvent);
             }
         }
 
-        submittedEvent.clear();
+        tmpList.clear();
     }
 
     /**
@@ -87,10 +109,4 @@ public abstract class MonobehaviourActor {
         this.engine = engine;
     }
 
-    /**
-     * 해당 MonobehaviourActor의 Collider 설정
-     * */
-    public void setCollider(@NotNull Collider collider){
-        this.collider = collider;
-    }
 }

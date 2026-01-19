@@ -2,6 +2,7 @@ package org.EternalReturn.Util.Monobehaviour;
 
 
 import org.EternalReturn.System.DPEngine;
+import org.EternalReturn.Util.physics.Geometry.MatVecCalculator;
 import org.EternalReturn.Util.physics.Geometry.PhysicsEngine;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,7 +19,11 @@ public abstract class Monobehaviour<T extends MonobehaviourEvent> {
     public boolean isRunning() {
         return this.state == MonobehavState.RUNNING;
     }
-
+    
+    /**
+     * RUNNING : update가 실행되는 상태
+     * STOP : update가 종료된 상태
+     * */
     private enum MonobehavState{
         RUNNING,
         STOP
@@ -33,12 +38,9 @@ public abstract class Monobehaviour<T extends MonobehaviourEvent> {
         if (!(superType instanceof ParameterizedType pt)) {
             throw new IllegalStateException("Monobehaviour must be directly parameterized");
         }
-
         //바로 T에 대한 정보를 가져온다.
         this.eventType = (Class<T>) pt.getActualTypeArguments()[0];
-
         //System.out.println(eventType);
-
     }
 
     public final Class<T> getEventType() {
@@ -49,12 +51,24 @@ public abstract class Monobehaviour<T extends MonobehaviourEvent> {
         if (!eventType.isInstance(event)) {
             throw new IllegalStateException("Wrong event type: " + event.getClass());
         }
-        start(eventType.cast(event));
+        startMonobehav(eventType.cast(event));
         this.state = MonobehavState.RUNNING;
     }
 
+    public void startMonobehav(T event){
+        try(MatVecCalculator.VecScope scope = actor.engine.setVecScope()){
+            start(event);
+        }//여기서 update()에 사용되었던 임시 벡터들이 모두 free됨.
+    }
+
+    public void updateMonobehav(List<MonobehaviourEvent> eventList){
+        try(MatVecCalculator.VecScope scope = actor.engine.setVecScope()){
+            update(eventList);
+        }//여기서 update()에 사용되었던 임시 벡터들이 모두 free됨.
+    }
+
     public abstract void start(T event);
-    public abstract void update(List<MonobehaviourEvent> event);
+    public abstract void update(List<MonobehaviourEvent> eventList);
 
     public void stopMonobehav(){
         this.state = MonobehavState.STOP;

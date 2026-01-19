@@ -186,7 +186,7 @@ public open class MatVecCalculator {
     /**
      * 새롭게 벡터를 만드는 함수 [x, y, z, 1]
      */
-    public open fun vec3(x: Double, y: Double, z: Double): Vector3 {
+    public fun vec3(x : Double, y: Double, z: Double): Vector3 {
         val id = __allocVector4(x, y, z)
         return Vector3(id)
     }
@@ -194,7 +194,7 @@ public open class MatVecCalculator {
     /**
      * 새롭게 벡터를 만드는 함수 [0, 0, 0, 1]
      */
-    public open fun vec3(): Vector3 {
+    public fun vec3(): Vector3 {
         val id = __allocVector4(0.0, 0.0, 0.0)
         return Vector3(id)
     }
@@ -475,4 +475,5 @@ public open class MatVecCalculator {
     fun setMatScope(): MatScope {
         return MatScope(this)
     }
+
 }

@@ -1,7 +1,7 @@
 package org.EternalReturn.ERCharacter.GlobalMonobehav;
 
-import org.EternalReturn.ERCharacter.Event.CharacterStunEvent;
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
+import org.EternalReturn.ERCharacter.Event.CharacterStunEvent;
 import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 

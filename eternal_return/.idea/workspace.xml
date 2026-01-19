@@ -5,45 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e0e01f0-2f44-4923-ba15-8c4d09d27f4c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Animals/Bear/Bear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Animals/Boar/Boar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAJEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimalMonobehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Event/ERAnimalAttackedByPlayerEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Event/ERAnimalEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Event/ERAnimalPlayerToFarAwayEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Event/ERAnimalReadyEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/GlobalMonobehav/Battle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/GlobalMonobehav/Ready.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterLeftClickEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/RayCasting.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Monobehaviour/MonobehaviourEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.8/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacterMonobehaviour.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERAnimal/Alpha.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERAnimal/Bear.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERAnimal/Boar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERAnimal/ERAnimal$AnimalState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERAnimal/ERAnimal.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERAnimal/ERAnimal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERAnimal/Wolf.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERCharacter/ERCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERCharacter/ERCharacter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERPlayer/ERPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERPlayer/ERPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERPlayer/ERPlayerDebugCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERPlayer/ERPlayerDebugCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERPlayer/ERPlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/ERPlayer/ERPlayerListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/PluginInstance.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/PluginInstance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/SystemManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/System/SystemManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/DataStructure/Graph/DirectedGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/DataStructure/Graph/DirectedGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/org/EternalReturn/Util/JSON/JSONFileManager.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/org/EternalReturn/System/DPEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/org/EternalReturn/System/DPEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/org/EternalReturn/Util/Physics/Geometry/MatVecCalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/org/EternalReturn/Util/Physics/Geometry/MatVecCalculator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/org/EternalReturn/Util/Physics/Geometry/PhysicsEngine$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/org/EternalReturn/Util/Physics/Geometry/PhysicsEngine$Companion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/org/EternalReturn/Util/Physics/Geometry/PhysicsEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/org/EternalReturn/Util/Physics/Geometry/PhysicsEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
@@ -112,41 +86,23 @@
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/local-state/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/local-state/build-history.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Alpha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Animals/Alpha/Alpha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Bear.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Boar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Animals/Wolf/Wolf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/CharacterManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/adriana/BurningGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/adriana/BurningGround.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/adriana/LitFireOnAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/adriana/LitFireOnAttack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/hyunwoo/StackingPunch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/hyunwoo/StackingPunch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/hyunwoo/WallSlamDash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/hyunwoo/WallSlamDash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Debuff/Stun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/Stun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/util/DuplicatedMonobehaviourRegisterException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Monobehaviour/DuplicatedMonobehaviourRegisterException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/util/ERMonobehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacterMonobehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/util/Monobehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Monobehaviour/Monobehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/util/MonobehaviourActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Monobehaviour/MonobehaviourActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayerDebugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayerDebugCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacterMonobehaviour.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterLeftClickEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterLeftClickEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/RayCasting.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/RayCasting.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/Stun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/Stun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimalSystem/AreaERAnimalInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/AreaERAnimalInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimalSystem/ERAnimalInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimalInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimalSystem/ERAnimalLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAJEntityLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/ERAnimalSystem/ERAnimalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/EREngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/EREngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/PluginInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/PluginInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/SystemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/SystemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/DirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/DirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/JSON/JSONFileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Monobehaviour/Monobehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Monobehaviour/Monobehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Monobehaviour/MonobehaviourActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Monobehaviour/MonobehaviourActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/System/DPEngine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/System/DPEngine.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/Util/physics/Geometry/MatVecCalculator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/Util/physics/Geometry/MatVecCalculator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/Util/physics/Geometry/PhysicsEngine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/Util/physics/Geometry/PhysicsEngine.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,8 +150,8 @@
       <list>
         <option value="Exception" />
         <option value="Interface" />
-        <option value="Kotlin Class" />
         <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -259,14 +215,15 @@
       <recent name="org.EternalReturn.System" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="org.EternalReturn.ERCharacter" />
       <recent name="org.EternalReturn.System" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.EternalReturn.ERCharacter" />
       <recent name="org.EternalReturn.ERAnimal.Event" />
       <recent name="org.EternalReturn.ERAnimal.Animals.bear" />
       <recent name="org.EternalReturn.ERAnimal" />
       <recent name="org.EternalReturn.System" />
-      <recent name="org.EternalReturn.Util.Gui.InventoryGui.Model" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.eternal_return [jar]">

@@ -1,5 +1,9 @@
 package org.EternalReturn.Util.physics.Geometry
 
+import org.bukkit.entity.Entity
+import org.bukkit.entity.Player
+import kotlin.math.cos
+import kotlin.math.sin
 import kotlin.math.sqrt
 
 open class PhysicsEngine : MatVecCalculator {
@@ -47,7 +51,7 @@ open class PhysicsEngine : MatVecCalculator {
      * 3차원 벡터(Vector3)를 반환함.
      * @return 교점(Vector3)
      */
-    protected fun getIntersectPoint(out: Vector3, line1: InfStraightLine, line2: InfStraightLine): Boolean {
+    public fun getIntersectPoint(out: Vector3, line1: InfStraightLine, line2: InfStraightLine): Boolean {
         val line1Pos: Vector3 = vec3(line1.px, line1.py, line1.pz)
         val line1Vec: Vector3 = vec3(line1.vx, line1.vy, line1.vz)
         val line2Pos: Vector3 = vec3(line2.px, line2.py, line2.pz)
@@ -55,7 +59,7 @@ open class PhysicsEngine : MatVecCalculator {
         return getIntersectPoint(out, line1Vec, line1Pos, line2Vec, line2Pos)
     }
 
-    protected fun getIntersectPoint(dot: Vector3, plane: InfPlane): Boolean {
+    public fun getIntersectPoint(dot: Vector3, plane: InfPlane): Boolean {
         val p: Vector3 = vec3(plane.px, plane.py, plane.pz)
         val n: Vector3 = vec3(plane.vx, plane.vy, plane.vz)
         val subVec: Vector3 = vec3()
@@ -64,7 +68,7 @@ open class PhysicsEngine : MatVecCalculator {
         return -1E-7 < dotprd && dotprd < 1E-7
     }
 
-    protected fun getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: InfCylinder): Boolean {
+    public fun getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: InfCylinder): Boolean {
         setVecScope().use {
             val lpos: Vector3 = vec3(line.px, line.py, line.pz) //line.getPosition();
             val cpos: Vector3 =
@@ -105,7 +109,7 @@ open class PhysicsEngine : MatVecCalculator {
         }
     }
 
-    protected fun getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
+    public fun getIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
         setVecScope().use {
             // === Ray ===
             val O = vec3(line.px, line.py, line.pz)
@@ -185,7 +189,7 @@ open class PhysicsEngine : MatVecCalculator {
         }
     }
 
-    protected fun fgetIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
+    public fun fgetIntersectPoint(out: Vector3, line: InfStraightLine, cylinder: Cylinder): Boolean {
         // === Ray 정보 ===
         val ox = line.px
         val oy = line.py
@@ -295,6 +299,119 @@ open class PhysicsEngine : MatVecCalculator {
         assign(out, ix, iy, iz)
         return true
     }
+
+    public fun fgetIntersectPoint(out: Vector3, pos: Vector3, dir: Vector3, cylinder: Cylinder): Boolean {
+        // === Ray 정보 ===
+        val ox = x(pos);
+        val oy = y(pos);
+        val oz = z(pos);
+
+        val dx = x(dir);
+        val dy = y(dir);
+        val dz = z(dir);
+
+        // === Cylinder axis 정보 ===
+        val cx = cylinder.center.px
+        val cy = cylinder.center.py
+        val cz = cylinder.center.pz
+
+        val ax = cylinder.center.vx
+        val ay = cylinder.center.vy
+        val az = cylinder.center.vz
+
+        val radius = cylinder.radius
+        val height = cylinder.height
+
+        // === O - C ===
+        val rx = ox - cx
+        val ry = oy - cy
+        val rz = oz - cz
+
+        // ======================================================
+        // 1 방향성 early reject (축 기준)
+        // ======================================================
+        // 축에서 본 ray 시작점 → ray가 멀어지는 중이면 컷
+        if (rx * dx + ry * dy + rz * dz >= 0.0) {
+            return false
+        }
+
+        // ======================================================
+        // 2 Ray–Axis 최소 거리^2 검사
+        // ======================================================
+        // u = d × a
+        val ux = dy * az - dz * ay
+        val uy = dz * ax - dx * az
+        val uz = dx * ay - dy * ax
+
+        val denom = ux * ux + uy * uy + uz * uz
+        if (denom < 1e-12) {
+            // ray || axis
+            return false
+        }
+
+        // distance^2 = ((O-C)·u)^2 / |u|^2
+        val num = rx * ux + ry * uy + rz * uz
+        val dist2 = (num * num) / denom
+
+        if (dist2 > radius * radius) {
+            return false
+        }
+
+        // ======================================================
+        // 3 실제 교차 계산 (2차식)
+        // ======================================================
+        // d⊥ = d - (d·a)a
+        val dDotA = dx * ax + dy * ay + dz * az
+        val px = dx - dDotA * ax
+        val py = dy - dDotA * ay
+        val pz = dz - dDotA * az
+
+        // r⊥ = (O-C) - ((O-C)·a)a
+        val rDotA = rx * ax + ry * ay + rz * az
+        val qx = rx - rDotA * ax
+        val qy = ry - rDotA * ay
+        val qz = rz - rDotA * az
+
+        val A = px * px + py * py + pz * pz
+        val B = 2.0 * (px * qx + py * qy + pz * qz)
+        val C = qx * qx + qy * qy + qz * qz - radius * radius
+
+        val disc = B * B - 4 * A * C
+        if (disc < 0.0) {
+            return false
+        }
+
+        // 가장 가까운 t
+        val t = (-B - sqrt(disc)) / (2 * A)
+        if (t < 0.0) {
+            return false
+        }
+
+        // ======================================================
+        // 4 교차점 계산
+        // ======================================================
+        val ix = ox + t * dx
+        val iy = oy + t * dy
+        val iz = oz + t * dz
+
+        // ======================================================
+        // 5 유한 원기둥 높이 검사
+        // ======================================================
+        val hx = ix - cx
+        val hy = iy - cy
+        val hz = iz - cz
+
+        val h = hx * ax + hy * ay + hz * az
+        if (h < 0.0 || h > height) {
+            return false
+        }
+
+        // 결과 기록
+        assign(out, ix, iy, iz)
+        return true
+    }
+
+
 
     companion object {
         const val EPS_DIST: Double = 1e-9 // 거리

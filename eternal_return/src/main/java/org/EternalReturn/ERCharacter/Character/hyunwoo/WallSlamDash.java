@@ -1,8 +1,8 @@
 package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
+import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERCharacter.Event.CharacterStunEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
-import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent;
@@ -59,7 +59,7 @@ public class WallSlamDash extends ERCharacterMonobehaviour<CharacterSwapHandEven
                 int hitVal = hitEntities.get(victim);
                 if(hitVal == 0){
                     hitEntities.put(victim, 1);
-                    damage(player,victim,2.0); // 추가 피해 (하트 2.5칸)
+                    victim.damage(1.0, player);
                 }
                 Vector vec = new Vector(direction.getX(), direction.getY(), direction.getZ());
                 victim.setVelocity(vec.multiply(1.2));
@@ -82,10 +82,10 @@ public class WallSlamDash extends ERCharacterMonobehaviour<CharacterSwapHandEven
                 int hitVal = hitEntities.get(victim);
 
                 //EREntity에게 Event 전달
-                ERPlayer victimERPlayer = SystemManager.getERPlayer((Player)victim);
-                victimERPlayer.getCharacter().submitEvent(new CharacterStunEvent(40));
+                //ERPlayer victimERPlayer = SystemManager.getERPlayer((Player)victim);
+                //victimERPlayer.getCharacter().submitEvent(new CharacterStunEvent(40));
 
-                damage(player,victim,10.0); // 추가 피해 (하트 2.5칸)
+                victim.damage(1.0, player);
                 player.sendMessage("§b[현우] §f벽꿍 성공!");
                 player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 1f, 1f);
             }

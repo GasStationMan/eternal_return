@@ -30,40 +30,15 @@ abstract class DPEngine : PhysicsEngine, Runnable {
         update();
     }
 
+    fun getMonobehavActors() : MutableList<MonobehaviourActor>{
+        return monobehaviourActorList;
+    }
+
     protected abstract fun update();
 
     public fun registerMonobehaviourActor(actor : MonobehaviourActor){
         monobehaviourActorList.add(actor);
         actor.setDPEngine(this);
-    }
-    /**
-     * 플레이어의 위치벡터 + 방향벡터를 얻어온다.
-     * No Scoping
-     * */
-    public fun getDir(entity: Entity) : Vector3{
-        val location = entity.location
-        val rotX = location.yaw.toDouble()
-        val rotY = location.pitch.toDouble()
-        val radX = Math.toRadians(rotX)
-        val radY = Math.toRadians(rotY)
-        val xz = cos(radY)
-        return vec3(-xz * sin(radX), -sin(radY), xz * cos(radX))
-    }
-
-    public fun getPos(entity: Entity) : Vector3{
-        val location = entity.location
-        return vec3(location.x, location.y, location.z)
-    }
-
-    public fun getDirNPos(dirOut: Vector3, posOut: Vector3, player: Player){
-        val location = player.location
-        val rotX = location.yaw.toDouble()
-        val rotY = location.pitch.toDouble()
-        val radX = Math.toRadians(rotX)
-        val radY = Math.toRadians(rotY)
-        val xz = cos(radY)
-        assign(dirOut, -xz * sin(radX), -sin(radY), xz * cos(radX))
-        assign(posOut, location.x, location.y, location.z)
     }
 
 }

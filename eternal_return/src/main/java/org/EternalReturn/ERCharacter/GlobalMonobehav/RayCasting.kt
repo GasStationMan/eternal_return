@@ -2,17 +2,36 @@ package org.EternalReturn.ERCharacter.GlobalMonobehav
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
 import org.EternalReturn.ERCharacter.Event.CharacterLeftClickEvent
+import org.EternalReturn.EREntity.EREntity
 import org.EternalReturn.Util.Monobehaviour.MonobehaviourEvent
+import org.EternalReturn.Util.physics.Geometry.Cylinder
+import org.EternalReturn.Util.physics.Geometry.InfCylinder
+import org.EternalReturn.Util.physics.Geometry.InfStraightLine
+import org.EternalReturn.Util.physics.Geometry.MatVecCalculator.Vector3
+import org.EternalReturn.Util.physics.Geometry.PhysicsEngine
+import org.bukkit.entity.Entity
 
 
 public class RayCasting : ERCharacterMonobehaviour<CharacterLeftClickEvent>() {
 
     override fun start(event: CharacterLeftClickEvent) {
-        //val Physics = getPhysicsEngine()
+        val pdir = getDir(getPlayer() as Entity);
+        val pPos = getPos(getPlayer() as Entity);
 
-        //val vector: Vector3 = Physics.vec3();
+        val poi = physicsEngine.vec3();
 
-        player.sendMessage("Raycasting event submitted");
+        for(erEntity in getMonobehavActorList()){
+            if(erEntity !is EREntity){
+                continue;
+            }
+
+            val collider = erEntity.collider;
+
+            if(collider is Cylinder){
+                physicsEngine.fgetIntersectPoint(poi, pPos, pdir, collider);
+            }
+
+        }
 
     }
 
