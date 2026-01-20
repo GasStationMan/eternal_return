@@ -1,20 +1,21 @@
 package org.EternalReturn.ERCharacter
 
 import org.EternalReturn.ERCharacter.Event.CharacterEvent
+import org.EternalReturn.EREntity.EREntityMonobehaviour
 import org.EternalReturn.ERPlayer.ERPlayer
 import org.EternalReturn.ERPlayer.ERPlayerListener
-import org.EternalReturn.System.DPEngine
-import org.EternalReturn.Util.Behaviour.Monobehaviour
-import org.EternalReturn.Util.Behaviour.MonobehaviourActor
-import org.EternalReturn.Util.Behaviour.MonobehaviourEvent
-import org.EternalReturn.Util.physics.Geometry.Vector3
+import org.EternalReturn.Util.DPEngine.DPEngine
+import org.EternalReturn.Util.DPEngine.Behaviour.Monobehaviour
+import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourActor
+import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent
+import org.EternalReturn.Util.DPEngine.Geometry.Vector3
 import org.bukkit.entity.Entity
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 import kotlin.math.cos
 import kotlin.math.sin
 
-abstract class ERCharacterMonobehaviour<T : CharacterEvent> : Monobehaviour<T>() {
+abstract class ERCharacterMonobehaviour<T : CharacterEvent> : EREntityMonobehaviour<T>() {
     private var erCharacter: ERCharacter? = null
     private var erPlayer: ERPlayer? = null
     private var player: Player? = null
@@ -51,14 +52,6 @@ abstract class ERCharacterMonobehaviour<T : CharacterEvent> : Monobehaviour<T>()
         victim.damage(dmg, attacker)
     }
 
-
-    protected fun isNotEnd(startTime: Long, durationTicks: Long): Boolean {
-        return System.currentTimeMillis() - startTime < durationTicks * 50
-    }
-
-
-
-
     /**
      * 플레이어의 위치벡터 + 방향벡터를 얻어온다.
      * No Scoping
@@ -80,7 +73,4 @@ abstract class ERCharacterMonobehaviour<T : CharacterEvent> : Monobehaviour<T>()
         return (geometryEngine as DPEngine).getMonobehavActors();
     }
 
-    abstract override fun start(event: T)
-
-    abstract override fun update(event: MutableList<MonobehaviourEvent>)
 }

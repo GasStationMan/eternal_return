@@ -1,16 +1,13 @@
 package org.EternalReturn.ERAnimal;
 
-import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntity;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
-import org.EternalReturn.Util.physics.Geometry.Collider;
-import org.EternalReturn.Util.physics.MathVector.Vec3d;
+import org.EternalReturn.Util.Geometry.MathVector.Vec3d;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.*;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;

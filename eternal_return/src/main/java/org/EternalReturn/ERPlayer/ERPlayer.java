@@ -1,14 +1,16 @@
 package org.EternalReturn.ERPlayer;
 
+import org.EternalReturn.ERCharacter.Character.NullCharacter;
 import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiController;
 import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.ERPlayer.Skill.Mukbo;
 import org.EternalReturn.ERPlayer.Skill.Skill;
 import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
-import org.EternalReturn.Util.physics.MathVector.Vec3d;
-import org.EternalReturn.Util.physics.MotionManager;
+import org.EternalReturn.Util.Geometry.MathVector.Vec3d;
+import org.EternalReturn.Util.DPEngine.MotionManager;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,10 +31,6 @@ public class ERPlayer {
         upgradeGui.free();
         motionManager.free();
         mukbo.free();
-        upgradeGuiController = null;
-        upgradeGui = null;
-        player = null;
-        motionManager = null;
     }
 
     public ERPlayer(Player p){
@@ -41,6 +39,7 @@ public class ERPlayer {
         upgradeGuiController = new UpgradeGuiController(this, upgradeGui);
         motionManager = new MotionManager(p);
         mukbo = new Mukbo(this);
+        character = new NullCharacter(this);
     }
 
     //getter
@@ -79,7 +78,6 @@ public class ERPlayer {
     }
 
     public void setCharacter(@NotNull ERCharacter character){
-        PluginInstance.getEREngine().registerMonobehaviourActor(character);
         this.character = character;
     }
 

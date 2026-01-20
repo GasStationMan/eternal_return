@@ -4,8 +4,10 @@ import org.EternalReturn.ERAnimal.ERAJEntity;
 import org.EternalReturn.ERAnimal.ERAnimalMonobehaviour;
 import org.EternalReturn.ERAnimal.Event.ERAnimalAttackedByPlayerEvent;
 import org.EternalReturn.ERAnimal.Event.ERAnimalReadyEvent;
-import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
 
+import java.util.AbstractCollection;
+import java.util.Collection;
 import java.util.List;
 
 public class Ready extends ERAnimalMonobehaviour<ERAnimalReadyEvent> {
@@ -18,7 +20,7 @@ public class Ready extends ERAnimalMonobehaviour<ERAnimalReadyEvent> {
     }
 
     @Override
-    public void update(List<MonobehaviourEvent> eventList) {
+    public void update(Collection<MonobehaviourEvent> eventList) {
 
         for(MonobehaviourEvent event : eventList){
 

@@ -3,16 +3,17 @@ package org.EternalReturn.ERPlayer;
 import org.EternalReturn.ERAnimal.*;
 import org.EternalReturn.ERCharacter.Character.hyunwoo.Character_Hyunwoo;
 import org.EternalReturn.ERCharacter.ERCharacter;
-import org.EternalReturn.System.EREngine;
+import org.EternalReturn.EREntity.ERDummy;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
@@ -91,8 +92,18 @@ public class ERPlayerDebugCommand implements CommandExecutor {
         }
 
         else if(args.length == 1 && args[0].equalsIgnoreCase("ch")){
-            erPlayer.setCharacter(new Character_Hyunwoo(erPlayer));
+
+            ERCharacter character = new Character_Hyunwoo(erPlayer);
+
+            erPlayer.setCharacter(character);
+            PluginInstance.getEREngine().registerBukkitActor(p, character);
             erPlayer.sendMessage(erPlayer.getCharacter().getName());
+        }
+
+        else if(args.length == 1 && args[0].equalsIgnoreCase("dummy")){
+            Entity dummy = p.getWorld().spawnEntity(p.getLocation(), EntityType.VILLAGER);
+            PluginInstance.getEREngine().registerBukkitActor(dummy, new ERDummy(dummy));
+            erPlayer.sendMessage("Dummy set");
         }
 
         return false;

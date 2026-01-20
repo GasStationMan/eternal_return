@@ -1,24 +1,28 @@
 package org.EternalReturn.EREntity;
 
-import org.EternalReturn.ERCharacter.GlobalMonobehav.RayCasting;
-import org.EternalReturn.ERCharacter.GlobalMonobehav.Stun;
-import org.EternalReturn.Util.Behaviour.MonobehaviourActor;
-import org.EternalReturn.Util.physics.Geometry.Collider;
+import org.EternalReturn.EREntity.GlobalMonobehav.Stun;
+import org.EternalReturn.System.PluginInstance;
+import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourActor;
+import org.EternalReturn.Util.DPEngine.Geometry.Collider;
+import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
 /**
  * 모든 EREntity의 Subclass에게 동시에 통용되는 성질을 저장하는 곳. <p>
  * */
-public class EREntity extends MonobehaviourActor {
+public abstract class EREntity extends MonobehaviourActor {
 
-    protected Collider collider;
+    protected Entity entity;
 
-    protected EREntity(){
+    protected @NotNull Collider collider;
+
+    protected EREntity(@NotNull Collider collider){
+        PluginInstance.getEREngine().registerMonobehaviourActor(this);
         this.registerMonobehaviour(this, new Stun());
-        this.registerMonobehaviour(this, new RayCasting());
+        this.collider = collider;
     }
 
-    public Collider getCollider() {
+    public @NotNull Collider getCollider() {
         return this.collider;
     }
 
@@ -28,4 +32,9 @@ public class EREntity extends MonobehaviourActor {
     public void setCollider(@NotNull Collider collider){
         this.collider = collider;
     }
+
+    public Entity getEntity(){
+        return this.entity;
+    }
+
 }

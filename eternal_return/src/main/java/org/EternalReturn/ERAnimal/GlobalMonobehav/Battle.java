@@ -4,11 +4,13 @@ import org.EternalReturn.ERAnimal.ERAJEntity;
 import org.EternalReturn.ERAnimal.ERAnimalMonobehaviour;
 import org.EternalReturn.ERAnimal.Event.ERAnimalAttackedByPlayerEvent;
 import org.EternalReturn.ERAnimal.Event.ERAnimalPlayerToFarAwayEvent;
-import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Husk;
 
+import java.util.AbstractCollection;
+import java.util.Collection;
 import java.util.List;
 
 public class Battle extends ERAnimalMonobehaviour<ERAnimalAttackedByPlayerEvent> {
@@ -25,11 +27,12 @@ public class Battle extends ERAnimalMonobehaviour<ERAnimalAttackedByPlayerEvent>
     @Override
     public void start(ERAnimalAttackedByPlayerEvent event) {
         ajEntity = getERAJEntity();
+        if(!ajEntity.isShown())return;
         state = AnimalState.MOVE;
     }
 
     @Override
-    public void update(List<MonobehaviourEvent> eventList) {
+    public void update(Collection<MonobehaviourEvent> eventList) {
 
         for(MonobehaviourEvent event : eventList){
             if(event instanceof ERAnimalPlayerToFarAwayEvent){

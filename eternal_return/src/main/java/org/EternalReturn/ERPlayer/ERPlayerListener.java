@@ -4,10 +4,10 @@ import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterLeftClickEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
+import org.EternalReturn.EREntity.EREntity;
+import org.EternalReturn.EREntity.Event.EREntityDamagedEvent;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Husk;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,7 +16,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.*;
 
-import java.security.cert.CertificateParsingException;
 import java.util.*;
 
 public class ERPlayerListener implements Listener {
@@ -25,16 +24,16 @@ public class ERPlayerListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
         SystemManager.addPlayer(p);
-        System.out.println("플레이어가 업데이트되었습니다. : ");
-        p.sendMessage("당신이 리스트에 추가되었습니다.");
+        System.out.println("플레이어가 업데이트되었습니다. : " + p);
+        //p.sendMessage("당신이 리스트에 추가되었습니다.");
     }
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent e){
         Player p = e.getPlayer();
         SystemManager.removePlayer(p);
-        System.out.println("플레이어가 업데이트되었습니다. : ");
-        p.sendMessage("플레이어가 게임을 떠났습니다.");
+        System.out.println("플레이어가 업데이트되었습니다. : " + p);
+        //p.sendMessage("플레이어가 게임을 떠났습니다.");
     }
 
     @EventHandler
@@ -63,6 +62,11 @@ public class ERPlayerListener implements Listener {
 
         if(e.getEntity() instanceof Husk){
             character.submitEvent(new CharacterLeftClickEvent());
+        }
+
+        EREntity victim = PluginInstance.getEREngine().getEREntity(e.getEntity());
+        if(victim != null){
+            victim.submitEvent(new EREntityDamagedEvent());
         }
 
         if (apiAttackers.remove(p.getUniqueId())) {

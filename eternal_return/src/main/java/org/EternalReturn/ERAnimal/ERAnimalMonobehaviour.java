@@ -1,11 +1,11 @@
 package org.EternalReturn.ERAnimal;
 
 import org.EternalReturn.ERAnimal.Event.ERAnimalEvent;
-import org.EternalReturn.Util.Behaviour.Monobehaviour;
-import org.EternalReturn.Util.Behaviour.MonobehaviourActor;
-import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.DPEngine.Behaviour.Monobehaviour;
+import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
 import org.bukkit.entity.Entity;
 
+import java.util.AbstractCollection;
 import java.util.List;
 
 public abstract class ERAnimalMonobehaviour<T extends ERAnimalEvent> extends Monobehaviour<T> {
@@ -51,12 +51,6 @@ public abstract class ERAnimalMonobehaviour<T extends ERAnimalEvent> extends Mon
         }
         return false;
     }
-
-    @Override
-    public abstract void start(T event);
-
-    @Override
-    public abstract void update(List<MonobehaviourEvent> eventList);
 
     public boolean isInDistance(double r, Entity e0, Entity e1){
         double tx = e0.getLocation().getX();

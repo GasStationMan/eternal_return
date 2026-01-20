@@ -1,8 +1,9 @@
 package org.EternalReturn.ERAnimal;
 
+import org.EternalReturn.ERAnimal.GlobalMonobehav.Battle;
+import org.EternalReturn.ERAnimal.GlobalMonobehav.Ready;
 import org.EternalReturn.EREntity.EREntity;
-import org.EternalReturn.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.physics.Geometry.Collider;
+import org.EternalReturn.Util.DPEngine.Geometry.Collider;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -11,17 +12,17 @@ import org.jetbrains.annotations.NotNull;
 public class ERAnimal extends EREntity {
 
     protected ERAJEntity ajEntity;
-
-    protected @NotNull Collider collider;
-
     /**
      * 야생동물 스킬 쿨다운
      * */
     protected long cooldownSeconds;
 
     public ERAnimal(ERAJEntity ajEntity, @NotNull Collider collider){
+        super(collider);
+        //System.out.println(collider.getClass());
         this.ajEntity = ajEntity;
-        this.collider = collider;
+        registerMonobehaviour(this, new Ready());
+        registerMonobehaviour(this, new Battle());
     }
 
     public ERAJEntity getAJEntity(){

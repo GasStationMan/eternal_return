@@ -6,7 +6,7 @@ import org.EternalReturn.ERAnimal.Animals.Boar.Boar;
 import org.EternalReturn.ERAnimal.Animals.Wolf.Wolf;
 import org.EternalReturn.ERAnimal.Event.ERAnimalReadyEvent;
 import org.EternalReturn.ERPlayer.ERPlayer;
-import org.EternalReturn.System.DPEngine;
+import org.EternalReturn.Util.DPEngine.DPEngine;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
@@ -76,12 +76,14 @@ public class ERAnimalManager {
         ERAJEntity ajEntity = animal.getAJEntity();
         Entity actor = ajEntity.getActor();
         Entity rootEntity = ajEntity.getRootEntity();
+
         if(actor == null){
             return;
         }
-        if (actor.getPassengers().isEmpty()) {
+
+        if (actor.isEmpty()) {
             actor.addPassenger(rootEntity);
-            System.out.println("mount!");
+            System.out.println("Mount setted : " + animal.getClass());
         }
     }
 
@@ -129,11 +131,6 @@ public class ERAnimalManager {
                 
                 //ERAnimal 생성
                 ERAnimal newInstance = new_ERAnimal(animalInfo);
-
-                //이거 없으면 무한 연결리스트 쌉가능
-                engine.registerMonobehaviourActor(newInstance);
-
-                animalInfo.instance = newInstance;
 
                 this.animalList.add(newInstance);
 

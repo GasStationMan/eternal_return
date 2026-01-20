@@ -2,7 +2,7 @@ package org.EternalReturn.Area;
 
 
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.physics.MathVector.Vec3d;
+import org.EternalReturn.Util.Geometry.MathVector.Vec3d;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -49,34 +49,6 @@ public class ERAreaNodeJsonParser {
                 }
 
                 AreaNode newNode= new AreaNode(name);
-                
-                //야생동물들 정보 가져오기
-                JSONArray animals = (JSONArray)area.get("animals");
-                if(animals == null){
-                    PluginInstance.dfLogUTF8("해당 지역 " + name + "에 야생동물에 대한 정보가 없습니다.");
-                }
-                else{
-                    // 새로운 시스템 ERAnimalSPCB
-                    // ERAnimalSPCB는 야생동물의 스폰 위치, 스폰 종류, 스폰할 개수를 저장하는 객체이다.
-                    List<ERAnimalSPCB> spcbList = new ArrayList<>(16);
-                    for(Object animal : animals) {
-                        JSONObject animalInfo = (JSONObject)animal;
-                        JSONArray animalCoord = (JSONArray)animalInfo.get("coord");
-
-                        spcbList.add(
-                                new ERAnimalSPCB(
-                                        (String)animalInfo.get("className"),
-                                        new Vec3d(
-                                                (double)animalCoord.get(0),
-                                                (double)animalCoord.get(1),
-                                                (double)animalCoord.get(2)
-                                        ),
-                                        ((Long)animalInfo.get("num")).intValue()
-                                )
-                        );
-                    }
-                    newNode.setSpawnPointControlBlocks(spcbList);
-                }
                 areaNodes.add(newNode);
 
             }

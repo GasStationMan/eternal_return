@@ -2,16 +2,13 @@ package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
-import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class StackingPunch extends ERCharacterMonobehaviour<CharacterAttackEvent> {
 
@@ -55,7 +52,7 @@ public class StackingPunch extends ERCharacterMonobehaviour<CharacterAttackEvent
     }
 
     @Override
-    public void update(List<MonobehaviourEvent> event) {
-
+    public void update(Collection<MonobehaviourEvent> event) {
+        stopMonobehav();
     }
 }

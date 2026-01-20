@@ -1,14 +1,21 @@
 package org.EternalReturn.System;
 
+import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.ERAnimal.ERAnimalManager;
+import org.EternalReturn.Util.DPEngine.DPEngine;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import java.util.HashMap;
 import java.util.Set;
 
+/**
+ * Bukkit 객체들과 유연하게 상호작용하기위한 엔진
+ * */
 public class EREngine extends DPEngine {
 
-
+    private final HashMap<Entity, EREntity> erEntityMap = new HashMap<>();
 
     @Override
     public void update(){
@@ -21,8 +28,22 @@ public class EREngine extends DPEngine {
             erPlayer.getMotionManager().update(erPlayer, tags);
         }
 
-        
-        ERAnimalManager.update(64);
+        ERAnimalManager.update(32);
     }
 
+    /**
+     * Entity를 통해서 MonobehaviourActor를 접근하기 위해 필요한 함수
+     * 일반 registerMonobehaviourActor를 통해 등록 시 Entity를 통해 접근이 불가해짐.
+     * */
+    public void registerBukkitActor(Entity entity, EREntity actor){
+        super.registerMonobehaviourActor(actor);
+        erEntityMap.put(entity,actor);
+    }
+
+    /**
+     * 해당 Entity 객체에 맞는 EREntity(extends from MonobehaviourActor)를 반환함.
+     * */
+    public EREntity getEREntity(Entity entity) {
+        return erEntityMap.get(entity);
+    }
 }

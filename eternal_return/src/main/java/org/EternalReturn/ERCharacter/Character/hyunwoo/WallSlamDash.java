@@ -2,7 +2,9 @@ package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
-import org.EternalReturn.Util.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.EREntity.EREntity;
+import org.EternalReturn.EREntity.Event.EREntityStunEvent;
+import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -12,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,7 +38,7 @@ public class WallSlamDash extends ERCharacterMonobehaviour<CharacterSwapHandEven
 
 
     @Override
-    public void update(List<MonobehaviourEvent> event) {
+    public void update(Collection<MonobehaviourEvent> event) {
 
         if(!isWallSlam && isNotEnd(skillActiveTick, 10)){
             Player player = getPlayer();
@@ -79,15 +82,18 @@ public class WallSlamDash extends ERCharacterMonobehaviour<CharacterSwapHandEven
                 int hitVal = hitEntities.get(victim);
 
                 //EREntity에게 Event 전달
-                //ERPlayer victimERPlayer = SystemManager.getERPlayer((Player)victim);
-                //victimERPlayer.getCharacter().submitEvent(new CharacterStunEvent(40));
+
+                EREntity entity = getEREngine().getEREntity(victim);
+                if(entity == null){
+                    return;
+                }
+                entity.submitEvent(new EREntityStunEvent(40));
 
                 victim.damage(1.0, player);
                 player.sendMessage("§b[현우] §f벽꿍 성공!");
                 player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_ATTACK_IRON_DOOR, 1f, 1f);
             }
         }
-
     }
 
     private void handleWallSlam(Player attacker, LivingEntity victim, Vector direction) {
