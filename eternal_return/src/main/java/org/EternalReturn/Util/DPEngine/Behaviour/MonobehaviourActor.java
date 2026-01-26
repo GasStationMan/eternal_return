@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
+
 /**
  * Monobehaviour을 실행하기 위한 객체. <p>
  * (MonobehaviourEvent, Monobehaviour)의 키 쌍을 유지한다. <p>
@@ -58,6 +58,10 @@ public abstract class MonobehaviourActor {
         return submittedEvent.removeFirst();
     }
 
+    /**
+     * 제출된 이벤트 디큐에서 하나씩 빼면서 dispatch,
+     * 해당 이벤트는 다시 checkedEvent 내에 삽입됨.
+     * */
     protected ArrayDeque<MonobehaviourEvent> checkedEvent;
     public void dispatchEvents() {
 
@@ -75,8 +79,16 @@ public abstract class MonobehaviourActor {
         }
     }
 
+    /**
+     * 해당 Actor의 Monobehaviour을 update()함.
+     * 만약 한개의 Monobehaviour도 Running이 아니라면 false를 반환
+     * 그 외에는 true를 반환
+     * */
+    public boolean updateMonobehaviour(){
+        if(runningBehaviours.isEmpty()){
+            return false;
+        }
 
-    public void updateMonobehaviour(){
         //monobehaviour update() 스케줄링
         Iterator<Monobehaviour<? extends MonobehaviourEvent>> monobehavNode = runningBehaviours.iterator();
         while(monobehavNode.hasNext()){
@@ -91,6 +103,11 @@ public abstract class MonobehaviourActor {
             }
         }
         checkedEvent.clear();
+        return true;
+    }
+
+    public boolean isEmptyForRunningMonobehaviour(){
+        return runningBehaviours.isEmpty();
     }
 
     /**

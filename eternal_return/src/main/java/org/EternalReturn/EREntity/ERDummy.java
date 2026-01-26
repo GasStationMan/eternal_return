@@ -7,8 +7,8 @@ import org.bukkit.entity.Entity;
 public class ERDummy extends EREntity{
 
     public ERDummy(Entity entity){
-        super(PluginInstance.getEREngine().cylinder(
-                PluginInstance.getEREngine().infStrightLine(0,1,0,
+        super(PluginInstance.getEREngine().createCylinder(
+                PluginInstance.getEREngine().createInfStrightLine(0,1,0,
                         entity.getLocation().getX(),
                         entity.getLocation().getY(),
                         entity.getLocation().getZ()),

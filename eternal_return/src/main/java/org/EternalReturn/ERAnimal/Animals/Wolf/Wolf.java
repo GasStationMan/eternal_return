@@ -15,7 +15,7 @@ public class Wolf extends ERAnimal {
     public Wolf(@NotNull Location location) {
         super(
                 new ERAJEntity("animal_wolf", location),
-                PluginInstance.getEREngine().cylinder(location,3,1)
+                PluginInstance.getEREngine().createCylinder(location,3,1)
         );
 
         this.ajEntity.registerAnimation("ready",2.0d);

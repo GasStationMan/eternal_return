@@ -1,6 +1,9 @@
 package org.EternalReturn.Util.DPEngine.Geometry
 
 import org.bukkit.Location
+import org.joml.Quaterniond
+import org.joml.Quaternionf
+import org.joml.Vector3d
 import kotlin.math.sqrt
 
 public open class GeometryEngine : MatVecCalculator {
@@ -565,27 +568,79 @@ public open class GeometryEngine : MatVecCalculator {
         return true
     }
 
+    public fun getIntersectPoint(out : Vector3, pos : Vector3, dir : Vector3, obb : OrientedBox) : Boolean{
+        // 1 Quaternion inverse (OBB → local)
+        val invQ = Quaterniond(obb.orientation).invert()
 
-    public fun cylinder(line : InfStraightLine, height : Double, radius : Double) : Cylinder{
+        // rayPos - center
+        // 2 ray origin to local
+        val pLocal = Vector3d(x(pos) - obb.px, y(pos) - obb.py, z(pos) - obb.pz)
+        invQ.transform(pLocal)
+
+        // 3 ray dir to local
+        val dLocal = Vector3d(x(dir), y(dir), z(dir))
+        invQ.transform(dLocal)
+
+        var tMin = Double.NEGATIVE_INFINITY
+        var tMax = Double.POSITIVE_INFINITY
+
+        fun slab(p: Double, d: Double, half: Double): Boolean {
+            if (kotlin.math.abs(d) < 1e-6f) {
+                return kotlin.math.abs(p) <= half
+            }
+            val t1 = (-p - half) / d
+            val t2 = (-p + half) / d
+            val near = kotlin.math.min(t1, t2)
+            val far  = kotlin.math.max(t1, t2)
+            tMin = kotlin.math.max(tMin, near)
+            tMax = kotlin.math.min(tMax, far)
+            return tMin <= tMax
+        }
+
+        // 4 AABB slab test
+        if (!slab(pLocal.x(), dLocal.x(), obb.halfX)) return false
+        if (!slab(pLocal.y(), dLocal.y(), obb.halfY)) return false
+        if (!slab(pLocal.z(), dLocal.z(), obb.halfZ)) return false
+
+        val tHit = if (tMin >= 0f) tMin else tMax
+        if (tHit < 0f) return false
+
+        // 5 local hit point
+        // 6 back to world
+        val hitWorld = Vector3d(pLocal.x() + dLocal.x() * tHit, pLocal.y() + dLocal.y() * tHit, pLocal.z() + dLocal.z() * tHit)
+        obb.orientation.transform(hitWorld)
+
+        assign(
+            out,
+            hitWorld.x() + obb.px,
+            hitWorld.y() + obb.py,
+            hitWorld.z() + obb.pz
+        )
+
+        return true
+    }
+
+    public fun createCylinder(line : InfStraightLine, height : Double, radius : Double) : Cylinder{
         return Cylinder(this, line, height, radius);
     }
 
-    public fun cylinder(location : Location, height : Double, radius : Double) : Cylinder{
-
+    public fun createCylinder(location : Location, height : Double, radius : Double) : Cylinder{
         val dir = location.direction;
-
         return Cylinder(this,
             InfStraightLine(this, dir.x, dir.y, dir.z, location.x, location.y, location.z),
             radius, height);
     }
 
-    public fun infStrightLine(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): InfStraightLine {
+    public fun createInfStrightLine(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): InfStraightLine {
         return InfStraightLine(this, dirX, dirY, dirZ, posX, posY, posZ);
     }
 
-    public fun infPlane(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): InfPlane {
-        //매개변수 위치 바뀐 거 유의할 것.
+    public fun createInfPlane(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): InfPlane {
         return InfPlane(this, posX, posY, posZ, dirX, dirY, dirZ);
+    }
+
+    public fun createOrientedBox(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): OrientedBox {
+        return OrientedBox(this,posX,posY,posZ, Quaterniond(dirX, dirY, dirZ, 0.0), 0.0, 0.0, 0.0);
     }
 
 

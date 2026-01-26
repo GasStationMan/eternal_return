@@ -1,10 +1,7 @@
-package org.EternalReturn.ERCharacter.Character;
+package org.EternalReturn.ERCharacter.Character.aya;
 
 import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERPlayer.ERPlayer;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 
 public class Character_Aya extends ERCharacter {
     public Character_Aya(ERPlayer player) {

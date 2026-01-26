@@ -60,18 +60,12 @@ public open class MatVecCalculator {
      * 외적 연산, 순서에 주의 (dst = src0 x src1)
      */
     open fun cross(dst: Vector3, src0: Vector3, src1: Vector3) {
-        val x0: Double
-        val y0: Double
-        val z0: Double
-        val x1: Double
-        val y1: Double
-        val z1: Double
-        x0 = vecs[src0.__id]
-        y0 = vecs[src0.__id + 1]
-        z0 = vecs[src0.__id + 2]
-        x1 = vecs[src1.__id]
-        y1 = vecs[src1.__id + 1]
-        z1 = vecs[src1.__id + 2]
+        val x0: Double = vecs[src0.__id]
+        val y0: Double = vecs[src0.__id + 1]
+        val z0: Double = vecs[src0.__id + 2]
+        val x1: Double = vecs[src1.__id]
+        val y1: Double = vecs[src1.__id + 1]
+        val z1: Double = vecs[src1.__id + 2]
 
 
         // i  j  k
