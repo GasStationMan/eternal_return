@@ -14,9 +14,6 @@ class Shoot : ERCharacterMonobehaviour<CharacterRayCastEvent>() {
 
         for(erEntity in event.hitEntities){
 
-
-
-
         }
 
     }
