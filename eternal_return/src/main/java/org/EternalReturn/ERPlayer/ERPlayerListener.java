@@ -2,18 +2,21 @@ package org.EternalReturn.ERPlayer;
 
 import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
+import org.EternalReturn.ERCharacter.Event.CharacterKillEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterLeftClickEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
 import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.EREntity.Event.EREntityDamagedEvent;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Husk;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.*;
 
 import java.util.*;
@@ -83,6 +86,24 @@ public class ERPlayerListener implements Listener {
         ERCharacter character = erPlayer.getCharacter();
         character.submitEvent(new CharacterSwapHandEvent(erPlayer));
         e.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onKill(EntityDeathEvent e){
+        Entity killer = e.getDamageSource().getCausingEntity();
+        Entity victim = e.getEntity();
+
+        EREntity erVictim = PluginInstance.getEREngine().getEREntity(victim);
+        if(killer == null){
+            return;
+        }
+        EREntity erKiller = PluginInstance.getEREngine().getEREntity(killer);
+        if(erKiller == null){
+            return;
+        }
+
+        erKiller.submitEvent(new CharacterKillEvent());
+
     }
 
 }

@@ -21,8 +21,8 @@ public class ERAnimal extends EREntity {
         super(collider);
         //System.out.println(collider.getClass());
         this.ajEntity = ajEntity;
-        registerMonobehaviour(this, new Ready());
-        registerMonobehaviour(this, new Battle());
+        registerMonobehaviour(new Ready());
+        registerMonobehaviour(new Battle());
     }
 
     public ERAJEntity getAJEntity(){

@@ -193,7 +193,7 @@ public open class MatVecCalculator {
         return Vector3(id)
     }
 
-    protected open fun x(v: Vector3): Double {
+    open fun x(v: Vector3): Double {
         return vecs[v.__id + 0]
     }
 

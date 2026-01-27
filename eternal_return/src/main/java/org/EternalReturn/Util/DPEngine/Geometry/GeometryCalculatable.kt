@@ -1,51 +1,52 @@
 package org.EternalReturn.Util.DPEngine.Geometry
 
+import org.EternalReturn.Util.DPEngine.DPEngine
 
 
 open class GeometryCalculatable{
 
-    lateinit var geometryEngine: GeometryEngine;
+    lateinit var dpEngine: DPEngine;
 
     infix fun Vector3.dot(b: Vector3): Double {
-        return geometryEngine.dotprd(b, this)
+        return dpEngine.dotprd(b, this)
     }
 
     /**
      * = 과 같음.
      * */
     infix fun Vector3.assign(b: Vector3): Vector3 {
-        val out = geometryEngine.vec3()
-        geometryEngine.assign(out, this)
+        val out = dpEngine.vec3()
+        dpEngine.assign(out, this)
         return out
     }
 
     infix fun Vector3.cross(b: Vector3): Vector3 {
-        val out = geometryEngine.vec3()
-        geometryEngine.cross(out, b, this)
+        val out = dpEngine.vec3()
+        dpEngine.cross(out, b, this)
         return out
     }
 
     open operator fun Vector3.plus(b: Vector3): Vector3 {
-        val out = geometryEngine.vec3()
-        geometryEngine.add(out, this, b)
+        val out = dpEngine.vec3()
+        dpEngine.add(out, this, b)
         return out
     }
 
     operator fun Vector3.times(scalar: Double): Vector3 {
-        val out = geometryEngine.vec3()
-        geometryEngine.scalarProd(out, scalar, this)
+        val out = dpEngine.vec3()
+        dpEngine.scalarProd(out, scalar, this)
         return out
     }
 
     operator fun Double.times(vector: Vector3): Vector3 {
-        val out = geometryEngine.vec3()
-        geometryEngine.scalarProd(out, this, vector)
+        val out = dpEngine.vec3()
+        dpEngine.scalarProd(out, this, vector)
         return out
     }
 
     operator fun Vector3.unaryMinus(): Vector3 {
-        val out = geometryEngine.vec3()
-        geometryEngine.scalarProd(out, -1.0, this)
+        val out = dpEngine.vec3()
+        dpEngine.scalarProd(out, -1.0, this)
         return out
     }
 
@@ -53,15 +54,15 @@ open class GeometryCalculatable{
      * +=, -= 부분
      * */
     operator fun Vector3.plusAssign(b: Vector3) {
-        geometryEngine.add(this, this, b)
+        dpEngine.add(this, this, b)
     }
 
     operator fun Vector3.minusAssign(b: Vector3) {
-        geometryEngine.sub(this, this, b)
+        dpEngine.sub(this, this, b)
     }
 
-    fun vec3(): Vector3 = geometryEngine.vec3()
+    fun vec3(): Vector3 = dpEngine.vec3()
 
-    fun vec3(x : Double, y : Double, z : Double): Vector3 = geometryEngine.vec3(x, y, z)
+    fun vec3(x : Double, y : Double, z : Double): Vector3 = dpEngine.vec3(x, y, z)
 
 }

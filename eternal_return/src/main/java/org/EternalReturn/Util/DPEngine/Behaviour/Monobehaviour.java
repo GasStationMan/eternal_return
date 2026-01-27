@@ -53,7 +53,6 @@ public abstract class Monobehaviour<T extends MonobehaviourEvent> extends Geomet
         //System.out.println(eventType);
     }
 
-
     public final Class<T> getEventType() {
         return eventType;
     }
@@ -109,6 +108,6 @@ public abstract class Monobehaviour<T extends MonobehaviourEvent> extends Geomet
      * */
     public void setMonobehaviourActor(MonobehaviourActor actor) {
         this.actor = actor;
-        this.geometryEngine = actor.engine;
+        this.dpEngine = actor.engine;
     }
 }

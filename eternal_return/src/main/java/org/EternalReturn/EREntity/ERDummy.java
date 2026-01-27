@@ -13,7 +13,7 @@ public class ERDummy extends EREntity{
                         entity.getLocation().getY(),
                         entity.getLocation().getZ()),
                 1,3));
-        registerMonobehaviour(this, new InfinityHealing());
+        registerMonobehaviour(new InfinityHealing());
         this.entity = entity;
     }
 

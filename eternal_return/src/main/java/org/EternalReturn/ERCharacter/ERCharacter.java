@@ -23,7 +23,7 @@ public abstract class ERCharacter extends EREntity {
                 1,3));
         this.erPlayer = erPlayer;
         this.entity = erPlayer.getPlayer();
-        registerMonobehaviour(this, new PlayerRayCastingByLeftClicking());
+        registerMonobehaviour(new PlayerRayCastingByLeftClicking());
     }
 
     public abstract String getName();

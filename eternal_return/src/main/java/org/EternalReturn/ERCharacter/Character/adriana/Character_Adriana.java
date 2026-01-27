@@ -17,8 +17,8 @@ public class Character_Adriana extends ERCharacter {
     public Character_Adriana(ERPlayer player) {
         super(player);
         this.cooldownSeconds = 5;
-        this.registerMonobehaviour(this, new BurningGround());
-        this.registerMonobehaviour(this, new LitFireOnAttack());
+        this.registerMonobehaviour(new BurningGround());
+        this.registerMonobehaviour(new LitFireOnAttack());
     }
 
     @Override

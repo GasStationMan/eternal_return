@@ -16,33 +16,30 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 abstract class ERCharacterMonobehaviour<T : CharacterEvent> : EREntityMonobehaviour<T>() {
-    private var erCharacter: ERCharacter? = null
-    private var erPlayer: ERPlayer? = null
-    private var player: Player? = null
+    private lateinit var erCharacter: ERCharacter
+    private lateinit var erPlayer: ERPlayer
+    private lateinit var player: Player
 
     private fun __init() {
-        if (erCharacter != null) {
-            return
-        }
         if (this.actor !is ERCharacter) {
             throw ClassCastException("Actor가 ERCharacter가 아닙니다.")
         }
         erCharacter = this.actor as ERCharacter
-        erPlayer = erCharacter!!.getERPlayer()
-        player = erPlayer!!.player
+        erPlayer = erCharacter.getERPlayer()
+        player = erPlayer.player
     }
 
-    protected fun getERCharacter(): ERCharacter?{
+    protected fun getERCharacter(): ERCharacter{
         __init();
         return erCharacter;
     }
 
     protected fun getERPlayer() : ERPlayer{
         __init();
-        return erPlayer!!;
+        return erPlayer;
     }
 
-    protected fun getPlayer(): Player? {
+    protected fun getPlayer(): Player {
         __init()
         return player
     }
@@ -70,7 +67,7 @@ abstract class ERCharacterMonobehaviour<T : CharacterEvent> : EREntityMonobehavi
     }
 
     fun getMonobehavActorList() : MutableList<MonobehaviourActor>{
-        return (geometryEngine as DPEngine).getMonobehavActors();
+        return dpEngine.getMonobehavActors();
     }
 
 }

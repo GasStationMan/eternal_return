@@ -5,14 +5,15 @@ import org.EternalReturn.System.EREngine;
 import org.EternalReturn.Util.DPEngine.Behaviour.Monobehaviour;
 import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
 import org.bukkit.entity.Entity;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class EREntityMonobehaviour<T extends EREntityEvent> extends Monobehaviour<T> {
 
-    protected EREntity getActor(){
+    protected @NotNull EREntity getActor(){
         return (EREntity) super.actor;
     }
 
-    protected Entity getEntity(){
+    protected @NotNull Entity getEntity(){
         return ((EREntity) super.actor).getEntity();
     }
 
@@ -20,8 +21,8 @@ public abstract class EREntityMonobehaviour<T extends EREntityEvent> extends Mon
         return System.currentTimeMillis() - startTime < durationTicks * 50;
     }
 
-    protected EREngine getEREngine(){
-        return (EREngine) this.geometryEngine;
+    protected @NotNull EREngine getEREngine(){
+        return (EREngine) this.dpEngine;
     }
 
 }

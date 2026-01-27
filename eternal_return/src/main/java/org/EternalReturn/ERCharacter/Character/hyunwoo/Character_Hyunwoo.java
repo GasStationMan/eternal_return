@@ -19,8 +19,8 @@ public class Character_Hyunwoo extends ERCharacter {
     public Character_Hyunwoo(ERPlayer player) {
         super(player);
         this.cooldownSeconds = 8;
-        registerMonobehaviour(this, new WallSlamDash());
-        registerMonobehaviour(this, new StackingPunch());
+        registerMonobehaviour(new WallSlamDash());
+        registerMonobehaviour(new StackingPunch());
     }
 
 

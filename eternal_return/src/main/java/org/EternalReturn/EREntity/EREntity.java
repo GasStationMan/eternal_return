@@ -4,6 +4,7 @@ import org.EternalReturn.EREntity.GlobalMonobehav.Stun;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourActor;
 import org.EternalReturn.Util.DPEngine.Geometry.Collider;
+import org.EternalReturn.Util.DPEngine.Geometry.Vector3;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +26,7 @@ public abstract class EREntity extends MonobehaviourActor {
         ///이거 존나 위험한 구문임. 나중에 어떻게든 수정해야 할 것.
 
 
-        this.registerMonobehaviour(this, new Stun());
+        this.registerMonobehaviour(new Stun());
         this.collider = collider;
     }
 
@@ -43,5 +44,6 @@ public abstract class EREntity extends MonobehaviourActor {
     public Entity getEntity(){
         return this.entity;
     }
+
 
 }
