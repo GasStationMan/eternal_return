@@ -1,10 +1,6 @@
-package org.EternalReturn.Util.DPEngine.Geometry
+package org.EternalReturn.Util.DPEngine.geometry
 
-import jdk.incubator.vector.DoubleVector
-import jdk.incubator.vector.VectorOperators
-import jdk.incubator.vector.VectorSpecies
 import java.lang.AutoCloseable
-import kotlin.math.cos
 import kotlin.math.sqrt
 
 /**

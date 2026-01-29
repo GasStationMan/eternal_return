@@ -1,11 +1,10 @@
 package org.EternalReturn.ERAnimal;
 
 import org.EternalReturn.ERAnimal.Event.ERAnimalEvent;
-import org.EternalReturn.Util.DPEngine.Behaviour.Monobehaviour;
-import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.DPEngine.behaviour.Monobehaviour;
+import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent;
 import org.bukkit.entity.Entity;
 
-import java.util.AbstractCollection;
 import java.util.List;
 
 public abstract class ERAnimalMonobehaviour<T extends ERAnimalEvent> extends Monobehaviour<T> {

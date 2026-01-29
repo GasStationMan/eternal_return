@@ -2,7 +2,7 @@ package org.EternalReturn.ERCharacter.Character.jackie
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
 import org.EternalReturn.ERCharacter.Event.CharacterKillEvent
-import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent
+import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent
 import org.bukkit.Location
 import org.bukkit.Particle
 
@@ -14,10 +14,10 @@ class Passive : ERCharacterMonobehaviour<CharacterKillEvent>() {
         val player = getPlayer();
         player.sendMessage("I killed");
         endTimeMillis = System.currentTimeMillis() + 40 * 50;
+
     }
 
-    override fun update(eventList: Collection<MonobehaviourEvent>) {
-
+    override fun update(eventList: MutableCollection<MonobehaviourEvent>) {
         if(endTimeMillis >= System.currentTimeMillis()){
             val loc : Location = getPlayer().location;
             val world = getPlayer().world;

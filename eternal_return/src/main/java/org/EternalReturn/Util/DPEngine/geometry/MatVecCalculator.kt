@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.DPEngine.Geometry
+package org.EternalReturn.Util.DPEngine.geometry
 
 import java.lang.AutoCloseable
 import kotlin.math.sqrt
@@ -197,11 +197,11 @@ public open class MatVecCalculator {
         return vecs[v.__id + 0]
     }
 
-    protected open fun y(v: Vector3): Double {
+    open fun y(v: Vector3): Double {
         return vecs[v.__id + 1]
     }
 
-    protected open fun z(v: Vector3): Double {
+    open fun z(v: Vector3): Double {
         return vecs[v.__id + 2]
     }
 
@@ -424,17 +424,10 @@ public open class MatVecCalculator {
 
 
 
-    public class VecScope internal constructor(mc: MatVecCalculator) : AutoCloseable {
-        private val mc: MatVecCalculator?
-        private val v: Int
-
-        init {
-            this.mc = mc
-            this.v = mc.vecIdx
-        }
-
+    class VecScope internal constructor(private val mc: MatVecCalculator) : AutoCloseable {
+        private val v: Int = mc.vecIdx
         override fun close() {
-            mc!!.vecIdx = v
+            mc.vecIdx = v
         }
     }
 
@@ -442,17 +435,10 @@ public open class MatVecCalculator {
         return VecScope(this)
     }
 
-    public class MatScope(mc: MatVecCalculator) : AutoCloseable {
-        private val mc: MatVecCalculator?
-        private val m: Int
-
-        init {
-            this.mc = mc
-            this.m = mc.vecIdx
-        }
-
+    class MatScope(private val mc: MatVecCalculator) : AutoCloseable {
+        private val m: Int = mc.vecIdx
         override fun close() {
-            mc!!.vecIdx = m
+            mc.vecIdx = m
         }
     }
 

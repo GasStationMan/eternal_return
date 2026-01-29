@@ -1,6 +1,5 @@
-package org.EternalReturn.Util.DPEngine.Behaviour
+package org.EternalReturn.Util.DPEngine.behaviour
 
-import org.EternalReturn.Util.DPEngine.DPEngine
 import java.util.*
 
 /**
@@ -40,7 +39,7 @@ abstract class MonobehaviourActor protected constructor() {
      */
     protected var runningBehaviours: ArrayDeque<Monobehaviour<out MonobehaviourEvent>> = ArrayDeque<Monobehaviour<out MonobehaviourEvent>>()
 
-    protected lateinit var engine: DPEngine;
+    lateinit var monobehaviourModule : MonobehaviourModule
 
 
     /**
@@ -49,7 +48,7 @@ abstract class MonobehaviourActor protected constructor() {
     fun submitEvent(event: MonobehaviourEvent) {
         //System.out.println("Event submitted " + event.getClass() + " | Length = " + submittedEvent.size());
         submittedEvent.add(event)
-        engine.submitActorWhoTriggeredEvent(this)
+        monobehaviourModule.submitActorWhoTriggeredEvent(this)
     }
 
     /**
@@ -90,7 +89,7 @@ abstract class MonobehaviourActor protected constructor() {
             monobehaviour.updateMonobehav(checkedEvent)
 
             //System.out.println("run");
-            if (!monobehaviour.isRunning()) {
+            if (!monobehaviour.isRunning) {
                 monobehavNode.remove()
                 //System.out.println("removed : " + monobehaviour.getClass());
             }
@@ -107,10 +106,10 @@ abstract class MonobehaviourActor protected constructor() {
      * 또한 해당 Monobehaviour의 DPEngine객체 또한 저장한다.
      */
     protected fun registerMonobehaviour(monobehaviour: Monobehaviour<out MonobehaviourEvent>) {
-        if (this.monobehaviourMap.get(monobehaviour.getEventType()) != null) {
-            throw DuplicatedMonobehaviourRegisterException("Key " + monobehaviour.getEventType() + " is duplicated.")
+        if (this.monobehaviourMap.get(monobehaviour.eventType) != null) {
+            throw DuplicatedMonobehaviourRegisterException("Key " + monobehaviour.eventType + " is duplicated.")
         }
-        this.monobehaviourMap.put(monobehaviour.getEventType(), monobehaviour)
+        this.monobehaviourMap.put(monobehaviour.eventType, monobehaviour)
         monobehaviour.setMonobehaviourActor(this)
         //System.out.println("register event " + monobehaviour.getClass());
     }
@@ -118,8 +117,8 @@ abstract class MonobehaviourActor protected constructor() {
     /**
      * 해당 MonobehaviourActor을 관리할 DPEngine을 설정.
      */
-    fun setDPEngine(engine: DPEngine) {
-        this.engine = engine
+    fun setModule(module: MonobehaviourModule) {
+        this.monobehaviourModule = module
         //System.out.println("DPEngine set");
     }
 }

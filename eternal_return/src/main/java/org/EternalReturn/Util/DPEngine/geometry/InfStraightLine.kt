@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.DPEngine.Geometry
+package org.EternalReturn.Util.DPEngine.geometry
 
 import kotlin.math.sqrt
 
@@ -18,7 +18,7 @@ class InfStraightLine : Collider{
      *
      *
      */
-    constructor(engine: GeometryEngine, vx: Double, vy: Double, vz: Double, px: Double, py: Double, pz: Double) : super(engine) {
+    constructor(engine: GeometryModule, vx: Double, vy: Double, vz: Double, px: Double, py: Double, pz: Double) : super(engine) {
         this.px = px
         this.py = py
         this.pz = pz
@@ -32,7 +32,7 @@ class InfStraightLine : Collider{
      * 생성자에 아무 값도 넣지 않는 경우,
      * [0,1,0] t + [0,0,0]에 해당하는 직선이 생성됨
      */
-    constructor(engine: GeometryEngine) : super(engine) {
+    constructor(engine: GeometryModule) : super(engine) {
         this.vx = 0.0
         this.vy = 1.0
         this.vz = 0.0

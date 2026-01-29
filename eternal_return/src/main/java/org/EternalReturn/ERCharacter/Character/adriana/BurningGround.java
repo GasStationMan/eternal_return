@@ -4,7 +4,7 @@ import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
 import org.EternalReturn.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
@@ -12,10 +12,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 
 class BurningGroundVirtualEntity {

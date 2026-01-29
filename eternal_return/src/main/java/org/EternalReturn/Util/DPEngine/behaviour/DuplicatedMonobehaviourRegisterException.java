@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.DPEngine.Behaviour;
+package org.EternalReturn.Util.DPEngine.behaviour;
 
 public class DuplicatedMonobehaviourRegisterException extends RuntimeException {
     public DuplicatedMonobehaviourRegisterException(String message) {

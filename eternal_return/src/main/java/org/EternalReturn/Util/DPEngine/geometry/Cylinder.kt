@@ -1,7 +1,7 @@
-package org.EternalReturn.Util.DPEngine.Geometry
+package org.EternalReturn.Util.DPEngine.geometry
 
 class Cylinder internal constructor(
-    engine: GeometryEngine,
+    engine: GeometryModule,
     centerLine: InfStraightLine,
     radius: Double,
     height: Double

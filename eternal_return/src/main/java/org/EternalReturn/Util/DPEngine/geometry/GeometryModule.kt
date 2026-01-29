@@ -1,14 +1,13 @@
-package org.EternalReturn.Util.DPEngine.Geometry
+package org.EternalReturn.Util.DPEngine.geometry
 
+import org.EternalReturn.Util.DPEngine.DPEngine
 import org.bukkit.Location
 import org.joml.Quaterniond
-import org.joml.Quaternionf
 import org.joml.Vector3d
 import kotlin.math.sqrt
 
-public open class GeometryEngine : MatVecCalculator {
-    constructor(buffSize: Int) : super(buffSize)
-    constructor() : super()
+public open class GeometryModule(val dpEngine : DPEngine, buffSize : Int = 512) : MatVecCalculator(buffSize) {
+
     /**
      *
      * 선과 선의 교차점을 1E-7의 오차 범위 내로 구하는 함수

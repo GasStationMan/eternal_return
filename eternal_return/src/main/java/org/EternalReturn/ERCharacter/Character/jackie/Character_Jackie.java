@@ -4,6 +4,9 @@ import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERPlayer.ERPlayer;
 
 public class Character_Jackie extends ERCharacter {
+
+    public boolean isBloodSweep = false;
+
     public Character_Jackie(ERPlayer erPlayer) {
         super(erPlayer);
         registerMonobehaviour(new Passive());

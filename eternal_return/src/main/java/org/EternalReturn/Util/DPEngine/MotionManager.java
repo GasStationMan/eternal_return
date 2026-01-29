@@ -3,15 +3,14 @@ package org.EternalReturn.Util.DPEngine;
 import java.util.Set;
 
 import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.ERPlayer.ERPlayer;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.Entity;
 import org.bukkit.util.Vector;
 
 public class MotionManager {
 
     private int tick;
     private int endTick;
-    private Player player;
+    private Entity entity;
 
     private double mx;
     private double my;
@@ -19,15 +18,15 @@ public class MotionManager {
 
 
     public void free(){
-        player = null;
+        entity = null;
     }
 
-    public MotionManager(Player p){
+    public MotionManager(Entity p){
         this.mx = 0;
         this.my = 0;
         this.mz = 0;
         this.tick = 0;
-        this.player = p;
+        this.entity = p;
     }
 
     public boolean getMotionIsDone(){
@@ -47,20 +46,20 @@ public class MotionManager {
         }
     }
 
-    public void updatePlayerMotion(){
-        Vector playerVelocity = player.getVelocity();
-        playerVelocity.setX(mx);
-        playerVelocity.setY(my);
-        playerVelocity.setZ(mz);
-        player.setVelocity(playerVelocity);
+    public void updateEntityMotion(){
+        Vector entityVelocity = entity.getVelocity();
+        entityVelocity.setX(mx);
+        entityVelocity.setY(my);
+        entityVelocity.setZ(mz);
+        entity.setVelocity(entityVelocity);
     }
 
-    public void updatePlayerMotion(double x, double y, double z){
-        Vector playerVelocity = player.getVelocity();
-        playerVelocity.setX(x);
-        playerVelocity.setY(y);
-        playerVelocity.setZ(z);
-        player.setVelocity(playerVelocity);
+    public void updateEntityMotion(double x, double y, double z){
+        Vector entityVelocity = entity.getVelocity();
+        entityVelocity.setX(x);
+        entityVelocity.setY(y);
+        entityVelocity.setZ(z);
+        entity.setVelocity(entityVelocity);
     }
 
     /**
@@ -88,7 +87,7 @@ public class MotionManager {
         // " , vx : " + motion.getX() + " , vy : " + motion.getY() + " , vz : " + motion.getZ());
         //g (m/s^2) * 0.05 * 0.05 = g'(m/tick^2)
         my = my - 9.8 * 0.05 * 0.05;
-        updatePlayerMotion();
+        updateEntityMotion();
         updateTick();
     }
 
@@ -96,8 +95,7 @@ public class MotionManager {
     /**
      * FROM : private void motionManagerUpdate()
      * */
-    public void parseVectorTag(Set<String> tags, ERPlayer erPlayer){
-        MotionManager motionManager = erPlayer.getMotionManager();
+    public void parseVectorTag(Set<String> tags){
 
         for(String tag : tags){
             try{
@@ -105,7 +103,7 @@ public class MotionManager {
                 if(tag.startsWith("parabola_")){
                     String[] args = tag.split("_");
 
-                    motionManager.setParabolicInitMotion(
+                    setParabolicInitMotion(
                             Double.parseDouble(args[4]) - Double.parseDouble(args[1]),
                             Double.parseDouble(args[5]) - Double.parseDouble(args[2]),
                             Double.parseDouble(args[6]) - Double.parseDouble(args[3]),
@@ -117,7 +115,7 @@ public class MotionManager {
                 else if(tag.startsWith("motion_")){
                     String[] args = tag.split("_");
 
-                    motionManager.setMotion(
+                    setMotion(
                             Double.parseDouble(args[1]),
                             Double.parseDouble(args[2]),
                             Double.parseDouble(args[3])
@@ -134,16 +132,15 @@ public class MotionManager {
     }
 
     /**
-     * FROM : private void erPlayerScript()
+     * FROM : private void erentityScript()
      * */
-    public void update(ERPlayer erPlayer, Set<String> tags){
-        MotionManager motionManager = erPlayer.getMotionManager();
+    public void update(Set<String> tags){
         if(tags.contains("vector")){
-            motionManager.parseVectorTag(tags,erPlayer);
+            parseVectorTag(tags);
         }
 
-        if(!motionManager.getMotionIsDone()){
-            motionManager.updateParabolicMotion();
+        if(!getMotionIsDone()){
+            updateParabolicMotion();
         }
         
         else{

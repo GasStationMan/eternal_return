@@ -1,12 +1,8 @@
 package org.EternalReturn.ERCharacter.Character.aya
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
-import org.EternalReturn.ERCharacter.Event.CharacterLeftClickEvent
 import org.EternalReturn.ERCharacter.Event.CharacterRayCastEvent
-import org.EternalReturn.EREntity.EREntity
-import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent
-import org.EternalReturn.Util.DPEngine.Geometry.GeometryEngine
-import org.bukkit.entity.Entity
+import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent
 
 class Shoot : ERCharacterMonobehaviour<CharacterRayCastEvent>() {
 
@@ -18,7 +14,7 @@ class Shoot : ERCharacterMonobehaviour<CharacterRayCastEvent>() {
 
     }
 
-    override fun update(eventList: Collection<MonobehaviourEvent>) {
+    override fun update(eventList: MutableCollection<MonobehaviourEvent>) {
 
     }
 }

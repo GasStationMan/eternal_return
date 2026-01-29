@@ -1,76 +1,56 @@
 package org.EternalReturn.Util.DPEngine
 
-import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourActor
-import org.EternalReturn.Util.DPEngine.Geometry.GeometryEngine
+import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourModule
+import org.EternalReturn.Util.DPEngine.geometry.Cylinder
+import org.EternalReturn.Util.DPEngine.geometry.GeometryModule
+import org.EternalReturn.Util.DPEngine.geometry.InfPlane
+import org.EternalReturn.Util.DPEngine.geometry.InfStraightLine
+import org.EternalReturn.Util.DPEngine.geometry.OrientedBox
+import org.bukkit.Location
+import org.joml.Quaterniond
 
 /**
  * Made by Danpung (TDanfung)
  * 기본적 엔진
  * */
-abstract class DPEngine : GeometryEngine, Runnable {
+abstract class DPEngine(bufferSize: Int = 512) : Runnable {
 
-    constructor() : super()
-    constructor(bufferSize : Int) : super(bufferSize)
+    val geometryModule = GeometryModule(this, bufferSize)
 
-    private val monobehaviourActorList = ArrayList<MonobehaviourActor>();
-
-    /**
-     * 이벤트가 dispatch된 순서대로 MonobehaviourActor을 추가함.
-     * 해당 LinkedList는 run() 내에서 앞에서부터 순서대로 소비됨.
-     * */
-    private val eventTriggeredActors = ArrayDeque<MonobehaviourActor>();
-
-    /**
-     * Running 중인 Monobehaviour을 소유한 MonobehaviourActor를 유지함.
-     * */
-    private var runningActors = ArrayDeque<MonobehaviourActor>();
-
-    /**
-     * 이벤트를 dispatch하고, Monobehaviour들을 업데이트함. <br>
-     * 이벤트가 dispatch된 actor들은 기본적으로 runningActors Deque에 삽입.
-     * runningActors에서 더 이상 update할 Monobehaviour가 남지 않은 actor의 경우 제거.
-     * (즉 실행될 여지가 남아있는 경우, 추가하고 그렇지 않은 경우 추가하지 않음.)
-     * */
-    override fun run() {
-
-        while (eventTriggeredActors.isNotEmpty()) {
-            val actor = eventTriggeredActors.removeFirst();
-            //update() 하는 Monobehaviour이 있는가?
-            if(actor.isEmptyForRunningMonobehaviour()){
-                runningActors.addLast(actor);
-            }
-            actor.dispatchEvents();
-        }
-
-        val newRunningActors = ArrayDeque<MonobehaviourActor>()
-        while(runningActors.isNotEmpty()){
-            val actor = runningActors.removeFirst();
-            val hasRunningMonobehav = actor.updateMonobehaviour();
-            //여기도 isEmptyForRunningMonobehaviour() 써도 되긴 하는데, 일부러 안 건드림.
-            //아무래도 메소드 한번 호출보다야 이미 저장된 값 쓰는 게 더 빠를 테니까.
-            if(hasRunningMonobehav){
-                newRunningActors.addLast(actor);
-            }
-        }
-        this.runningActors = newRunningActors;
-
-        update();
+    public fun createCylinder(line : InfStraightLine, height : Double, radius : Double) : Cylinder{
+        return Cylinder(geometryModule, line, height, radius);
     }
 
-    fun getMonobehavActors() : MutableList<MonobehaviourActor>{
-        return monobehaviourActorList;
+    public fun createCylinder(location : Location, height : Double, radius : Double) : Cylinder{
+        val dir = location.direction;
+        return Cylinder(geometryModule,
+            InfStraightLine(geometryModule, dir.x, dir.y, dir.z, location.x, location.y, location.z),
+            radius, height);
     }
+
+    public fun createInfStrightLine(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): InfStraightLine {
+        return InfStraightLine(geometryModule, dirX, dirY, dirZ, posX, posY, posZ);
+    }
+
+    public fun createInfPlane(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): InfPlane {
+        return InfPlane(geometryModule, posX, posY, posZ, dirX, dirY, dirZ);
+    }
+
+    public fun createOrientedBox(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): OrientedBox {
+        return OrientedBox(geometryModule,posX,posY,posZ, Quaterniond(dirX, dirY, dirZ, 0.0), 0.0, 0.0, 0.0);
+    }
+
+    val monobehaviourModule = MonobehaviourModule(this)
 
     protected abstract fun update();
 
-    fun submitActorWhoTriggeredEvent(actor : MonobehaviourActor){
-        eventTriggeredActors.add(actor);
-    }
 
-    fun registerMonobehaviourActor(actor : MonobehaviourActor){
-        //println("Registering : " + actor.javaClass)
-        monobehaviourActorList.add(actor);
-        actor.setDPEngine(this);
+    override fun run() {
+        monobehaviourModule.updateMonobehaviourActors();
+
+
+
+        update();
     }
 
 }

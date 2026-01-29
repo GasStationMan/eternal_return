@@ -25,7 +25,7 @@ public class EREngine extends DPEngine {
             Set<String> tags = p.getScoreboardTags();
 
             erPlayer.getSkill().update();
-            erPlayer.getMotionManager().update(erPlayer, tags);
+            erPlayer.getMotionManager().update(tags);
         }
 
         ERAnimalManager.update(32);
@@ -36,7 +36,7 @@ public class EREngine extends DPEngine {
      * 일반 registerMonobehaviourActor를 통해 등록 시 Entity를 통해 접근이 불가해짐.
      * */
     public void registerBukkitActor(Entity entity, EREntity actor){
-        super.registerMonobehaviourActor(actor);
+        super.getMonobehaviourModule().registerMonobehaviourActor(actor);
         erEntityMap.put(entity,actor);
     }
 

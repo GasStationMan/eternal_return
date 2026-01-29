@@ -2,7 +2,7 @@ package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
-import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;

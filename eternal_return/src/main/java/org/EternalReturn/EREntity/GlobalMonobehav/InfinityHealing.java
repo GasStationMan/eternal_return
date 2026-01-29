@@ -2,7 +2,7 @@ package org.EternalReturn.EREntity.GlobalMonobehav;
 
 import org.EternalReturn.EREntity.EREntityMonobehaviour;
 import org.EternalReturn.EREntity.Event.EREntityDamagedEvent;
-import org.EternalReturn.Util.DPEngine.Behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 

@@ -1,9 +1,9 @@
-package org.EternalReturn.Util.DPEngine.Geometry
+package org.EternalReturn.Util.DPEngine.geometry
 
 
 
 open class InfCylinder internal constructor(
-    engine: GeometryEngine,
+    engine: GeometryModule,
     var center: InfStraightLine,
     var radius: Double
 ) : Collider(engine) {
