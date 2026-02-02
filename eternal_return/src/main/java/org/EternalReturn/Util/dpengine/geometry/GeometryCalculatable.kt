@@ -1,7 +1,7 @@
 package org.EternalReturn.Util.geometryModule.Geometry
 
-import org.EternalReturn.Util.DPEngine.geometry.GeometryModule
-import org.EternalReturn.Util.DPEngine.geometry.Vector3
+import org.EternalReturn.Util.dpengine.geometry.GeometryModule
+import org.EternalReturn.Util.dpengine.geometry.Vector3
 
 
 open class GeometryCalculatable{

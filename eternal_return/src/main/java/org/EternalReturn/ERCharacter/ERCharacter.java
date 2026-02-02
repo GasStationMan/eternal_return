@@ -13,13 +13,14 @@ public abstract class ERCharacter extends EREntity {
     protected long cooldownSeconds;
 
     public ERCharacter(ERPlayer erPlayer){
-        super(erPlayer.getPlayer(), PluginInstance.getEREngine().createCylinder(
+        super(PluginInstance.getEREngine().createCylinder(
                 PluginInstance.getEREngine().createInfStrightLine(0,1,0,
                         erPlayer.getPlayer().getLocation().getX(),
                         erPlayer.getPlayer().getLocation().getY(),
                         erPlayer.getPlayer().getLocation().getZ()),
                 1,3));
-        this.erPlayer = (ERPlayer)getEntity();
+        this.setEntity(erPlayer.getPlayer());
+        this.erPlayer = erPlayer;
         registerMonobehaviour(new PlayerRayCastingByLeftClicking());
     }
 

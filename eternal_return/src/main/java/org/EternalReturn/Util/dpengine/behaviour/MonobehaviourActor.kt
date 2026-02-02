@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.DPEngine.behaviour
+package org.EternalReturn.Util.dpengine.behaviour
 
 import java.util.*
 
@@ -105,7 +105,7 @@ abstract class MonobehaviourActor protected constructor() {
      * 해당 이벤트 클래스에 맞는 (MonobehaviourEvent, Monobehaviour) 쌍을 저장한다.
      * 또한 해당 Monobehaviour의 DPEngine객체 또한 저장한다.
      */
-    protected fun registerMonobehaviour(monobehaviour: Monobehaviour<out MonobehaviourEvent>) {
+    protected fun registerMonobehaviour(monobehaviour: Monobehaviour<*>) {
         if (this.monobehaviourMap.get(monobehaviour.eventType) != null) {
             throw DuplicatedMonobehaviourRegisterException("Key " + monobehaviour.eventType + " is duplicated.")
         }

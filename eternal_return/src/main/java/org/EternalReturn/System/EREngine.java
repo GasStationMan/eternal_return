@@ -3,7 +3,7 @@ package org.EternalReturn.System;
 import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.ERAnimal.ERAnimalManager;
-import org.EternalReturn.Util.DPEngine.DPEngine;
+import org.EternalReturn.Util.dpengine.DPEngine;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
@@ -20,13 +20,13 @@ public class EREngine extends DPEngine {
     @Override
     public void update(){
 
-        for(ERPlayer erPlayer : SystemManager.getERPlayerHashMap().values()){
-            Player p = erPlayer.getPlayer();
-            Set<String> tags = p.getScoreboardTags();
-
-            erPlayer.getSkill().update();
-            erPlayer.getMotionManager().update(tags);
-        }
+        //for(ERPlayer erPlayer : SystemManager.getERPlayerHashMap().values()){
+        //    Player p = erPlayer.getPlayer();
+        //    Set<String> tags = p.getScoreboardTags();
+        //
+        //    erPlayer.getSkill().update();
+        //    erPlayer.getMotionManager().update(tags);
+        //}
 
         ERAnimalManager.update(32);
     }

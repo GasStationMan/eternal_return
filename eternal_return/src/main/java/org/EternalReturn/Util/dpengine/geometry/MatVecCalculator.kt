@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.DPEngine.geometry
+package org.EternalReturn.Util.dpengine.geometry
 
 import java.lang.AutoCloseable
 import kotlin.math.sqrt

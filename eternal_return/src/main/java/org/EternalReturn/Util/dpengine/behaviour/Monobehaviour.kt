@@ -1,6 +1,6 @@
-package org.EternalReturn.Util.DPEngine.behaviour
+package org.EternalReturn.Util.dpengine.behaviour
 
-import org.EternalReturn.Util.DPEngine.DPEngine
+import org.EternalReturn.Util.dpengine.DPEngine
 import org.EternalReturn.Util.geometryModule.Geometry.GeometryCalculatable
 import java.lang.reflect.ParameterizedType
 
@@ -9,8 +9,8 @@ import java.lang.reflect.ParameterizedType
  * 대부분의 수정 사항은 MonobehaviourActor.registerMonobehaviour()에서 이루어짐.
  */
 abstract class Monobehaviour<T : MonobehaviourEvent> protected constructor() : GeometryCalculatable() {
-    internal open lateinit var eventType: Class<T>
-    internal open lateinit var actor: MonobehaviourActor
+    open lateinit var eventType: Class<T>
+    open lateinit var actor: MonobehaviourActor
     lateinit var dpEngine: DPEngine;
     var state: State = State.STOP
         private set

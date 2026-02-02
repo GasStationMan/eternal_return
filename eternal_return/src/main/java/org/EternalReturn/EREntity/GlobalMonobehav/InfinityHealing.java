@@ -2,7 +2,7 @@ package org.EternalReturn.EREntity.GlobalMonobehav;
 
 import org.EternalReturn.EREntity.EREntityMonobehaviour;
 import org.EternalReturn.EREntity.Event.EREntityDamagedEvent;
-import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 
@@ -12,10 +12,9 @@ public class InfinityHealing extends EREntityMonobehaviour<EREntityDamagedEvent>
 
     @Override
     public void start(EREntityDamagedEvent event) {
-        Entity entity = getActor().getEntity();
+        Entity entity = this.getEntity();
         if(entity instanceof LivingEntity livingEntity){
             livingEntity.setHealth(20);
-            System.out.println("Event dispatched");
         }
     }
 

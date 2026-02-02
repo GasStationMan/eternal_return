@@ -11,7 +11,7 @@ public class Alpha extends ERAnimal {
     public Alpha(@NotNull Location location) {
         super(
                 new ERAJEntity("animal_alpha", location),
-                PluginInstance.getEREngine().createCylinder(PluginInstance.getEREngine().createInfStrightLine(0,1,0, location.getX(), location.getY(), location.getZ()),3,1)
+                PluginInstance.getEREngine().createCylinder(location,3,2)
         );
 
         this.ajEntity.registerAnimation("ready",2.0d);

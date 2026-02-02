@@ -4,7 +4,7 @@ import org.EternalReturn.ERCharacter.Event.CharacterEvent
 import org.EternalReturn.EREntity.EREntityMonobehaviour
 import org.EternalReturn.ERPlayer.ERPlayer
 import org.EternalReturn.ERPlayer.ERPlayerListener
-import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourActor
+import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourActor
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 

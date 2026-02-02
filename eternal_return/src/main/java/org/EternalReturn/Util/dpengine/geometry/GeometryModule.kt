@@ -1,6 +1,6 @@
-package org.EternalReturn.Util.DPEngine.geometry
+package org.EternalReturn.Util.dpengine.geometry
 
-import org.EternalReturn.Util.DPEngine.DPEngine
+import org.EternalReturn.Util.dpengine.DPEngine
 import org.bukkit.Location
 import org.joml.Quaterniond
 import org.joml.Vector3d

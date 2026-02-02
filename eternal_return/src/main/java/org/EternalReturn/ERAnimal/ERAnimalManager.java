@@ -6,15 +6,17 @@ import org.EternalReturn.ERAnimal.Animals.Boar.Boar;
 import org.EternalReturn.ERAnimal.Animals.Wolf.Wolf;
 import org.EternalReturn.ERAnimal.Event.ERAnimalReadyEvent;
 import org.EternalReturn.ERPlayer.ERPlayer;
-import org.EternalReturn.Util.DPEngine.DPEngine;
+import org.EternalReturn.Util.dpengine.DPEngine;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
+import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -124,6 +126,7 @@ public class ERAnimalManager {
 
     }
 
+
     private void __registerERAnimals(/*AJEntityManager ajEntityManager*/) {
 
         for(AreaERAnimalInfo areaInfo : areaInfoMap.values()){
@@ -132,7 +135,7 @@ public class ERAnimalManager {
                 //ERAnimal 생성
                 ERAnimal newInstance = new_ERAnimal(animalInfo);
 
-                this.animalList.add(newInstance);
+                animalList.add(newInstance);
 
                 AJEntityManager.registerAJEntity(newInstance.getAJEntity());
             }

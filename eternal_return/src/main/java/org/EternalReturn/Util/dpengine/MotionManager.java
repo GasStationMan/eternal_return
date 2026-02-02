@@ -1,4 +1,4 @@
-package org.EternalReturn.Util.DPEngine;
+package org.EternalReturn.Util.dpengine;
 
 import java.util.Set;
 

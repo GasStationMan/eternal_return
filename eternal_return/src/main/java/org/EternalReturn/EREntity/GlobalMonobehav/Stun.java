@@ -2,8 +2,9 @@ package org.EternalReturn.EREntity.GlobalMonobehav;
 
 import org.EternalReturn.EREntity.EREntityMonobehaviour;
 import org.EternalReturn.EREntity.Event.EREntityStunEvent;
-import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
@@ -22,7 +23,7 @@ public class Stun extends EREntityMonobehaviour<EREntityStunEvent> {
     }
 
     @Override
-    public void update(Collection<MonobehaviourEvent> event) {
+    public void update(@NotNull Collection<MonobehaviourEvent> event) {
         if(isNotEnd(startStunMillies,duration)){
             getEntity().teleport(stunLocation);
             return;

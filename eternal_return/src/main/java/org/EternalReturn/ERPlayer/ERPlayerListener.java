@@ -7,6 +7,7 @@ import org.EternalReturn.ERCharacter.Event.CharacterLeftClickEvent;
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
 import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.EREntity.Event.EREntityDamagedEvent;
+import org.EternalReturn.System.EREngine;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.bukkit.entity.Entity;
@@ -77,7 +78,7 @@ public class ERPlayerListener implements Listener {
             return;
         }
 
-        character.submitEvent(new CharacterAttackEvent(erPlayer, e.getEntity()));
+        character.submitEvent(new CharacterAttackEvent(character, victim));
     }
 
     @EventHandler

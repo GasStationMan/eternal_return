@@ -4,7 +4,7 @@ import org.EternalReturn.ERAnimal.ERAJEntity;
 import org.EternalReturn.ERAnimal.ERAnimalMonobehaviour;
 import org.EternalReturn.ERAnimal.Event.ERAnimalAttackedByPlayerEvent;
 import org.EternalReturn.ERAnimal.Event.ERAnimalPlayerToFarAwayEvent;
-import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Husk;
@@ -72,7 +72,5 @@ public class Battle extends ERAnimalMonobehaviour<ERAnimalAttackedByPlayerEvent>
             ajEntity.playAnimForce("attack");
         }
     }
-
-
 
 }

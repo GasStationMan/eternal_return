@@ -1,13 +1,15 @@
-package org.EternalReturn.Util.DPEngine
+package org.EternalReturn.Util.dpengine
 
-import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourModule
-import org.EternalReturn.Util.DPEngine.geometry.Cylinder
-import org.EternalReturn.Util.DPEngine.geometry.GeometryModule
-import org.EternalReturn.Util.DPEngine.geometry.InfPlane
-import org.EternalReturn.Util.DPEngine.geometry.InfStraightLine
-import org.EternalReturn.Util.DPEngine.geometry.OrientedBox
+import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourModule
+import org.EternalReturn.Util.dpengine.command.Command
+import org.EternalReturn.Util.dpengine.geometry.Cylinder
+import org.EternalReturn.Util.dpengine.geometry.GeometryModule
+import org.EternalReturn.Util.dpengine.geometry.InfPlane
+import org.EternalReturn.Util.dpengine.geometry.InfStraightLine
+import org.EternalReturn.Util.dpengine.geometry.OrientedBox
 import org.bukkit.Location
 import org.joml.Quaterniond
+import java.util.concurrent.ArrayBlockingQueue
 
 /**
  * Made by Danpung (TDanfung)
@@ -40,17 +42,32 @@ abstract class DPEngine(bufferSize: Int = 512) : Runnable {
         return OrientedBox(geometryModule,posX,posY,posZ, Quaterniond(dirX, dirY, dirZ, 0.0), 0.0, 0.0, 0.0);
     }
 
-    val monobehaviourModule = MonobehaviourModule(this)
+    public val monobehaviourModule = MonobehaviourModule(this)
 
     protected abstract fun update();
 
+    public val commandQueue = ArrayBlockingQueue<Command>(128);
 
+    public fun appendCommandQueue(cmd : Command){
+        commandQueue.add(cmd);
+        //println("Command queue length = " + commandQueue.size);
+    }
+
+    public fun flushCommandQueue(){
+        while(!commandQueue.isEmpty()){
+            val cmd = commandQueue.poll();
+            cmd.run();
+        }
+    }
+
+    /**
+     * In main thread
+     * */
     override fun run() {
-        monobehaviourModule.updateMonobehaviourActors();
-
-
-
+        monobehaviourModule.consumeEvents();
+        monobehaviourModule.updateMonobehaviours();
         update();
+        flushCommandQueue();
     }
 
 }

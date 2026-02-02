@@ -2,7 +2,7 @@ package org.EternalReturn.ERCharacter.Character.hyunwoo;
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
-import org.EternalReturn.Util.DPEngine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -16,7 +16,7 @@ public class StackingPunch extends ERCharacterMonobehaviour<CharacterAttackEvent
 
     @Override
     public void start(CharacterAttackEvent event) {
-        Entity victimEntity = event.victim;
+        Entity victimEntity = event.victim.getEntity();
 
         if(!(victimEntity instanceof LivingEntity victim)){
             return;

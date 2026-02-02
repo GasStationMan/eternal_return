@@ -1,6 +1,6 @@
-package org.EternalReturn.Util.DPEngine.behaviour
+package org.EternalReturn.Util.dpengine.behaviour
 
-import org.EternalReturn.Util.DPEngine.DPEngine
+import org.EternalReturn.Util.dpengine.DPEngine
 
 class MonobehaviourModule(val dpEngine: DPEngine) {
 
@@ -8,7 +8,7 @@ class MonobehaviourModule(val dpEngine: DPEngine) {
 
     /**
      * 이벤트가 dispatch된 순서대로 MonobehaviourActor을 추가함.
-     * 해당 LinkedList는 run() 내에서 앞에서부터 순서대로 소비됨.
+     * 해당 큐는 run() 내에서 앞에서부터 순서대로 소비됨.
      * */
     private val eventTriggeredActors = ArrayDeque<MonobehaviourActor>();
 
@@ -23,17 +23,18 @@ class MonobehaviourModule(val dpEngine: DPEngine) {
      * runningActors에서 더 이상 update할 Monobehaviour가 남지 않은 actor의 경우 제거.
      * (즉 실행될 여지가 남아있는 경우, 추가하고 그렇지 않은 경우 추가하지 않음.)
      * */
-    fun updateMonobehaviourActors() {
-
+    fun consumeEvents() {
         while (eventTriggeredActors.isNotEmpty()) {
             val actor = eventTriggeredActors.removeFirst();
             //update() 하는 Monobehaviour이 있는가?
-            if(actor.isEmptyForRunningMonobehaviour){
+            if (actor.isEmptyForRunningMonobehaviour) {
                 runningActors.addLast(actor);
             }
             actor.dispatchEvents();
         }
+    }
 
+    fun updateMonobehaviours(){
         val newRunningActors = ArrayDeque<MonobehaviourActor>()
         while(runningActors.isNotEmpty()){
             val actor = runningActors.removeFirst();
