@@ -31,6 +31,7 @@ class Active : ERCharacterMonobehaviour<CharacterSwapHandEvent>() {
             // 시작한 시간으로부터 5초가 지났는지 확인
             if (currentTime - skillActiveTick > durationMillis) {
                 isActive = false // 상태 종료
+                (actor as Character_Jackie).isBloodSweep = false
                 getPlayer().sendMessage("§7[재키] 스킬 상태가 종료되었습니다.")
             }
         }

@@ -533,7 +533,7 @@ class SoAOBB(val count: Int, vecCapacity: Int = 512) : SoAModule(vecCapacity) {
 
 fun main(){
 
-    SoAOBB(1024, 4096).test(1024)
+    SoAOBB(64, 4096).test(64)
     //val aos = MatVecCalculator()
 
 

@@ -1,6 +1,7 @@
 package org.EternalReturn.ERAnimal;
 
 import org.EternalReturn.ERAnimal.Event.ERAnimalEvent;
+import org.EternalReturn.EREntity.Event.EREntityEvent;
 import org.EternalReturn.Util.dpengine.behaviour.Monobehaviour;
 import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.entity.Entity;

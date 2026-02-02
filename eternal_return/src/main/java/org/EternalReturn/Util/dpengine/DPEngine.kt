@@ -38,6 +38,11 @@ abstract class DPEngine(bufferSize: Int = 512) : Runnable {
         return InfPlane(geometryModule, posX, posY, posZ, dirX, dirY, dirZ);
     }
 
+    public fun createOrientedBox(location : Location, halfX: Double, halfY: Double, halfZ: Double): OrientedBox {
+        val dir = location.direction;
+        return OrientedBox(geometryModule,location.x,location.y, location.z,Quaterniond(dir.x, dir.y, dir.z, 0.0), halfX, halfY, halfZ);
+    }
+
     public fun createOrientedBox(dirX: Double, dirY: Double, dirZ: Double, posX: Double, posY: Double, posZ: Double): OrientedBox {
         return OrientedBox(geometryModule,posX,posY,posZ, Quaterniond(dirX, dirY, dirZ, 0.0), 0.0, 0.0, 0.0);
     }

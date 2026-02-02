@@ -1,10 +1,7 @@
 package org.EternalReturn.ERPlayer;
 
 import org.EternalReturn.ERCharacter.ERCharacter;
-import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent;
-import org.EternalReturn.ERCharacter.Event.CharacterKillEvent;
-import org.EternalReturn.ERCharacter.Event.CharacterLeftClickEvent;
-import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent;
+import org.EternalReturn.ERCharacter.Event.*;
 import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.EREntity.Event.EREntityDamagedEvent;
 import org.EternalReturn.System.EREngine;
@@ -76,12 +73,13 @@ public class ERPlayerListener implements Listener {
 
         victim.submitEvent(new EREntityDamagedEvent());
 
+        /// LivingEntity.damage() 함수로 피해를 준 경우에 제외
         if (apiAttackers.remove(p.getUniqueId())) {
             System.out.println("[API DAMAGE] dropped from " + p.getName());
             return;
         }
 
-        character.submitEvent(new CharacterAttackEvent(character, victim));
+        character.submitEvent(new CharacterLeftClickEvent());
     }
 
     @EventHandler

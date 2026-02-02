@@ -2,16 +2,31 @@ package org.EternalReturn.Util.geometryModule.Geometry
 
 import org.EternalReturn.Util.dpengine.geometry.GeometryModule
 import org.EternalReturn.Util.dpengine.geometry.Vector3
+import kotlin.math.sqrt
 
 
 open class GeometryCalculatable{
 
     public lateinit var geometryModule : GeometryModule;
 
-    open fun geometryCalculatableInit(geometryModule : GeometryModule){
+    fun geometryCalculatableInit(geometryModule : GeometryModule){
         this.geometryModule = geometryModule
     }
 
+
+    fun magnitudeSqr(distVec: Vector3) : Double{
+        val x = geometryModule.x(distVec);
+        val y = geometryModule.y(distVec);
+        val z = geometryModule.z(distVec);
+        return x*x + y*y + z*z;
+    }
+
+    fun magnitude(distVec: Vector3) : Double{
+        val x = geometryModule.x(distVec);
+        val y = geometryModule.y(distVec);
+        val z = geometryModule.z(distVec);
+        return sqrt(x*x + y*y + z*z);
+    }
 
     infix fun Vector3.dot(b: Vector3): Double {
         return geometryModule.dotprd(b, this)
@@ -32,9 +47,15 @@ open class GeometryCalculatable{
         return out
     }
 
-    open operator fun Vector3.plus(b: Vector3): Vector3 {
+    operator fun Vector3.plus(b: Vector3): Vector3 {
         val out = geometryModule.vec3()
         geometryModule.add(out, this, b)
+        return out
+    }
+
+    operator fun Vector3.minus(b: Vector3): Vector3 {
+        val out = geometryModule.vec3()
+        geometryModule.sub(out, this, b)
         return out
     }
 

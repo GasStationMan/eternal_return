@@ -1,5 +1,6 @@
 package org.EternalReturn.ERAnimal;
 
+import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntity;
@@ -16,6 +17,12 @@ import java.util.List;
 
 
 public class ERAJEntity extends AJEntity {
+
+    /**
+     * afterSpawnEvent 이후 entity 필드 초기화됨
+     * 그때까지는 erEntity.entity == null
+     * */
+    protected EREntity erEntity;
 
     protected boolean isHit;
 
@@ -98,6 +105,7 @@ public class ERAJEntity extends AJEntity {
             throw new NullPointerException("ACTOR가 null입니다.");
         }
         actor.addPassenger(rootEntity);
+        erEntity.setEntity(actor);
     }
 
 

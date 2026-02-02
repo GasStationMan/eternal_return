@@ -4,6 +4,7 @@ import org.EternalReturn.ERAnimal.ERAJEntity;
 import org.EternalReturn.ERAnimal.ERAnimalMonobehaviour;
 import org.EternalReturn.ERAnimal.Event.ERAnimalAttackedByPlayerEvent;
 import org.EternalReturn.ERAnimal.Event.ERAnimalPlayerToFarAwayEvent;
+import org.EternalReturn.EREntity.Event.EREntityDamagedEvent;
 import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -28,17 +29,22 @@ public class Battle extends ERAnimalMonobehaviour<ERAnimalAttackedByPlayerEvent>
         ajEntity = getERAJEntity();
         if(!ajEntity.isShown())return;
         state = AnimalState.MOVE;
+        ((Husk)ajEntity.getActor()).setAI(true);
+        System.out.println("attacked by player");
     }
 
     @Override
     public void update(Collection<MonobehaviourEvent> eventList) {
 
-        for(MonobehaviourEvent event : eventList){
-            if(event instanceof ERAnimalPlayerToFarAwayEvent){
-                ajEntity.stopAnim();
-                stopMonobehav();
-            }
-        }
+        //for(MonobehaviourEvent event : eventList){
+        //    if(event instanceof ERAnimalPlayerToFarAwayEvent){
+        //        ajEntity.stopAnim();
+        //        stopMonobehav();
+        //    }
+        //}
+
+
+        //System.out.println("updating");
 
         //rotating == look at a target
         Husk actor = (Husk)ajEntity.getActor();
@@ -52,12 +58,14 @@ public class Battle extends ERAnimalMonobehaviour<ERAnimalAttackedByPlayerEvent>
         //범위 내에 있는가?
         boolean isInDistance = isInDistance(3, actor, target);
 
+        //상태 결정
         if(isInDistance && state != AnimalState.ATTACK){
             state = AnimalState.ATTACK;
         }else if(!ajEntity.isPlaying("attack")){
             state = AnimalState.MOVE;
         }
 
+        //상태에 따라 행동 : MOVE
         if(state == AnimalState.MOVE){
             actor.setAI(true);
             if(actor.getVelocity().isZero()){
@@ -67,6 +75,7 @@ public class Battle extends ERAnimalMonobehaviour<ERAnimalAttackedByPlayerEvent>
             ajEntity.playAnim("move");
         }
 
+        //상태에 따라 행동 : ATTACK
         if(state == AnimalState.ATTACK){
             actor.setAI(false);
             ajEntity.playAnimForce("attack");

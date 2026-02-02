@@ -12,11 +12,11 @@ class OrientedBox(
 ) : Collider(engine) {
 
     public override fun setPosition(x: Double, y: Double, z: Double) {
+        px = x; py = y; pz = z;
     }
 
     public override fun setDirection(x: Double, y: Double, z: Double) {
-        val q = Quaterniond(1.0, 0.0, 0.0, 0.0);
-
+        orientation.rotateXYZ(x,y,z);
     }
 
     public override fun rayCasting(out: Vector3, pos: Vector3, dir: Vector3): Boolean {

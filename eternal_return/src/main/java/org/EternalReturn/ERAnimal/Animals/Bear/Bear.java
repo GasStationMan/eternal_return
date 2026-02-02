@@ -11,7 +11,7 @@ public class Bear extends ERAnimal{
     public Bear(@NotNull Location location) {
         super(
                 new ERAJEntity("animal_bear", location),
-                PluginInstance.getEREngine().createCylinder(location,3,2)
+                PluginInstance.getEREngine().createOrientedBox(location,3.0/2,1.5/2,3.0/2)
         );
 
         this.ajEntity.registerAnimation("ready",2.0d);

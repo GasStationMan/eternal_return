@@ -7,12 +7,7 @@ import org.bukkit.entity.Entity;
 public class ERDummy extends EREntity{
 
     public ERDummy(Entity entity){
-        super(PluginInstance.getEREngine().createCylinder(
-                PluginInstance.getEREngine().createInfStrightLine(0,1,0,
-                        entity.getLocation().getX(),
-                        entity.getLocation().getY(),
-                        entity.getLocation().getZ()),
-                1,3));
+        super(PluginInstance.getEREngine().createOrientedBox(entity.getLocation(),1.0/2,2.0/2,1.0/2));
         this.setEntity(entity);
         registerMonobehaviour(new InfinityHealing());
     }

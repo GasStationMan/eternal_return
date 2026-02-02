@@ -4,7 +4,10 @@ import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.ERAnimal.ERAnimalManager;
 import org.EternalReturn.Util.dpengine.DPEngine;
+import org.EternalReturn.Util.dpengine.geometry.Collider;
+import org.bukkit.Location;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -27,6 +30,16 @@ public class EREngine extends DPEngine {
         //    erPlayer.getSkill().update();
         //    erPlayer.getMotionManager().update(tags);
         //}
+
+        for(EREntity erEntity : erEntityMap.values()){
+            if(erEntity.getEntity() == null)continue;
+
+            Location loc = erEntity.getEntity().getLocation();
+            Collider collider = erEntity.getCollider();
+            collider.setPosition(loc.getX(), loc.getY(), loc.getZ());
+            collider.setDirection(0.0, loc.getPitch(), 0.0);
+
+        }
 
         ERAnimalManager.update(32);
     }

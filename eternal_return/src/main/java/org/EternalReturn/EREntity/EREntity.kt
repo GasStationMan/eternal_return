@@ -26,14 +26,13 @@ abstract class EREntity( // extends MonobehaviourActor()
      * 해당 MonobehaviourActor의 Collider 설정
      */
     val collider: Collider
+
 ) : MonobehaviourActor() {
 
     /**
      * 해당 MonobehaviourActor의 MNS 객체 설정
      */
     var entity: Entity? = null
-
-    val motionManager : MotionManager = MotionManager(entity)
 
     val geometryModule : GeometryModule;
 
