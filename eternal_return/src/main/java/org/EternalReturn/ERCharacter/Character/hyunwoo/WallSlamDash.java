@@ -109,13 +109,9 @@ public class WallSlamDash extends ERCharacterMonobehaviour<CharacterSwapHandEven
                     victim.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, loc.clone().add(0, 1, 0), 3, 0.3, 0.3, 0.3, 0.05);
                 }
             }
-        } else if (stunTimer >= 40) {
-            // [핵심] 40틱이 지나 기절이 끝나면 상태를 초기화하여 재사용 가능하게 함
-            isWallSlam = false;
-            stunTimer = 0;
-            stunnedVictims.clear();
-            hitEntities.clear(); // 다음 돌진을 위해 타격 리스트도 비워줌
+            return;
         }
+        stopMonobehav();
     }
 
     private void handleWallSlamSuccess(Player player) {

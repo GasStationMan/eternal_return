@@ -26,6 +26,7 @@ public class Ready extends ERAnimalMonobehaviour<ERAnimalReadyEvent> {
             if(event instanceof ERAnimalAttackedByPlayerEvent){
                 ajEntity.stopAnim();
                 stopMonobehav();
+                return;
             }
 
             if(event instanceof ERAnimalReadyEvent){

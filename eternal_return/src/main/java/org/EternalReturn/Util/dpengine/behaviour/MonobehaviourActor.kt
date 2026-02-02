@@ -54,6 +54,7 @@ abstract class MonobehaviourActor protected constructor() {
     /**
      * 제출된 이벤트 디큐에서 하나씩 빼면서 dispatch,
      * 해당 이벤트는 다시 checkedEvent 내에 삽입됨.
+     * 실행중인 Monobehaviour이면 무시됨.
      */
     protected var checkedEvent: ArrayDeque<MonobehaviourEvent> = ArrayDeque<MonobehaviourEvent>()
 
@@ -62,7 +63,7 @@ abstract class MonobehaviourActor protected constructor() {
             val event = submittedEvent.removeFirst()
             val monobehav = monobehaviourMap.get(event.javaClass)
             //System.out.println(event.getClass());
-            if (monobehav == null) {
+            if (monobehav == null || monobehav.isRunning) {
                 continue
             }
             runningBehaviours.add(monobehav)
