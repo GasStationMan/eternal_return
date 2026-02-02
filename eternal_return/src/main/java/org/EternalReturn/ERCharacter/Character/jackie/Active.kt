@@ -33,8 +33,6 @@ class Active : ERCharacterMonobehaviour<CharacterSwapHandEvent>() {
                 isActive = false // 상태 종료
                 getPlayer().sendMessage("§7[재키] 스킬 상태가 종료되었습니다.")
             }
-
-
         }
     }
 }

@@ -69,9 +69,12 @@ public class ERPlayerListener implements Listener {
         }
 
         EREntity victim = PluginInstance.getEREngine().getEREntity(e.getEntity());
-        if(victim != null){
-            victim.submitEvent(new EREntityDamagedEvent());
+
+        if(victim == null){
+            return;
         }
+
+        victim.submitEvent(new EREntityDamagedEvent());
 
         if (apiAttackers.remove(p.getUniqueId())) {
             System.out.println("[API DAMAGE] dropped from " + p.getName());
@@ -98,6 +101,7 @@ public class ERPlayerListener implements Listener {
         if(killer == null){
             return;
         }
+
         EREntity erKiller = PluginInstance.getEREngine().getEREntity(killer);
         if(erKiller == null){
             return;

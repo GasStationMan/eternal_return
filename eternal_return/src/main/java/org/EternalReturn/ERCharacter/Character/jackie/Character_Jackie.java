@@ -10,6 +10,7 @@ public class Character_Jackie extends ERCharacter {
     public Character_Jackie(ERPlayer erPlayer) {
         super(erPlayer);
         registerMonobehaviour(new Passive());
+        registerMonobehaviour(new Active());
         registerMonobehaviour(new Attack());
     }
 

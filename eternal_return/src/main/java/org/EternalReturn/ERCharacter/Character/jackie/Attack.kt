@@ -8,13 +8,12 @@ import org.bukkit.entity.Entity
 class Attack : ERCharacterMonobehaviour<CharacterAttackEvent>() {
 
     public override fun start(event: CharacterAttackEvent) {
-        val player = getPlayer()
 
         val dir = this.getERCharacter().direction;
 
-        event.victim.setVelocity(dir * 10.0);
-
         if((actor as Character_Jackie).isBloodSweep){
+
+            event.victim.setVelocity(dir * 10.0);
             //victim deal more
             //heal myself
         }
