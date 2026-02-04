@@ -6,8 +6,8 @@ import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent
 import org.EternalReturn.ERCharacter.Event.CharacterRayCastEvent
 import org.EternalReturn.EREntity.EREntity
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent
-import org.EternalReturn.Util.dpengine.geometry.Vector3
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent
+import org.EternalReturn.util.dpengine.geometry.Vector3
 
 class PlayerRayCastingMeleeAttack : ERCharacterMonobehaviour<CharacterRayCastEvent>() {
 

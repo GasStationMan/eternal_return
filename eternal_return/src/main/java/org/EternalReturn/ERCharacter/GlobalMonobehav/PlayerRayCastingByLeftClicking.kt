@@ -4,7 +4,7 @@ import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
 import org.EternalReturn.ERCharacter.Event.CharacterLeftClickEvent
 import org.EternalReturn.ERCharacter.Event.CharacterRayCastEvent
 import org.EternalReturn.EREntity.EREntity
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent
 
 /**
  * 플레이어가 왼쪽 클릭을 할 때마다 실행될 레이캐스트.

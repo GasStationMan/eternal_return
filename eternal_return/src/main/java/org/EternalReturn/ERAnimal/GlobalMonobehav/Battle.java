@@ -3,7 +3,7 @@ package org.EternalReturn.ERAnimal.GlobalMonobehav;
 import org.EternalReturn.ERAnimal.ERAJEntity;
 import org.EternalReturn.ERAnimal.ERAnimalMonobehaviour;
 import org.EternalReturn.ERAnimal.Event.ERAnimalAttackedByPlayerEvent;
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Husk;

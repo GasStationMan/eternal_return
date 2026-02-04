@@ -1,12 +1,11 @@
 package org.EternalReturn.System;
 
 import org.EternalReturn.Area.ERAreaGraph;
-import org.EternalReturn.ERCharacter.Character.NullCharacter;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Upgrader;
-import org.EternalReturn.Util.itemUtill.CustomModelData;
-import org.EternalReturn.Util.itemUtill.CustomModelDataManager;
+import org.EternalReturn.util.itemUtill.CustomModelData;
+import org.EternalReturn.util.itemUtill.CustomModelDataManager;
 import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.Model.Enchanter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;

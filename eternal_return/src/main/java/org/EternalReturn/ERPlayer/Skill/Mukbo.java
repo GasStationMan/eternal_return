@@ -2,8 +2,8 @@ package org.EternalReturn.ERPlayer.Skill;
 
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.itemUtill.CustomModelData;
-import org.EternalReturn.Util.itemUtill.CustomModelDataManager;
+import org.EternalReturn.util.itemUtill.CustomModelData;
+import org.EternalReturn.util.itemUtill.CustomModelDataManager;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;

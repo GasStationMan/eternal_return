@@ -1,6 +1,6 @@
 package org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.Model;
 
-import org.EternalReturn.Util.DataStructure.NodeMap;
+import org.EternalReturn.util.DataStructure.NodeMap;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;

@@ -1,13 +1,12 @@
 package org.EternalReturn.ERPlayer;
 
 import org.EternalReturn.ERAnimal.*;
-import org.EternalReturn.ERCharacter.Character.hyunwoo.Character_Hyunwoo;
 import org.EternalReturn.ERCharacter.Character.jackie.Character_Jackie;
 import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.EREntity.ERDummy;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.AJEntity.AJEntityManager;
+import org.EternalReturn.util.AJEntity.AJEntityManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;

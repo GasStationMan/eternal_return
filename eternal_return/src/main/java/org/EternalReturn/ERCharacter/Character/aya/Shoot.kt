@@ -2,7 +2,7 @@ package org.EternalReturn.ERCharacter.Character.aya
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
 import org.EternalReturn.ERCharacter.Event.CharacterRayCastEvent
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent
 
 class Shoot : ERCharacterMonobehaviour<CharacterRayCastEvent>() {
 

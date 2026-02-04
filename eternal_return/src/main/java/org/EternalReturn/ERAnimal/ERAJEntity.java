@@ -1,13 +1,11 @@
 package org.EternalReturn.ERAnimal;
 
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
 import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.AJEntity.AJEntity;
-import org.EternalReturn.Util.AJEntity.AJEntityManager;
-import org.EternalReturn.Util.Geometry.MathVector.Vec3d;
+import org.EternalReturn.util.AJEntity.AJEntity;
+import org.EternalReturn.util.AJEntity.AJEntityManager;
+import org.EternalReturn.util.Geometry.MathVector.Vec3d;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.World;

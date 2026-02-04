@@ -5,7 +5,7 @@ import org.EternalReturn.Area.AreaNode;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.ERPlayer.Gui.Bossbars.RumiaIsland.extBComponent.HBButton;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.bossbarGui.View.*;
+import org.EternalReturn.util.Gui.bossbarGui.View.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;

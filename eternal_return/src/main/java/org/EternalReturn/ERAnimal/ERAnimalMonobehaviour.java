@@ -1,8 +1,8 @@
 package org.EternalReturn.ERAnimal;
 
 import org.EternalReturn.ERAnimal.Event.ERAnimalEvent;
-import org.EternalReturn.Util.dpengine.behaviour.Monobehaviour;
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.util.dpengine.behaviour.Monobehaviour;
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.entity.Entity;
 
 import java.util.List;

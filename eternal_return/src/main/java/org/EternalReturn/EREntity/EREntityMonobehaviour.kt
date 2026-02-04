@@ -2,7 +2,7 @@ package org.EternalReturn.EREntity
 
 import org.EternalReturn.EREntity.Event.EREntityEvent
 import org.EternalReturn.System.EREngine
-import org.EternalReturn.Util.dpengine.behaviour.Monobehaviour
+import org.EternalReturn.util.dpengine.behaviour.Monobehaviour
 import org.bukkit.entity.Entity
 
 abstract class EREntityMonobehaviour<T : EREntityEvent>() : Monobehaviour<T>() {

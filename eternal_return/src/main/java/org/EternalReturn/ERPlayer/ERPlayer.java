@@ -6,8 +6,8 @@ import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.UpgradeGuiControll
 import org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.View.UpgradeGui;
 import org.EternalReturn.ERPlayer.Skill.Mukbo;
 import org.EternalReturn.ERPlayer.Skill.Skill;
-import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
-import org.EternalReturn.Util.Geometry.MathVector.Vec3d;
+import org.EternalReturn.util.Gui.InventoryGui.View.IController;
+import org.EternalReturn.util.Geometry.MathVector.Vec3d;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 

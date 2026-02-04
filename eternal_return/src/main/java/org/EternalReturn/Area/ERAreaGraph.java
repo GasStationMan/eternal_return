@@ -2,9 +2,9 @@ package org.EternalReturn.Area;
 
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.DataStructure.Graph.Edge;
-import org.EternalReturn.Util.DataStructure.Graph.Graph;
-import org.EternalReturn.Util.DataStructure.Graph.Vertex;
+import org.EternalReturn.util.DataStructure.Graph.Edge;
+import org.EternalReturn.util.DataStructure.Graph.Graph;
+import org.EternalReturn.util.DataStructure.Graph.Vertex;
 
 import java.util.ArrayList;
 import java.util.HashMap;

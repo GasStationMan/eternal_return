@@ -2,8 +2,8 @@ package org.EternalReturn.System;
 
 import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.ERAnimal.ERAnimalManager;
-import org.EternalReturn.Util.dpengine.DPEngine;
-import org.EternalReturn.Util.dpengine.geometry.Collider;
+import org.EternalReturn.util.dpengine.DPEngine;
+import org.EternalReturn.util.dpengine.geometry.Collider;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 

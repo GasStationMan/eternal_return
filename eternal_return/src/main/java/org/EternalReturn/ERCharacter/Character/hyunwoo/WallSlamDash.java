@@ -7,7 +7,7 @@ import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.EREngine;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;

@@ -1,8 +1,8 @@
 package org.EternalReturn.ERPlayer.Gui.Inventory.UpgradeSystem.Model;
 
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.itemUtill.CustomModelData;
-import org.EternalReturn.Util.itemUtill.CustomModelDataManager;
+import org.EternalReturn.util.itemUtill.CustomModelData;
+import org.EternalReturn.util.itemUtill.CustomModelDataManager;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.AttributeModifier;

@@ -2,14 +2,14 @@ package org.EternalReturn.EREntity
 
 import org.EternalReturn.EREntity.GlobalMonobehav.Stun
 import org.EternalReturn.System.PluginInstance
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourActor
-import org.EternalReturn.Util.dpengine.geometry.Collider
-import org.EternalReturn.Util.dpengine.geometry.GeometryModule
-import org.EternalReturn.Util.dpengine.geometry.Vector3
-import org.EternalReturn.Util.dpengine.behaviour.Monobehaviour
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent
-import org.EternalReturn.Util.dpengine.command.SetSpigotEntityPosition
-import org.EternalReturn.Util.dpengine.command.SetSpigotEntityVelocity
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourActor
+import org.EternalReturn.util.dpengine.geometry.Collider
+import org.EternalReturn.util.dpengine.geometry.GeometryModule
+import org.EternalReturn.util.dpengine.geometry.Vector3
+import org.EternalReturn.util.dpengine.behaviour.Monobehaviour
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent
+import org.EternalReturn.util.dpengine.command.SetSpigotEntityPosition
+import org.EternalReturn.util.dpengine.command.SetSpigotEntityVelocity
 import org.bukkit.entity.Entity
 import kotlin.math.cos
 import kotlin.math.sin

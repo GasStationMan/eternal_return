@@ -3,7 +3,7 @@ package org.EternalReturn.ERAnimal;
 import org.EternalReturn.ERAnimal.GlobalMonobehav.Battle;
 import org.EternalReturn.ERAnimal.GlobalMonobehav.Ready;
 import org.EternalReturn.EREntity.EREntity;
-import org.EternalReturn.Util.dpengine.geometry.Collider;
+import org.EternalReturn.util.dpengine.geometry.Collider;
 import org.jetbrains.annotations.NotNull;
 
 /**

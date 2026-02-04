@@ -8,7 +8,7 @@ import org.EternalReturn.ERPlayer.ERPlayerListener;
 import org.EternalReturn.ERPlayer.Gui.Inventory.InventoryGuiListener;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.EternalReturn.ERAnimal.ERAnimalManager;
-import org.EternalReturn.Util.AJEntity.AJEntityManager;
+import org.EternalReturn.util.AJEntity.AJEntityManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;

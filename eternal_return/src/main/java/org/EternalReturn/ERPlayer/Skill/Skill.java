@@ -1,6 +1,6 @@
 package org.EternalReturn.ERPlayer.Skill;
 
-import org.EternalReturn.Util.Free.FreeAble;
+import org.EternalReturn.util.Free.FreeAble;
 
 public abstract class Skill implements FreeAble {
 

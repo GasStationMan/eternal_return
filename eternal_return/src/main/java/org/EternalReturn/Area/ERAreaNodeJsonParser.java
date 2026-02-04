@@ -1,8 +1,6 @@
 package org.EternalReturn.Area;
 
 
-import org.EternalReturn.System.PluginInstance;
-import org.EternalReturn.Util.Geometry.MathVector.Vec3d;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

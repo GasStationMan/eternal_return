@@ -2,7 +2,7 @@ package org.EternalReturn.ERCharacter.Character.jackie
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent
 
 class Active : ERCharacterMonobehaviour<CharacterSwapHandEvent>() {
     private var skillActiveTick: Long = 0

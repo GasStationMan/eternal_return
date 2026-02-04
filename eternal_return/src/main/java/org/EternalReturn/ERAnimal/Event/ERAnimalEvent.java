@@ -1,6 +1,6 @@
 package org.EternalReturn.ERAnimal.Event;
 
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent;
 
 public interface ERAnimalEvent extends MonobehaviourEvent {
 

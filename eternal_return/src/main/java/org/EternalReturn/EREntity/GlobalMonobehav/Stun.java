@@ -2,7 +2,7 @@ package org.EternalReturn.EREntity.GlobalMonobehav;
 
 import org.EternalReturn.EREntity.EREntityMonobehaviour;
 import org.EternalReturn.EREntity.Event.EREntityStunEvent;
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
+import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent;
 import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 

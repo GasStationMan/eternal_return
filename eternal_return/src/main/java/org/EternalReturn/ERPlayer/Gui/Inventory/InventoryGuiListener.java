@@ -2,9 +2,9 @@ package org.EternalReturn.ERPlayer.Gui.Inventory;
 
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
-import org.EternalReturn.Util.Gui.InventoryGui.IGuiController;
-import org.EternalReturn.Util.Gui.InventoryGui.View.GuiPos;
-import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
+import org.EternalReturn.util.Gui.InventoryGui.IGuiController;
+import org.EternalReturn.util.Gui.InventoryGui.View.GuiPos;
+import org.EternalReturn.util.Gui.InventoryGui.View.IController;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
