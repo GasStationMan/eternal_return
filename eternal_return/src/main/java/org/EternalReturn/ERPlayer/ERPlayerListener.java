@@ -79,6 +79,7 @@ public class ERPlayerListener implements Listener {
         }
 
         character.submitEvent(new CharacterLeftClickEvent());
+        character.submitEvent(new CharacterAttackEvent(character, victim));
     }
 
     @EventHandler

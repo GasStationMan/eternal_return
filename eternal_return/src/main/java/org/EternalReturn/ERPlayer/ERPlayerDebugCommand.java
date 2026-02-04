@@ -1,6 +1,7 @@
 package org.EternalReturn.ERPlayer;
 
 import org.EternalReturn.ERAnimal.*;
+import org.EternalReturn.ERCharacter.Character.fiora.Character_Fiora;
 import org.EternalReturn.ERCharacter.Character.jackie.Character_Jackie;
 import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.EREntity.ERDummy;
@@ -86,7 +87,7 @@ public class ERPlayerDebugCommand implements CommandExecutor {
 
         else if(args.length == 1 && args[0].equalsIgnoreCase("ch")){
 
-            ERCharacter character = new Character_Jackie(erPlayer);
+            ERCharacter character = new Character_Fiora(erPlayer);
 
             erPlayer.setCharacter(character);
             PluginInstance.getEREngine().registerBukkitActor(p, character);

@@ -2,7 +2,7 @@ package org.EternalReturn.ERCharacter.Character.fiora
 
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
 import org.EternalReturn.ERCharacter.Event.CharacterSwapHandEvent
-import org.EternalReturn.EREntity.Event.ERToucheCountEvent
+import org.EternalReturn.ERCharacter.Character.fiora.event.ERToucheCountEvent
 import org.EternalReturn.System.PluginInstance
 import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent
 import org.bukkit.Particle
