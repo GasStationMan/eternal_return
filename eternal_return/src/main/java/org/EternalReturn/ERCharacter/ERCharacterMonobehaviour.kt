@@ -5,7 +5,6 @@ import org.EternalReturn.EREntity.EREntityMonobehaviour
 import org.EternalReturn.ERPlayer.ERPlayer
 import org.EternalReturn.ERPlayer.ERPlayerListener
 import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourActor
-import org.EternalReturn.Util.dpengine.geometry.Vector3
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 

@@ -8,7 +8,6 @@ import org.EternalReturn.ERPlayer.Skill.Mukbo;
 import org.EternalReturn.ERPlayer.Skill.Skill;
 import org.EternalReturn.Util.Gui.InventoryGui.View.IController;
 import org.EternalReturn.Util.Geometry.MathVector.Vec3d;
-import org.EternalReturn.Util.dpengine.MotionManager;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -20,14 +19,12 @@ public class ERPlayer {
     private IController upgradeGuiController;
     private ERCharacter character;
 
-    private MotionManager motionManager;
 
     private Skill mukbo;
 
     public void free(){
         upgradeGuiController.free();
         upgradeGui.free();
-        motionManager.free();
         mukbo.free();
     }
 
@@ -35,7 +32,6 @@ public class ERPlayer {
         player = p;
         upgradeGui = new UpgradeGui(p);
         upgradeGuiController = new UpgradeGuiController(this, upgradeGui);
-        motionManager = new MotionManager(p);
         mukbo = new Mukbo(this);
         character = new NullCharacter(this);
     }
@@ -49,9 +45,6 @@ public class ERPlayer {
         return upgradeGuiController;
     }
 
-    public MotionManager getMotionManager(){
-        return motionManager;
-    }
 
     public Skill getSkill(){
         return mukbo;

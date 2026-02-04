@@ -171,11 +171,12 @@ public class AJEntityManager implements Listener , FreeAble {
             ajEntityMap.put(entity, ajEntity);
             ajEntities.add(ajEntity);
 
-            ajEntity.rootEntity = entity;
             ajEntity.afterSpawnEvent(entity);
 
             System.out.println("ajEntity가 생성되었습니다. : " + ajEntity.getRootEntity().getUniqueId());
         }
+
+
     }
 
 }

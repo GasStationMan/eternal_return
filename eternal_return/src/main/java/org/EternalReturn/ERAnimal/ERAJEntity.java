@@ -1,11 +1,14 @@
 package org.EternalReturn.ERAnimal;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
 import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.System.SystemManager;
 import org.EternalReturn.Util.AJEntity.AJEntity;
 import org.EternalReturn.Util.AJEntity.AJEntityManager;
 import org.EternalReturn.Util.Geometry.MathVector.Vec3d;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.*;
@@ -30,7 +33,7 @@ public class ERAJEntity extends AJEntity {
 
     protected Husk actor;
 
-    private TextDisplay bar;
+    private TextDisplay hpbar;
     
     /**
      * 해당 엔티티가 얼마나 많은 플레이어에게 보여지고 있는지 저장
@@ -86,6 +89,15 @@ public class ERAJEntity extends AJEntity {
         actor.setAI(false);
         actor.setInvisible(true);
         actor.setSilent(true);
+
+        hpbar = (TextDisplay) world.spawnEntity(location, EntityType.TEXT_DISPLAY);
+
+        //TextComponent textComponent = Component.text("").font("");
+        //hpbar.setText(textComponent.content());
+
+        hpbar.setBillboard(Display.Billboard.CENTER);
+        hpbar.setBackgroundColor(Color.fromARGB(0,0,0,0));
+
     }
 
     /**
@@ -100,10 +112,16 @@ public class ERAJEntity extends AJEntity {
     }
 
     @Override
-    protected void afterSpawnEvent(Entity rootEntity){
+    protected void afterSpawnEvent(Entity spawnedRootEntity){
         if(actor == null){
             throw new NullPointerException("ACTOR가 null입니다.");
         }
+
+        ///actor(CraftHusk)에 2개 이상의 엔티티를 태우려고 시도 시에는 전부 다 내려지는 버그가 있음.
+        //
+
+        rootEntity = spawnedRootEntity;
+        rootEntity.addPassenger(hpbar);
         actor.addPassenger(rootEntity);
         erEntity.setEntity(actor);
     }
@@ -122,7 +140,7 @@ public class ERAJEntity extends AJEntity {
      * 해당 ER Animal의 Bar(체력, 이름, 레벨 등을 표시하는 막대)를 가져온다.
      * */
     public TextDisplay getBar(){
-        return this.bar;
+        return this.hpbar;
     }
 
     /**

@@ -3,9 +3,6 @@ package org.EternalReturn.ERAnimal;
 import org.EternalReturn.ERAnimal.GlobalMonobehav.Battle;
 import org.EternalReturn.ERAnimal.GlobalMonobehav.Ready;
 import org.EternalReturn.EREntity.EREntity;
-import org.EternalReturn.Util.dpengine.behaviour.Monobehaviour;
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourActor;
-import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent;
 import org.EternalReturn.Util.dpengine.geometry.Collider;
 import org.jetbrains.annotations.NotNull;
 

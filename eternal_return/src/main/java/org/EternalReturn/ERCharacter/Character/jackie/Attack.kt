@@ -3,7 +3,6 @@ package org.EternalReturn.ERCharacter.Character.jackie
 import org.EternalReturn.ERCharacter.ERCharacterMonobehaviour
 import org.EternalReturn.ERCharacter.Event.CharacterAttackEvent
 import org.EternalReturn.Util.dpengine.behaviour.MonobehaviourEvent
-import org.bukkit.entity.Entity
 
 class Attack : ERCharacterMonobehaviour<CharacterAttackEvent>() {
 

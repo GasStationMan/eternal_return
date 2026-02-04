@@ -1,0 +1,3 @@
+package org.EternalReturn.Util.dpengine.behaviour
+
+interface MonobehaviourEvent

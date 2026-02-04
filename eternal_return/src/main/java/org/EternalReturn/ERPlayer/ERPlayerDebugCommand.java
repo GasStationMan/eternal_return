@@ -78,13 +78,6 @@ public class ERPlayerDebugCommand implements CommandExecutor {
             p.sendMessage(tagSet.toString());
             return true;
         }
-        else if(args.length == 4 && args[0].equalsIgnoreCase("vector")){
-            erPlayer.getMotionManager().updateEntityMotion(
-                    Double.parseDouble(args[1]),
-                    Double.parseDouble(args[2]),
-                    Double.parseDouble(args[3])
-            );
-        }
         else if(args.length == 1 && args[0].equalsIgnoreCase("scoreboard")){
             ScoreboardManager scbManager = Bukkit.getScoreboardManager();
             Score data = scbManager.getMainScoreboard().getObjective("area").getScore("data");

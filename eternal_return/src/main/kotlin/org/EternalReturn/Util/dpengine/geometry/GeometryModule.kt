@@ -4,6 +4,9 @@ import org.EternalReturn.Util.dpengine.DPEngine
 import org.bukkit.Location
 import org.joml.Quaterniond
 import org.joml.Vector3d
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 import kotlin.math.sqrt
 
 public open class GeometryModule(val dpEngine : DPEngine, buffSize : Int = 512) : MatVecCalculator(buffSize) {
@@ -584,15 +587,15 @@ public open class GeometryModule(val dpEngine : DPEngine, buffSize : Int = 512) 
         var tMax = Double.POSITIVE_INFINITY
 
         fun slab(p: Double, d: Double, half: Double): Boolean {
-            if (kotlin.math.abs(d) < 1e-6f) {
-                return kotlin.math.abs(p) <= half
+            if (abs(d) < 1e-6f) {
+                return abs(p) <= half
             }
             val t1 = (-p - half) / d
             val t2 = (-p + half) / d
-            val near = kotlin.math.min(t1, t2)
-            val far  = kotlin.math.max(t1, t2)
-            tMin = kotlin.math.max(tMin, near)
-            tMax = kotlin.math.min(tMax, far)
+            val near = min(t1, t2)
+            val far  = max(t1, t2)
+            tMin = max(tMin, near)
+            tMax = min(tMax, far)
             return tMin <= tMax
         }
 

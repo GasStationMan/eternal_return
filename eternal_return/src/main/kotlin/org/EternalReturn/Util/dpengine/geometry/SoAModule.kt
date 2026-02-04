@@ -1,6 +1,9 @@
 package org.EternalReturn.Util.dpengine.geometry
 
 import java.lang.AutoCloseable
+import kotlin.math.abs
+import kotlin.math.cos
+import kotlin.math.sin
 import kotlin.math.sqrt
 
 /**
@@ -214,9 +217,9 @@ class SoAOBB(val count: Int, vecCapacity: Int = 512) : SoAModule(vecCapacity) {
         val R21 = A20*B10 + A21*B11 + A22*B12
         val R22 = A20*B20 + A21*B21 + A22*B22
 
-        val AbsR00 = kotlin.math.abs(R00) + EPS; val AbsR01 = kotlin.math.abs(R01) + EPS; val AbsR02 = kotlin.math.abs(R02) + EPS
-        val AbsR10 = kotlin.math.abs(R10) + EPS; val AbsR11 = kotlin.math.abs(R11) + EPS; val AbsR12 = kotlin.math.abs(R12) + EPS
-        val AbsR20 = kotlin.math.abs(R20) + EPS; val AbsR21 = kotlin.math.abs(R21) + EPS; val AbsR22 = kotlin.math.abs(R22) + EPS
+        val AbsR00 = abs(R00) + EPS; val AbsR01 = abs(R01) + EPS; val AbsR02 = abs(R02) + EPS
+        val AbsR10 = abs(R10) + EPS; val AbsR11 = abs(R11) + EPS; val AbsR12 = abs(R12) + EPS
+        val AbsR20 = abs(R20) + EPS; val AbsR21 = abs(R21) + EPS; val AbsR22 = abs(R22) + EPS
 
         val a0 = ex[a]; val a1 = ey[a]; val a2 = ez[a]
         val b0 = ex[b]; val b1 = ey[b]; val b2 = ez[b]
@@ -226,69 +229,69 @@ class SoAOBB(val count: Int, vecCapacity: Int = 512) : SoAModule(vecCapacity) {
 
         // 1) A0, A1, A2
         ra = a0; rb = b0*AbsR00 + b1*AbsR01 + b2*AbsR02
-        if (kotlin.math.abs(t0) > ra + rb) return false
+        if (abs(t0) > ra + rb) return false
 
         ra = a1; rb = b0*AbsR10 + b1*AbsR11 + b2*AbsR12
-        if (kotlin.math.abs(t1) > ra + rb) return false
+        if (abs(t1) > ra + rb) return false
 
         ra = a2; rb = b0*AbsR20 + b1*AbsR21 + b2*AbsR22
-        if (kotlin.math.abs(t2) > ra + rb) return false
+        if (abs(t2) > ra + rb) return false
 
         // 2) B0, B1, B2 (A 로컬에서)
         ra = a0*AbsR00 + a1*AbsR10 + a2*AbsR20; rb = b0
-        if (kotlin.math.abs(t0*R00 + t1*R10 + t2*R20) > ra + rb) return false
+        if (abs(t0*R00 + t1*R10 + t2*R20) > ra + rb) return false
 
         ra = a0*AbsR01 + a1*AbsR11 + a2*AbsR21; rb = b1
-        if (kotlin.math.abs(t0*R01 + t1*R11 + t2*R21) > ra + rb) return false
+        if (abs(t0*R01 + t1*R11 + t2*R21) > ra + rb) return false
 
         ra = a0*AbsR02 + a1*AbsR12 + a2*AbsR22; rb = b2
-        if (kotlin.math.abs(t0*R02 + t1*R12 + t2*R22) > ra + rb) return false
+        if (abs(t0*R02 + t1*R12 + t2*R22) > ra + rb) return false
 
         // 3) 9개 교차축 Ai x Bj
         // A0 x B0
         ra = a1*AbsR20 + a2*AbsR10
         rb = b1*AbsR02 + b2*AbsR01
-        if (kotlin.math.abs(t2*R10 - t1*R20) > ra + rb) return false
+        if (abs(t2*R10 - t1*R20) > ra + rb) return false
 
         // A0 x B1
         ra = a1*AbsR21 + a2*AbsR11
         rb = b0*AbsR02 + b2*AbsR00
-        if (kotlin.math.abs(t2*R11 - t1*R21) > ra + rb) return false
+        if (abs(t2*R11 - t1*R21) > ra + rb) return false
 
         // A0 x B2
         ra = a1*AbsR22 + a2*AbsR12
         rb = b0*AbsR01 + b1*AbsR00
-        if (kotlin.math.abs(t2*R12 - t1*R22) > ra + rb) return false
+        if (abs(t2*R12 - t1*R22) > ra + rb) return false
 
         // A1 x B0
         ra = a0*AbsR20 + a2*AbsR00
         rb = b1*AbsR12 + b2*AbsR11
-        if (kotlin.math.abs(t0*R20 - t2*R00) > ra + rb) return false
+        if (abs(t0*R20 - t2*R00) > ra + rb) return false
 
         // A1 x B1
         ra = a0*AbsR21 + a2*AbsR01
         rb = b0*AbsR12 + b2*AbsR10
-        if (kotlin.math.abs(t0*R21 - t2*R01) > ra + rb) return false
+        if (abs(t0*R21 - t2*R01) > ra + rb) return false
 
         // A1 x B2
         ra = a0*AbsR22 + a2*AbsR02
         rb = b0*AbsR11 + b1*AbsR10
-        if (kotlin.math.abs(t0*R22 - t2*R02) > ra + rb) return false
+        if (abs(t0*R22 - t2*R02) > ra + rb) return false
 
         // A2 x B0
         ra = a0*AbsR10 + a1*AbsR00
         rb = b1*AbsR22 + b2*AbsR21
-        if (kotlin.math.abs(t1*R00 - t0*R10) > ra + rb) return false
+        if (abs(t1*R00 - t0*R10) > ra + rb) return false
 
         // A2 x B1
         ra = a0*AbsR11 + a1*AbsR01
         rb = b0*AbsR22 + b2*AbsR20
-        if (kotlin.math.abs(t1*R01 - t0*R11) > ra + rb) return false
+        if (abs(t1*R01 - t0*R11) > ra + rb) return false
 
         // A2 x B2
         ra = a0*AbsR12 + a1*AbsR02
         rb = b0*AbsR21 + b1*AbsR20
-        if (kotlin.math.abs(t1*R02 - t0*R12) > ra + rb) return false
+        if (abs(t1*R02 - t0*R12) > ra + rb) return false
 
         return true
     }
@@ -328,9 +331,9 @@ class SoAOBB(val count: Int, vecCapacity: Int = 512) : SoAModule(vecCapacity) {
         val R21 = A20*B10 + A21*B11 + A22*B12
         val R22 = A20*B20 + A21*B21 + A22*B22
 
-        val AbsR00 = kotlin.math.abs(R00) + EPS; val AbsR01 = kotlin.math.abs(R01) + EPS; val AbsR02 = kotlin.math.abs(R02) + EPS
-        val AbsR10 = kotlin.math.abs(R10) + EPS; val AbsR11 = kotlin.math.abs(R11) + EPS; val AbsR12 = kotlin.math.abs(R12) + EPS
-        val AbsR20 = kotlin.math.abs(R20) + EPS; val AbsR21 = kotlin.math.abs(R21) + EPS; val AbsR22 = kotlin.math.abs(R22) + EPS
+        val AbsR00 = abs(R00) + EPS; val AbsR01 = abs(R01) + EPS; val AbsR02 = abs(R02) + EPS
+        val AbsR10 = abs(R10) + EPS; val AbsR11 = abs(R11) + EPS; val AbsR12 = abs(R12) + EPS
+        val AbsR20 = abs(R20) + EPS; val AbsR21 = abs(R21) + EPS; val AbsR22 = abs(R22) + EPS
 
         val a0 = ex[a]; val a1 = ey[a]; val a2 = ez[a]
         val b0 = ex[b]; val b1 = ey[b]; val b2 = ez[b]
@@ -340,23 +343,23 @@ class SoAOBB(val count: Int, vecCapacity: Int = 512) : SoAModule(vecCapacity) {
 
         // 1) A0, A1, A2
         ra = a0; rb = b0*AbsR00 + b1*AbsR01 + b2*AbsR02
-        if (kotlin.math.abs(t0) > ra + rb) return false
+        if (abs(t0) > ra + rb) return false
 
         ra = a1; rb = b0*AbsR10 + b1*AbsR11 + b2*AbsR12
-        if (kotlin.math.abs(t1) > ra + rb) return false
+        if (abs(t1) > ra + rb) return false
 
         ra = a2; rb = b0*AbsR20 + b1*AbsR21 + b2*AbsR22
-        if (kotlin.math.abs(t2) > ra + rb) return false
+        if (abs(t2) > ra + rb) return false
 
         // 2) B0, B1, B2 (A 로컬에서)
         ra = a0*AbsR00 + a1*AbsR10 + a2*AbsR20; rb = b0
-        if (kotlin.math.abs(t0*R00 + t1*R10 + t2*R20) > ra + rb) return false
+        if (abs(t0*R00 + t1*R10 + t2*R20) > ra + rb) return false
 
         ra = a0*AbsR01 + a1*AbsR11 + a2*AbsR21; rb = b1
-        if (kotlin.math.abs(t0*R01 + t1*R11 + t2*R21) > ra + rb) return false
+        if (abs(t0*R01 + t1*R11 + t2*R21) > ra + rb) return false
 
         ra = a0*AbsR02 + a1*AbsR12 + a2*AbsR22; rb = b2
-        if (kotlin.math.abs(t0*R02 + t1*R12 + t2*R22) > ra + rb) return false
+        if (abs(t0*R02 + t1*R12 + t2*R22) > ra + rb) return false
 
         var separated = true;
 
@@ -364,47 +367,47 @@ class SoAOBB(val count: Int, vecCapacity: Int = 512) : SoAModule(vecCapacity) {
         // A0 x B0
         ra = a1*AbsR20 + a2*AbsR10
         rb = b1*AbsR02 + b2*AbsR01
-        separated = separated or (kotlin.math.abs(t2*R10 - t1*R20) > ra + rb)
+        separated = separated or (abs(t2*R10 - t1*R20) > ra + rb)
 
         // A0 x B1
         ra = a1*AbsR21 + a2*AbsR11
         rb = b0*AbsR02 + b2*AbsR00
-        separated = separated or (kotlin.math.abs(t2*R11 - t1*R21) > ra + rb)
+        separated = separated or (abs(t2*R11 - t1*R21) > ra + rb)
 
         // A0 x B2
         ra = a1*AbsR22 + a2*AbsR12
         rb = b0*AbsR01 + b1*AbsR00
-        separated = separated or (kotlin.math.abs(t2*R12 - t1*R22) > ra + rb)
+        separated = separated or (abs(t2*R12 - t1*R22) > ra + rb)
 
         // A1 x B0
         ra = a0*AbsR20 + a2*AbsR00
         rb = b1*AbsR12 + b2*AbsR11
-        separated = separated or (kotlin.math.abs(t0*R20 - t2*R00) > ra + rb)
+        separated = separated or (abs(t0*R20 - t2*R00) > ra + rb)
 
         // A1 x B1
         ra = a0*AbsR21 + a2*AbsR01
         rb = b0*AbsR12 + b2*AbsR10
-        separated = separated or (kotlin.math.abs(t0*R21 - t2*R01) > ra + rb)
+        separated = separated or (abs(t0*R21 - t2*R01) > ra + rb)
 
         // A1 x B2
         ra = a0*AbsR22 + a2*AbsR02
         rb = b0*AbsR11 + b1*AbsR10
-        separated = separated or (kotlin.math.abs(t0*R22 - t2*R02) > ra + rb)
+        separated = separated or (abs(t0*R22 - t2*R02) > ra + rb)
 
         // A2 x B0
         ra = a0*AbsR10 + a1*AbsR00
         rb = b1*AbsR22 + b2*AbsR21
-        separated = separated or (kotlin.math.abs(t1*R00 - t0*R10) > ra + rb)
+        separated = separated or (abs(t1*R00 - t0*R10) > ra + rb)
 
         // A2 x B1
         ra = a0*AbsR11 + a1*AbsR01
         rb = b0*AbsR22 + b2*AbsR20
-        separated = separated or (kotlin.math.abs(t1*R01 - t0*R11) > ra + rb)
+        separated = separated or (abs(t1*R01 - t0*R11) > ra + rb)
 
         // A2 x B2
         ra = a0*AbsR12 + a1*AbsR02
         rb = b0*AbsR21 + b1*AbsR20
-        separated = separated or (kotlin.math.abs(t1*R02 - t0*R12) > ra + rb)
+        separated = separated or (abs(t1*R02 - t0*R12) > ra + rb)
 
         return separated
     }
@@ -451,18 +454,18 @@ class SoAOBB(val count: Int, vecCapacity: Int = 512) : SoAModule(vecCapacity) {
             // identity rotation
             qx[id] = 0.0; qy[id] = 0.0; qz[id] = 0.0; qw[id] = 1.0
         } else {
-            val invLen = 1.0 / kotlin.math.sqrt(len2)
+            val invLen = 1.0 / sqrt(len2)
             val nx = ax * invLen
             val ny = ay * invLen
             val nz = az * invLen
 
             val half = angleRad * 0.5
-            val s = kotlin.math.sin(half)
+            val s = sin(half)
 
             qx[id] = nx * s
             qy[id] = ny * s
             qz[id] = nz * s
-            qw[id] = kotlin.math.cos(half)
+            qw[id] = cos(half)
         }
 
         // quaternion 저장했으면 회전행렬도 즉시 캐시

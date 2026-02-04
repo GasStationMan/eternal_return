@@ -1,17 +1,13 @@
 package org.EternalReturn.System;
 
 import org.EternalReturn.EREntity.EREntity;
-import org.EternalReturn.ERPlayer.ERPlayer;
 import org.EternalReturn.ERAnimal.ERAnimalManager;
 import org.EternalReturn.Util.dpengine.DPEngine;
 import org.EternalReturn.Util.dpengine.geometry.Collider;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 
 import java.util.HashMap;
-import java.util.Set;
 
 /**
  * Bukkit 객체들과 유연하게 상호작용하기위한 엔진

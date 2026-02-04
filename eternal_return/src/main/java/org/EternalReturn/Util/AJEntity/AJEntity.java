@@ -50,7 +50,7 @@ public abstract class AJEntity{
 
     protected abstract void afterSummoning();
 
-    protected abstract void afterSpawnEvent(Entity rootEntity);
+    protected abstract void afterSpawnEvent(Entity spawnedRootEntity);
 
     /**
      * 해당 월드에서 AJEntity를 제거한다. <br>
