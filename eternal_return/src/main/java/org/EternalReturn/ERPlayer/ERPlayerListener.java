@@ -4,7 +4,6 @@ import org.EternalReturn.ERCharacter.ERCharacter;
 import org.EternalReturn.ERCharacter.Event.*;
 import org.EternalReturn.EREntity.EREntity;
 import org.EternalReturn.EREntity.Event.EREntityDamagedEvent;
-import org.EternalReturn.System.EREngine;
 import org.EternalReturn.System.PluginInstance;
 import org.EternalReturn.System.SystemManager;
 import org.bukkit.entity.Entity;

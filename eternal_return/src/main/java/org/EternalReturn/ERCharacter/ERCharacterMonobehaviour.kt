@@ -46,5 +46,4 @@ abstract class ERCharacterMonobehaviour<T : CharacterEvent> : EREntityMonobehavi
         return dpEngine.monobehaviourModule.getMonobehavActors();
     }
 
-
 }

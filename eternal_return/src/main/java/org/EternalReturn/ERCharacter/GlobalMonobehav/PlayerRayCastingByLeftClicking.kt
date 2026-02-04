@@ -21,20 +21,20 @@ class PlayerRayCastingByLeftClicking : ERCharacterMonobehaviour<CharacterLeftCli
         //println("Event dispatched : " + this.javaClass + " for entities " + getMonobehavActorList().size);
 
         val hitList = ArrayList<EREntity>();
+
         for(erEntity in getMonobehavActorList()){
             //println(erEntity.javaClass)
-            if(erEntity !is EREntity){continue;}
-            if(erEntity.entity == null){continue;}
+            if(erEntity !is EREntity){
+                continue;
+            }
             //println("" + erEntity.collider.javaClass + " with " + erEntity.javaClass);
             val collider = erEntity.collider;
             if(collider.rayCasting(out, pPos, pdir)){
                 //println("Ray hit to -> " + erEntity.javaClass);
-                hitList.addLast(erEntity);
+                hitList.addLast(erEntity)
             }
         }
-
-        if(hitList.isEmpty()){return;}
-
+        if(hitList.isEmpty())return
         this.actor.submitEvent(CharacterRayCastEvent(hitList))
     }
 

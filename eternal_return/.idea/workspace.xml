@@ -5,97 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e0e01f0-2f44-4923-ba15-8c4d09d27f4c" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/fiora/Active.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/fiora/Character_Fiora.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/fiora/Passive.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/fiora/Touche.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/yuki/Active.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/yuki/Character_Yuki.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/yuki/Passive.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/ERDummy.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/Event/EREntityDamagedEvent.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/Event/EREntityEvent.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/Event/EREntityStunEvent.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/Event/ERToucheCountEvent.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/GlobalMonobehav/InfinityHealing.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/GlobalMonobehav/Stun.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/GlobalMonobehav/ToucheCount.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Area/ERAnimalSPCB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Area/ERAnimalSPCB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Area/ERAreaGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Area/ERAreaGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Area/ERAreaNodeJsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Area/ERAreaNodeJsonParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAJEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAJEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimalManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimalManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimalMonobehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/ERAnimalMonobehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Event/ERAnimalEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/Event/ERAnimalEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/GlobalMonobehav/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/GlobalMonobehav/Battle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/GlobalMonobehav/Ready.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERAnimal/GlobalMonobehav/Ready.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/adriana/BurningGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/adriana/BurningGround.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/adriana/LitFireOnAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/adriana/LitFireOnAttack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/caches-jvm/lookups/counters.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/cacheable/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/local-state/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/local-state/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/aya/Shoot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/aya/Shoot.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/hyunwoo/StackingPunch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/hyunwoo/StackingPunch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/hyunwoo/WallSlamDash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/hyunwoo/WallSlamDash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/jackie/Active.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/jackie/Active.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/jackie/Attack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/jackie/Attack.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/jackie/Passive.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Character/jackie/Passive.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacterMonobehaviour.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/ERCharacterMonobehaviour.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterAttackEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterAttackEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterRayCastEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/Event/CharacterRayCastEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/PlayerRayCastingByLeftClicking.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/PlayerRayCastingByLeftClicking.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/PlayerRayCastingMeleeAttack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERCharacter/GlobalMonobehav/PlayerRayCastingMeleeAttack.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntityMonobehaviour.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntityMonobehaviour.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/Event/EREntityEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/Event/EREntityEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/GlobalMonobehav/InfinityHealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/GlobalMonobehav/InfinityHealing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/GlobalMonobehav/Stun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/GlobalMonobehav/Stun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayerDebugCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayerDebugCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/Kiosk/KioskGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/Kiosk/KioskGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/RumiaIslandGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/RumiaIslandGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/RumiaIslandHud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/RumiaIslandHud.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/extBComponent/HBButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/extBComponent/HBButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/extBComponent/HBImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/extBComponent/HBImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/extRumiaIslandGui/HyperLoopGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/extRumiaIslandGui/HyperLoopGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/extRumiaIslandGui/ResurrectionGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Bossbars/RumiaIsland/extRumiaIslandGui/ResurrectionGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/InventoryGuiListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/InventoryGuiListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/Model/Enchanter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/Model/Enchanter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/Model/UpgradeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/Model/UpgradeBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/Model/Upgrader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/Model/Upgrader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/UpgradeGuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/UpgradeGuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/View/UpgradeButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/View/UpgradeButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/View/UpgradeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Gui/Inventory/UpgradeSystem/View/UpgradeGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Skill/Mukbo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Skill/Mukbo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Skill/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/Skill/Skill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/EREngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/EREngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/PluginInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/PluginInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/SystemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/System/SystemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJAnimationInfoBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJAnimationInfoBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJAnimationNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJAnimationNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJEntityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/AJEntity/AJEntityManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/DirectedEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/DirectedEdge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/DirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/DirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/Graph/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/NodeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/DataStructure/NodeMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Free/FreeAble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Free/FreeAble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Geometry/MathVector/Vec2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Geometry/MathVector/Vec2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Geometry/MathVector/Vec3d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Geometry/MathVector/Vec3d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Geometry/Matrix/Mat3x3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Geometry/Matrix/Mat3x3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/IGuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/IGuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/GuiPos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/GuiPos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IEmptyField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IEmptyField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IEventExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IEventExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/InventoryGui/View/IFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/Exception/ButtonPolyNullException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/Exception/ButtonPolyNullException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/util/Gui/bossbarGui/View/BButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BComponentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BComponentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BDot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BDot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BFontComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BFontComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BSwingListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BSwingListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BSwingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BSwingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BSwingPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BSwingPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BTextComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/Gui/bossbarGui/View/BTextComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/inventoryUtil/InventoryModifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/inventoryUtil/InventoryModifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/CustomModelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/CustomModelData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/CustomModelDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/CustomModelDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/ItemGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/ItemGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/ItemModifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/ItemModifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/ItemMover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/Util/itemUtill/ItemMover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/ERDummy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/EREntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/EREntityMonobehaviour.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/org/EternalReturn/EREntity/EREntityMonobehaviour.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/Event/EREntityDamagedEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/Event/EREntityEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/Event/EREntityStunEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/GlobalMonobehav/InfinityHealing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/EREntity/GlobalMonobehav/Stun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/EternalReturn/ERPlayer/ERPlayerListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,37 +127,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.eternal_return [:org.EternalReturn.System.ERAnimalManger.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.eternal_return [:org.EternalReturn.System.ERAnimalSystem.ERAnimalLoader.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.eternal_return [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.eternal_return [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.eternal_return 빌드.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.소스 다운로드.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.SoAModuleKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.TestKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;DanpungBrch&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/EWorkspace/git/eternal_return/eternal_return/src/main/java/org/EternalReturn/Util/DPEngine/Geometry&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;프로젝트&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;애플리케이션.ERAnimalManger.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.eternal_return [:org.EternalReturn.System.ERAnimalManger.main()].executor": "Run",
+    "Gradle.eternal_return [:org.EternalReturn.System.ERAnimalSystem.ERAnimalLoader.main()].executor": "Run",
+    "Gradle.eternal_return [build].executor": "Run",
+    "Gradle.eternal_return [jar].executor": "Run",
+    "Gradle.eternal_return 빌드.executor": "Run",
+    "Gradle.소스 다운로드.executor": "Run",
+    "Kotlin.SoAModuleKt.executor": "Run",
+    "Kotlin.TestKt.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "DanpungBrch",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/EWorkspace/git/eternal_return/eternal_return/src/main/java/org/EternalReturn/EREntity",
+    "project.structure.last.edited": "프로젝트",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "애플리케이션.ERAnimalManger.executor": "Run"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.EternalReturn.System" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\EWorkspace\git\eternal_return\eternal_return\src\main\java\org\EternalReturn\EREntity" />
+      <recent name="E:\EWorkspace\git\eternal_return\eternal_return\src\main\java\org\EternalReturn\ERCharacter" />
       <recent name="E:\EWorkspace\git\eternal_return\eternal_return\src\main\java\org\EternalReturn\Util\DPEngine\Geometry" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -219,11 +176,11 @@
       <recent name="org.EternalReturn.ERCharacter.Character.jackie" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="org.EternalReturn.EREntity" />
       <recent name="org.EternalReturn.Util.dpengine" />
       <recent name="org.EternalReturn.Util.DPEngine.command" />
       <recent name="org.EternalReturn.Util.DPEngine" />
       <recent name="org.EternalReturn.Util.physics.Geometry" />
-      <recent name="org.EternalReturn.System" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.EternalReturn.EREntity.Event" />

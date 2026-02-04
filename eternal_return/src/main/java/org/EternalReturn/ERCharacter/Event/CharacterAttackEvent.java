@@ -1,8 +1,6 @@
 package org.EternalReturn.ERCharacter.Event;
 
 import org.EternalReturn.EREntity.EREntity;
-import org.EternalReturn.ERPlayer.ERPlayer;
-import org.bukkit.entity.Entity;
 
 public class CharacterAttackEvent implements CharacterEvent{
 

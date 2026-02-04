@@ -5,13 +5,11 @@ import org.EternalReturn.ERCharacter.Event.CharacterRayCastEvent
 import org.EternalReturn.util.dpengine.behaviour.MonobehaviourEvent
 
 class Shoot : ERCharacterMonobehaviour<CharacterRayCastEvent>() {
-
     override fun start(event: CharacterRayCastEvent) {
-
-
     }
 
     override fun update(eventList: MutableCollection<MonobehaviourEvent>) {
-
     }
+
+
 }

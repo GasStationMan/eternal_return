@@ -13,6 +13,7 @@ import java.util.*;
 public class StackingPunch extends ERCharacterMonobehaviour<CharacterAttackEvent> {
 
     private final Map<UUID, Integer> hitCountMap = new HashMap<>();
+    private long punchTimeMillis = 0;
 
     @Override
     public void start(CharacterAttackEvent event) {
@@ -22,9 +23,10 @@ public class StackingPunch extends ERCharacterMonobehaviour<CharacterAttackEvent
             return;
         }
 
-        //if (victim.getNoDamageTicks() > 10) {
-        //    return;
-        //}
+        if(System.currentTimeMillis() < punchTimeMillis){
+            return;
+        }
+        punchTimeMillis = System.currentTimeMillis() + 10 * 50;
 
         Player attacker = getPlayer();
 

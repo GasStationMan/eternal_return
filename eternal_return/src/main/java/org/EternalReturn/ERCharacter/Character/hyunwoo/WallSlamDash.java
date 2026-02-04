@@ -66,13 +66,10 @@ public class WallSlamDash extends ERCharacterMonobehaviour<CharacterSwapHandEven
                 }
             }
 
-            // 3. 피해 및 패시브(도그파이트) 연동
             for (LivingEntity victim : hitEntities.keySet()) {
                 if (hitEntities.get(victim) == 0) {
                     hitEntities.put(victim, 1);
 
-                    // [해결] 제공해주신 생성자 구조 (ERPlayer, Entity)에 정확히 맞춘 코드입니다.
-                    // getERCharacter()를 통해 시스템에 이벤트를 제출합니다.
                     EREngine engine = (EREngine)getDpEngine();
 
                     getERCharacter().submitEvent(new CharacterAttackEvent(getERPlayer().getCharacter(), engine.getEREntity(victim)));
@@ -109,9 +106,13 @@ public class WallSlamDash extends ERCharacterMonobehaviour<CharacterSwapHandEven
                     victim.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, loc.clone().add(0, 1, 0), 3, 0.3, 0.3, 0.3, 0.05);
                 }
             }
-            return;
+        } else if (stunTimer >= 40) {
+            // [핵심] 40틱이 지나 기절이 끝나면 상태를 초기화하여 재사용 가능하게 함
+            isWallSlam = false;
+            stunTimer = 0;
+            stunnedVictims.clear();
+            hitEntities.clear(); // 다음 돌진을 위해 타격 리스트도 비워줌
         }
-        stopMonobehav();
     }
 
     private void handleWallSlamSuccess(Player player) {
